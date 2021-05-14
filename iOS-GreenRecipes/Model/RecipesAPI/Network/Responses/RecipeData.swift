@@ -55,7 +55,7 @@ struct RecipeData: Codable, Hashable {
   var dishTypes: [String]
   var diets: [String]
   var occasions: [String]
-  var instructions: String
+  var instructions: String?
   var originalId: String?
   var spoonacularSourceUrl: String?
 }

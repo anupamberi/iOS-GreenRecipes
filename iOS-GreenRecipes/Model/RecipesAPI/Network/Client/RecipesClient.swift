@@ -47,7 +47,7 @@ class RecipesClient {
     guard let randomRecipesSearchURL = randomRecipesBaseURL.appending(recipesSearchURLParams) else { return }
     taskForGETRequest(url: randomRecipesSearchURL, response: RecipesData.self) { response, error in
       if let response = response {
-        completion(response.recipes, nil)
+        completion(response.recipes ?? [], nil)
       } else {
         completion([], error)
       }
@@ -89,19 +89,20 @@ class RecipesClient {
     }
   }
 
-  class func searchRecipes(query: String, completion: @escaping ([RecipeMetaData], Error?) -> Void) {
+  class func searchRecipes(query: String, completion: @escaping ([RecipeData], Error?) -> Void) {
     let recipesSearchBaseURL = Endpoints.searchRecipes(query).url
     let recipesSearchParams = [
       URLQueryItem(name: "diet", value: "vegan"),
       URLQueryItem(name: "apiKey", value: RecipesClient.apiKey),
-      URLQueryItem(name: "number", value: String(5))
+      URLQueryItem(name: "number", value: String(5)),
+      URLQueryItem(name: "addRecipeInformation", value: String(true)),
+      URLQueryItem(name: "fillIngredients", value: String(true))
     ]
     guard let recipesSearchURL = recipesSearchBaseURL.appending(recipesSearchParams) else { return }
     print(recipesSearchURL)
-    taskForGETRequest(url: recipesSearchURL, response: RecipesMetaData.self) { response, error in
+    taskForGETRequest(url: recipesSearchURL, response: RecipesData.self) { response, error in
       if let response = response {
-        print(response)
-        completion(response.results, nil)
+        completion(response.results ?? [], nil)
       } else {
         completion([], error)
       }

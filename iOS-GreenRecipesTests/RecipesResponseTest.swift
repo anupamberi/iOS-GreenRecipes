@@ -14,7 +14,9 @@ class RecipesResponseTest: XCTestCase {
     XCTAssertNoThrow(try JSONDecoder().decode(RecipesData.self, from: jsonData))
     let recipesResponse = try JSONDecoder().decode(RecipesData.self, from: jsonData)
     XCTAssertNotNil(recipesResponse.recipes)
-    XCTAssertEqual(recipesResponse.recipes.count, 5)
+    // swiftlint:disable force_unwrapping
+    XCTAssertEqual(recipesResponse.recipes!.count, 5)
+    // swiftlint:enable force_unwrapping
   }
 
   func testRecipesRandomSearchResponse() throws {
@@ -23,7 +25,9 @@ class RecipesResponseTest: XCTestCase {
     XCTAssertNoThrow(try JSONDecoder().decode(RecipesData.self, from: jsonData))
     let recipesResponse = try JSONDecoder().decode(RecipesData.self, from: jsonData)
     XCTAssertNotNil(recipesResponse.recipes)
-    XCTAssertEqual(recipesResponse.recipes.count, 5)
+    // swiftlint:disable force_unwrapping
+    XCTAssertEqual(recipesResponse.recipes!.count, 5)
+    // swiftlint:enable force_unwrapping
   }
 
   func testRecipesRandomSearchResponseWithoutImage() throws {
@@ -32,6 +36,19 @@ class RecipesResponseTest: XCTestCase {
     XCTAssertNoThrow(try JSONDecoder().decode(RecipesData.self, from: jsonData))
     let recipesResponse = try JSONDecoder().decode(RecipesData.self, from: jsonData)
     XCTAssertNotNil(recipesResponse.recipes)
-    XCTAssertEqual(recipesResponse.recipes.count, 5)
+    // swiftlint:disable force_unwrapping
+    XCTAssertEqual(recipesResponse.recipes!.count, 5)
+    // swiftlint:enable force_unwrapping
+  }
+
+  func testRecipesSearchResponse() throws {
+    let jsonData = try getData(fromJSON: "RecipesSearchResponse")
+
+    XCTAssertNoThrow(try JSONDecoder().decode(RecipesData.self, from: jsonData))
+    let recipesResponse = try JSONDecoder().decode(RecipesData.self, from: jsonData)
+    XCTAssertNotNil(recipesResponse.results)
+    // swiftlint:disable force_unwrapping
+    XCTAssertEqual(recipesResponse.results!.count, 10)
+    // swiftlint:enable force_unwrapping
   }
 }

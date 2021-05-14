@@ -8,5 +8,6 @@
 import Foundation
 
 struct RecipesData: Codable {
-  var recipes: [RecipeData]
+  var recipes: [RecipeData]?
+  var results: [RecipeData]?
 }

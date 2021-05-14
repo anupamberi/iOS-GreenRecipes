@@ -380,8 +380,8 @@
             filePath = "iOS-GreenRecipes/View Controllers/RecipesHomeViewController/RecipesHomeViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "167"
-            endingLineNumber = "167"
+            startingLineNumber = "178"
+            endingLineNumber = "178"
             landmarkName = "applyInitialSnapshots()"
             landmarkType = "7">
          </BreakpointContent>
@@ -396,8 +396,8 @@
             filePath = "iOS-GreenRecipes/View Controllers/RecipesHomeViewController/RecipesHomeViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "122"
-            endingLineNumber = "122"
+            startingLineNumber = "133"
+            endingLineNumber = "133"
             landmarkName = "createRecipeCellRegistration()"
             landmarkType = "7">
             <Locations>
@@ -444,8 +444,8 @@
             filePath = "iOS-GreenRecipes/View Controllers/RecipesHomeViewController/RecipesHomeViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "64"
-            endingLineNumber = "64"
+            startingLineNumber = "67"
+            endingLineNumber = "67"
             landmarkName = "fetchData()"
             landmarkType = "7">
          </BreakpointContent>
@@ -460,8 +460,8 @@
             filePath = "iOS-GreenRecipes/View Controllers/RecipesHomeViewController/RecipesHomeViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "155"
-            endingLineNumber = "155"
+            startingLineNumber = "166"
+            endingLineNumber = "166"
             landmarkName = "configureDataSource()"
             landmarkType = "7">
          </BreakpointContent>

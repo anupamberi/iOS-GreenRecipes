@@ -14,7 +14,7 @@ class RecipesSectionBackgroundDecorationView: UICollectionReusableView {
   }
 
   required init?(coder: NSCoder) {
-    fatalError("not implemented")
+    fatalError("init(coder:) has not been implemented")
   }
 }
 

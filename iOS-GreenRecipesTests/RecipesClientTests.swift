@@ -105,10 +105,10 @@ class RecipesClientTests: XCTestCase {
     let expectation = XCTestExpectation(description: "Search recipes")
 
     let searchQuery = "hummus"
-    var obtainedRecipesMetaData: [RecipeMetaData] = []
+    var obtainedRecipesMetaData: [RecipeData] = []
 
-    RecipesClient.searchRecipes(query: searchQuery) { recipesMetaData, _ in
-      obtainedRecipesMetaData = recipesMetaData
+    RecipesClient.searchRecipes(query: searchQuery) { recipesData, _ in
+      obtainedRecipesMetaData = recipesData
       expectation.fulfill()
     }
     wait(for: [expectation], timeout: 10.0)

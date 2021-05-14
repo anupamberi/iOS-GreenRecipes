@@ -12,22 +12,25 @@ class RecipesHomeViewController: UIViewController {
   static let backgroundElementKind = "background-element-kind"
 
   enum Section: Int, Hashable, CaseIterable {
-    case randomRecipes // , sandwichRecipes, soupRecipes
+    case randomRecipes, quickAndEasyRecipes // , soupRecipes
 
     var description: String {
       switch self {
-      case .randomRecipes: return "Recommended recipes"
+      case .randomRecipes: return "Recommended for you"
+      case .quickAndEasyRecipes: return "Quick & Easy"
       // case .sandwichRecipes: return "Quick & Easy Sandwiches"
       // case .soupRecipes: return "soupRecipes"
       }
     }
   }
+  // swiftlint:disable implicitly_unwrapped_optional
+  var dataController: DataController!
+  var recipesCollectionView: UICollectionView!
+  var dataSource: UICollectionViewDiffableDataSource<Section, RecipeData>!
+  // swiftlint:enable implicitly_unwrapped_optional
 
-  var dataController: DataController! = nil
-  var recipesCollectionView: UICollectionView! = nil
-  var dataSource: UICollectionViewDiffableDataSource<Section, RecipeData>! = nil
-
-  var recipesData: [RecipeData] = []
+  var randomRecipesData: [RecipeData] = []
+  var quickAndEasyRecipesData: [RecipeData] = []
 
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -61,10 +64,18 @@ extension RecipesHomeViewController {
 //      self.recipesData = data
 //      self.applyInitialSnapshots()
 //    }
-    guard let jsonData = try? getData(fromJSON: "RecipesRandomSearchResponse") else { return  }
-    let response = try? JSONDecoder().decode(RecipesData.self, from: jsonData)
-    recipesData = response?.recipes ?? []
-    print(recipesData)
+    guard let randomRecipesJsonData = try? getData(
+      fromJSON: "RecipesRandomSearchResponse"
+    ) else { return }
+    let randomRecipesResponse = try? JSONDecoder().decode(RecipesData.self, from: randomRecipesJsonData)
+    randomRecipesData = randomRecipesResponse?.recipes ?? []
+
+    guard let quickAndEasyRecipesJsonData = try? getData(
+      fromJSON: "RecipesSearchResponse"
+    ) else { return }
+    let quickAndEasyResponse = try? JSONDecoder().decode(RecipesData.self, from: quickAndEasyRecipesJsonData)
+    quickAndEasyRecipesData = quickAndEasyResponse?.results ?? []
+
     applyInitialSnapshots()
   }
 
@@ -103,7 +114,7 @@ extension RecipesHomeViewController {
       elementKind: RecipesHomeViewController.headerElementKind,
       alignment: .topLeading
     )
-    sectionHeader.pinToVisibleBounds = true
+    sectionHeader.pinToVisibleBounds = false
     section.boundarySupplementaryItems = [sectionHeader]
 
     let sectionBackground = NSCollectionLayoutDecorationItem.background(
@@ -164,7 +175,8 @@ extension RecipesHomeViewController {
     var snapshot = NSDiffableDataSourceSnapshot<Section, RecipeData>()
     snapshot.appendSections(sections)
 
-    snapshot.appendItems(recipesData, toSection: .randomRecipes)
+    snapshot.appendItems(randomRecipesData, toSection: .randomRecipes)
+    snapshot.appendItems(quickAndEasyRecipesData, toSection: .quickAndEasyRecipes)
     dataSource.apply(snapshot)
   }
 }
