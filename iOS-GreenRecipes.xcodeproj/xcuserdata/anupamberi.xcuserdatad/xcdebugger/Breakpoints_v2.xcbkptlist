@@ -1,0 +1,470 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "6A4A9AE9-E7F4-4AAD-A0DE-4F32970EC916"
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "D31312B6-5A27-40BF-AE66-A0E7E738D638"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "iOS-GreenRecipesTests/RecipesResponseTest.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "14"
+            endingLineNumber = "14"
+            landmarkName = "testRecipesRandomSearchResponseWithNullValues()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "E506D741-C7CB-40BD-B17C-392AB0BA8DE0"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "iOS-GreenRecipesTests/RecipesResponseTest.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "15"
+            endingLineNumber = "15"
+            landmarkName = "testRecipesRandomSearchResponseWithNullValues()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "09872CA9-CC14-4C98-ABF3-DA0F3FC121EC"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "iOS-GreenRecipes/Model/RecipesAPI/Client/RecipesClient.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "34"
+            endingLineNumber = "34"
+            landmarkName = "getRandomRecipes(tags:total:completion:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "09872CA9-CC14-4C98-ABF3-DA0F3FC121EC - b351ebdb5d97994c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "static iOS_GreenRecipes.RecipesClient.getRandomRecipes(tags: Swift.String, total: Swift.Int, completion: (Swift.Array&lt;iOS_GreenRecipes.Recipe&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "iOS-GreenRecipes"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/anupamberi/Tutorials/Swift/iOS-GreenRecipes/iOS-GreenRecipes/Model/RecipesAPI/Client/RecipesClient.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "14"
+                  endingLineNumber = "14"
+                  offsetFromSymbolStart = "304">
+               </Location>
+               <Location
+                  uuid = "09872CA9-CC14-4C98-ABF3-DA0F3FC121EC - c34fdd189771bef"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "static iOS_GreenRecipesTests.RecipesClient.getRandomRecipes(tags: Swift.String, total: Swift.Int, completion: (Swift.Array&lt;iOS_GreenRecipesTests.Recipe&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "iOS-GreenRecipesTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/anupamberi/Tutorials/Swift/iOS-GreenRecipes/iOS-GreenRecipes/Model/RecipesAPI/Client/RecipesClient.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "14"
+                  endingLineNumber = "14"
+                  offsetFromSymbolStart = "304">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "EB239292-0807-483F-B130-0EDF0F1ECE05"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "iOS-GreenRecipes/Model/RecipesAPI/Client/RecipesClient.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "59"
+            endingLineNumber = "59"
+            landmarkName = "getRecipeInformation(recipeId:completion:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "EB239292-0807-483F-B130-0EDF0F1ECE05 - 4ada536cc5accd3e"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;iOS_GreenRecipes.Recipe&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in static iOS_GreenRecipes.RecipesClient.getRecipeInformation(recipeId: Swift.Int, completion: (Swift.Optional&lt;iOS_GreenRecipes.Recipe&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "iOS-GreenRecipes"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/anupamberi/Tutorials/Swift/iOS-GreenRecipes/iOS-GreenRecipes/Model/RecipesAPI/Client/RecipesClient.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "59"
+                  endingLineNumber = "59"
+                  offsetFromSymbolStart = "225">
+               </Location>
+               <Location
+                  uuid = "EB239292-0807-483F-B130-0EDF0F1ECE05 - 4681baf8f732a790"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;iOS_GreenRecipesTests.Recipe&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in static iOS_GreenRecipesTests.RecipesClient.getRecipeInformation(recipeId: Swift.Int, completion: (Swift.Optional&lt;iOS_GreenRecipesTests.Recipe&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "iOS-GreenRecipesTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/anupamberi/Tutorials/Swift/iOS-GreenRecipes/iOS-GreenRecipes/Model/RecipesAPI/Client/RecipesClient.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "59"
+                  endingLineNumber = "59"
+                  offsetFromSymbolStart = "225">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "A30A33E4-59D3-407A-A5C9-9469DE815A74"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "iOS-GreenRecipes/Model/RecipesAPI/Client/RecipesClient.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "74"
+            endingLineNumber = "74"
+            landmarkName = "taskForGETRequest(url:response:completion:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "A30A33E4-59D3-407A-A5C9-9469DE815A74 - 597a69d82f451578"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "static iOS_GreenRecipes.RecipesClient.taskForGETRequest&lt;&#x3c4;_0_0 where &#x3c4;_0_0: Swift.Decodable&gt;(url: Foundation.URL, response: &#x3c4;_0_0.Type, completion: (Swift.Optional&lt;&#x3c4;_0_0&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "iOS-GreenRecipes"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/anupamberi/Tutorials/Swift/iOS-GreenRecipes/iOS-GreenRecipes/Model/RecipesAPI/Client/RecipesClient.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "75"
+                  endingLineNumber = "75"
+                  offsetFromSymbolStart = "199">
+               </Location>
+               <Location
+                  uuid = "A30A33E4-59D3-407A-A5C9-9469DE815A74 - bff955438a470bde"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in static iOS_GreenRecipes.RecipesClient.taskForGETRequest&lt;&#x3c4;_0_0 where &#x3c4;_0_0: Swift.Decodable&gt;(url: Foundation.URL, response: &#x3c4;_0_0.Type, completion: (Swift.Optional&lt;&#x3c4;_0_0&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "iOS-GreenRecipes"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/anupamberi/Tutorials/Swift/iOS-GreenRecipes/iOS-GreenRecipes/Model/RecipesAPI/Client/RecipesClient.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "76"
+                  endingLineNumber = "76"
+                  offsetFromSymbolStart = "587">
+               </Location>
+               <Location
+                  uuid = "A30A33E4-59D3-407A-A5C9-9469DE815A74 - dd1e0a165d562f25"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "static iOS_GreenRecipesTests.RecipesClient.taskForGETRequest&lt;&#x3c4;_0_0 where &#x3c4;_0_0: Swift.Decodable&gt;(url: Foundation.URL, response: &#x3c4;_0_0.Type, completion: (Swift.Optional&lt;&#x3c4;_0_0&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "iOS-GreenRecipesTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/anupamberi/Tutorials/Swift/iOS-GreenRecipes/iOS-GreenRecipes/Model/RecipesAPI/Client/RecipesClient.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "75"
+                  endingLineNumber = "75"
+                  offsetFromSymbolStart = "199">
+               </Location>
+               <Location
+                  uuid = "A30A33E4-59D3-407A-A5C9-9469DE815A74 - 2b272947a4978338"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in static iOS_GreenRecipesTests.RecipesClient.taskForGETRequest&lt;&#x3c4;_0_0 where &#x3c4;_0_0: Swift.Decodable&gt;(url: Foundation.URL, response: &#x3c4;_0_0.Type, completion: (Swift.Optional&lt;&#x3c4;_0_0&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "iOS-GreenRecipesTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/anupamberi/Tutorials/Swift/iOS-GreenRecipes/iOS-GreenRecipes/Model/RecipesAPI/Client/RecipesClient.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "76"
+                  endingLineNumber = "76"
+                  offsetFromSymbolStart = "587">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "6589A163-A92D-4B56-B580-148ACB874B10"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "iOS-GreenRecipes/Model/RecipesAPI/Client/RecipesClient.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "83"
+            endingLineNumber = "83"
+            landmarkName = "taskForGETRequest(url:response:completion:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "6589A163-A92D-4B56-B580-148ACB874B10 - bff955438a4708d6"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in static iOS_GreenRecipes.RecipesClient.taskForGETRequest&lt;&#x3c4;_0_0 where &#x3c4;_0_0: Swift.Decodable&gt;(url: Foundation.URL, response: &#x3c4;_0_0.Type, completion: (Swift.Optional&lt;&#x3c4;_0_0&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "iOS-GreenRecipes"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/anupamberi/Tutorials/Swift/iOS-GreenRecipes/iOS-GreenRecipes/Model/RecipesAPI/Client/RecipesClient.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "84"
+                  endingLineNumber = "84"
+                  offsetFromSymbolStart = "1245">
+               </Location>
+               <Location
+                  uuid = "6589A163-A92D-4B56-B580-148ACB874B10 - 2b272947a4978030"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in static iOS_GreenRecipesTests.RecipesClient.taskForGETRequest&lt;&#x3c4;_0_0 where &#x3c4;_0_0: Swift.Decodable&gt;(url: Foundation.URL, response: &#x3c4;_0_0.Type, completion: (Swift.Optional&lt;&#x3c4;_0_0&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "iOS-GreenRecipesTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/anupamberi/Tutorials/Swift/iOS-GreenRecipes/iOS-GreenRecipes/Model/RecipesAPI/Client/RecipesClient.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "84"
+                  endingLineNumber = "84"
+                  offsetFromSymbolStart = "1245">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "F89F1B2A-8EBD-4DC4-8D65-F0756150614F"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "iOS-GreenRecipes/Model/RecipesAPI/Client/RecipesClient.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "63"
+            endingLineNumber = "63"
+            landmarkName = "getRecipeInformation(recipeId:completion:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "F89F1B2A-8EBD-4DC4-8D65-F0756150614F - 4ada536cc5accdb2"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;iOS_GreenRecipes.Recipe&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in static iOS_GreenRecipes.RecipesClient.getRecipeInformation(recipeId: Swift.Int, completion: (Swift.Optional&lt;iOS_GreenRecipes.Recipe&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "iOS-GreenRecipes"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/anupamberi/Tutorials/Swift/iOS-GreenRecipes/iOS-GreenRecipes/Model/RecipesAPI/Client/RecipesClient.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "63"
+                  endingLineNumber = "63"
+                  offsetFromSymbolStart = "286">
+               </Location>
+               <Location
+                  uuid = "F89F1B2A-8EBD-4DC4-8D65-F0756150614F - 4681baf8f732a71c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;iOS_GreenRecipesTests.Recipe&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in static iOS_GreenRecipesTests.RecipesClient.getRecipeInformation(recipeId: Swift.Int, completion: (Swift.Optional&lt;iOS_GreenRecipesTests.Recipe&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "iOS-GreenRecipesTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/anupamberi/Tutorials/Swift/iOS-GreenRecipes/iOS-GreenRecipes/Model/RecipesAPI/Client/RecipesClient.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "63"
+                  endingLineNumber = "63"
+                  offsetFromSymbolStart = "286">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "7403E273-13FA-45A6-9E75-DD451902009C"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "iOS-GreenRecipesTests/RecipesClientTests.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "59"
+            endingLineNumber = "59"
+            landmarkName = "testGetRecipeInformationKO()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "E4CBAA73-923D-4A60-A3F2-0585629235D7"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "iOS-GreenRecipes/Model/RecipesAPI/Client/RecipesClient.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "89"
+            endingLineNumber = "89"
+            landmarkName = "taskForGETRequest(url:response:completion:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "E4CBAA73-923D-4A60-A3F2-0585629235D7 - bff955438a4709ad"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in static iOS_GreenRecipes.RecipesClient.taskForGETRequest&lt;&#x3c4;_0_0 where &#x3c4;_0_0: Swift.Decodable&gt;(url: Foundation.URL, response: &#x3c4;_0_0.Type, completion: (Swift.Optional&lt;&#x3c4;_0_0&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "iOS-GreenRecipes"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/anupamberi/Tutorials/Swift/iOS-GreenRecipes/iOS-GreenRecipes/Model/RecipesAPI/Client/RecipesClient.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "89"
+                  endingLineNumber = "89"
+                  offsetFromSymbolStart = "1941">
+               </Location>
+               <Location
+                  uuid = "E4CBAA73-923D-4A60-A3F2-0585629235D7 - 2b272947a497814b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in static iOS_GreenRecipesTests.RecipesClient.taskForGETRequest&lt;&#x3c4;_0_0 where &#x3c4;_0_0: Swift.Decodable&gt;(url: Foundation.URL, response: &#x3c4;_0_0.Type, completion: (Swift.Optional&lt;&#x3c4;_0_0&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "iOS-GreenRecipesTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/anupamberi/Tutorials/Swift/iOS-GreenRecipes/iOS-GreenRecipes/Model/RecipesAPI/Client/RecipesClient.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "89"
+                  endingLineNumber = "89"
+                  offsetFromSymbolStart = "1941">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "38A54524-2FD0-4903-B776-1F8058C591E3"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "iOS-GreenRecipes/View Controllers/RecipesHomeViewController/RecipesHomeViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "167"
+            endingLineNumber = "167"
+            landmarkName = "applyInitialSnapshots()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "E7EB5D3F-2D00-429F-8AB0-AAC58835FA1B"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "iOS-GreenRecipes/View Controllers/RecipesHomeViewController/RecipesHomeViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "122"
+            endingLineNumber = "122"
+            landmarkName = "createRecipeCellRegistration()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "E7EB5D3F-2D00-429F-8AB0-AAC58835FA1B - 157e80af01ba7bdd"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "iOS_GreenRecipes.RecipesHomeViewController.createRecipeCellRegistration() -&gt; __C.UICollectionView.CellRegistration&lt;iOS_GreenRecipes.RecipeCollectionViewCell, iOS_GreenRecipes.RecipeData&gt;"
+                  moduleName = "iOS-GreenRecipes"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/anupamberi/Tutorials/Swift/iOS-GreenRecipes/iOS-GreenRecipes/View%20Controllers/RecipesHomeViewController/RecipesHomeViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "89"
+                  endingLineNumber = "89"
+                  offsetFromSymbolStart = "20">
+               </Location>
+               <Location
+                  uuid = "E7EB5D3F-2D00-429F-8AB0-AAC58835FA1B - e3f87bc8d545aea"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (iOS_GreenRecipes.RecipeCollectionViewCell, Foundation.IndexPath, iOS_GreenRecipes.RecipeData) -&gt; () in iOS_GreenRecipes.RecipesHomeViewController.createRecipeCellRegistration() -&gt; __C.UICollectionView.CellRegistration&lt;iOS_GreenRecipes.RecipeCollectionViewCell, iOS_GreenRecipes.RecipeData&gt;"
+                  moduleName = "iOS-GreenRecipes"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/anupamberi/Tutorials/Swift/iOS-GreenRecipes/iOS-GreenRecipes/View%20Controllers/RecipesHomeViewController/RecipesHomeViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "90"
+                  endingLineNumber = "90"
+                  offsetFromSymbolStart = "358">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "F0A769F3-413A-4D6F-B011-BAEF6216022F"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "iOS-GreenRecipes/View Controllers/RecipesHomeViewController/RecipesHomeViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "64"
+            endingLineNumber = "64"
+            landmarkName = "fetchData()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "6FD990B7-40DA-4BB6-9BAC-6A0C1D3F0F1F"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "iOS-GreenRecipes/View Controllers/RecipesHomeViewController/RecipesHomeViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "155"
+            endingLineNumber = "155"
+            landmarkName = "configureDataSource()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>
