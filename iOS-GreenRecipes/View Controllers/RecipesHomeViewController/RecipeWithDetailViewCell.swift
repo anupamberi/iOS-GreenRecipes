@@ -7,7 +7,7 @@
 
 import UIKit
 
-class RecipeCollectionViewCell: UICollectionViewCell {
+class RecipeWithDetailViewCell: UICollectionViewCell {
   static let reuseIdentifier = "RecipeCellReuseIdentifier"
   var recipeImageView = UIImageView()
   var recipeTitleLabel = UILabel()
@@ -16,7 +16,7 @@ class RecipeCollectionViewCell: UICollectionViewCell {
 
   override init(frame: CGRect) {
     super.init(frame: frame)
-    addViews()
+    configure()
   }
 
   required init?(coder: NSCoder) {
@@ -24,18 +24,22 @@ class RecipeCollectionViewCell: UICollectionViewCell {
   }
 }
 
-extension RecipeCollectionViewCell {
-  func addViews() {
+extension RecipeWithDetailViewCell {
+  func configure() {
     recipeImageView.contentMode = .scaleAspectFill
     recipeImageView.clipsToBounds = true
+    recipeImageView.layer.cornerRadius = 5
 
-    recipeTitleLabel.font = UIFont.systemFont(ofSize: 18)
+    recipeTitleLabel.font = UIFont.systemFont(ofSize: 16)
+    recipeTitleLabel.allowsDefaultTighteningForTruncation = true
     recipeTitleLabel.textColor = .systemGreen
 
     recipePreprationTime.font = UIFont.systemFont(ofSize: 12)
+    recipePreprationTime.adjustsFontSizeToFitWidth = true
     recipePreprationTime.textColor = .white
 
     recipeIngredientsCount.font = UIFont.systemFont(ofSize: 12)
+    recipeIngredientsCount.adjustsFontSizeToFitWidth = true
     recipeIngredientsCount.textColor = .white
 
     let prepStackView = UIStackView()
@@ -55,7 +59,6 @@ extension RecipeCollectionViewCell {
     vStackView.axis = .vertical
     vStackView.alignment = .center
     vStackView.translatesAutoresizingMaskIntoConstraints = false
-    vStackView.layer.cornerRadius = 10
     vStackView.spacing = 10
 
     let hStackView = UIStackView()

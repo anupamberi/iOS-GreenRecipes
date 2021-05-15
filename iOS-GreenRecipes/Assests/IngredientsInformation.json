@@ -1,0 +1,82 @@
+{
+  "ingredientsInformation": [
+    {
+      "id": "16213",
+      "name": "Tofu"
+      "image": "tofu.png",
+      "information": "Tofu, also known as bean curd, is a food prepared by coagulating soy milk and then pressing the resulting curds into solid white blocks of varying softness; it can be silken, soft, firm, extra firm or super firm. Beyond these broad categories, there are many varieties of tofu. It has a subtle flavor, so it can be used in savory and sweet dishes. It is often seasoned or marinated to suit the dish and its flavors, and due to its spongy texture it absorbs flavors well. Nutritionally, tofu is low in calories, while containing a relatively large amount of protein. It is high in iron, and can have a high calcium or magnesium content depending on the coagulants (e.g. calcium chloride, calcium sulfate, magnesium sulfate) used in manufacturing. Tofu originated in China and has been consumed within China for over 2,000 years. It is also a traditional component of the cuisines of Indonesia, Japan, Korea, Vietnam, Singapore, Thailand,[2][3] and the Philippines.[4] In modern Western cooking it is sometimes treated as a meat substitute.",
+      "caloricBreakdown": {
+          "percentProtein": 42.18,
+          "percentFat": 46.92,
+          "percentCarbs": 10.9
+      }
+    },
+    {
+      "id": 16033,
+      "name": "Red kidney beans",
+      "image": "kidney-beans.jpg",
+      "information": "Red kidney beans are commonly used in chili con carne and are used in the cuisine of India, where the beans are known as rajma. Red kidney beans are used in southern Louisiana for the classic Monday Creole dish of red beans and rice. The smaller, darker red beans are also used, particularly in Louisiana families with a recent Caribbean heritage. Small kidney beans used in La Rioja, Spain, are called caparrones. In the Netherlands and Indonesia, kidney beans are usually served as soup called brenebon. In the Levant, a common dish consisting of kidney bean stew usually served with rice is known as fasoulia. To make bean paste, kidney beans are generally prepared from dried beans and boiling until they are soft, at which point the dark red beans are pulverized into a dry paste.",
+      "caloricBreakdown": {
+          "percentProtein": 26.6,
+          "percentFat": 3.45,
+          "percentCarbs": 69.95
+      }
+    },
+    {
+      "id": 16409,
+      "name": "Soy beans",
+      "image": "soy-beans.png",
+      "information": "The soybean or soya bean (Glycine max) is a species of legume native to East Asia, widely grown for its edible bean, which has numerous uses. Traditional unfermented food uses of soybeans include soy milk, from which tofu and tofu skin are made. Fermented soy foods include soy sauce, fermented bean paste, nattō, and tempeh. Fat-free (defatted) soybean meal is a significant and cheap source of protein for animal feeds and many packaged meals. For example, soybean products, such as textured vegetable protein (TVP), are ingredients in many meat and dairy substitutes.Soy beans contain significant amounts of phytic acid, dietary minerals and B vitamins. Soy vegetable oil, used in food and industrial applications, is another product of processing the soybean crop. Soybean is the most important protein source for feed farm animals (that in turn yields animal protein for human consumption).",
+      "caloricBreakdown": {
+          "percentProtein": 35.59,
+          "percentFat": 43.17,
+          "percentCarbs": 21.24
+      }
+    },
+    {
+      "id": 12023,
+      "name": "Sesame seeds",
+      "image": "sesame-seeds.png",
+      "information": "Sesame is a flowering plant in the genus Sesamum, also called benne. Numerous wild relatives occur in Africa and a smaller number in India. It is widely naturalized in tropical regions around the world and is cultivated for its edible seeds, which grow in pods. World production in 2018 was 6 million tonnes, with Sudan, Myanmar, and India as the largest producers. Sesame seed is one of the oldest oilseed crops known, domesticated well over 3000 years ago. Sesamum has many other species, most being wild and native to sub-Saharan Africa. S. indicum, the cultivated type, originated in India[4] and is tolerant to drought-like conditions, growing where other crops fail. Sesame has one of the highest oil contents of any seed. With a rich, nutty flavor, it is a common ingredient in cuisines across the world.",
+      "caloricBreakdown": {
+          "percentProtein": 11.59,
+          "percentFat": 73.07,
+          "percentCarbs": 15.34
+      }
+    },
+    {
+      "id": 20035,
+      "name": "Quinoa",
+      "image": "uncooked-quinoa.png",
+      "information": "Quinoa is a flowering plant in the amaranth family. It is a herbaceous annual plant grown as a crop primarily for its edible seeds; the seeds are rich in protein, dietary fiber, B vitamins, and dietary minerals in amounts greater than in many grains. Quinoa is not a grass, but rather a pseudocereal botanically related to spinach and amaranth (Amaranthus spp.), and originated in the Andean region of northwestern South America. It was first used to feed livestock 5.2–7.0 thousand years ago, and for human consumption 3–4 thousand years ago in the Lake Titicaca basin of Peru and Bolivia. Today, almost all production in the Andean region is done by small farms and associations. Its cultivation has spread to more than 70 countries, including Kenya, India, the United States, and several European countries.[6] As a result of increased popularity and consumption in North America, Europe, and Australasia, quinoa crop prices tripled between 2006 and 2014.",
+      "caloricBreakdown": {
+          "percentProtein": 15.36,
+          "percentFat": 14.86,
+          "percentCarbs": 69.78
+      }
+    },
+    {
+      "id": 16114,
+      "name": "Tempeh",
+      "image": "tempeh.jpg",
+      "information": "Tempeh is a traditional Javanese soy product that is made from fermented soybeans. It is made by a natural culturing and controlled fermentation process that binds soybeans into a cake form. A fungus, Rhizopus oligosporus, is used in the fermentation process and is also known as tempeh starter. Tempeh being sold in a traditional market in Indonesia is especially popular on the island of Java, where it is a staple source of protein. Like tofu, tempeh is made from soybeans, but it is a whole soybean product with different nutritional characteristics and textural qualities. Tempeh's fermentation process and its retention of the whole bean give it a higher content of protein, dietary fiber, and vitamins. It has a firm texture and an earthy flavor, which becomes more pronounced as it ages",
+      "caloricBreakdown": {
+          "percentProtein": 35.5,
+          "percentFat": 46.52,
+          "percentCarbs": 17.98
+      }
+    },
+    {
+      "id": 20040,
+      "name": "Brown Rice",
+      "image": "uncooked-brown-rice.jpg",
+      "information": "Brown rice is a whole grain rice with the inedible outer hull removed. White rice is the same grain without the hull, the bran layer, and the cereal germ. Red rice, gold rice, and black rice (also called purple rice) are all whole rices with differently pigmented outer layers. Brown rice generally needs longer cooking times than white rice, unless it is broken or flour blasted (which perforates the bran without removing it). Studies by Gujral and Kumar in 2003 estimated a cooking time between 35 and 51 minutes.",
+      "caloricBreakdown": {
+          "percentProtein": 8.36,
+          "percentFat": 6.72,
+          "percentCarbs": 84.92
+      }
+    }
+
+  ]
+}

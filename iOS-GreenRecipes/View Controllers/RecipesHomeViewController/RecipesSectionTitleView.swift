@@ -7,7 +7,7 @@
 
 import UIKit
 
-class RecipesSectionTitleSupplementaryView: UICollectionReusableView {
+class RecipesSectionTitleView: UICollectionReusableView {
   let label = UILabel()
   static let reuseIdentifier = "RecipesSectionTitleReuseIdentifier"
 
@@ -20,7 +20,7 @@ class RecipesSectionTitleSupplementaryView: UICollectionReusableView {
   }
 }
 
-extension RecipesSectionTitleSupplementaryView {
+extension RecipesSectionTitleView {
   func configure() {
     addSubview(label)
     label.translatesAutoresizingMaskIntoConstraints = false

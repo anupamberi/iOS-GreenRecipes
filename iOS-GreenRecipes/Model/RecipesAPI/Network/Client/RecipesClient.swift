@@ -13,11 +13,13 @@ class RecipesClient {
 
   enum Endpoints {
     static let base = "https://api.spoonacular.com/recipes/"
+    static let recipePhotoBase = "https://spoonacular.com/recipeImages/"
 
     case getRandomRecipes
     case getRecipeInformation(Int)
     case getRecipeNutrition(Int)
     case searchRecipes(String)
+    case recipePhoto(Int, String, String)
 
     var stringValue: String {
       switch self {
@@ -29,11 +31,28 @@ class RecipesClient {
         return Endpoints.base + "\(recipeId)/nutritionWidget.json?"
       case .searchRecipes(let query):
         return Endpoints.base + "complexSearch?query=\(query)"
+      case .recipePhoto(let id, let size, let imageType):
+        return Endpoints.recipePhotoBase + "\(id)-\(size).\(imageType)"
       }
     }
 
     var url: URL {
       return URL(string: stringValue)!
+    }
+  }
+
+  enum RecipePhotoSize {
+    case thumbnail, medium, large
+
+    var stringValue: String {
+      switch self {
+      case .thumbnail:
+        return "90x90"
+      case .medium:
+        return "312x231"
+      case .large:
+        return "556x370"
+      }
     }
   }
 
@@ -106,6 +125,23 @@ class RecipesClient {
       } else {
         completion([], error)
       }
+    }
+  }
+
+  // MARK: - Download the recipe photo image given id, size and type
+  class func downloadRecipePhoto(
+    recipeId: Int,
+    recipeImageSize: String,
+    recipeImageType: String,
+    completion: @escaping(_ image: UIImage?) -> Void
+  ) {
+    // Construct the URL from the given photo information
+    let url = Endpoints.recipePhoto(recipeId, recipeImageSize, recipeImageType).url
+    guard let imageData = try? Data(contentsOf: url) else { return }
+    if let image = UIImage(data: imageData) {
+      completion(image)
+    } else {
+      completion(nil)
     }
   }
 
