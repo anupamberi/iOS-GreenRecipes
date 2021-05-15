@@ -82,7 +82,7 @@ extension RecipeCollectionViewCell {
       vStackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
       vStackView.topAnchor.constraint(equalTo: contentView.topAnchor),
       vStackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
-      recipeTitleLabel.heightAnchor.constraint(equalToConstant: 15),
+      recipeTitleLabel.heightAnchor.constraint(equalToConstant: 20),
       cookingImageView.widthAnchor.constraint(equalToConstant: 20),
       cookingImageView.heightAnchor.constraint(equalToConstant: 20),
       ingredientsImageView.heightAnchor.constraint(equalToConstant: 20),

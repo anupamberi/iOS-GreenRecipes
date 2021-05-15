@@ -51,4 +51,48 @@ class RecipesResponseTest: XCTestCase {
     XCTAssertEqual(recipesResponse.results!.count, 10)
     // swiftlint:enable force_unwrapping
   }
+
+  func testRecipesSearchResponseHummus() throws {
+    let jsonData = try getData(fromJSON: "RecipesSearchResponseHummus")
+
+    XCTAssertNoThrow(try JSONDecoder().decode(RecipesData.self, from: jsonData))
+    let recipesResponse = try JSONDecoder().decode(RecipesData.self, from: jsonData)
+    XCTAssertNotNil(recipesResponse.results)
+    // swiftlint:disable force_unwrapping
+    XCTAssertEqual(recipesResponse.results!.count, 7)
+    // swiftlint:enable force_unwrapping
+  }
+
+  func testRecipesSearchResponseDessert() throws {
+    let jsonData = try getData(fromJSON: "RecipesSearchResponseDessert")
+
+    XCTAssertNoThrow(try JSONDecoder().decode(RecipesData.self, from: jsonData))
+    let recipesResponse = try JSONDecoder().decode(RecipesData.self, from: jsonData)
+    XCTAssertNotNil(recipesResponse.results)
+    // swiftlint:disable force_unwrapping
+    XCTAssertEqual(recipesResponse.results!.count, 10)
+    // swiftlint:enable force_unwrapping
+  }
+
+  func testRecipesSearchResponseMainCourse() throws {
+    let jsonData = try getData(fromJSON: "RecipesSearchResponseMainCourse")
+
+    XCTAssertNoThrow(try JSONDecoder().decode(RecipesData.self, from: jsonData))
+    let recipesResponse = try JSONDecoder().decode(RecipesData.self, from: jsonData)
+    XCTAssertNotNil(recipesResponse.results)
+    // swiftlint:disable force_unwrapping
+    XCTAssertEqual(recipesResponse.results!.count, 10)
+    // swiftlint:enable force_unwrapping
+  }
+
+  func testRecipesSearchResponseBreakfast() throws {
+    let jsonData = try getData(fromJSON: "RecipesSearchResponseBreakfast")
+
+    XCTAssertNoThrow(try JSONDecoder().decode(RecipesData.self, from: jsonData))
+    let recipesResponse = try JSONDecoder().decode(RecipesData.self, from: jsonData)
+    XCTAssertNotNil(recipesResponse.results)
+    // swiftlint:disable force_unwrapping
+    XCTAssertEqual(recipesResponse.results!.count, 10)
+    // swiftlint:enable force_unwrapping
+  }
 }
