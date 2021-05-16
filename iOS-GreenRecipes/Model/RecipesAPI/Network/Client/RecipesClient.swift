@@ -13,11 +13,13 @@ class RecipesClient {
 
   enum Endpoints {
     static let base = "https://api.spoonacular.com/recipes/"
+    static let recipePhotoBase = "https://spoonacular.com/recipeImages/"
 
     case getRandomRecipes
     case getRecipeInformation(Int)
     case getRecipeNutrition(Int)
     case searchRecipes(String)
+    case recipePhoto(Int, String, String)
 
     var stringValue: String {
       switch self {
@@ -29,11 +31,28 @@ class RecipesClient {
         return Endpoints.base + "\(recipeId)/nutritionWidget.json?"
       case .searchRecipes(let query):
         return Endpoints.base + "complexSearch?query=\(query)"
+      case .recipePhoto(let id, let size, let imageType):
+        return Endpoints.recipePhotoBase + "\(id)-\(size).\(imageType)"
       }
     }
 
     var url: URL {
       return URL(string: stringValue)!
+    }
+  }
+
+  enum RecipePhotoSize {
+    case thumbnail, medium, large
+
+    var stringValue: String {
+      switch self {
+      case .thumbnail:
+        return "90x90"
+      case .medium:
+        return "312x231"
+      case .large:
+        return "556x370"
+      }
     }
   }
 
@@ -47,7 +66,7 @@ class RecipesClient {
     guard let randomRecipesSearchURL = randomRecipesBaseURL.appending(recipesSearchURLParams) else { return }
     taskForGETRequest(url: randomRecipesSearchURL, response: RecipesData.self) { response, error in
       if let response = response {
-        completion(response.recipes, nil)
+        completion(response.recipes ?? [], nil)
       } else {
         completion([], error)
       }
@@ -89,22 +108,40 @@ class RecipesClient {
     }
   }
 
-  class func searchRecipes(query: String, completion: @escaping ([RecipeMetaData], Error?) -> Void) {
+  class func searchRecipes(query: String, completion: @escaping ([RecipeData], Error?) -> Void) {
     let recipesSearchBaseURL = Endpoints.searchRecipes(query).url
     let recipesSearchParams = [
       URLQueryItem(name: "diet", value: "vegan"),
       URLQueryItem(name: "apiKey", value: RecipesClient.apiKey),
-      URLQueryItem(name: "number", value: String(5))
+      URLQueryItem(name: "number", value: String(5)),
+      URLQueryItem(name: "addRecipeInformation", value: String(true)),
+      URLQueryItem(name: "fillIngredients", value: String(true))
     ]
     guard let recipesSearchURL = recipesSearchBaseURL.appending(recipesSearchParams) else { return }
     print(recipesSearchURL)
-    taskForGETRequest(url: recipesSearchURL, response: RecipesMetaData.self) { response, error in
+    taskForGETRequest(url: recipesSearchURL, response: RecipesData.self) { response, error in
       if let response = response {
-        print(response)
-        completion(response.results, nil)
+        completion(response.results ?? [], nil)
       } else {
         completion([], error)
       }
+    }
+  }
+
+  // MARK: - Download the recipe photo image given id, size and type
+  class func downloadRecipePhoto(
+    recipeId: Int,
+    recipeImageSize: String,
+    recipeImageType: String,
+    completion: @escaping(_ image: UIImage?) -> Void
+  ) {
+    // Construct the URL from the given photo information
+    let url = Endpoints.recipePhoto(recipeId, recipeImageSize, recipeImageType).url
+    guard let imageData = try? Data(contentsOf: url) else { return }
+    if let image = UIImage(data: imageData) {
+      completion(image)
+    } else {
+      completion(nil)
     }
   }
 

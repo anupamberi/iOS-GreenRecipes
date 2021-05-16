@@ -11,23 +11,66 @@ class RecipesHomeViewController: UIViewController {
   static let headerElementKind = "header-element-kind"
   static let backgroundElementKind = "background-element-kind"
 
-  enum Section: Int, Hashable, CaseIterable {
-    case randomRecipes // , sandwichRecipes, soupRecipes
+  enum RecipesSection: Int, CaseIterable {
+    case randomRecipes, quickAndEasyRecipes, mainCourse, breakfast, hummus, dessert
 
     var description: String {
       switch self {
-      case .randomRecipes: return "Recommended recipes"
-      // case .sandwichRecipes: return "Quick & Easy Sandwiches"
-      // case .soupRecipes: return "soupRecipes"
+      case .randomRecipes: return "Recommended for you"
+      case .quickAndEasyRecipes: return "Quick & Easy"
+      case .mainCourse: return "Main Course"
+      case .breakfast: return "Breakfast"
+      case .hummus: return "Hummus"
+      case .dessert: return "Desserts"
+      }
+    }
+
+    var widthRatio: Float {
+      switch self {
+      case .randomRecipes, .breakfast, .mainCourse: return 1.0
+      case .quickAndEasyRecipes, .dessert, .hummus:
+        return 0.50
+      }
+    }
+
+    var height: Float {
+      switch self {
+      case .randomRecipes, .breakfast, .mainCourse: return 300.0
+      case .quickAndEasyRecipes, .dessert, .hummus: return 250.0
+      }
+    }
+
+    var recipeImageSize: String {
+      switch self {
+      case .randomRecipes, .breakfast, .mainCourse:
+        return RecipesClient.RecipePhotoSize.large.stringValue
+      case .quickAndEasyRecipes, .dessert, .hummus:
+        return RecipesClient.RecipePhotoSize.medium.stringValue
+      }
+    }
+
+    func orthogonalScrollingBehavior() -> UICollectionLayoutSectionOrthogonalScrollingBehavior {
+      switch self {
+      case .randomRecipes, .breakfast, .mainCourse:
+        return UICollectionLayoutSectionOrthogonalScrollingBehavior.groupPagingCentered
+      case .quickAndEasyRecipes, .dessert, .hummus:
+        return UICollectionLayoutSectionOrthogonalScrollingBehavior.continuousGroupLeadingBoundary
       }
     }
   }
+  // swiftlint:disable implicitly_unwrapped_optional
+  var dataController: DataController!
+  var recipesCollectionView: UICollectionView!
+  var dataSource: UICollectionViewDiffableDataSource<RecipesSection, RecipeData>!
+  // swiftlint:enable implicitly_unwrapped_optional
 
-  var dataController: DataController! = nil
-  var recipesCollectionView: UICollectionView! = nil
-  var dataSource: UICollectionViewDiffableDataSource<Section, RecipeData>! = nil
-
-  var recipesData: [RecipeData] = []
+  var randomRecipesData: [RecipeData] = []
+  var quickAndEasyRecipesData: [RecipeData] = []
+  var mainCourseRecipesData: [RecipeData] = []
+  var breakfastRecipesData: [RecipeData] = []
+  var hummusRecipesData: [RecipeData] = []
+  var dessertRecipesData: [RecipeData] = []
+  var ingredientsInformationData: [IngredientInformation] = []
 
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -41,7 +84,7 @@ class RecipesHomeViewController: UIViewController {
 extension RecipesHomeViewController {
   func configureTitle() {
     navigationItem.title = "Green Recipes"
-    navigationItem.largeTitleDisplayMode = .always
+    navigationItem.largeTitleDisplayMode = .automatic
   }
 
   func getData(fromJSON fileName: String) throws -> Data {
@@ -61,75 +104,145 @@ extension RecipesHomeViewController {
 //      self.recipesData = data
 //      self.applyInitialSnapshots()
 //    }
-    guard let jsonData = try? getData(fromJSON: "RecipesRandomSearchResponse") else { return  }
-    let response = try? JSONDecoder().decode(RecipesData.self, from: jsonData)
-    recipesData = response?.recipes ?? []
-    print(recipesData)
+    guard let randomRecipesJsonData = try? getData(
+      fromJSON: "RecipesRandomSearchResponse"
+    ) else { return }
+    let randomRecipesResponse = try? JSONDecoder().decode(RecipesData.self, from: randomRecipesJsonData)
+    randomRecipesData = randomRecipesResponse?.recipes ?? []
+
+    guard let quickAndEasyRecipesJsonData = try? getData(
+      fromJSON: "RecipesSearchResponse"
+    ) else { return }
+    let quickAndEasyResponse = try? JSONDecoder().decode(RecipesData.self, from: quickAndEasyRecipesJsonData)
+    quickAndEasyRecipesData = quickAndEasyResponse?.results ?? []
+
+    guard let mainCourseRecipesJsonData = try? getData(
+      fromJSON: "RecipesSearchResponseMainCourse"
+    ) else { return }
+    let mainCourseResponse = try? JSONDecoder().decode(RecipesData.self, from: mainCourseRecipesJsonData)
+    mainCourseRecipesData = mainCourseResponse?.results ?? []
+
+    guard let breakfastRecipesJsonData = try? getData(
+      fromJSON: "RecipesSearchResponseBreakfast"
+    ) else { return }
+    let breakfastResponse = try? JSONDecoder().decode(RecipesData.self, from: breakfastRecipesJsonData)
+    breakfastRecipesData = breakfastResponse?.results ?? []
+
+    guard let hummusRecipesJsonData = try? getData(
+      fromJSON: "RecipesSearchResponseHummus"
+    ) else { return }
+    let hummusResponse = try? JSONDecoder().decode(RecipesData.self, from: hummusRecipesJsonData)
+    hummusRecipesData = hummusResponse?.results ?? []
+
+    guard let dessertRecipesJsonData = try? getData(
+      fromJSON: "RecipesSearchResponseDessert"
+    ) else { return }
+    let dessertResponse = try? JSONDecoder().decode(RecipesData.self, from: dessertRecipesJsonData)
+    dessertRecipesData = dessertResponse?.results ?? []
+
+    guard let ingredientsInformation = try? getData(
+      fromJSON: "IngredientsInformation"
+    ) else { return }
+    let ingredientsResponse = try? JSONDecoder().decode(IngredientsInformation.self, from: ingredientsInformation)
+    ingredientsInformationData = ingredientsResponse?.ingredientsInformation ?? []
+
     applyInitialSnapshots()
   }
 
   func configureHierarchy() {
-    recipesCollectionView = UICollectionView(frame: view.bounds, collectionViewLayout: createLayout())
+    let layout = createLayout()
+    layout.configuration.interSectionSpacing = 50
+
+    layout.register(
+      RecipesSectionBackgroundDecorationView.self,
+      forDecorationViewOfKind: RecipesHomeViewController.backgroundElementKind
+    )
+    recipesCollectionView = UICollectionView(frame: view.bounds, collectionViewLayout: layout)
     recipesCollectionView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
     recipesCollectionView.backgroundColor = .systemGroupedBackground
     recipesCollectionView.delegate = self
     view.addSubview(recipesCollectionView)
   }
 
-  func createLayout() -> UICollectionViewLayout {
-    // orthogonal scrolling sections
-    let itemSize = NSCollectionLayoutSize(
-      widthDimension: .fractionalWidth(1.0),
-      heightDimension: .fractionalHeight(1.0)
-    )
-    let item = NSCollectionLayoutItem(layoutSize: itemSize)
-    item.contentInsets = NSDirectionalEdgeInsets(top: 5, leading: 5, bottom: 5, trailing: 5)
-
-    let groupSize = NSCollectionLayoutSize(
-      widthDimension: .fractionalWidth(1.0),
-      heightDimension: .estimated(350)
-    )
-
-    let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
-    let section = NSCollectionLayoutSection(group: group)
-    section.interGroupSpacing = 10
-    section.orthogonalScrollingBehavior = .groupPagingCentered
-    section.contentInsets = NSDirectionalEdgeInsets(top: 5, leading: 5, bottom: 5, trailing: 5)
-
-    let sectionHeader = NSCollectionLayoutBoundarySupplementaryItem(
-      layoutSize: NSCollectionLayoutSize(
+  func createLayout() -> UICollectionViewCompositionalLayout {
+    let sectionProvider = { (sectionIndex: Int, _ : NSCollectionLayoutEnvironment) -> NSCollectionLayoutSection? in
+      guard let sectionType = RecipesSection(rawValue: sectionIndex) else { return nil }
+      // orthogonal scrolling sections
+      let itemSize = NSCollectionLayoutSize(
         widthDimension: .fractionalWidth(1.0),
-        heightDimension: .estimated(20)),
-      elementKind: RecipesHomeViewController.headerElementKind,
-      alignment: .topLeading
-    )
-    sectionHeader.pinToVisibleBounds = true
-    section.boundarySupplementaryItems = [sectionHeader]
+        heightDimension: .fractionalHeight(1.0)
+      )
+      let item = NSCollectionLayoutItem(layoutSize: itemSize)
 
-    let sectionBackground = NSCollectionLayoutDecorationItem.background(
-      elementKind: RecipesHomeViewController.backgroundElementKind
-    )
-    section.decorationItems = [sectionBackground]
+      let groupSize = NSCollectionLayoutSize(
+        widthDimension: .fractionalWidth(CGFloat(sectionType.widthRatio)),
+        heightDimension: .estimated(CGFloat(sectionType.height))
+      )
 
-    let layout = UICollectionViewCompositionalLayout(section: section)
-    layout.register(
-      RecipesSectionBackgroundDecorationView.self,
-      forDecorationViewOfKind: RecipesHomeViewController.backgroundElementKind)
-    return layout
+      let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
+      let section = NSCollectionLayoutSection(group: group)
+      section.interGroupSpacing = 10
+      section.orthogonalScrollingBehavior = sectionType.orthogonalScrollingBehavior()
+      section.contentInsets = NSDirectionalEdgeInsets(top: 5, leading: 5, bottom: 5, trailing: 5)
+
+      let sectionHeader = NSCollectionLayoutBoundarySupplementaryItem(
+        layoutSize: NSCollectionLayoutSize(
+          widthDimension: .fractionalWidth(1.0),
+          heightDimension: .estimated(20)),
+        elementKind: RecipesHomeViewController.headerElementKind,
+        alignment: .topLeading
+      )
+      sectionHeader.pinToVisibleBounds = false
+      section.boundarySupplementaryItems = [sectionHeader]
+
+      let sectionBackground = NSCollectionLayoutDecorationItem.background(
+        elementKind: RecipesHomeViewController.backgroundElementKind
+      )
+      section.decorationItems = [sectionBackground]
+      return section
+    }
+    return UICollectionViewCompositionalLayout(sectionProvider: sectionProvider)
   }
 
-  func createRecipeCellRegistration() -> UICollectionView.CellRegistration<RecipeCollectionViewCell, RecipeData> {
-    return UICollectionView.CellRegistration<RecipeCollectionViewCell, RecipeData> { cell, indexPath, recipe in
+  func createRecipeWithDetailRegistration() -> UICollectionView.CellRegistration<RecipeWithDetailViewCell, RecipeData> {
+    return UICollectionView.CellRegistration<RecipeWithDetailViewCell, RecipeData> { cell, indexPath, recipe in
+      guard let section = RecipesSection(rawValue: indexPath.section) else { fatalError("Unknown section") }
       cell.recipeImageView.image = UIImage(named: "placeholder")
       DispatchQueue.global(qos: .background).async {
         DispatchQueue.main.async {
-          RecipesClient.downloadPhoto(photoImageURL: recipe.image ?? "") { recipeImage in
+          RecipesClient.downloadRecipePhoto(
+            recipeId: recipe.id,
+            recipeImageSize: section.recipeImageSize,
+            recipeImageType: recipe.imageType ?? RecipesClient.RecipePhotoSize.medium.stringValue) { recipeImage in
             cell.recipeImageView.image = recipeImage
           }
         }
       }
-      cell.recipeIngredientsCount.text = String(recipe.analyzedInstructions[0].steps.count) + " ingredients"
+      if recipe.extendedIngredients.count == 1 {
+        cell.recipeIngredientsCount.text = String(recipe.extendedIngredients.count) + " ingredient"
+      } else {
+        cell.recipeIngredientsCount.text = String(recipe.extendedIngredients.count) + " ingredients"
+      }
       cell.recipePreprationTime.text = String(recipe.readyInMinutes) + " min prep"
+      cell.recipeTitleLabel.text = recipe.title
+      print("Recipe Title: \(recipe.title)")
+    }
+  }
+
+  func createRecipeWithTitleRegistration() -> UICollectionView.CellRegistration<RecipeWithTitleViewCell, RecipeData> {
+    return UICollectionView.CellRegistration<RecipeWithTitleViewCell, RecipeData> { cell, indexPath, recipe in
+      guard let section = RecipesSection(rawValue: indexPath.section) else { fatalError("Unknown section") }
+      cell.recipeImageView.image = UIImage(named: "placeholder")
+      DispatchQueue.global(qos: .background).async {
+        DispatchQueue.main.async {
+          RecipesClient.downloadRecipePhoto(
+            recipeId: recipe.id,
+            recipeImageSize: section.recipeImageSize,
+            recipeImageType: recipe.imageType ?? RecipesClient.RecipePhotoSize.medium.stringValue) { recipeImage in
+            cell.recipeImageView.image = recipeImage
+          }
+        }
+      }
       cell.recipeTitleLabel.text = recipe.title
       print("Recipe Title: \(recipe.title)")
     }
@@ -137,16 +250,24 @@ extension RecipesHomeViewController {
 
   func configureDataSource() {
     // create registrations up front, then choose the appropirate one to use in the cell provider
-    let recipeCellRegistration = createRecipeCellRegistration()
+    let recipeWithDetail = createRecipeWithDetailRegistration()
+    let recipeWithTitle = createRecipeWithTitleRegistration()
     // data source
-    dataSource = UICollectionViewDiffableDataSource<Section, RecipeData>(
+    dataSource = UICollectionViewDiffableDataSource<RecipesSection, RecipeData>(
       collectionView: recipesCollectionView) { collectionView, indexPath, recipe -> UICollectionViewCell? in
-      return collectionView.dequeueConfiguredReusableCell(using: recipeCellRegistration, for: indexPath, item: recipe)
+      guard let recipesSection = RecipesSection(rawValue: indexPath.section) else { fatalError("Unknown section") }
+
+      switch recipesSection {
+      case .randomRecipes, .breakfast, .mainCourse:
+        return collectionView.dequeueConfiguredReusableCell(using: recipeWithDetail, for: indexPath, item: recipe)
+      case .quickAndEasyRecipes, .hummus, .dessert:
+        return collectionView.dequeueConfiguredReusableCell(using: recipeWithTitle, for: indexPath, item: recipe)
+      }
     }
 
-    let recipesSupplementaryRegistration = UICollectionView.SupplementaryRegistration<RecipesSectionTitleSupplementaryView>(
+    let recipesSupplementaryRegistration = UICollectionView.SupplementaryRegistration<RecipesSectionTitleView>(
       elementKind: RecipesHomeViewController.headerElementKind) { supplementaryView, _, indexPath in
-      guard let section = Section(rawValue: indexPath.section) else { return }
+      guard let section = RecipesSection(rawValue: indexPath.section) else { return }
       supplementaryView.label.text = String(describing: section.description)
       supplementaryView.label.textColor = .white
     }
@@ -160,11 +281,17 @@ extension RecipesHomeViewController {
   }
 
   func applyInitialSnapshots() {
-    let sections = Section.allCases
-    var snapshot = NSDiffableDataSourceSnapshot<Section, RecipeData>()
+    let sections = RecipesSection.allCases
+    var snapshot = NSDiffableDataSourceSnapshot<RecipesSection, RecipeData>()
     snapshot.appendSections(sections)
 
-    snapshot.appendItems(recipesData, toSection: .randomRecipes)
+    snapshot.appendItems(randomRecipesData, toSection: .randomRecipes)
+    snapshot.appendItems(quickAndEasyRecipesData, toSection: .quickAndEasyRecipes)
+    snapshot.appendItems(mainCourseRecipesData, toSection: .mainCourse)
+    snapshot.appendItems(breakfastRecipesData, toSection: .breakfast)
+    snapshot.appendItems(hummusRecipesData, toSection: .hummus)
+    snapshot.appendItems(dessertRecipesData, toSection: .dessert)
+
     dataSource.apply(snapshot)
   }
 }

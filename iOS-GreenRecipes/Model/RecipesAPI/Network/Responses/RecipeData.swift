@@ -43,9 +43,9 @@ struct RecipeData: Codable, Hashable {
   var aggregateLikes: Int
   var spoonacularScore: Float
   var healthScore: Float
-  var creditsText: String
+  var creditsText: String?
   var license: String?
-  var sourceName: String
+  var sourceName: String?
   var pricePerServing: Float
 
   // Recipe Ingredeints and instructions
@@ -55,7 +55,7 @@ struct RecipeData: Codable, Hashable {
   var dishTypes: [String]
   var diets: [String]
   var occasions: [String]
-  var instructions: String
+  var instructions: String?
   var originalId: String?
   var spoonacularSourceUrl: String?
 }
