@@ -95,4 +95,15 @@ class RecipesResponseTest: XCTestCase {
     XCTAssertEqual(recipesResponse.results!.count, 10)
     // swiftlint:enable force_unwrapping
   }
+
+  func testRecipesNutritionResponse() throws {
+    let jsonData = try getData(fromJSON: "RecipeNutritionResponse")
+
+    XCTAssertNoThrow(try JSONDecoder().decode(NutritionData.self, from: jsonData))
+    let recipesNutritionResponse = try JSONDecoder().decode(NutritionData.self, from: jsonData)
+    XCTAssertNotNil(recipesNutritionResponse.calories)
+    XCTAssertNotNil(recipesNutritionResponse.fat)
+    XCTAssertNotNil(recipesNutritionResponse.protein)
+    XCTAssertNotNil(recipesNutritionResponse.carbs)
+  }
 }

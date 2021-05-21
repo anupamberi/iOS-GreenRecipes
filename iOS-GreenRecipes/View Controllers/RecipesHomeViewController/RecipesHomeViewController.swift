@@ -70,7 +70,6 @@ class RecipesHomeViewController: UIViewController {
   var breakfastRecipesData: [RecipeData] = []
   var hummusRecipesData: [RecipeData] = []
   var dessertRecipesData: [RecipeData] = []
-  var ingredientsInformationData: [IngredientInformation] = []
 
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -99,11 +98,8 @@ extension RecipesHomeViewController {
       throw error
     }
   }
+  
   func fetchData() {
-//    RecipesClient.getRandomRecipes(tags: "vegan,dinner", total: 5) { data, error in
-//      self.recipesData = data
-//      self.applyInitialSnapshots()
-//    }
     guard let randomRecipesJsonData = try? getData(
       fromJSON: "RecipesRandomSearchResponse"
     ) else { return }
@@ -139,12 +135,6 @@ extension RecipesHomeViewController {
     ) else { return }
     let dessertResponse = try? JSONDecoder().decode(RecipesData.self, from: dessertRecipesJsonData)
     dessertRecipesData = dessertResponse?.results ?? []
-
-    guard let ingredientsInformation = try? getData(
-      fromJSON: "IngredientsInformation"
-    ) else { return }
-    let ingredientsResponse = try? JSONDecoder().decode(IngredientsInformation.self, from: ingredientsInformation)
-    ingredientsInformationData = ingredientsResponse?.ingredientsInformation ?? []
 
     applyInitialSnapshots()
   }
@@ -223,7 +213,7 @@ extension RecipesHomeViewController {
       } else {
         cell.recipeIngredientsCount.text = String(recipe.extendedIngredients.count) + " ingredients"
       }
-      cell.recipePreprationTime.text = String(recipe.readyInMinutes) + " min prep"
+      cell.recipePreparationTime.text = String(recipe.readyInMinutes) + " min prep"
       cell.recipeTitleLabel.text = recipe.title
       print("Recipe Title: \(recipe.title)")
     }
@@ -297,4 +287,25 @@ extension RecipesHomeViewController {
 }
 
 extension RecipesHomeViewController: UICollectionViewDelegate {
+  func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    guard let recipesSection = RecipesSection(rawValue: indexPath.section) else { fatalError("Unknown section") }
+
+    let selectedRecipeData: RecipeData
+
+    switch recipesSection {
+    case .randomRecipes: selectedRecipeData = randomRecipesData[indexPath.row]
+    case .breakfast: selectedRecipeData = breakfastRecipesData[indexPath.row]
+    case .mainCourse: selectedRecipeData = mainCourseRecipesData[indexPath.row]
+    case .hummus: selectedRecipeData = hummusRecipesData[indexPath.row]
+    case .quickAndEasyRecipes: selectedRecipeData = quickAndEasyRecipesData[indexPath.row]
+    case .dessert: selectedRecipeData = dessertRecipesData[indexPath.row]
+    }
+
+    let recipeDetailViewController = self.storyboard?.instantiateViewController(
+      identifier: "RecipeDetailViewController"
+    ) as! RecipeDetailViewController
+
+    recipeDetailViewController.recipeData = selectedRecipeData
+    self.navigationController?.pushViewController(recipeDetailViewController, animated: true)
+  }
 }

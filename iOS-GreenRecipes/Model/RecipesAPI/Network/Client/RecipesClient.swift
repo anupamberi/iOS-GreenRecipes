@@ -14,12 +14,14 @@ class RecipesClient {
   enum Endpoints {
     static let base = "https://api.spoonacular.com/recipes/"
     static let recipePhotoBase = "https://spoonacular.com/recipeImages/"
+    static let ingredientPhotoBase = "https://spoonacular.com/cdn/"
 
     case getRandomRecipes
     case getRecipeInformation(Int)
     case getRecipeNutrition(Int)
     case searchRecipes(String)
     case recipePhoto(Int, String, String)
+    case ingredientPhoto(String, String)
 
     var stringValue: String {
       switch self {
@@ -31,8 +33,10 @@ class RecipesClient {
         return Endpoints.base + "\(recipeId)/nutritionWidget.json?"
       case .searchRecipes(let query):
         return Endpoints.base + "complexSearch?query=\(query)"
-      case .recipePhoto(let id, let size, let imageType):
+      case let .recipePhoto(id, size, imageType):
         return Endpoints.recipePhotoBase + "\(id)-\(size).\(imageType)"
+      case let .ingredientPhoto(size, imageName):
+        return Endpoints.recipePhotoBase + "ingredients_\(size)/\(imageName)"
       }
     }
 
@@ -52,6 +56,21 @@ class RecipesClient {
         return "312x231"
       case .large:
         return "556x370"
+      }
+    }
+  }
+
+  enum IngredientPhotoSize {
+    case small, medium, large
+
+    var stringValue: String {
+      switch self {
+      case .small:
+        return "100x100"
+      case .medium:
+        return "250x250"
+      case .large:
+        return "500x500"
       }
     }
   }
@@ -125,6 +144,22 @@ class RecipesClient {
       } else {
         completion([], error)
       }
+    }
+  }
+
+  // MARK: - Download the ingredient photo image given size and imageName
+  class func downloadIngredientPhoto(
+    ingredientImageSize: String,
+    ingredientImageName: String,
+    completion: @escaping(_ image: UIImage?) -> Void
+  ) {
+    // Construct the URL from the given photo information
+    let url = Endpoints.ingredientPhoto(ingredientImageSize, ingredientImageName).url
+    guard let imageData = try? Data(contentsOf: url) else { return }
+    if let image = UIImage(data: imageData) {
+      completion(image)
+    } else {
+      completion(nil)
     }
   }
 

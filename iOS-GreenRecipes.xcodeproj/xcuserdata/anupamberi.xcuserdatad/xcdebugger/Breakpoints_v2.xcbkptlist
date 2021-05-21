@@ -380,8 +380,8 @@
             filePath = "iOS-GreenRecipes/View Controllers/RecipesHomeViewController/RecipesHomeViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "288"
-            endingLineNumber = "288"
+            startingLineNumber = "280"
+            endingLineNumber = "280"
             landmarkName = "applyInitialSnapshots()"
             landmarkType = "7">
          </BreakpointContent>
@@ -396,9 +396,9 @@
             filePath = "iOS-GreenRecipes/View Controllers/RecipesHomeViewController/RecipesHomeViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "208"
-            endingLineNumber = "208"
-            landmarkName = "createRecipeWithDetailRegistration()"
+            startingLineNumber = "187"
+            endingLineNumber = "187"
+            landmarkName = "createLayout()"
             landmarkType = "7">
             <Locations>
                <Location
@@ -444,8 +444,8 @@
             filePath = "iOS-GreenRecipes/View Controllers/RecipesHomeViewController/RecipesHomeViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "107"
-            endingLineNumber = "107"
+            startingLineNumber = "102"
+            endingLineNumber = "102"
             landmarkName = "fetchData()"
             landmarkType = "7">
          </BreakpointContent>
@@ -460,8 +460,8 @@
             filePath = "iOS-GreenRecipes/View Controllers/RecipesHomeViewController/RecipesHomeViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "276"
-            endingLineNumber = "276"
+            startingLineNumber = "268"
+            endingLineNumber = "268"
             landmarkName = "configureDataSource()"
             landmarkType = "7">
          </BreakpointContent>
