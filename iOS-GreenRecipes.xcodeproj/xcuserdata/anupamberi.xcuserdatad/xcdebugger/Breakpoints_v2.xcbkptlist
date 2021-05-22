@@ -380,8 +380,8 @@
             filePath = "iOS-GreenRecipes/View Controllers/RecipesHomeViewController/RecipesHomeViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "280"
-            endingLineNumber = "280"
+            startingLineNumber = "283"
+            endingLineNumber = "283"
             landmarkName = "applyInitialSnapshots()"
             landmarkType = "7">
          </BreakpointContent>
@@ -396,8 +396,8 @@
             filePath = "iOS-GreenRecipes/View Controllers/RecipesHomeViewController/RecipesHomeViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "187"
-            endingLineNumber = "187"
+            startingLineNumber = "190"
+            endingLineNumber = "190"
             landmarkName = "createLayout()"
             landmarkType = "7">
             <Locations>
@@ -444,8 +444,8 @@
             filePath = "iOS-GreenRecipes/View Controllers/RecipesHomeViewController/RecipesHomeViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "102"
-            endingLineNumber = "102"
+            startingLineNumber = "105"
+            endingLineNumber = "105"
             landmarkName = "fetchData()"
             landmarkType = "7">
          </BreakpointContent>
@@ -460,8 +460,8 @@
             filePath = "iOS-GreenRecipes/View Controllers/RecipesHomeViewController/RecipesHomeViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "268"
-            endingLineNumber = "268"
+            startingLineNumber = "271"
+            endingLineNumber = "271"
             landmarkName = "configureDataSource()"
             landmarkType = "7">
          </BreakpointContent>

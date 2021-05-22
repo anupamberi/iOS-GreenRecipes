@@ -73,6 +73,9 @@ class RecipesHomeViewController: UIViewController {
 
   override func viewDidLoad() {
     super.viewDidLoad()
+
+    overrideUserInterfaceStyle = .dark
+
     configureTitle()
     configureHierarchy()
     configureDataSource()
