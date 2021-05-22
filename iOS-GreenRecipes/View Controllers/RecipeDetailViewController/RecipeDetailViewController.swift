@@ -52,13 +52,7 @@ extension RecipeDetailViewController {
     let recipeDataScrollView = UIScrollView()
     recipeDataScrollView.translatesAutoresizingMaskIntoConstraints = false
 
-    let recipeDetailsStackView = UIStackView()
-    recipeDetailsStackView.translatesAutoresizingMaskIntoConstraints = false
-    recipeDetailsStackView.axis = .vertical
-    recipeDetailsStackView.alignment = .center
-    recipeDetailsStackView.distribution = .fill
-    recipeDetailsStackView.spacing = 10
-
+    let recipeDetailsStackView = getVerticalStackView(enableSpacing: true)
     recipeDataScrollView.addSubview(recipeDetailsStackView)
     view.addSubview(recipeDataScrollView)
 
@@ -79,33 +73,33 @@ extension RecipeDetailViewController {
       }
     }
 
-    let recipeTitleLabel = UILabel()
-    recipeTitleLabel.translatesAutoresizingMaskIntoConstraints = false
-    recipeTitleLabel.font = UIFont.systemFont(ofSize: 18)
-    recipeTitleLabel.textAlignment = .center
-    recipeTitleLabel.numberOfLines = 3
-    recipeTitleLabel.lineBreakMode = .byWordWrapping
-    recipeTitleLabel.allowsDefaultTighteningForTruncation = true
-    recipeTitleLabel.textColor = .white
-    recipeTitleLabel.text = recipeData.title
+    let recipeTitle = UILabel()
+    recipeTitle.translatesAutoresizingMaskIntoConstraints = false
+    recipeTitle.font = UIFont.systemFont(ofSize: 18)
+    recipeTitle.textAlignment = .center
+    recipeTitle.numberOfLines = 3
+    recipeTitle.lineBreakMode = .byWordWrapping
+    recipeTitle.allowsDefaultTighteningForTruncation = true
+    recipeTitle.textColor = .white
+    recipeTitle.text = recipeData.title
 
-    let recipeTitleStackView = UIStackView()
-    recipeTitleStackView.translatesAutoresizingMaskIntoConstraints = false
-    recipeTitleStackView.axis = .vertical
-    recipeTitleStackView.alignment = .center
-    recipeTitleStackView.distribution = .fill
-    recipeTitleStackView.spacing = 10
-
+    let separatorView = SeparatorView()
+    let recipeTitleStackView = getVerticalStackView(enableSpacing: true)
     let recipeBasicInfoView = getRecipeBasicInfoView()
 
-    recipeTitleStackView.addArrangedSubview(recipeTitleLabel)
+    recipeTitleStackView.addArrangedSubview(recipeTitle)
     recipeTitleStackView.addArrangedSubview(recipeBasicInfoView)
 
-    let recipeNutritionView = getNutritionInfoView()
+    let recipeNutritionView = getRecipeNutritionInfoView()
+    let recipeIngredientsView = getRecipeIngredientsView()
+    let recipeInstructionsView = getRecipeInstructionsView()
 
     recipeDetailsStackView.addArrangedSubview(recipeImageView)
     recipeDetailsStackView.addArrangedSubview(recipeTitleStackView)
+    recipeDetailsStackView.addArrangedSubview(separatorView)
     recipeDetailsStackView.addArrangedSubview(recipeNutritionView)
+    recipeDetailsStackView.addArrangedSubview(recipeIngredientsView)
+    recipeDetailsStackView.addArrangedSubview(recipeInstructionsView)
 
     // Setup constraints
     NSLayoutConstraint.activate([
@@ -132,8 +126,17 @@ extension RecipeDetailViewController {
       recipeNutritionView.trailingAnchor.constraint(equalTo: recipeDataScrollView.trailingAnchor),
       recipeNutritionView.widthAnchor.constraint(equalTo: recipeDataScrollView.widthAnchor),
 
+      recipeIngredientsView.leadingAnchor.constraint(equalTo: recipeDataScrollView.leadingAnchor),
+      recipeIngredientsView.trailingAnchor.constraint(equalTo: recipeDataScrollView.trailingAnchor),
+      recipeIngredientsView.widthAnchor.constraint(equalTo: recipeDataScrollView.widthAnchor),
+
+      recipeInstructionsView.leadingAnchor.constraint(equalTo: recipeDataScrollView.leadingAnchor),
+      recipeInstructionsView.trailingAnchor.constraint(equalTo: recipeDataScrollView.trailingAnchor),
+      recipeInstructionsView.widthAnchor.constraint(equalTo: recipeDataScrollView.widthAnchor),
+      separatorView.widthAnchor.constraint(equalTo: recipeDataScrollView.widthAnchor),
+
       recipeImageView.heightAnchor.constraint(equalToConstant: 300.0),
-      recipeTitleLabel.heightAnchor.constraint(equalToConstant: 50)
+      recipeTitle.heightAnchor.constraint(equalToConstant: 50)
     ])
   }
 
@@ -191,13 +194,7 @@ extension RecipeDetailViewController {
   }
 
   func getRecipeBasicInfoSubView(title: UILabel, imageView: UIImageView) -> UIView {
-    let basicInfoView = UIStackView()
-    basicInfoView.translatesAutoresizingMaskIntoConstraints = false
-    basicInfoView.axis = .vertical
-    basicInfoView.alignment = .center
-    basicInfoView.distribution = .fill
-    basicInfoView.spacing = 10
-
+    let basicInfoView = getVerticalStackView(enableSpacing: true)
     basicInfoView.addArrangedSubview(imageView)
     basicInfoView.addArrangedSubview(title)
 
@@ -208,18 +205,14 @@ extension RecipeDetailViewController {
     return basicInfoView
   }
 
-  func getNutritionInfoView() -> UIView {
-    let nutritionView = UIStackView()
-    nutritionView.translatesAutoresizingMaskIntoConstraints = false
-    nutritionView.axis = .vertical
-    nutritionView.alignment = .center
-    nutritionView.distribution = .fill
+  func getRecipeNutritionInfoView() -> UIView {
+    let nutritionView = getVerticalStackView(enableSpacing: false)
 
-    let viewTitle = UILabel()
-    viewTitle.font = UIFont.systemFont(ofSize: 18)
-    viewTitle.adjustsFontSizeToFitWidth = true
-    viewTitle.textColor = .white
-    viewTitle.text = "Nutrition"
+    let nutritionTitle = UILabel()
+    nutritionTitle.font = UIFont.systemFont(ofSize: 18)
+    nutritionTitle.adjustsFontSizeToFitWidth = true
+    nutritionTitle.textColor = .white
+    nutritionTitle.text = "Nutrition"
 
     let carbsChart = getNutrientChart(nutrientTitle: "Carbohydrates")
     let proteinChart = getNutrientChart(nutrientTitle: "Protein")
@@ -235,11 +228,11 @@ extension RecipeDetailViewController {
     nutritionInfoView.addArrangedSubview(proteinChart.view)
     nutritionInfoView.addArrangedSubview(fatChart.view)
 
-    nutritionView.addArrangedSubview(viewTitle)
+    nutritionView.addArrangedSubview(nutritionTitle)
     nutritionView.addArrangedSubview(nutritionInfoView)
 
     NSLayoutConstraint.activate([
-      viewTitle.heightAnchor.constraint(equalToConstant: 50)
+      nutritionTitle.heightAnchor.constraint(equalToConstant: 50)
     ])
 
     return nutritionView
@@ -264,11 +257,7 @@ extension RecipeDetailViewController {
       nutrientLabel.text = nutrientTitle
     }
 
-    let nutrientView = UIStackView()
-    nutrientView.translatesAutoresizingMaskIntoConstraints = false
-    nutrientView.axis = .vertical
-    nutrientView.alignment = .center
-    nutrientView.distribution = .fill
+    let nutrientView = getVerticalStackView(enableSpacing: false)
 
     setUpChartView(nutrientAmount: nutrientData.amount, nutrientPercent: nutrientData.percent, chartView: nutrientChart)
     let nutritionChartDataSet = PieChartDataSet(entries: nutrientData.entries, label: nutrientTitle)
@@ -288,15 +277,8 @@ extension RecipeDetailViewController {
 
   func setUpChartView(nutrientAmount: String, nutrientPercent: String, chartView: PieChartView) {
     let centerText = NSMutableAttributedString(string: nutrientAmount + "\n" + nutrientPercent)
-    print(centerText)
-    print(nutrientAmount.count)
-    print(nutrientPercent.count)
-    print(centerText.length)
-
-
     let paragrapheStyleMutable = NSParagraphStyle.default.mutableCopy()
     guard let paragrapheStyle = paragrapheStyleMutable as? NSMutableParagraphStyle else { return }
-    
     paragrapheStyle.lineBreakMode = .byTruncatingTail
     paragrapheStyle.alignment = .center
     paragrapheStyle.lineSpacing = 5
@@ -380,5 +362,65 @@ extension RecipeDetailViewController {
       }
     }
     return (nutrientAmount, nutrientPercent, dataEntries)
+  }
+
+  func getRecipeIngredientsView() -> UIView {
+    let ingredientsTitle = UILabel()
+    ingredientsTitle.textAlignment = .center
+    ingredientsTitle.font = UIFont.systemFont(ofSize: 18)
+    ingredientsTitle.adjustsFontSizeToFitWidth = true
+    ingredientsTitle.textColor = .white
+    ingredientsTitle.text = "Ingredients"
+
+    let ingredientsView = getVerticalStackView(enableSpacing: true)
+    ingredientsView.addArrangedSubview(ingredientsTitle)
+
+    for ingredient in recipeData.extendedIngredients {
+      let ingredientDescription = UILabel()
+      ingredientDescription.textAlignment = .left
+      ingredientDescription.numberOfLines = 0
+      ingredientDescription.lineBreakMode = .byWordWrapping
+      ingredientDescription.allowsDefaultTighteningForTruncation = true
+      ingredientDescription.font = UIFont.systemFont(ofSize: 14)
+      ingredientDescription.adjustsFontSizeToFitWidth = true
+      ingredientDescription.textColor = .white
+      ingredientDescription.text = " • " + ingredient.originalString
+
+      ingredientsView.addArrangedSubview(ingredientDescription)
+    }
+    NSLayoutConstraint.activate([
+      ingredientsTitle.heightAnchor.constraint(equalToConstant: 50)
+    ])
+    return ingredientsView
+  }
+
+  func getRecipeInstructionsView() -> UIView {
+    let instructionsTitle = UILabel()
+    instructionsTitle.textAlignment = .center
+    instructionsTitle.font = UIFont.systemFont(ofSize: 18)
+    instructionsTitle.adjustsFontSizeToFitWidth = true
+    instructionsTitle.textColor = .white
+    instructionsTitle.text = "Instructions"
+
+    let instructionsView = getVerticalStackView(enableSpacing: true)
+    instructionsView.alignment = .leading
+    instructionsView.addArrangedSubview(instructionsTitle)
+
+    for instructionStep in recipeData.analyzedInstructions[0].steps {
+      let instructionDescription = UILabel()
+      instructionDescription.textAlignment = .left
+      instructionDescription.numberOfLines = 0
+      instructionDescription.lineBreakMode = .byWordWrapping
+      instructionDescription.allowsDefaultTighteningForTruncation = true
+      instructionDescription.font = UIFont.systemFont(ofSize: 14)
+      instructionDescription.textColor = .white
+      instructionDescription.text = " • " + instructionStep.step
+
+      instructionsView.addArrangedSubview(instructionDescription)
+    }
+    NSLayoutConstraint.activate([
+      instructionsTitle.heightAnchor.constraint(equalToConstant: 50)
+    ])
+    return instructionsView
   }
 }

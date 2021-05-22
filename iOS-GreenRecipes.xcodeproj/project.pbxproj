@@ -37,6 +37,11 @@
 		1E1266BA265835C0006EF882 /* RecipeNutritionResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = 1E1266B9265835C0006EF882 /* RecipeNutritionResponse.json */; };
 		1E1266BB265835C0006EF882 /* RecipeNutritionResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = 1E1266B9265835C0006EF882 /* RecipeNutritionResponse.json */; };
 		1E1266BC265835C0006EF882 /* RecipeNutritionResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = 1E1266B9265835C0006EF882 /* RecipeNutritionResponse.json */; };
+		1E1266BF26585034006EF882 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E1266BE26585034006EF882 /* UIViewController+Extension.swift */; };
+		1E1266C026585034006EF882 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E1266BE26585034006EF882 /* UIViewController+Extension.swift */; };
+		1E1266C1265852E8006EF882 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E1266B62658067F006EF882 /* UIColor+Extension.swift */; };
+		1E1266C326585514006EF882 /* SeparatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E1266C226585514006EF882 /* SeparatorView.swift */; };
+		1E1266C426585514006EF882 /* SeparatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E1266C226585514006EF882 /* SeparatorView.swift */; };
 		1E2BD363264D1C73000BD059 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E2BD362264D1C73000BD059 /* DataController.swift */; };
 		1E2BD366264D1E9F000BD059 /* GreenRecipes.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1E2BD364264D1E9F000BD059 /* GreenRecipes.xcdatamodeld */; };
 		1E2BD368264D2807000BD059 /* NutritionData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E2BD367264D2807000BD059 /* NutritionData.swift */; };
@@ -131,6 +136,8 @@
 		1E009A532646999B00D4B079 /* RecipesRandomSearchResponseWithNullValues.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = RecipesRandomSearchResponseWithNullValues.json; sourceTree = "<group>"; };
 		1E1266B62658067F006EF882 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		1E1266B9265835C0006EF882 /* RecipeNutritionResponse.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = RecipeNutritionResponse.json; sourceTree = "<group>"; };
+		1E1266BE26585034006EF882 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
+		1E1266C226585514006EF882 /* SeparatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeparatorView.swift; sourceTree = "<group>"; };
 		1E2BD362264D1C73000BD059 /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
 		1E2BD365264D1E9F000BD059 /* GreenRecipes.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = GreenRecipes.xcdatamodel; sourceTree = "<group>"; };
 		1E2BD367264D2807000BD059 /* NutritionData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutritionData.swift; sourceTree = "<group>"; };
@@ -266,6 +273,7 @@
 		1E009A35264681B100D4B079 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				1E1266BD2658501B006EF882 /* Extensions */,
 				1E8216752651B72500DE0F9A /* RecipeDetailViewController */,
 				1E894998264D139300EC0A22 /* RecipesHomeViewController */,
 			);
@@ -319,6 +327,16 @@
 			path = "Recipe Nutrition Results";
 			sourceTree = "<group>";
 		};
+		1E1266BD2658501B006EF882 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				1E1266BE26585034006EF882 /* UIViewController+Extension.swift */,
+				1E1266B62658067F006EF882 /* UIColor+Extension.swift */,
+				1E1266C226585514006EF882 /* SeparatorView.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		1E2BD360264D1BF4000BD059 /* Network */ = {
 			isa = PBXGroup;
 			children = (
@@ -341,7 +359,6 @@
 			isa = PBXGroup;
 			children = (
 				1E8216762651B74700DE0F9A /* RecipeDetailViewController.swift */,
-				1E1266B62658067F006EF882 /* UIColor+Extension.swift */,
 			);
 			path = RecipeDetailViewController;
 			sourceTree = "<group>";
@@ -615,11 +632,13 @@
 				1E2BD366264D1E9F000BD059 /* GreenRecipes.xcdatamodeld in Sources */,
 				1E1266B72658067F006EF882 /* UIColor+Extension.swift in Sources */,
 				1E009A032646813B00D4B079 /* RecipesHomeViewController.swift in Sources */,
+				1E1266C326585514006EF882 /* SeparatorView.swift in Sources */,
 				1E0099FF2646813B00D4B079 /* AppDelegate.swift in Sources */,
 				1E009A4626468C0400D4B079 /* InstructionData.swift in Sources */,
 				1E2BD374264DB185000BD059 /* RecipeWithDetailViewCell.swift in Sources */,
 				1E8216772651B74700DE0F9A /* RecipeDetailViewController.swift in Sources */,
 				1E009A422646875D00D4B079 /* IngredientData.swift in Sources */,
+				1E1266BF26585034006EF882 /* UIViewController+Extension.swift in Sources */,
 				1E009A012646813B00D4B079 /* SceneDelegate.swift in Sources */,
 				1E2BD363264D1C73000BD059 /* DataController.swift in Sources */,
 				1E009A4E2646914700D4B079 /* RecipesData.swift in Sources */,
@@ -638,9 +657,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1E1266C426585514006EF882 /* SeparatorView.swift in Sources */,
+				1E1266C026585034006EF882 /* UIViewController+Extension.swift in Sources */,
 				1E2BD375264DB185000BD059 /* RecipeWithDetailViewCell.swift in Sources */,
 				1E4FBAB9265054C90033FA6D /* RecipeWithTitleViewCell.swift in Sources */,
 				1E2BD37E264E77B5000BD059 /* RecipesSectionTitleView.swift in Sources */,
+				1E1266C1265852E8006EF882 /* UIColor+Extension.swift in Sources */,
 				1E009A432646875D00D4B079 /* IngredientData.swift in Sources */,
 				1E894999264D1AFE00EC0A22 /* RecipesData.swift in Sources */,
 				1E009A4726468C0400D4B079 /* InstructionData.swift in Sources */,
