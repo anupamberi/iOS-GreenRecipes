@@ -40,8 +40,6 @@
 		1E1266BF26585034006EF882 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E1266BE26585034006EF882 /* UIViewController+Extension.swift */; };
 		1E1266C026585034006EF882 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E1266BE26585034006EF882 /* UIViewController+Extension.swift */; };
 		1E1266C1265852E8006EF882 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E1266B62658067F006EF882 /* UIColor+Extension.swift */; };
-		1E1266C326585514006EF882 /* SeparatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E1266C226585514006EF882 /* SeparatorView.swift */; };
-		1E1266C426585514006EF882 /* SeparatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E1266C226585514006EF882 /* SeparatorView.swift */; };
 		1E2BD363264D1C73000BD059 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E2BD362264D1C73000BD059 /* DataController.swift */; };
 		1E2BD366264D1E9F000BD059 /* GreenRecipes.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1E2BD364264D1E9F000BD059 /* GreenRecipes.xcdatamodeld */; };
 		1E2BD368264D2807000BD059 /* NutritionData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E2BD367264D2807000BD059 /* NutritionData.swift */; };
@@ -137,7 +135,6 @@
 		1E1266B62658067F006EF882 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		1E1266B9265835C0006EF882 /* RecipeNutritionResponse.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = RecipeNutritionResponse.json; sourceTree = "<group>"; };
 		1E1266BE26585034006EF882 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
-		1E1266C226585514006EF882 /* SeparatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeparatorView.swift; sourceTree = "<group>"; };
 		1E2BD362264D1C73000BD059 /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
 		1E2BD365264D1E9F000BD059 /* GreenRecipes.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = GreenRecipes.xcdatamodel; sourceTree = "<group>"; };
 		1E2BD367264D2807000BD059 /* NutritionData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutritionData.swift; sourceTree = "<group>"; };
@@ -332,7 +329,6 @@
 			children = (
 				1E1266BE26585034006EF882 /* UIViewController+Extension.swift */,
 				1E1266B62658067F006EF882 /* UIColor+Extension.swift */,
-				1E1266C226585514006EF882 /* SeparatorView.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -632,7 +628,6 @@
 				1E2BD366264D1E9F000BD059 /* GreenRecipes.xcdatamodeld in Sources */,
 				1E1266B72658067F006EF882 /* UIColor+Extension.swift in Sources */,
 				1E009A032646813B00D4B079 /* RecipesHomeViewController.swift in Sources */,
-				1E1266C326585514006EF882 /* SeparatorView.swift in Sources */,
 				1E0099FF2646813B00D4B079 /* AppDelegate.swift in Sources */,
 				1E009A4626468C0400D4B079 /* InstructionData.swift in Sources */,
 				1E2BD374264DB185000BD059 /* RecipeWithDetailViewCell.swift in Sources */,
@@ -657,7 +652,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1E1266C426585514006EF882 /* SeparatorView.swift in Sources */,
 				1E1266C026585034006EF882 /* UIViewController+Extension.swift in Sources */,
 				1E2BD375264DB185000BD059 /* RecipeWithDetailViewCell.swift in Sources */,
 				1E4FBAB9265054C90033FA6D /* RecipeWithTitleViewCell.swift in Sources */,
