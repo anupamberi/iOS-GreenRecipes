@@ -12,4 +12,13 @@ struct NutritionData: Codable {
   var carbs: String
   var fat: String
   var protein: String
+  var bad: [NutritionAmount]
+  var good: [NutritionAmount]
+}
+
+struct NutritionAmount: Codable {
+  var title: String
+  var amount: String
+  var indented: Bool
+  var percentOfDailyNeeds: Double
 }

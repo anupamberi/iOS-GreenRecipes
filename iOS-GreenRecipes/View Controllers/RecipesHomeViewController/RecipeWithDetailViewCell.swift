@@ -11,7 +11,7 @@ class RecipeWithDetailViewCell: UICollectionViewCell {
   static let reuseIdentifier = "RecipeCellReuseIdentifier"
   var recipeImageView = UIImageView()
   var recipeTitleLabel = UILabel()
-  var recipePreprationTime = UILabel()
+  var recipePreparationTime = UILabel()
   var recipeIngredientsCount = UILabel()
 
   override init(frame: CGRect) {
@@ -34,18 +34,13 @@ extension RecipeWithDetailViewCell {
     recipeTitleLabel.allowsDefaultTighteningForTruncation = true
     recipeTitleLabel.textColor = .systemGreen
 
-    recipePreprationTime.font = UIFont.systemFont(ofSize: 12)
-    recipePreprationTime.adjustsFontSizeToFitWidth = true
-    recipePreprationTime.textColor = .white
+    recipePreparationTime.font = UIFont.systemFont(ofSize: 12)
+    recipePreparationTime.adjustsFontSizeToFitWidth = true
+    recipePreparationTime.textColor = .white
 
     recipeIngredientsCount.font = UIFont.systemFont(ofSize: 12)
     recipeIngredientsCount.adjustsFontSizeToFitWidth = true
     recipeIngredientsCount.textColor = .white
-
-    let prepStackView = UIStackView()
-    prepStackView.axis = .horizontal
-    prepStackView.alignment = .center
-    prepStackView.translatesAutoresizingMaskIntoConstraints = false
 
     let cookingImageView = UIImageView(image: UIImage(named: "cooking"))
     cookingImageView.clipsToBounds = true
@@ -69,7 +64,7 @@ extension RecipeWithDetailViewCell {
     hStackView.translatesAutoresizingMaskIntoConstraints = false
 
     hStackView.addArrangedSubview(cookingImageView)
-    hStackView.addArrangedSubview(recipePreprationTime)
+    hStackView.addArrangedSubview(recipePreparationTime)
     hStackView.addArrangedSubview(ingredientsImageView)
     hStackView.addArrangedSubview(recipeIngredientsCount)
 
