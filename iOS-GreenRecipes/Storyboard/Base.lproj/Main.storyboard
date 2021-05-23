@@ -8,14 +8,17 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Tab Bar Controller-->
+        <!--Recipes Tab Bar Controller-->
         <scene sceneID="tgY-L0-91c">
             <objects>
-                <tabBarController id="zrj-Gh-80g" sceneMemberID="viewController">
-                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Wap-tf-hNe">
+                <tabBarController storyboardIdentifier="RecipesTabBarController" id="zrj-Gh-80g" customClass="RecipesTabBarController" customModule="iOS_GreenRecipes" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBar key="tabBar" clipsSubviews="YES" contentMode="scaleAspectFit" preservesSuperviewLayoutMargins="YES" layoutMarginsFollowReadableWidth="YES" id="Wap-tf-hNe">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="barTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="selectedImageTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
                         <segue destination="ag7-J6-tvY" kind="relationship" relationship="viewControllers" id="Hha-oK-03H"/>
@@ -30,8 +33,10 @@
         <scene sceneID="M0M-qC-NiQ">
             <objects>
                 <navigationController id="ag7-J6-tvY" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Home" image="home" id="NIS-ke-qHy"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="3ip-YI-oNJ">
+                    <tabBarItem key="tabBarItem" title="Home" image="home" id="NIS-ke-qHy">
+                        <inset key="imageInsets" minX="10" minY="10" maxX="10" maxY="10"/>
+                    </tabBarItem>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="3ip-YI-oNJ">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -59,12 +64,15 @@
             </objects>
             <point key="canvasLocation" x="-1158" y="-108"/>
         </scene>
-        <!--Search Recipes-->
+        <!--Navigation Controller-->
         <scene sceneID="1Ek-xJ-Zbj">
             <objects>
                 <navigationController id="ftH-Mx-IWo" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Search Recipes" image="recipe" id="MFZ-2a-wJN"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="4MW-VW-u5w">
+                    <tabBarItem key="tabBarItem" systemItem="search" id="MFZ-2a-wJN">
+                        <inset key="imageInsets" minX="10" minY="15" maxX="10" maxY="10"/>
+                        <color key="badgeColor" systemColor="systemGreenColor"/>
+                    </tabBarItem>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="4MW-VW-u5w">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -108,11 +116,14 @@
             <point key="canvasLocation" x="-297" y="909"/>
         </scene>
     </scenes>
+    <color key="tintColor" systemColor="systemGreenColor"/>
     <resources>
         <image name="home" width="48" height="48"/>
-        <image name="recipe" width="50" height="50"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGreenColor">
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

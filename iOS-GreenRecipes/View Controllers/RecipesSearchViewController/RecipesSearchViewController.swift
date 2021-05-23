@@ -8,6 +8,9 @@
 import UIKit
 
 class RecipesSearchViewController: UIViewController {
+  // swiftlint:disable implicitly_unwrapped_optional
+  var dataController: DataController!
+  // swiftlint:enable implicitly_unwrapped_optional
 
   override func viewDidLoad() {
     super.viewDidLoad()
