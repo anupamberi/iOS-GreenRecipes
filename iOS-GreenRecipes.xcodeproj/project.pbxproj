@@ -98,6 +98,12 @@
 		1EB78279265BC28300FDFCDB /* RecipeCategoryViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EB78277265BC28300FDFCDB /* RecipeCategoryViewCell.swift */; };
 		1EB7827B265BFA5100FDFCDB /* RecipesSearchResponseIndian.json in Resources */ = {isa = PBXBuildFile; fileRef = 1EB7827A265BFA5100FDFCDB /* RecipesSearchResponseIndian.json */; };
 		1EB7827C265BFA5100FDFCDB /* RecipesSearchResponseIndian.json in Resources */ = {isa = PBXBuildFile; fileRef = 1EB7827A265BFA5100FDFCDB /* RecipesSearchResponseIndian.json */; };
+		1EB7827E265C4E8300FDFCDB /* RecipesSearchResponseChinese.json in Resources */ = {isa = PBXBuildFile; fileRef = 1EB7827D265C4E8300FDFCDB /* RecipesSearchResponseChinese.json */; };
+		1EB7827F265C4E8300FDFCDB /* RecipesSearchResponseChinese.json in Resources */ = {isa = PBXBuildFile; fileRef = 1EB7827D265C4E8300FDFCDB /* RecipesSearchResponseChinese.json */; };
+		1EB78281265C4EBA00FDFCDB /* RecipesSearchResponseMiddleEastern.json in Resources */ = {isa = PBXBuildFile; fileRef = 1EB78280265C4EBA00FDFCDB /* RecipesSearchResponseMiddleEastern.json */; };
+		1EB78282265C4EBA00FDFCDB /* RecipesSearchResponseMiddleEastern.json in Resources */ = {isa = PBXBuildFile; fileRef = 1EB78280265C4EBA00FDFCDB /* RecipesSearchResponseMiddleEastern.json */; };
+		1EB78284265C4EDC00FDFCDB /* RecipesSearchResponseItalian.json in Resources */ = {isa = PBXBuildFile; fileRef = 1EB78283265C4EDC00FDFCDB /* RecipesSearchResponseItalian.json */; };
+		1EB78285265C4EDC00FDFCDB /* RecipesSearchResponseItalian.json in Resources */ = {isa = PBXBuildFile; fileRef = 1EB78283265C4EDC00FDFCDB /* RecipesSearchResponseItalian.json */; };
 		E1AD412C56C1E040F300A0C3 /* Pods_iOS_GreenRecipes.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA783C469C9CF2342BF88F0B /* Pods_iOS_GreenRecipes.framework */; };
 /* End PBXBuildFile section */
 
@@ -169,6 +175,9 @@
 		1EB78274265BAD5700FDFCDB /* RecipeCategoriesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeCategoriesController.swift; sourceTree = "<group>"; };
 		1EB78277265BC28300FDFCDB /* RecipeCategoryViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeCategoryViewCell.swift; sourceTree = "<group>"; };
 		1EB7827A265BFA5100FDFCDB /* RecipesSearchResponseIndian.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = RecipesSearchResponseIndian.json; sourceTree = "<group>"; };
+		1EB7827D265C4E8300FDFCDB /* RecipesSearchResponseChinese.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = RecipesSearchResponseChinese.json; sourceTree = "<group>"; };
+		1EB78280265C4EBA00FDFCDB /* RecipesSearchResponseMiddleEastern.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = RecipesSearchResponseMiddleEastern.json; sourceTree = "<group>"; };
+		1EB78283265C4EDC00FDFCDB /* RecipesSearchResponseItalian.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = RecipesSearchResponseItalian.json; sourceTree = "<group>"; };
 		3953F7CCA51EC0BC0E0DF5B4 /* Pods-iOS-GreenRecipes.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOS-GreenRecipes.release.xcconfig"; path = "Target Support Files/Pods-iOS-GreenRecipes/Pods-iOS-GreenRecipes.release.xcconfig"; sourceTree = "<group>"; };
 		AA783C469C9CF2342BF88F0B /* Pods_iOS_GreenRecipes.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iOS_GreenRecipes.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -402,6 +411,9 @@
 				1E2BD390264FD7E1000BD059 /* RecipesSearchResponseMainCourse.json */,
 				1E2BD394264FD8F1000BD059 /* RecipesSearchResponseBreakfast.json */,
 				1EB7827A265BFA5100FDFCDB /* RecipesSearchResponseIndian.json */,
+				1EB7827D265C4E8300FDFCDB /* RecipesSearchResponseChinese.json */,
+				1EB78280265C4EBA00FDFCDB /* RecipesSearchResponseMiddleEastern.json */,
+				1EB78283265C4EDC00FDFCDB /* RecipesSearchResponseItalian.json */,
 			);
 			path = "Recipes  Search Results";
 			sourceTree = "<group>";
@@ -554,12 +566,15 @@
 				1E2BD389264FD3C1000BD059 /* RecipesSearchResponseHummus.json in Resources */,
 				1E2BD386264F170B000BD059 /* RecipesSearchResponse.json in Resources */,
 				1E009A0E2646813C00D4B079 /* LaunchScreen.storyboard in Resources */,
+				1EB78284265C4EDC00FDFCDB /* RecipesSearchResponseItalian.json in Resources */,
 				1E009A0B2646813C00D4B079 /* Assets.xcassets in Resources */,
+				1EB7827E265C4E8300FDFCDB /* RecipesSearchResponseChinese.json in Resources */,
 				1E4FBABC265063730033FA6D /* IngredientsInformation.json in Resources */,
 				1E2BD377264DCF0E000BD059 /* RecipesRandomSearchResponseWithNullValues.json in Resources */,
 				1E2BD395264FD8F1000BD059 /* RecipesSearchResponseBreakfast.json in Resources */,
 				1E1266BA265835C0006EF882 /* RecipeNutritionResponse.json in Resources */,
 				1E2BD379264DD2A0000BD059 /* RecipesRandomSearchResponseWithoutImage.json in Resources */,
+				1EB78281265C4EBA00FDFCDB /* RecipesSearchResponseMiddleEastern.json in Resources */,
 				1E009A062646813B00D4B079 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -568,6 +583,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1EB7827F265C4E8300FDFCDB /* RecipesSearchResponseChinese.json in Resources */,
 				1E2BD392264FD7E1000BD059 /* RecipesSearchResponseMainCourse.json in Resources */,
 				1E2BD396264FD8F1000BD059 /* RecipesSearchResponseBreakfast.json in Resources */,
 				1EA62CA12646C3A200706D3C /* RecipesRandomSearchResponse.json in Resources */,
@@ -577,6 +593,8 @@
 				1E2BD37A264DD332000BD059 /* Assets.xcassets in Resources */,
 				1E2BD385264F170B000BD059 /* RecipesSearchResponse.json in Resources */,
 				1EA62CA52646DFAF00706D3C /* RecipesRandomSearchResponseWithoutImage.json in Resources */,
+				1EB78282265C4EBA00FDFCDB /* RecipesSearchResponseMiddleEastern.json in Resources */,
+				1EB78285265C4EDC00FDFCDB /* RecipesSearchResponseItalian.json in Resources */,
 				1E1266BB265835C0006EF882 /* RecipeNutritionResponse.json in Resources */,
 				1E2BD38E264FD4A9000BD059 /* RecipesSearchResponseDessert.json in Resources */,
 				1E4FBABD265063730033FA6D /* IngredientsInformation.json in Resources */,

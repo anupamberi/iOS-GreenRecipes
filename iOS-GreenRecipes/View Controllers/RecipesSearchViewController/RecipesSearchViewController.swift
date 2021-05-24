@@ -8,13 +8,25 @@
 import UIKit
 
 class RecipesSearchViewController: UIViewController {
-  enum RecipesSection: Int, CaseIterable {
+  struct RecipesSectionDataItem: Hashable {
+    var recipeCategory: RecipeCategoriesController.RecipeCategory?
+    var recipe: RecipeData?
+    private let identifier = UUID()
+
+    init(recipeCategory: RecipeCategoriesController.RecipeCategory? = nil, recipe: RecipeData? = nil) {
+      self.recipeCategory = recipeCategory
+      self.recipe = recipe
+    }
+  }
+
+  enum RecipesSectionData: Int, CaseIterable {
     case categories
+    case results
   }
   // swiftlint:disable implicitly_unwrapped_optional
   var dataController: DataController!
   var recipesSearchCollectionView: UICollectionView!
-  var dataSource: UICollectionViewDiffableDataSource<RecipesSection, RecipeCategoriesController.RecipeCategory>!
+  var dataSource: UICollectionViewDiffableDataSource<RecipesSectionData, RecipesSectionDataItem>!
   // swiftlint:enable implicitly_unwrapped_optional
 
   let recipeCategoriesController = RecipeCategoriesController()
@@ -25,6 +37,16 @@ class RecipesSearchViewController: UIViewController {
     configureHierarchy()
     configureDataSource()
     applySnapshots()
+  }
+
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
+    // Select the first item in first section
+    let indexPath = IndexPath(row: 0, section: 0)
+    recipesSearchCollectionView.delegate?.collectionView?(
+      recipesSearchCollectionView,
+      didSelectItemAt: indexPath
+    )
   }
 
   func getData(fromJSON fileName: String) throws -> Data {
@@ -39,6 +61,12 @@ class RecipesSearchViewController: UIViewController {
       throw error
     }
   }
+
+  func searchRecipes(jsonFile: String) -> [RecipeData] {
+    guard let recipesSearchData = try? getData(fromJSON: jsonFile) else { return [] }
+    let recipesSearchResponse = try? JSONDecoder().decode(RecipesData.self, from: recipesSearchData)
+    return recipesSearchResponse?.results ?? []
+  }
 }
 
 extension RecipesSearchViewController {
@@ -50,7 +78,7 @@ extension RecipesSearchViewController {
     view.addSubview(recipesSearchCollectionView)
   }
 
-  func createRecipeWithDetailRegistration() -> UICollectionView.CellRegistration<RecipeWithDetailViewCell, RecipeData> {
+  func createRecipeCellRegistration() -> UICollectionView.CellRegistration<RecipeWithDetailViewCell, RecipeData> {
     return UICollectionView.CellRegistration<RecipeWithDetailViewCell, RecipeData> { cell, _, recipe in
       cell.recipeImageView.image = UIImage(named: "placeholder")
       DispatchQueue.global(qos: .background).async {
@@ -70,30 +98,41 @@ extension RecipesSearchViewController {
       }
       cell.recipePreparationTime.text = String(recipe.readyInMinutes) + " min prep"
       cell.recipeTitleLabel.text = recipe.title
-      print("Recipe Title: \(recipe.title)")
     }
   }
 
   func configureDataSource() {
     let recipeCategoryCellRegistration = UICollectionView.CellRegistration
-    <RecipeCategoryViewCell, RecipeCategoriesController.RecipeCategory> { cell, _, recipeCategory in
-      cell.recipeCategoryImageView.image = recipeCategory.recipeCategoryImage
-      cell.recipeCategoryTitle.text = recipeCategory.recipeCategoryName
+    <RecipeCategoryViewCell, RecipesSectionDataItem> { cell, _, recipeSearchItem in
+      cell.recipeCategoryImageView.image = recipeSearchItem.recipeCategory?.recipeCategoryImage
+      cell.recipeCategoryTitle.text = recipeSearchItem.recipeCategory?.recipeCategoryName
     }
 
-    dataSource = UICollectionViewDiffableDataSource<RecipesSection, RecipeCategoriesController.RecipeCategory>(
-      collectionView: recipesSearchCollectionView) { collectionView, indexPath, identifier -> UICollectionViewCell? in
-      return collectionView.dequeueConfiguredReusableCell(
-        using: recipeCategoryCellRegistration,
-        for: indexPath,
-        item: identifier
-      )
+    let recipeCellRegistration = createRecipeCellRegistration()
+
+    dataSource = UICollectionViewDiffableDataSource<RecipesSectionData, RecipesSectionDataItem>(
+      collectionView: recipesSearchCollectionView) { collectionView, indexPath, item -> UICollectionViewCell? in
+      guard let sectionKind = RecipesSectionData(rawValue: indexPath.section) else { fatalError("Unknown") }
+      switch sectionKind {
+      case .categories:
+        return collectionView.dequeueConfiguredReusableCell(
+          using: recipeCategoryCellRegistration,
+          for: indexPath,
+          item: item
+        )
+      case .results:
+        return collectionView.dequeueConfiguredReusableCell(
+          using: recipeCellRegistration,
+          for: indexPath,
+          item: item.recipe
+        )
+      }
     }
   }
 
   func createLayout() -> UICollectionViewLayout {
     let sectionProvider = { (sectionIndex: Int, _ : NSCollectionLayoutEnvironment) -> NSCollectionLayoutSection? in
-      guard let sectionType = RecipesSection(rawValue: sectionIndex) else { return nil }
+      guard let sectionType = RecipesSectionData(rawValue: sectionIndex) else { return nil }
 
       let section: NSCollectionLayoutSection
 
@@ -115,6 +154,23 @@ extension RecipesSearchViewController {
         section.interGroupSpacing = 10
         section.orthogonalScrollingBehavior = .groupPaging
         section.contentInsets = NSDirectionalEdgeInsets(top: 5, leading: 5, bottom: 5, trailing: 5)
+      } else if sectionType == .results {
+        // orthogonal scrolling sections
+        let itemSize = NSCollectionLayoutSize(
+          widthDimension: .fractionalWidth(1.0),
+          heightDimension: .fractionalHeight(1.0)
+        )
+        let item = NSCollectionLayoutItem(layoutSize: itemSize)
+
+        let groupSize = NSCollectionLayoutSize(
+          widthDimension: .fractionalWidth(1.0),
+          heightDimension: .estimated(300)
+        )
+
+        let group = NSCollectionLayoutGroup.vertical(layoutSize: groupSize, subitems: [item])
+        section = NSCollectionLayoutSection(group: group)
+        section.interGroupSpacing = 10
+        section.contentInsets = NSDirectionalEdgeInsets(top: 5, leading: 5, bottom: 5, trailing: 5)
       } else {
         fatalError("Unknown section")
       }
@@ -123,30 +179,75 @@ extension RecipesSearchViewController {
     return UICollectionViewCompositionalLayout(sectionProvider: sectionProvider)
   }
 
-  func applySnapshots() {
-    let sections = RecipesSection.allCases
-    var snapshot = NSDiffableDataSourceSnapshot<RecipesSection, RecipeCategoriesController.RecipeCategory>()
+  private func applySnapshots() {
+    let sections = RecipesSectionData.allCases
+    var snapshot = NSDiffableDataSourceSnapshot<RecipesSectionData, RecipesSectionDataItem>()
     snapshot.appendSections(sections)
+    // Recipe Categories Section
+    applyRecipeCategoriesSnapshot()
+    // Recipe Results Section
+    let recipesSearched = searchRecipes(jsonFile: "RecipesSearchResponseIndian")
+    applySearchedRecipesSnapshot(recipes: recipesSearched)
+  }
+
+  private func applySearchedRecipesSnapshot(recipes: [RecipeData]) {
+    // Recipe Results Section
+    var recipesSearchedSectionItem: [RecipesSectionDataItem] = []
+    for recipe in recipes {
+      let recipeSearchItem = RecipesSectionDataItem(recipeCategory: nil, recipe: recipe)
+      recipesSearchedSectionItem.append(recipeSearchItem)
+    }
+    var recipesSearchSnapshot = NSDiffableDataSourceSectionSnapshot<RecipesSectionDataItem>()
+    recipesSearchSnapshot.append(recipesSearchedSectionItem)
+    dataSource.apply(recipesSearchSnapshot, to: .results, animatingDifferences: true)
+  }
+
+  private func applyRecipeCategoriesSnapshot() {
+    // Recipe Categories Section
     let recipeCategories = recipeCategoriesController.recipeCategories
-    snapshot.appendItems(recipeCategories, toSection: .categories)
-    dataSource.apply(snapshot)
+    var recipeCategoriesSectionItem: [RecipesSectionDataItem] = []
+    for recipeCategory in recipeCategories {
+      let recipeSearchItem = RecipesSectionDataItem(recipeCategory: recipeCategory, recipe: nil)
+      recipeCategoriesSectionItem.append(recipeSearchItem)
+    }
+    var recipeCategoriesSnapshot = NSDiffableDataSourceSectionSnapshot<RecipesSectionDataItem>()
+    recipeCategoriesSnapshot.append(recipeCategoriesSectionItem)
+    dataSource.apply(recipeCategoriesSnapshot, to: .categories, animatingDifferences: true)
   }
 }
 
 extension RecipesSearchViewController: UICollectionViewDelegate {
   func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-    guard let recipesCategory = self.dataSource.itemIdentifier(for: indexPath)?.recipeCategoryName else {
-      recipesSearchCollectionView.deselectItem(at: indexPath, animated: true)
-      return
+    if let selectedCell = collectionView.cellForItem(at: indexPath) as? RecipeWithDetailViewCell {
+      guard let recipeData = self.dataSource.itemIdentifier(for: indexPath)?.recipe else { return }
+      let recipeDetailViewController = self.storyboard?.instantiateViewController(
+        identifier: "RecipeDetailViewController"
+      ) as! RecipeDetailViewController
+      recipeDetailViewController.recipeData = recipeData
+      self.navigationController?.pushViewController(recipeDetailViewController, animated: true)
+    } else {
+      print("Category")
+      guard let category = self.dataSource.itemIdentifier(for: indexPath)?.recipeCategory?.recipeCategoryName else {
+        recipesSearchCollectionView.deselectItem(at: indexPath, animated: true)
+        return
+      }
+
+      switch category {
+      case "Indian":
+        applySearchedRecipesSnapshot(recipes: searchRecipes(jsonFile: "RecipesSearchResponseIndian"))
+      case "Chinese":
+        print("Chinese")
+        applySearchedRecipesSnapshot(recipes: searchRecipes(jsonFile: "RecipesSearchResponseChinese"))
+      case "Middle Eastern":
+        applySearchedRecipesSnapshot(recipes: searchRecipes(jsonFile: "RecipesSearchResponseMiddleEastern"))
+      case "Italian":
+        applySearchedRecipesSnapshot(recipes: searchRecipes(jsonFile: "RecipesSearchResponseItalian"))
+      default:
+        fatalError("Unknown recipe category")
+      }
+      let categoryCell = collectionView.cellForItem(at: indexPath) as? RecipeCategoryViewCell
+      categoryCell?.recipeCategoryImageView.alpha = 1
     }
-    print(recipesCategory)
-    guard let recipesSearchData = try? getData(
-      fromJSON: "RecipesSearchResponseIndian"
-    ) else { return }
-    let recipesSearchResponse = try? JSONDecoder().decode(RecipesData.self, from: recipesSearchData)
-    print(recipesSearchResponse?.results ?? [])
-    let selectedCell = collectionView.cellForItem(at: indexPath) as? RecipeCategoryViewCell
-    selectedCell?.recipeCategoryImageView.alpha = 1
   }
 
   func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
