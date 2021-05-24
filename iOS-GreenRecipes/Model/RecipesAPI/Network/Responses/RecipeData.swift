@@ -8,6 +8,11 @@
 import Foundation
 
 struct RecipeData: Codable, Hashable {
+
+  enum Category: CaseIterable, CustomStringConvertible {
+    case indian, chinese, italian, middleEastern
+  }
+
   static func == (lhs: RecipeData, rhs: RecipeData) -> Bool {
     lhs.id == rhs.id && lhs.title == rhs.title
   }
@@ -26,6 +31,7 @@ struct RecipeData: Codable, Hashable {
   var image: String?
   var imageType: String?
   var summary: String
+  var category: Category?
 
   // Recipe classification
 
@@ -58,6 +64,24 @@ struct RecipeData: Codable, Hashable {
   var instructions: String?
   var originalId: String?
   var spoonacularSourceUrl: String?
+}
+
+extension RecipeData.Category: Codable {
+  init(from decoder: Decoder) throws {
+    try self.init(from: decoder)
+  }
+
+  func encode(to encoder: Encoder) throws {
+  }
+
+  var description: String {
+    switch self {
+    case .indian: return "Indian"
+    case .chinese: return "Chinese"
+    case .italian: return "Italian"
+    case .middleEastern: return "MiddleEastern"
+    }
+  }
 }
 
 struct RecipeNotFound: Codable {
