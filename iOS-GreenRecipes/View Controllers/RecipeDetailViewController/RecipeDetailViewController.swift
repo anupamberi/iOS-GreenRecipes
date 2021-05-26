@@ -9,10 +9,11 @@ import UIKit
 import Charts
 
 class RecipeDetailViewController: UIViewController {
+  // swiftlint:disable implicitly_unwrapped_optional
+  var dataController: DataController!
   var recipeData: RecipeData!
-
   var recipeNutritionData: NutritionData!
-
+  // swiftlint:enable implicitly_unwrapped_optional
   override func viewDidLoad() {
     super.viewDidLoad()
     view.backgroundColor = UIColor.systemGray6
@@ -21,11 +22,6 @@ class RecipeDetailViewController: UIViewController {
     self.navigationItem.backButtonTitle = ""
 
     overrideUserInterfaceStyle = .dark
-
-//    RecipesClient.getRecipeNutrition(recipeId: recipeData.id) { recipeNutritionData, error in
-//      guard let nutritionData = recipeNutritionData else { return }
-//      self.recipeNutritionData = nutritionData
-//    }
 
     guard let recipeNutritionResponseJsonData = try? getData(
       fromJSON: "RecipeNutritionResponse"

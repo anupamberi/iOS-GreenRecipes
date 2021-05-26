@@ -9,12 +9,11 @@ import Foundation
 
 struct RecipeData: Codable, Hashable {
   static func == (lhs: RecipeData, rhs: RecipeData) -> Bool {
-    lhs.id == rhs.id && lhs.title == rhs.title
+    lhs.id == rhs.id
   }
 
   func hash(into hasher: inout Hasher) {
     hasher.combine(id)
-    hasher.combine(title)
   }
 
   // Recipe general information
