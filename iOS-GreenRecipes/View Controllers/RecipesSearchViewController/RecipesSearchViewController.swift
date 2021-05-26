@@ -25,6 +25,8 @@ class RecipesSearchViewController: UIViewController {
   var recipesDataSource: UICollectionViewDiffableDataSource<Recipes, RecipeData>!
   // swiftlint:enable implicitly_unwrapped_optional
 
+  private var lastSelectedRecipeCategory = IndexPath(row: 0, section: 0)
+
   var recipesSearchBar = UISearchBar()
   let recipeCategoriesController = RecipeCategoriesController()
 
@@ -38,31 +40,17 @@ class RecipesSearchViewController: UIViewController {
 
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
-    // Select the first item in first section
-    let indexPath = IndexPath(row: 0, section: 0)
-    self.recipeCategoriesCollectionView.delegate?.collectionView?(
-      self.recipeCategoriesCollectionView,
-      didSelectItemAt: indexPath
-    )
   }
 
-  func getData(fromJSON fileName: String) throws -> Data {
-    let bundle = Bundle(for: type(of: self))
-    guard let url = bundle.url(forResource: fileName, withExtension: "json") else {
-      throw NSError(domain: NSURLErrorDomain, code: NSURLErrorCannotOpenFile, userInfo: nil)
+  func searchRecipes(recipeCategory: RecipeCategoriesController.RecipeCategory) {
+    // Retrieve recipe information
+    RecipesClient.searchRecipes(
+      query: "",
+      mealType: recipeCategory.recipeCategoryMealType,
+      cuisineType: recipeCategory.recipeCategoryCuisineType
+    ) { searchedRecipes, error in
+      self.applySearchedRecipesSnapshot(recipes: searchedRecipes)
     }
-    do {
-      let data = try Data(contentsOf: url)
-      return data
-    } catch {
-      throw error
-    }
-  }
-
-  func searchRecipes(jsonFile: String) -> [RecipeData] {
-    guard let recipesSearchData = try? getData(fromJSON: jsonFile) else { return [] }
-    let recipesSearchResponse = try? JSONDecoder().decode(RecipesData.self, from: recipesSearchData)
-    return recipesSearchResponse?.results ?? []
   }
 }
 
@@ -99,6 +87,7 @@ extension RecipesSearchViewController {
       frame: recipesSearchContainerView.bounds,
       collectionViewLayout: createRecipeCategoriesLayout()
     )
+    recipeCategoriesCollectionView.allowsMultipleSelection = false
     recipeCategoriesCollectionView.backgroundColor = .systemGroupedBackground
     recipeCategoriesCollectionView.delegate = self
     recipesSearchContainerView.addArrangedSubview(recipeCategoriesCollectionView)
@@ -149,9 +138,15 @@ extension RecipesSearchViewController {
 
   func configureRecipeCategoriesDataSource() {
     let recipeCategoryCellRegistration = UICollectionView.CellRegistration
-    <RecipeCategoryViewCell, RecipeCategoriesController.RecipeCategory> { cell, _, recipeCategory in
+    <RecipeCategoryViewCell, RecipeCategoriesController.RecipeCategory> { cell, indexPath, recipeCategory in
       cell.recipeCategoryImageView.image = recipeCategory.recipeCategoryImage
       cell.recipeCategoryTitle.text = recipeCategory.recipeCategoryName
+      if indexPath.row == 0 && self.lastSelectedRecipeCategory == indexPath {
+        print("Index 0")
+        self.lastSelectedRecipeCategory = indexPath
+        cell.isSelected = true
+      }
+      cell.isSelected = (self.lastSelectedRecipeCategory == indexPath)
     }
     recipeCategoriesDataSource = UICollectionViewDiffableDataSource<RecipeCategories,
       RecipeCategoriesController.RecipeCategory>(
@@ -194,7 +189,7 @@ extension RecipesSearchViewController {
       let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
       section = NSCollectionLayoutSection(group: group)
       section.interGroupSpacing = 10
-      section.orthogonalScrollingBehavior = .groupPaging
+      section.orthogonalScrollingBehavior = .continuous
       section.contentInsets = NSDirectionalEdgeInsets(top: 5, leading: 5, bottom: 5, trailing: 5)
       return section
     }
@@ -226,9 +221,11 @@ extension RecipesSearchViewController {
   private func applySnapshots() {
     // Recipe Categories Section
     applyRecipeCategoriesSnapshot()
-    // Recipe Results Section
-    let recipesSearched = searchRecipes(jsonFile: "RecipesSearchResponseIndian")
-    applySearchedRecipesSnapshot(recipes: recipesSearched)
+    DispatchQueue.global(qos: .background).async {
+      DispatchQueue.main.async {
+        self.reloadRecipesData(indexPath: self.lastSelectedRecipeCategory)
+      }
+    }
   }
 
   private func applyRecipeCategoriesSnapshot() {
@@ -265,24 +262,28 @@ extension RecipesSearchViewController {
     recipesDataSource.apply(recipesSnapshot, to: .results, animatingDifferences: true)
   }
 
-  private func reloadRecipeCategoryData(searchFile: String, indexPath: IndexPath) {
+  private func reloadRecipesData(indexPath: IndexPath) {
     guard var recipeCategory = recipeCategoriesDataSource.itemIdentifier(for: indexPath) else {
       print("Cannot find recipeCategory")
       return
     }
     if recipeCategory.recipesInCategory.isEmpty {
-      print("Searching data")
-      let recipesSearched = searchRecipes(jsonFile: searchFile)
-      recipeCategory.recipesInCategory = recipesSearched
-      applySearchedRecipesSnapshot(recipes: recipesSearched)
-      updateRecipeCategoryWithRecipes(updatedCategory: recipeCategory, indexPath: indexPath)
+      // Retrieve recipe information
+      RecipesClient.searchRecipes(
+        query: "",
+        mealType: recipeCategory.recipeCategoryMealType,
+        cuisineType: recipeCategory.recipeCategoryCuisineType
+      ) { searchedRecipes, error in
+        recipeCategory.recipesInCategory = searchedRecipes
+        self.applySearchedRecipesSnapshot(recipes: searchedRecipes)
+        self.updateRecipeCategoryWithRecipes(updatedCategory: recipeCategory, indexPath: indexPath)
+      }
     } else {
       print("Already searched previously")
       applySearchedRecipesSnapshot(recipes: recipeCategory.recipesInCategory)
     }
   }
 }
-
 
 extension RecipesSearchViewController: UICollectionViewDelegate {
   func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
@@ -294,34 +295,17 @@ extension RecipesSearchViewController: UICollectionViewDelegate {
       recipeDetailViewController.recipeData = recipeData
       self.navigationController?.pushViewController(recipeDetailViewController, animated: true)
     } else {
-      print("Selecting")
       let categoryCell = collectionView.cellForItem(at: indexPath) as? RecipeCategoryViewCell
-      categoryCell?.recipeCategoryImageView.alpha = 1
-//      guard let recipeCategory = recipeCategoriesDataSource.itemIdentifier(for: indexPath) else { return }
-//      switch recipeCategory.recipeCategoryName {
-//      case "Indian":
-//        reloadRecipeCategoryData(searchFile: "RecipesSearchResponseIndian", indexPath: indexPath)
-//      case "Chinese":
-//        print("chinese")
-//        reloadRecipeCategoryData(searchFile: "RecipesSearchResponseChinese", indexPath: indexPath)
-//      case "Middle Eastern":
-//        print("Middle Eastern")
-//        reloadRecipeCategoryData(
-//          searchFile: "RecipesSearchResponseMiddleEastern",
-//          indexPath: indexPath
-//        )
-//      case "Italian":
-//        print("Italian")
-//        reloadRecipeCategoryData(searchFile: "RecipesSearchResponseItalian", indexPath: indexPath)
-//      default:
-//        fatalError("Unknown recipe category")
-//      }
-    }
-  }
+      categoryCell?.isSelected = true
+      lastSelectedRecipeCategory = indexPath
 
-  func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
-    let selectedCell = collectionView.cellForItem(at: indexPath) as? RecipeCategoryViewCell
-    selectedCell?.recipeCategoryImageView.alpha = 0.5
+      collectionView.scrollToItem(at: indexPath, at: .left, animated: true)
+      DispatchQueue.global(qos: .background).async {
+        DispatchQueue.main.async {
+          self.reloadRecipesData(indexPath: indexPath)
+        }
+      }
+    }
   }
 }
 
@@ -336,5 +320,8 @@ extension RecipesSearchViewController: UISearchBarDelegate {
     recipesSearchBar.showsCancelButton = false
     recipesSearchBar.text = ""
     recipesSearchBar.resignFirstResponder()
+  }
+
+  func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
   }
 }

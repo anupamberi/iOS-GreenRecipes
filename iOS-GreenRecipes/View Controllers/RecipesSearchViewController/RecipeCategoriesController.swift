@@ -11,6 +11,8 @@ class RecipeCategoriesController {
   struct RecipeCategory: Hashable, Equatable {
     var recipeCategoryName: String
     var recipeCategoryImage: UIImage
+    var recipeCategoryMealType: String?
+    var recipeCategoryCuisineType: String?
     var recipesInCategory: [RecipeData]
     let identifier = UUID()
 
@@ -22,9 +24,16 @@ class RecipeCategoriesController {
       return lhs.identifier == rhs.identifier && lhs.recipesInCategory.count == rhs.recipesInCategory.count
     }
 
-    init(categoryName: String, categoryImage: UIImage) {
+    init(
+      categoryName: String,
+      categoryImage: UIImage,
+      categoryMealType: String? = nil,
+      categoryCuisineType: String? = nil
+    ) {
       self.recipeCategoryName = categoryName
       self.recipeCategoryImage = categoryImage
+      self.recipeCategoryMealType = categoryMealType
+      self.recipeCategoryCuisineType = categoryCuisineType
       self.recipesInCategory = []
     }
   }
@@ -48,32 +57,38 @@ extension RecipeCategoriesController {
 
     let recipeCategorySnack = RecipeCategory(
       categoryName: "Snack",
-      categoryImage: recipeImageSnack
+      categoryImage: recipeImageSnack,
+      categoryMealType: "snack"
     )
 
     let recipeCategorySoup = RecipeCategory(
       categoryName: "Soup",
-      categoryImage: recipeImageSoup
+      categoryImage: recipeImageSoup,
+      categoryMealType: "soup"
     )
 
     let recipeCategoryIndian = RecipeCategory(
       categoryName: "Indian",
-      categoryImage: recipeImageIndian
+      categoryImage: recipeImageIndian,
+      categoryCuisineType: "indian"
     )
 
     let recipeCategoryMexican = RecipeCategory(
       categoryName: "Mexican",
-      categoryImage: recipeImageMexican
+      categoryImage: recipeImageMexican,
+      categoryCuisineType: "mexican"
     )
 
     let recipeCategoryMiddleEastern = RecipeCategory(
       categoryName: "Middle Eastern",
-      categoryImage: recipeImageMiddleEastern
+      categoryImage: recipeImageMiddleEastern,
+      categoryCuisineType: "middle eastern"
     )
 
     let recipeCategoryItalian = RecipeCategory(
       categoryName: "Italian",
-      categoryImage: recipeImageItalian
+      categoryImage: recipeImageItalian,
+      categoryCuisineType: "italian"
     )
 
     recipeCategories.append(recipeCategorySnack)

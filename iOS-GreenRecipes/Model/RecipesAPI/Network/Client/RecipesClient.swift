@@ -127,15 +127,28 @@ class RecipesClient {
     }
   }
 
-  class func searchRecipes(query: String, completion: @escaping ([RecipeData], Error?) -> Void) {
+  class func searchRecipes(
+    query: String,
+    mealType: String?,
+    cuisineType: String?,
+    completion: @escaping ([RecipeData], Error?
+    ) -> Void) {
     let recipesSearchBaseURL = Endpoints.searchRecipes(query).url
-    let recipesSearchParams = [
+    var recipesSearchParams = [
       URLQueryItem(name: "diet", value: "vegan"),
       URLQueryItem(name: "apiKey", value: RecipesClient.apiKey),
-      URLQueryItem(name: "number", value: String(5)),
+      URLQueryItem(name: "number", value: String(10)),
       URLQueryItem(name: "addRecipeInformation", value: String(true)),
       URLQueryItem(name: "fillIngredients", value: String(true))
     ]
+    // Check optional search parameters meal and cuisine types
+    if let mealType = mealType {
+      recipesSearchParams.append(URLQueryItem(name: "type", value: mealType))
+    }
+
+    if let cuisineType = cuisineType {
+      recipesSearchParams.append(URLQueryItem(name: "cuisine", value: cuisineType))
+    }
     guard let recipesSearchURL = recipesSearchBaseURL.appending(recipesSearchParams) else { return }
     print(recipesSearchURL)
     taskForGETRequest(url: recipesSearchURL, response: RecipesData.self) { response, error in

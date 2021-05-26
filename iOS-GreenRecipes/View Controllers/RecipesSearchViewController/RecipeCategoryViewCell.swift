@@ -9,6 +9,12 @@ import UIKit
 
 class RecipeCategoryViewCell: UICollectionViewCell {
   static let reuseIdentifier = "RecipeCategoryCellReuseIdentifier"
+
+  override var isSelected: Bool {
+    didSet {
+      recipeCategoryImageView.alpha = isSelected ? 1.0 : 0.5
+    }
+  }
   var recipeCategoryImageView = UIImageView()
   var recipeCategoryTitle = UILabel()
 
@@ -30,7 +36,7 @@ extension RecipeCategoryViewCell {
     recipeCategoryImageView.layer.cornerRadius = 10
     recipeCategoryImageView.alpha = 0.5
 
-    recipeCategoryTitle.font = UIFont.systemFont(ofSize: 16)
+    recipeCategoryTitle.font = UIFont.systemFont(ofSize: 18)
     recipeCategoryTitle.allowsDefaultTighteningForTruncation = true
     recipeCategoryTitle.translatesAutoresizingMaskIntoConstraints = false
     recipeCategoryTitle.textColor = .white

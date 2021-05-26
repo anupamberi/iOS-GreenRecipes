@@ -104,17 +104,14 @@ class RecipesClientTests: XCTestCase {
   func testSearchRecipes() throws {
     let expectation = XCTestExpectation(description: "Search recipes")
 
-    let searchQuery = "hummus"
+    let searchQuery = ""
     var obtainedRecipesMetaData: [RecipeData] = []
 
-    RecipesClient.searchRecipes(query: searchQuery) { recipesData, _ in
+    RecipesClient.searchRecipes(query: searchQuery, mealType: "soup", cuisineType: nil) { recipesData, _ in
       obtainedRecipesMetaData = recipesData
       expectation.fulfill()
     }
     wait(for: [expectation], timeout: 10.0)
-    XCTAssertEqual(obtainedRecipesMetaData.count, 5)
-    for obtainedRecipeMetaData in obtainedRecipesMetaData {
-      XCTAssertTrue(obtainedRecipeMetaData.title.lowercased().contains(searchQuery))
-    }
+    XCTAssertEqual(obtainedRecipesMetaData.count, 10)
   }
 }
