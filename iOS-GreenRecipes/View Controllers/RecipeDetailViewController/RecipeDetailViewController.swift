@@ -23,24 +23,9 @@ class RecipeDetailViewController: UIViewController {
 
     overrideUserInterfaceStyle = .dark
 
-    guard let recipeNutritionResponseJsonData = try? getData(
-      fromJSON: "RecipeNutritionResponse"
-    ) else { return }
-    let recipeNutritionResponse = try? JSONDecoder().decode(NutritionData.self, from: recipeNutritionResponseJsonData)
-    recipeNutritionData = recipeNutritionResponse
-    configure()
-  }
-
-  func getData(fromJSON fileName: String) throws -> Data {
-    let bundle = Bundle(for: type(of: self))
-    guard let url = bundle.url(forResource: fileName, withExtension: "json") else {
-      throw NSError(domain: NSURLErrorDomain, code: NSURLErrorCannotOpenFile, userInfo: nil)
-    }
-    do {
-      let data = try Data(contentsOf: url)
-      return data
-    } catch {
-      throw error
+    RecipesClient.getRecipeNutrition(recipeId: recipeData.id) { recipeNutrition, error in
+      self.recipeNutritionData = recipeNutrition
+      self.configure()
     }
   }
 }
