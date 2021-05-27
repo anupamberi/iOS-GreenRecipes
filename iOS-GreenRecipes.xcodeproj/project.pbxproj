@@ -108,6 +108,28 @@
 		1EB78288265FA21B00FDFCDB /* RecipesSearchViewController+UISearchBarDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EB78286265FA21B00FDFCDB /* RecipesSearchViewController+UISearchBarDelegate.swift */; };
 		1EB7828A265FA60900FDFCDB /* RecipesSearchViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EB78289265FA60900FDFCDB /* RecipesSearchViewController+Extension.swift */; };
 		1EB7828B265FA60900FDFCDB /* RecipesSearchViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EB78289265FA60900FDFCDB /* RecipesSearchViewController+Extension.swift */; };
+		1EB7828D265FAB8100FDFCDB /* RecipesHomeViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EB7828C265FAB8100FDFCDB /* RecipesHomeViewController+Extension.swift */; };
+		1EB7828E265FAB8100FDFCDB /* RecipesHomeViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EB7828C265FAB8100FDFCDB /* RecipesHomeViewController+Extension.swift */; };
+		1EB7828F265FAB8100FDFCDB /* RecipesHomeViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EB7828C265FAB8100FDFCDB /* RecipesHomeViewController+Extension.swift */; };
+		1EB78291265FE8AC00FDFCDB /* RecipesSearchResponseBeverage.json in Resources */ = {isa = PBXBuildFile; fileRef = 1EB78290265FE8AC00FDFCDB /* RecipesSearchResponseBeverage.json */; };
+		1EB78292265FE8AC00FDFCDB /* RecipesSearchResponseBeverage.json in Resources */ = {isa = PBXBuildFile; fileRef = 1EB78290265FE8AC00FDFCDB /* RecipesSearchResponseBeverage.json */; };
+		1EB78293265FEC9800FDFCDB /* RecipesSearchViewController+UISearchBarDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EB78286265FA21B00FDFCDB /* RecipesSearchViewController+UISearchBarDelegate.swift */; };
+		1EB78294265FEC9E00FDFCDB /* RecipesSearchViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EB78289265FA60900FDFCDB /* RecipesSearchViewController+Extension.swift */; };
+		1EB78295265FECCA00FDFCDB /* RecipeCategoriesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EB78274265BAD5700FDFCDB /* RecipeCategoriesController.swift */; };
+		1EB78296265FECEC00FDFCDB /* RecipesHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E009A022646813B00D4B079 /* RecipesHomeViewController.swift */; };
+		1EB78297265FECEE00FDFCDB /* RecipesHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E009A022646813B00D4B079 /* RecipesHomeViewController.swift */; };
+		1EB78298265FED6400FDFCDB /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E2BD362264D1C73000BD059 /* DataController.swift */; };
+		1EB78299265FED6500FDFCDB /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E2BD362264D1C73000BD059 /* DataController.swift */; };
+		1EB7829A265FED8C00FDFCDB /* RecipeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E8216762651B74700DE0F9A /* RecipeDetailViewController.swift */; };
+		1EB7829B265FED8C00FDFCDB /* RecipeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E8216762651B74700DE0F9A /* RecipeDetailViewController.swift */; };
+		1EB7829C265FED9300FDFCDB /* RecipesSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EB63EF62659AA830081E691 /* RecipesSearchViewController.swift */; };
+		1EB7829D265FED9300FDFCDB /* RecipesSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EB63EF62659AA830081E691 /* RecipesSearchViewController.swift */; };
+		1EB7829E265FEDE800FDFCDB /* RecipeDetailViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EB63EF326599FC70081E691 /* RecipeDetailViewController+Extension.swift */; };
+		1EB7829F265FEDE800FDFCDB /* RecipeDetailViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EB63EF326599FC70081E691 /* RecipeDetailViewController+Extension.swift */; };
+		1EB782A0265FEF5600FDFCDB /* RecipesSearchResponseBeverage.json in Resources */ = {isa = PBXBuildFile; fileRef = 1EB78290265FE8AC00FDFCDB /* RecipesSearchResponseBeverage.json */; };
+		1EB782A22660038000FDFCDB /* RecipesSectionProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EB782A12660038000FDFCDB /* RecipesSectionProperties.swift */; };
+		1EB782A32660038000FDFCDB /* RecipesSectionProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EB782A12660038000FDFCDB /* RecipesSectionProperties.swift */; };
+		1EB782A42660038000FDFCDB /* RecipesSectionProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EB782A12660038000FDFCDB /* RecipesSectionProperties.swift */; };
 		E1AD412C56C1E040F300A0C3 /* Pods_iOS_GreenRecipes.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA783C469C9CF2342BF88F0B /* Pods_iOS_GreenRecipes.framework */; };
 /* End PBXBuildFile section */
 
@@ -184,6 +206,9 @@
 		1EB78283265C4EDC00FDFCDB /* RecipesSearchResponseItalian.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = RecipesSearchResponseItalian.json; sourceTree = "<group>"; };
 		1EB78286265FA21B00FDFCDB /* RecipesSearchViewController+UISearchBarDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RecipesSearchViewController+UISearchBarDelegate.swift"; sourceTree = "<group>"; };
 		1EB78289265FA60900FDFCDB /* RecipesSearchViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RecipesSearchViewController+Extension.swift"; sourceTree = "<group>"; };
+		1EB7828C265FAB8100FDFCDB /* RecipesHomeViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RecipesHomeViewController+Extension.swift"; sourceTree = "<group>"; };
+		1EB78290265FE8AC00FDFCDB /* RecipesSearchResponseBeverage.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = RecipesSearchResponseBeverage.json; sourceTree = "<group>"; };
+		1EB782A12660038000FDFCDB /* RecipesSectionProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesSectionProperties.swift; sourceTree = "<group>"; };
 		3953F7CCA51EC0BC0E0DF5B4 /* Pods-iOS-GreenRecipes.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOS-GreenRecipes.release.xcconfig"; path = "Target Support Files/Pods-iOS-GreenRecipes/Pods-iOS-GreenRecipes.release.xcconfig"; sourceTree = "<group>"; };
 		AA783C469C9CF2342BF88F0B /* Pods_iOS_GreenRecipes.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iOS_GreenRecipes.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -401,6 +426,8 @@
 				1E2BD380264E9C10000BD059 /* RecipesSectionBackgroundDecorationView.swift */,
 				1E4FBAB7265054C90033FA6D /* RecipeWithTitleViewCell.swift */,
 				1E4FBABF26506ABB0033FA6D /* IngredientsInformation.swift */,
+				1EB7828C265FAB8100FDFCDB /* RecipesHomeViewController+Extension.swift */,
+				1EB782A12660038000FDFCDB /* RecipesSectionProperties.swift */,
 			);
 			path = RecipesHomeViewController;
 			sourceTree = "<group>";
@@ -420,6 +447,7 @@
 				1EB7827D265C4E8300FDFCDB /* RecipesSearchResponseChinese.json */,
 				1EB78280265C4EBA00FDFCDB /* RecipesSearchResponseMiddleEastern.json */,
 				1EB78283265C4EDC00FDFCDB /* RecipesSearchResponseItalian.json */,
+				1EB78290265FE8AC00FDFCDB /* RecipesSearchResponseBeverage.json */,
 			);
 			path = "Recipes  Search Results";
 			sourceTree = "<group>";
@@ -576,6 +604,7 @@
 				1E009A0E2646813C00D4B079 /* LaunchScreen.storyboard in Resources */,
 				1EB78284265C4EDC00FDFCDB /* RecipesSearchResponseItalian.json in Resources */,
 				1E009A0B2646813C00D4B079 /* Assets.xcassets in Resources */,
+				1EB78291265FE8AC00FDFCDB /* RecipesSearchResponseBeverage.json in Resources */,
 				1EB7827E265C4E8300FDFCDB /* RecipesSearchResponseChinese.json in Resources */,
 				1E4FBABC265063730033FA6D /* IngredientsInformation.json in Resources */,
 				1E2BD377264DCF0E000BD059 /* RecipesRandomSearchResponseWithNullValues.json in Resources */,
@@ -596,6 +625,7 @@
 				1E2BD396264FD8F1000BD059 /* RecipesSearchResponseBreakfast.json in Resources */,
 				1EA62CA12646C3A200706D3C /* RecipesRandomSearchResponse.json in Resources */,
 				1E2BD38A264FD3C1000BD059 /* RecipesSearchResponseHummus.json in Resources */,
+				1EB78292265FE8AC00FDFCDB /* RecipesSearchResponseBeverage.json in Resources */,
 				1E009A562646A4DB00D4B079 /* RecipesRandomSearchResponseWithNullValues.json in Resources */,
 				1EB7827C265BFA5100FDFCDB /* RecipesSearchResponseIndian.json in Resources */,
 				1E2BD37A264DD332000BD059 /* Assets.xcassets in Resources */,
@@ -614,6 +644,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1E2BD387264F170C000BD059 /* RecipesSearchResponse.json in Resources */,
+				1EB782A0265FEF5600FDFCDB /* RecipesSearchResponseBeverage.json in Resources */,
 				1E2BD38F264FD4A9000BD059 /* RecipesSearchResponseDessert.json in Resources */,
 				1E2BD393264FD7E1000BD059 /* RecipesSearchResponseMainCourse.json in Resources */,
 				1E2BD38B264FD3C1000BD059 /* RecipesSearchResponseHummus.json in Resources */,
@@ -691,6 +722,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1EB7828A265FA60900FDFCDB /* RecipesSearchViewController+Extension.swift in Sources */,
+				1EB782A22660038000FDFCDB /* RecipesSectionProperties.swift in Sources */,
 				1E2BD366264D1E9F000BD059 /* GreenRecipes.xcdatamodeld in Sources */,
 				1E1266B72658067F006EF882 /* UIColor+Extension.swift in Sources */,
 				1EB63EFA265ADF250081E691 /* RecipesTabBarController.swift in Sources */,
@@ -709,6 +741,7 @@
 				1E009A4E2646914700D4B079 /* RecipesData.swift in Sources */,
 				1E4FBAC026506ABB0033FA6D /* IngredientsInformation.swift in Sources */,
 				1E4FBAB8265054C90033FA6D /* RecipeWithTitleViewCell.swift in Sources */,
+				1EB7828D265FAB8100FDFCDB /* RecipesHomeViewController+Extension.swift in Sources */,
 				1E2BD368264D2807000BD059 /* NutritionData.swift in Sources */,
 				1EB78275265BAD5700FDFCDB /* RecipeCategoriesController.swift in Sources */,
 				1E2BD381264E9C10000BD059 /* RecipesSectionBackgroundDecorationView.swift in Sources */,
@@ -732,17 +765,24 @@
 				1E009A432646875D00D4B079 /* IngredientData.swift in Sources */,
 				1E894999264D1AFE00EC0A22 /* RecipesData.swift in Sources */,
 				1E009A4726468C0400D4B079 /* InstructionData.swift in Sources */,
+				1EB7829C265FED9300FDFCDB /* RecipesSearchViewController.swift in Sources */,
 				1E009A3F264684F400D4B079 /* RecipeData.swift in Sources */,
+				1EB782A32660038000FDFCDB /* RecipesSectionProperties.swift in Sources */,
 				1E4FBAC126506ABB0033FA6D /* IngredientsInformation.swift in Sources */,
 				1E2BD369264D2807000BD059 /* NutritionData.swift in Sources */,
 				1EB78276265BAD5700FDFCDB /* RecipeCategoriesController.swift in Sources */,
+				1EB7829E265FEDE800FDFCDB /* RecipeDetailViewController+Extension.swift in Sources */,
 				1EA62C9E2646C0E100706D3C /* XCTestCase+Extension.swift in Sources */,
+				1EB78298265FED6400FDFCDB /* DataController.swift in Sources */,
 				1EA62CA32646C42D00706D3C /* RecipesClientTests.swift in Sources */,
 				1EB78279265BC28300FDFCDB /* RecipeCategoryViewCell.swift in Sources */,
+				1EB78296265FECEC00FDFCDB /* RecipesHomeViewController.swift in Sources */,
 				1EB7828B265FA60900FDFCDB /* RecipesSearchViewController+Extension.swift in Sources */,
+				1EB7829A265FED8C00FDFCDB /* RecipeDetailViewController.swift in Sources */,
 				1EB78288265FA21B00FDFCDB /* RecipesSearchViewController+UISearchBarDelegate.swift in Sources */,
 				1E2BD382264E9C10000BD059 /* RecipesSectionBackgroundDecorationView.swift in Sources */,
 				1E009A3B264682BB00D4B079 /* RecipesClient.swift in Sources */,
+				1EB7828E265FAB8100FDFCDB /* RecipesHomeViewController+Extension.swift in Sources */,
 				1E009A52264692B500D4B079 /* RecipesResponseTest.swift in Sources */,
 				1E009A4B26468FD100D4B079 /* URL+Extension.swift in Sources */,
 			);
@@ -756,14 +796,24 @@
 				1E009A442646875D00D4B079 /* IngredientData.swift in Sources */,
 				1E4FBAC226506ABB0033FA6D /* IngredientsInformation.swift in Sources */,
 				1E009A4826468C0400D4B079 /* InstructionData.swift in Sources */,
+				1EB78295265FECCA00FDFCDB /* RecipeCategoriesController.swift in Sources */,
 				1E2BD376264DB185000BD059 /* RecipeWithDetailViewCell.swift in Sources */,
+				1EB78293265FEC9800FDFCDB /* RecipesSearchViewController+UISearchBarDelegate.swift in Sources */,
+				1EB7829F265FEDE800FDFCDB /* RecipeDetailViewController+Extension.swift in Sources */,
+				1EB7828F265FAB8100FDFCDB /* RecipesHomeViewController+Extension.swift in Sources */,
+				1EB7829D265FED9300FDFCDB /* RecipesSearchViewController.swift in Sources */,
 				1E009A502646914700D4B079 /* RecipesData.swift in Sources */,
 				1E009A40264684F400D4B079 /* RecipeData.swift in Sources */,
+				1EB78299265FED6500FDFCDB /* DataController.swift in Sources */,
 				1E2BD36A264D2807000BD059 /* NutritionData.swift in Sources */,
 				1E009A3C264682BB00D4B079 /* RecipesClient.swift in Sources */,
 				1E009A242646813D00D4B079 /* iOS_GreenRecipesUITests.swift in Sources */,
 				1E4FBABA265054C90033FA6D /* RecipeWithTitleViewCell.swift in Sources */,
 				1E2BD383264E9C10000BD059 /* RecipesSectionBackgroundDecorationView.swift in Sources */,
+				1EB782A42660038000FDFCDB /* RecipesSectionProperties.swift in Sources */,
+				1EB78297265FECEE00FDFCDB /* RecipesHomeViewController.swift in Sources */,
+				1EB78294265FEC9E00FDFCDB /* RecipesSearchViewController+Extension.swift in Sources */,
+				1EB7829B265FED8C00FDFCDB /* RecipeDetailViewController.swift in Sources */,
 				1E009A4C26468FD100D4B079 /* URL+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -96,6 +96,17 @@ class RecipesResponseTest: XCTestCase {
     // swiftlint:enable force_unwrapping
   }
 
+  func testRecipesSearchResponseBeverage() throws {
+    let jsonData = try getData(fromJSON: "RecipesSearchResponseBeverage")
+
+    XCTAssertNoThrow(try JSONDecoder().decode(RecipesData.self, from: jsonData))
+    let recipesResponse = try JSONDecoder().decode(RecipesData.self, from: jsonData)
+    XCTAssertNotNil(recipesResponse.results)
+    // swiftlint:disable force_unwrapping
+    XCTAssertEqual(recipesResponse.results!.count, 10)
+    // swiftlint:enable force_unwrapping
+  }
+
   func testRecipesNutritionResponse() throws {
     let jsonData = try getData(fromJSON: "RecipeNutritionResponse")
 

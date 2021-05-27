@@ -1,0 +1,3511 @@
+{
+    "results": [
+        {
+            "vegetarian": true,
+            "vegan": true,
+            "glutenFree": true,
+            "dairyFree": true,
+            "veryHealthy": false,
+            "cheap": false,
+            "veryPopular": false,
+            "sustainable": false,
+            "weightWatcherSmartPoints": 0,
+            "gaps": "GAPS_FULL",
+            "lowFodmap": false,
+            "aggregateLikes": 1,
+            "spoonacularScore": 90,
+            "healthScore": 51,
+            "creditsText": "Foodista.com – The Cooking Encyclopedia Everyone Can Edit",
+            "license": "CC BY 3.0",
+            "sourceName": "Foodista",
+            "pricePerServing": 81.7,
+            "extendedIngredients": [
+                {
+                    "id": 11080,
+                    "aisle": "Produce",
+                    "image": "beets.jpg",
+                    "consistency": "solid",
+                    "name": "beet",
+                    "nameClean": "red beet",
+                    "original": "1 Beet, peeled",
+                    "originalString": "1 Beet, peeled",
+                    "originalName": "Beet, peeled",
+                    "amount": 1,
+                    "unit": "",
+                    "meta": [
+                        "peeled"
+                    ],
+                    "metaInformation": [
+                        "peeled"
+                    ],
+                    "measures": {
+                        "us": {
+                            "amount": 1,
+                            "unitShort": "",
+                            "unitLong": ""
+                        },
+                        "metric": {
+                            "amount": 1,
+                            "unitShort": "",
+                            "unitLong": ""
+                        }
+                    }
+                },
+                {
+                    "id": 11124,
+                    "aisle": "Produce",
+                    "image": "sliced-carrot.png",
+                    "consistency": "solid",
+                    "name": "carrots",
+                    "nameClean": "carrot",
+                    "original": "1 pound Carrots, peeled",
+                    "originalString": "1 pound Carrots, peeled",
+                    "originalName": "Carrots, peeled",
+                    "amount": 1,
+                    "unit": "pound",
+                    "meta": [
+                        "peeled"
+                    ],
+                    "metaInformation": [
+                        "peeled"
+                    ],
+                    "measures": {
+                        "us": {
+                            "amount": 1,
+                            "unitShort": "lb",
+                            "unitLong": "pound"
+                        },
+                        "metric": {
+                            "amount": 453.592,
+                            "unitShort": "g",
+                            "unitLong": "grams"
+                        }
+                    }
+                },
+                {
+                    "id": 9200,
+                    "aisle": "Produce",
+                    "image": "orange.png",
+                    "consistency": "solid",
+                    "name": "oranges",
+                    "nameClean": "orange",
+                    "original": "2 pounds Oranges, peeled",
+                    "originalString": "2 pounds Oranges, peeled",
+                    "originalName": "Oranges, peeled",
+                    "amount": 2,
+                    "unit": "pounds",
+                    "meta": [
+                        "peeled"
+                    ],
+                    "metaInformation": [
+                        "peeled"
+                    ],
+                    "measures": {
+                        "us": {
+                            "amount": 2,
+                            "unitShort": "lb",
+                            "unitLong": "pounds"
+                        },
+                        "metric": {
+                            "amount": 907.185,
+                            "unitShort": "g",
+                            "unitLong": "grams"
+                        }
+                    }
+                }
+            ],
+            "id": 1095729,
+            "title": "Immunity Booster Beet, Carrot & Orange Juice",
+            "readyInMinutes": 10,
+            "servings": 4,
+            "sourceUrl": "https://www.foodista.com/recipe/HHM34WCD/immune-booster-beet-carrot-orange-juice",
+            "image": "https://spoonacular.com/recipeImages/1095729-312x231.jpg",
+            "imageType": "jpg",
+            "summary": "Need a <b>gluten free, dairy free, paleolithic, and lacto ovo vegetarian beverage</b>? Immunity Booster Beet, Carrot & Orange Juice could be an outstanding recipe to try. This recipe makes 4 servings with <b>162 calories</b>, <b>4g of protein</b>, and <b>1g of fat</b> each. For <b>82 cents per serving</b>, this recipe <b>covers 18%</b> of your daily requirements of vitamins and minerals. This recipe from Foodista has 1 fans. If you have beet, carrots, oranges, and a few other ingredients on hand, you can make it. From preparation to the plate, this recipe takes roughly <b>10 minutes</b>. Overall, this recipe earns an <b>amazing spoonacular score of 89%</b>. If you like this recipe, you might also like recipes such as <a href=\"https://spoonacular.com/recipes/goji-orange-turmeric-smoothie-the-immunity-booster-610828\">Goji-Orange-Turmeric Smoothie (“The Immunity Booster”)</a>, <a href=\"https://spoonacular.com/recipes/rejuvenating-root-juice-carrot-beet-blood-orange-ginger-turmeric-juice-1226953\">Rejuvenating Root Juice | Carrot, Beet, Blood Orange, Ginger, Turmeric Juice</a>, and <a href=\"https://spoonacular.com/recipes/rejuvenating-root-juice-carrot-beet-blood-orange-ginger-turmeric-juice-1238761\">Rejuvenating Root Juice | Carrot, Beet, Blood Orange, Ginger, Turmeric Juice</a>.",
+            "cuisines": [],
+            "dishTypes": [
+                "beverage",
+                "drink"
+            ],
+            "diets": [
+                "gluten free",
+                "dairy free",
+                "paleolithic",
+                "lacto ovo vegetarian",
+                "primal",
+                "vegan"
+            ],
+            "occasions": [],
+            "analyzedInstructions": [
+                {
+                    "name": "",
+                    "steps": [
+                        {
+                            "number": 1,
+                            "step": "Roughly chop the beet, carrots and oranges. When peeling and chopping the beet, use gloves and apron to avoid staining your hands and clothes.Throw them in a juicer and in about 2 minutes you will end up with this delicious healthy juice.",
+                            "ingredients": [
+                                {
+                                    "id": 11124,
+                                    "name": "carrot",
+                                    "localizedName": "carrot",
+                                    "image": "sliced-carrot.png"
+                                },
+                                {
+                                    "id": 9200,
+                                    "name": "orange",
+                                    "localizedName": "orange",
+                                    "image": "orange.png"
+                                },
+                                {
+                                    "id": 1019016,
+                                    "name": "juice",
+                                    "localizedName": "juice",
+                                    "image": "apple-juice.jpg"
+                                },
+                                {
+                                    "id": 11080,
+                                    "name": "beet",
+                                    "localizedName": "beet",
+                                    "image": "beets.jpg"
+                                }
+                            ],
+                            "equipment": [
+                                {
+                                    "id": 404683,
+                                    "name": "juicer",
+                                    "localizedName": "juicer",
+                                    "image": "juicer.jpg"
+                                }
+                            ],
+                            "length": {
+                                "number": 2,
+                                "unit": "minutes"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "spoonacularSourceUrl": "https://spoonacular.com/immunity-booster-beet-carrot-orange-juice-1095729",
+            "usedIngredientCount": 0,
+            "missedIngredientCount": 3,
+            "missedIngredients": [
+                {
+                    "id": 11080,
+                    "amount": 1,
+                    "unit": "",
+                    "unitLong": "",
+                    "unitShort": "",
+                    "aisle": "Produce",
+                    "name": "beet",
+                    "original": "1 Beet, peeled",
+                    "originalString": "1 Beet, peeled",
+                    "originalName": "Beet, peeled",
+                    "metaInformation": [
+                        "peeled"
+                    ],
+                    "meta": [
+                        "peeled"
+                    ],
+                    "image": "https://spoonacular.com/cdn/ingredients_100x100/beets.jpg"
+                },
+                {
+                    "id": 11124,
+                    "amount": 1,
+                    "unit": "pound",
+                    "unitLong": "pound",
+                    "unitShort": "lb",
+                    "aisle": "Produce",
+                    "name": "carrots",
+                    "original": "1 pound Carrots, peeled",
+                    "originalString": "1 pound Carrots, peeled",
+                    "originalName": "Carrots, peeled",
+                    "metaInformation": [
+                        "peeled"
+                    ],
+                    "meta": [
+                        "peeled"
+                    ],
+                    "image": "https://spoonacular.com/cdn/ingredients_100x100/sliced-carrot.png"
+                },
+                {
+                    "id": 9200,
+                    "amount": 2,
+                    "unit": "pounds",
+                    "unitLong": "pounds",
+                    "unitShort": "lb",
+                    "aisle": "Produce",
+                    "name": "oranges",
+                    "original": "2 pounds Oranges, peeled",
+                    "originalString": "2 pounds Oranges, peeled",
+                    "originalName": "Oranges, peeled",
+                    "metaInformation": [
+                        "peeled"
+                    ],
+                    "meta": [
+                        "peeled"
+                    ],
+                    "image": "https://spoonacular.com/cdn/ingredients_100x100/orange.png"
+                }
+            ],
+            "likes": 0,
+            "usedIngredients": [],
+            "unusedIngredients": []
+        },
+        {
+            "vegetarian": true,
+            "vegan": true,
+            "glutenFree": true,
+            "dairyFree": true,
+            "veryHealthy": false,
+            "cheap": false,
+            "veryPopular": false,
+            "sustainable": false,
+            "weightWatcherSmartPoints": 0,
+            "gaps": "no",
+            "lowFodmap": true,
+            "aggregateLikes": 3,
+            "spoonacularScore": 82,
+            "healthScore": 37,
+            "creditsText": "Foodista.com – The Cooking Encyclopedia Everyone Can Edit",
+            "license": "CC BY 3.0",
+            "sourceName": "Foodista",
+            "pricePerServing": 87.85,
+            "extendedIngredients": [
+                {
+                    "id": 2064,
+                    "aisle": "Produce;Spices and Seasonings",
+                    "image": "mint.jpg",
+                    "consistency": "solid",
+                    "name": "fresh mint leaves",
+                    "nameClean": "mint",
+                    "original": "2 cups of fresh mint leaves",
+                    "originalString": "2 cups of fresh mint leaves",
+                    "originalName": "fresh mint leaves",
+                    "amount": 2,
+                    "unit": "cups",
+                    "meta": [
+                        "fresh"
+                    ],
+                    "metaInformation": [
+                        "fresh"
+                    ],
+                    "measures": {
+                        "us": {
+                            "amount": 2,
+                            "unitShort": "cups",
+                            "unitLong": "cups"
+                        },
+                        "metric": {
+                            "amount": 473.176,
+                            "unitShort": "ml",
+                            "unitLong": "milliliters"
+                        }
+                    }
+                },
+                {
+                    "id": 9150,
+                    "aisle": "Produce",
+                    "image": "lemon.png",
+                    "consistency": "solid",
+                    "name": "lemons",
+                    "nameClean": "lemon",
+                    "original": "6 large lemons",
+                    "originalString": "6 large lemons",
+                    "originalName": "lemons",
+                    "amount": 6,
+                    "unit": "large",
+                    "meta": [],
+                    "metaInformation": [],
+                    "measures": {
+                        "us": {
+                            "amount": 6,
+                            "unitShort": "large",
+                            "unitLong": "larges"
+                        },
+                        "metric": {
+                            "amount": 6,
+                            "unitShort": "large",
+                            "unitLong": "larges"
+                        }
+                    }
+                },
+                {
+                    "id": 19335,
+                    "aisle": "Baking",
+                    "image": "sugar-in-bowl.png",
+                    "consistency": "solid",
+                    "name": "sugar",
+                    "nameClean": "sugar",
+                    "original": "1 Kg of sugar",
+                    "originalString": "1 Kg of sugar",
+                    "originalName": "Kg of sugar",
+                    "amount": 1,
+                    "unit": "",
+                    "meta": [],
+                    "metaInformation": [],
+                    "measures": {
+                        "us": {
+                            "amount": 1,
+                            "unitShort": "",
+                            "unitLong": ""
+                        },
+                        "metric": {
+                            "amount": 1,
+                            "unitShort": "",
+                            "unitLong": ""
+                        }
+                    }
+                },
+                {
+                    "id": 14412,
+                    "aisle": "Beverages",
+                    "image": "water.png",
+                    "consistency": "liquid",
+                    "name": "water",
+                    "nameClean": "water",
+                    "original": "1 liter of water",
+                    "originalString": "1 liter of water",
+                    "originalName": "water",
+                    "amount": 1,
+                    "unit": "liter",
+                    "meta": [],
+                    "metaInformation": [],
+                    "measures": {
+                        "us": {
+                            "amount": 1.057,
+                            "unitShort": "qt",
+                            "unitLong": "quarts"
+                        },
+                        "metric": {
+                            "amount": 1,
+                            "unitShort": "l",
+                            "unitLong": "liter"
+                        }
+                    }
+                },
+                {
+                    "id": 11216,
+                    "aisle": "Produce;Ethnic Foods;Spices and Seasonings",
+                    "image": "ginger.png",
+                    "consistency": "solid",
+                    "name": "ginger",
+                    "nameClean": "ginger",
+                    "original": "1/2 teaspoon of freshly grated ginger",
+                    "originalString": "1/2 teaspoon of freshly grated ginger",
+                    "originalName": "freshly grated ginger",
+                    "amount": 0.5,
+                    "unit": "teaspoon",
+                    "meta": [
+                        "freshly grated"
+                    ],
+                    "metaInformation": [
+                        "freshly grated"
+                    ],
+                    "measures": {
+                        "us": {
+                            "amount": 0.5,
+                            "unitShort": "tsps",
+                            "unitLong": "teaspoons"
+                        },
+                        "metric": {
+                            "amount": 0.5,
+                            "unitShort": "tsps",
+                            "unitLong": "teaspoons"
+                        }
+                    }
+                },
+                {
+                    "id": 10711111,
+                    "aisle": "Baking",
+                    "image": "food-coloring.png",
+                    "consistency": "solid",
+                    "name": "food color",
+                    "nameClean": "any color food color",
+                    "original": "A pinch of green color (food grade)",
+                    "originalString": "A pinch of green color (food grade)",
+                    "originalName": "A of green color (food grade)",
+                    "amount": 1,
+                    "unit": "pinch",
+                    "meta": [
+                        "green",
+                        "(food grade)"
+                    ],
+                    "metaInformation": [
+                        "green",
+                        "(food grade)"
+                    ],
+                    "measures": {
+                        "us": {
+                            "amount": 1,
+                            "unitShort": "pinch",
+                            "unitLong": "pinch"
+                        },
+                        "metric": {
+                            "amount": 1,
+                            "unitShort": "pinch",
+                            "unitLong": "pinch"
+                        }
+                    }
+                }
+            ],
+            "id": 631913,
+            "title": "A Refreshing Drink To Welcome You All",
+            "readyInMinutes": 45,
+            "servings": 6,
+            "sourceUrl": "https://www.foodista.com/recipe/8XQZRM44/a-refreshing-drink-to-welcome-you-all",
+            "image": "https://spoonacular.com/recipeImages/631913-312x231.jpg",
+            "imageType": "jpg",
+            "summary": "A Refreshing Drink To Welcome You All could be just the <b>gluten free, dairy free, lacto ovo vegetarian, and fodmap friendly</b> recipe you've been looking for. For <b>88 cents per serving</b>, you get a beverage that serves 6. One serving contains <b>43 calories</b>, <b>2g of protein</b>, and <b>0g of fat</b>. This recipe is liked by 3 foodies and cooks. A mixture of mint leaves, lemons, water, and a handful of other ingredients are all it takes to make this recipe so scrumptious. It is brought to you by Foodista. From preparation to the plate, this recipe takes roughly <b>roughly 45 minutes</b>. All things considered, we decided this recipe <b>deserves a spoonacular score of 82%</b>. This score is excellent. Similar recipes are <a href=\"https://spoonacular.com/recipes/refreshing-rum-drink-148666\">Refreshing Rum Drink</a>, <a href=\"https://spoonacular.com/recipes/refreshing-lemon-lime-drink-425170\">Refreshing Lemon-Lime Drink</a>, and <a href=\"https://spoonacular.com/recipes/refreshing-cosmopolitan-416877\">Refreshing Cosmopolitan</a>.",
+            "cuisines": [],
+            "dishTypes": [
+                "beverage",
+                "drink"
+            ],
+            "diets": [
+                "gluten free",
+                "dairy free",
+                "lacto ovo vegetarian",
+                "fodmap friendly",
+                "vegan"
+            ],
+            "occasions": [],
+            "analyzedInstructions": [
+                {
+                    "name": "",
+                    "steps": [
+                        {
+                            "number": 1,
+                            "step": "Pick the mint leaves and wash it in running water.",
+                            "ingredients": [
+                                {
+                                    "id": 2064,
+                                    "name": "mint",
+                                    "localizedName": "mint",
+                                    "image": "mint.jpg"
+                                },
+                                {
+                                    "id": 14412,
+                                    "name": "water",
+                                    "localizedName": "water",
+                                    "image": "water.png"
+                                }
+                            ],
+                            "equipment": []
+                        },
+                        {
+                            "number": 2,
+                            "step": "Clean and grate the ginger.",
+                            "ingredients": [
+                                {
+                                    "id": 11216,
+                                    "name": "ginger",
+                                    "localizedName": "ginger",
+                                    "image": "ginger.png"
+                                }
+                            ],
+                            "equipment": []
+                        },
+                        {
+                            "number": 3,
+                            "step": "Heat water in a vessel and add sugar to it.",
+                            "ingredients": [
+                                {
+                                    "id": 19335,
+                                    "name": "sugar",
+                                    "localizedName": "sugar",
+                                    "image": "sugar-in-bowl.png"
+                                },
+                                {
+                                    "id": 14412,
+                                    "name": "water",
+                                    "localizedName": "water",
+                                    "image": "water.png"
+                                }
+                            ],
+                            "equipment": []
+                        },
+                        {
+                            "number": 4,
+                            "step": "Let the sugar dissolve; filter the sugar syrup with a thin muslin cloth.",
+                            "ingredients": [
+                                {
+                                    "id": 90480,
+                                    "name": "simple syrup",
+                                    "localizedName": "simple syrup",
+                                    "image": "simple-syrup.jpg"
+                                },
+                                {
+                                    "id": 19335,
+                                    "name": "sugar",
+                                    "localizedName": "sugar",
+                                    "image": "sugar-in-bowl.png"
+                                }
+                            ],
+                            "equipment": []
+                        },
+                        {
+                            "number": 5,
+                            "step": "Boil it further on medium heat till the syrup becomes a bit thick, about 20 minutes. Take off heat and cool the syrup.",
+                            "ingredients": [
+                                {
+                                    "id": 0,
+                                    "name": "syrup",
+                                    "localizedName": "syrup",
+                                    "image": ""
+                                }
+                            ],
+                            "equipment": [],
+                            "length": {
+                                "number": 20,
+                                "unit": "minutes"
+                            }
+                        },
+                        {
+                            "number": 6,
+                            "step": "Now add the mint leaves, grated ginger and juice of lemons. Leave it aside for 4-5 hours to let the mint flavor seep into the syrup.",
+                            "ingredients": [
+                                {
+                                    "id": 2064,
+                                    "name": "mint",
+                                    "localizedName": "mint",
+                                    "image": "mint.jpg"
+                                },
+                                {
+                                    "id": 11216,
+                                    "name": "ginger",
+                                    "localizedName": "ginger",
+                                    "image": "ginger.png"
+                                },
+                                {
+                                    "id": 9150,
+                                    "name": "lemon",
+                                    "localizedName": "lemon",
+                                    "image": "lemon.png"
+                                },
+                                {
+                                    "id": 1019016,
+                                    "name": "juice",
+                                    "localizedName": "juice",
+                                    "image": "apple-juice.jpg"
+                                },
+                                {
+                                    "id": 0,
+                                    "name": "syrup",
+                                    "localizedName": "syrup",
+                                    "image": ""
+                                }
+                            ],
+                            "equipment": [],
+                            "length": {
+                                "number": 300,
+                                "unit": "minutes"
+                            }
+                        },
+                        {
+                            "number": 7,
+                            "step": "Add green color if required.",
+                            "ingredients": [],
+                            "equipment": []
+                        },
+                        {
+                            "number": 8,
+                            "step": "Store the concentrate in a clean glass bottle.",
+                            "ingredients": [],
+                            "equipment": []
+                        },
+                        {
+                            "number": 9,
+                            "step": "To make the drink, pour about 1 tbsp. of the concentrate and add water to suit your taste.",
+                            "ingredients": [
+                                {
+                                    "id": 0,
+                                    "name": "drink",
+                                    "localizedName": "drink",
+                                    "image": ""
+                                },
+                                {
+                                    "id": 14412,
+                                    "name": "water",
+                                    "localizedName": "water",
+                                    "image": "water.png"
+                                }
+                            ],
+                            "equipment": []
+                        },
+                        {
+                            "number": 10,
+                            "step": "Top it with crushed ice and serve the refreshing Minty-lemony drink.",
+                            "ingredients": [
+                                {
+                                    "id": 10114412,
+                                    "name": "crushed ice cubes",
+                                    "localizedName": "crushed ice cubes",
+                                    "image": "crushed-ice.png"
+                                },
+                                {
+                                    "id": 0,
+                                    "name": "drink",
+                                    "localizedName": "drink",
+                                    "image": ""
+                                }
+                            ],
+                            "equipment": []
+                        }
+                    ]
+                }
+            ],
+            "spoonacularSourceUrl": "https://spoonacular.com/a-refreshing-drink-to-welcome-you-all-631913",
+            "usedIngredientCount": 0,
+            "missedIngredientCount": 4,
+            "missedIngredients": [
+                {
+                    "id": 2064,
+                    "amount": 2,
+                    "unit": "cups",
+                    "unitLong": "cups",
+                    "unitShort": "cup",
+                    "aisle": "Produce;Spices and Seasonings",
+                    "name": "fresh mint leaves",
+                    "original": "2 cups of fresh mint leaves",
+                    "originalString": "2 cups of fresh mint leaves",
+                    "originalName": "fresh mint leaves",
+                    "metaInformation": [
+                        "fresh"
+                    ],
+                    "meta": [
+                        "fresh"
+                    ],
+                    "image": "https://spoonacular.com/cdn/ingredients_100x100/mint.jpg"
+                },
+                {
+                    "id": 9150,
+                    "amount": 6,
+                    "unit": "large",
+                    "unitLong": "larges",
+                    "unitShort": "large",
+                    "aisle": "Produce",
+                    "name": "lemons",
+                    "original": "6 large lemons",
+                    "originalString": "6 large lemons",
+                    "originalName": "lemons",
+                    "metaInformation": [],
+                    "meta": [],
+                    "image": "https://spoonacular.com/cdn/ingredients_100x100/lemon.png"
+                },
+                {
+                    "id": 11216,
+                    "amount": 0.5,
+                    "unit": "teaspoon",
+                    "unitLong": "teaspoons",
+                    "unitShort": "tsp",
+                    "aisle": "Produce;Ethnic Foods;Spices and Seasonings",
+                    "name": "ginger",
+                    "original": "1/2 teaspoon of freshly grated ginger",
+                    "originalString": "1/2 teaspoon of freshly grated ginger",
+                    "originalName": "freshly grated ginger",
+                    "metaInformation": [
+                        "freshly grated"
+                    ],
+                    "meta": [
+                        "freshly grated"
+                    ],
+                    "image": "https://spoonacular.com/cdn/ingredients_100x100/ginger.png"
+                },
+                {
+                    "id": 10711111,
+                    "amount": 1,
+                    "unit": "pinch",
+                    "unitLong": "pinch",
+                    "unitShort": "pinch",
+                    "aisle": "Baking",
+                    "name": "food color",
+                    "original": "A pinch of green color (food grade)",
+                    "originalString": "A pinch of green color (food grade)",
+                    "originalName": "A of green color (food grade)",
+                    "metaInformation": [
+                        "green",
+                        "(food grade)"
+                    ],
+                    "meta": [
+                        "green",
+                        "(food grade)"
+                    ],
+                    "extendedName": "green food color",
+                    "image": "https://spoonacular.com/cdn/ingredients_100x100/food-coloring.png"
+                }
+            ],
+            "likes": 0,
+            "usedIngredients": [],
+            "unusedIngredients": []
+        },
+        {
+            "vegetarian": true,
+            "vegan": true,
+            "glutenFree": true,
+            "dairyFree": true,
+            "veryHealthy": false,
+            "cheap": false,
+            "veryPopular": false,
+            "sustainable": false,
+            "weightWatcherSmartPoints": 0,
+            "gaps": "no",
+            "lowFodmap": true,
+            "preparationMinutes": 5,
+            "cookingMinutes": 120,
+            "aggregateLikes": 1,
+            "spoonacularScore": 79,
+            "healthScore": 40,
+            "creditsText": "Foodista.com – The Cooking Encyclopedia Everyone Can Edit",
+            "license": "CC BY 3.0",
+            "sourceName": "Foodista",
+            "pricePerServing": 62.21,
+            "extendedIngredients": [
+                {
+                    "id": 2064,
+                    "aisle": "Produce;Spices and Seasonings",
+                    "image": "mint.jpg",
+                    "consistency": "solid",
+                    "name": "mint",
+                    "nameClean": "mint",
+                    "original": "1 handful fresh mint",
+                    "originalString": "1 handful fresh mint",
+                    "originalName": "fresh mint",
+                    "amount": 1,
+                    "unit": "handful",
+                    "meta": [
+                        "fresh"
+                    ],
+                    "metaInformation": [
+                        "fresh"
+                    ],
+                    "measures": {
+                        "us": {
+                            "amount": 1,
+                            "unitShort": "handful",
+                            "unitLong": "handful"
+                        },
+                        "metric": {
+                            "amount": 1,
+                            "unitShort": "handful",
+                            "unitLong": "handful"
+                        }
+                    }
+                },
+                {
+                    "id": 9148,
+                    "aisle": "Produce",
+                    "image": "kiwi.png",
+                    "consistency": "solid",
+                    "name": "kiwis",
+                    "nameClean": "kiwi",
+                    "original": "4 kiwis",
+                    "originalString": "4 kiwis",
+                    "originalName": "kiwis",
+                    "amount": 4,
+                    "unit": "",
+                    "meta": [],
+                    "metaInformation": [],
+                    "measures": {
+                        "us": {
+                            "amount": 4,
+                            "unitShort": "",
+                            "unitLong": ""
+                        },
+                        "metric": {
+                            "amount": 4,
+                            "unitShort": "",
+                            "unitLong": ""
+                        }
+                    }
+                },
+                {
+                    "id": 14412,
+                    "aisle": "Beverages",
+                    "image": "water.png",
+                    "consistency": "liquid",
+                    "name": "water",
+                    "nameClean": "water",
+                    "original": "4 cups water",
+                    "originalString": "4 cups water",
+                    "originalName": "water",
+                    "amount": 4,
+                    "unit": "cups",
+                    "meta": [],
+                    "metaInformation": [],
+                    "measures": {
+                        "us": {
+                            "amount": 4,
+                            "unitShort": "cups",
+                            "unitLong": "cups"
+                        },
+                        "metric": {
+                            "amount": 946.352,
+                            "unitShort": "ml",
+                            "unitLong": "milliliters"
+                        }
+                    }
+                }
+            ],
+            "id": 1095730,
+            "title": "Kiwi and Mint Infused Water",
+            "readyInMinutes": 125,
+            "servings": 4,
+            "sourceUrl": "https://www.foodista.com/recipe/2LJHQG43/kiwi-and-mint-infused-water",
+            "image": "https://spoonacular.com/recipeImages/1095730-312x231.jpg",
+            "imageType": "jpg",
+            "summary": "Kiwi and Mint Infused Water requires roughly <b>2 hours and 5 minutes</b> from start to finish. One portion of this dish contains around <b>1g of protein</b>, <b>0g of fat</b>, and a total of <b>56 calories</b>. For <b>62 cents per serving</b>, this recipe <b>covers 8%</b> of your daily requirements of vitamins and minerals. This recipe serves 4. If you have mint, kiwis, water, and a few other ingredients on hand, you can make it. It works well as a beverage. 1 person were glad they tried this recipe. It is brought to you by Foodista. It is a good option if you're following a <b>gluten free, dairy free, paleolithic, and lacto ovo vegetarian</b> diet. All things considered, we decided this recipe <b>deserves a spoonacular score of 89%</b>. This score is great. Similar recipes include <a href=\"https://spoonacular.com/recipes/citrus-and-mint-infused-water-1275527\">Citrus and Mint Infused Water</a>, <a href=\"https://spoonacular.com/recipes/citrus-and-mint-infused-water-1331883\">Citrus and Mint Infused Water</a>, and <a href=\"https://spoonacular.com/recipes/citrus-and-mint-infused-water-511504\">Citrus and Mint Infused Water</a>.",
+            "cuisines": [],
+            "dishTypes": [
+                "beverage",
+                "drink"
+            ],
+            "diets": [
+                "gluten free",
+                "dairy free",
+                "paleolithic",
+                "lacto ovo vegetarian",
+                "primal",
+                "fodmap friendly",
+                "vegan"
+            ],
+            "occasions": [],
+            "analyzedInstructions": [
+                {
+                    "name": "",
+                    "steps": [
+                        {
+                            "number": 1,
+                            "step": "Wash and peel the kiwis.",
+                            "ingredients": [
+                                {
+                                    "id": 9148,
+                                    "name": "kiwi",
+                                    "localizedName": "kiwi",
+                                    "image": "kiwi.png"
+                                }
+                            ],
+                            "equipment": []
+                        },
+                        {
+                            "number": 2,
+                            "step": "Cut them into thin slices. Wash the mint sprigs.",
+                            "ingredients": [
+                                {
+                                    "id": 2064,
+                                    "name": "mint",
+                                    "localizedName": "mint",
+                                    "image": "mint.jpg"
+                                }
+                            ],
+                            "equipment": []
+                        },
+                        {
+                            "number": 3,
+                            "step": "Place kiwi slices and mint in a large jar/bottle.Fill the jar/bottle with water and cover.",
+                            "ingredients": [
+                                {
+                                    "id": 14412,
+                                    "name": "water",
+                                    "localizedName": "water",
+                                    "image": "water.png"
+                                },
+                                {
+                                    "id": 9148,
+                                    "name": "kiwi",
+                                    "localizedName": "kiwi",
+                                    "image": "kiwi.png"
+                                },
+                                {
+                                    "id": 2064,
+                                    "name": "mint",
+                                    "localizedName": "mint",
+                                    "image": "mint.jpg"
+                                }
+                            ],
+                            "equipment": []
+                        },
+                        {
+                            "number": 4,
+                            "step": "Place in the fridge and chill for at least 2 hours, for best results overnight.",
+                            "ingredients": [],
+                            "equipment": [],
+                            "length": {
+                                "number": 120,
+                                "unit": "minutes"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "spoonacularSourceUrl": "https://spoonacular.com/kiwi-and-mint-infused-water-1095730",
+            "usedIngredientCount": 0,
+            "missedIngredientCount": 2,
+            "missedIngredients": [
+                {
+                    "id": 2064,
+                    "amount": 1,
+                    "unit": "handful",
+                    "unitLong": "handful",
+                    "unitShort": "handful",
+                    "aisle": "Produce;Spices and Seasonings",
+                    "name": "mint",
+                    "original": "1 handful fresh mint",
+                    "originalString": "1 handful fresh mint",
+                    "originalName": "fresh mint",
+                    "metaInformation": [
+                        "fresh"
+                    ],
+                    "meta": [
+                        "fresh"
+                    ],
+                    "extendedName": "fresh mint",
+                    "image": "https://spoonacular.com/cdn/ingredients_100x100/mint.jpg"
+                },
+                {
+                    "id": 9148,
+                    "amount": 4,
+                    "unit": "",
+                    "unitLong": "",
+                    "unitShort": "",
+                    "aisle": "Produce",
+                    "name": "kiwis",
+                    "original": "4 kiwis",
+                    "originalString": "4 kiwis",
+                    "originalName": "kiwis",
+                    "metaInformation": [],
+                    "meta": [],
+                    "image": "https://spoonacular.com/cdn/ingredients_100x100/kiwi.png"
+                }
+            ],
+            "likes": 0,
+            "usedIngredients": [],
+            "unusedIngredients": []
+        },
+        {
+            "vegetarian": true,
+            "vegan": true,
+            "glutenFree": true,
+            "dairyFree": true,
+            "veryHealthy": false,
+            "cheap": false,
+            "veryPopular": false,
+            "sustainable": false,
+            "weightWatcherSmartPoints": 6,
+            "gaps": "no",
+            "lowFodmap": false,
+            "aggregateLikes": 0,
+            "spoonacularScore": 66,
+            "healthScore": 20,
+            "creditsText": "coffeebean",
+            "license": "spoonacular's terms",
+            "sourceName": "spoonacular",
+            "pricePerServing": 59.2,
+            "extendedIngredients": [
+                {
+                    "id": 9040,
+                    "aisle": "Produce",
+                    "image": "bananas.jpg",
+                    "consistency": "solid",
+                    "name": "bananas",
+                    "nameClean": "ripe banana",
+                    "original": "2 bananas",
+                    "originalString": "2 bananas",
+                    "originalName": "bananas",
+                    "amount": 2,
+                    "unit": "",
+                    "meta": [],
+                    "metaInformation": [],
+                    "measures": {
+                        "us": {
+                            "amount": 2,
+                            "unitShort": "",
+                            "unitLong": ""
+                        },
+                        "metric": {
+                            "amount": 2,
+                            "unitShort": "",
+                            "unitLong": ""
+                        }
+                    }
+                },
+                {
+                    "id": 16098,
+                    "aisle": "Nut butters, Jams, and Honey",
+                    "image": "peanut-butter.png",
+                    "consistency": "solid",
+                    "name": "peanut butter",
+                    "nameClean": "peanut butter",
+                    "original": "4 tablespoons peanut butter",
+                    "originalString": "4 tablespoons peanut butter",
+                    "originalName": "peanut butter",
+                    "amount": 4,
+                    "unit": "tablespoons",
+                    "meta": [],
+                    "metaInformation": [],
+                    "measures": {
+                        "us": {
+                            "amount": 4,
+                            "unitShort": "Tbsps",
+                            "unitLong": "Tbsps"
+                        },
+                        "metric": {
+                            "amount": 4,
+                            "unitShort": "Tbsps",
+                            "unitLong": "Tbsps"
+                        }
+                    }
+                },
+                {
+                    "id": 9087,
+                    "aisle": "Dried Fruits;Produce",
+                    "image": "dates.jpg",
+                    "consistency": "solid",
+                    "name": "dates",
+                    "nameClean": "dates",
+                    "original": "6 dried dates",
+                    "originalString": "6 dried dates",
+                    "originalName": "dried dates",
+                    "amount": 6,
+                    "unit": "",
+                    "meta": [
+                        "dried"
+                    ],
+                    "metaInformation": [
+                        "dried"
+                    ],
+                    "measures": {
+                        "us": {
+                            "amount": 6,
+                            "unitShort": "",
+                            "unitLong": ""
+                        },
+                        "metric": {
+                            "amount": 6,
+                            "unitShort": "",
+                            "unitLong": ""
+                        }
+                    }
+                },
+                {
+                    "id": 19165,
+                    "aisle": "Baking",
+                    "image": "cocoa-powder.png",
+                    "consistency": "solid",
+                    "name": "cocoa powder",
+                    "nameClean": "hersheys cocoa",
+                    "original": "2 tablespoons cocoa powder",
+                    "originalString": "2 tablespoons cocoa powder",
+                    "originalName": "cocoa powder",
+                    "amount": 2,
+                    "unit": "tablespoons",
+                    "meta": [],
+                    "metaInformation": [],
+                    "measures": {
+                        "us": {
+                            "amount": 2,
+                            "unitShort": "Tbsps",
+                            "unitLong": "Tbsps"
+                        },
+                        "metric": {
+                            "amount": 2,
+                            "unitShort": "Tbsps",
+                            "unitLong": "Tbsps"
+                        }
+                    }
+                },
+                {
+                    "id": 10014412,
+                    "aisle": "Frozen",
+                    "image": "ice-cubes.png",
+                    "consistency": "solid",
+                    "name": "ice",
+                    "nameClean": "ice",
+                    "original": "ice",
+                    "originalString": "ice",
+                    "originalName": "ice",
+                    "amount": 2,
+                    "unit": "servings",
+                    "meta": [],
+                    "metaInformation": [],
+                    "measures": {
+                        "us": {
+                            "amount": 2,
+                            "unitShort": "servings",
+                            "unitLong": "servings"
+                        },
+                        "metric": {
+                            "amount": 2,
+                            "unitShort": "servings",
+                            "unitLong": "servings"
+                        }
+                    }
+                },
+                {
+                    "id": 14412,
+                    "aisle": "Beverages",
+                    "image": "water.png",
+                    "consistency": "liquid",
+                    "name": "water",
+                    "nameClean": "water",
+                    "original": "water",
+                    "originalString": "water",
+                    "originalName": "water",
+                    "amount": 2,
+                    "unit": "servings",
+                    "meta": [],
+                    "metaInformation": [],
+                    "measures": {
+                        "us": {
+                            "amount": 2,
+                            "unitShort": "servings",
+                            "unitLong": "servings"
+                        },
+                        "metric": {
+                            "amount": 2,
+                            "unitShort": "servings",
+                            "unitLong": "servings"
+                        }
+                    }
+                }
+            ],
+            "id": 1497523,
+            "title": "Peanut Butter Banana Smoothie",
+            "author": "coffeebean",
+            "readyInMinutes": 10,
+            "servings": 2,
+            "sourceUrl": "https://spoonacular.com/site-1595072981456",
+            "image": "https://spoonacular.com/recipeImages/1497523-312x231.jpg",
+            "imageType": "jpg",
+            "summary": "The recipe Peanut Butter Banana Smoothie can be made <b>in around 10 minutes</b>. For <b>59 cents per serving</b>, this recipe <b>covers 15%</b> of your daily requirements of vitamins and minerals. One portion of this dish contains roughly <b>11g of protein</b>, <b>17g of fat</b>, and a total of <b>364 calories</b>. This recipe serves 2. It is a good option if you're following a <b>gluten free, dairy free, lacto ovo vegetarian, and vegan</b> diet. It is brought to you by spoonacular user <a href=\"/profile/coffeebean\">coffeebean</a>. If you have ice, peanut butter, dates, and a few other ingredients on hand, you can make it. Similar recipes include <a href=\"https://spoonacular.com/recipes/peanut-butter-banana-smoothie-1375473\">Peanut Butter Banana Smoothie</a>, <a href=\"https://spoonacular.com/recipes/peanut-butter-banana-smoothie-200715\">Peanut Butter Banana Smoothie</a>, and <a href=\"https://spoonacular.com/recipes/peanut-butter-banana-smoothie-485711\">Peanut Butter Banana Smoothie</a>.",
+            "cuisines": [],
+            "dishTypes": [
+                "morning meal",
+                "brunch",
+                "beverage",
+                "breakfast",
+                "drink"
+            ],
+            "diets": [
+                "gluten free",
+                "dairy free",
+                "lacto ovo vegetarian",
+                "vegan"
+            ],
+            "occasions": [],
+            "analyzedInstructions": [
+                {
+                    "name": "",
+                    "steps": [
+                        {
+                            "number": 1,
+                            "step": "Fill the blender with some cold water and several ice cubes.",
+                            "ingredients": [
+                                {
+                                    "id": 10014412,
+                                    "name": "ice cubes",
+                                    "localizedName": "ice cubes",
+                                    "image": "ice-cubes.png"
+                                },
+                                {
+                                    "id": 14412,
+                                    "name": "water",
+                                    "localizedName": "water",
+                                    "image": "water.png"
+                                }
+                            ],
+                            "equipment": [
+                                {
+                                    "id": 404726,
+                                    "name": "blender",
+                                    "localizedName": "blender",
+                                    "image": "blender.png"
+                                }
+                            ]
+                        },
+                        {
+                            "number": 2,
+                            "step": "Add the bananas, peanut butter, dates, and cocoa powder.Blend until smooth.",
+                            "ingredients": [
+                                {
+                                    "id": 16098,
+                                    "name": "peanut butter",
+                                    "localizedName": "peanut butter",
+                                    "image": "peanut-butter.png"
+                                },
+                                {
+                                    "id": 19165,
+                                    "name": "cocoa powder",
+                                    "localizedName": "cocoa powder",
+                                    "image": "cocoa-powder.png"
+                                },
+                                {
+                                    "id": 9040,
+                                    "name": "banana",
+                                    "localizedName": "banana",
+                                    "image": "bananas.jpg"
+                                },
+                                {
+                                    "id": 9087,
+                                    "name": "dates",
+                                    "localizedName": "dates",
+                                    "image": "dates.jpg"
+                                }
+                            ],
+                            "equipment": []
+                        },
+                        {
+                            "number": 3,
+                            "step": "Add more water until you reach the desired thickness.",
+                            "ingredients": [
+                                {
+                                    "id": 14412,
+                                    "name": "water",
+                                    "localizedName": "water",
+                                    "image": "water.png"
+                                }
+                            ],
+                            "equipment": []
+                        }
+                    ]
+                }
+            ],
+            "spoonacularSourceUrl": "https://spoonacular.com/peanut-butter-banana-smoothie-1497523",
+            "usedIngredientCount": 0,
+            "missedIngredientCount": 4,
+            "missedIngredients": [
+                {
+                    "id": 9040,
+                    "amount": 2,
+                    "unit": "",
+                    "unitLong": "",
+                    "unitShort": "",
+                    "aisle": "Produce",
+                    "name": "bananas",
+                    "original": "2 bananas",
+                    "originalString": "2 bananas",
+                    "originalName": "bananas",
+                    "metaInformation": [],
+                    "meta": [],
+                    "image": "https://spoonacular.com/cdn/ingredients_100x100/bananas.jpg"
+                },
+                {
+                    "id": 16098,
+                    "amount": 4,
+                    "unit": "tablespoons",
+                    "unitLong": "tablespoons",
+                    "unitShort": "Tbsp",
+                    "aisle": "Nut butters, Jams, and Honey",
+                    "name": "peanut butter",
+                    "original": "4 tablespoons peanut butter",
+                    "originalString": "4 tablespoons peanut butter",
+                    "originalName": "peanut butter",
+                    "metaInformation": [],
+                    "meta": [],
+                    "image": "https://spoonacular.com/cdn/ingredients_100x100/peanut-butter.png"
+                },
+                {
+                    "id": 9087,
+                    "amount": 6,
+                    "unit": "",
+                    "unitLong": "",
+                    "unitShort": "",
+                    "aisle": "Dried Fruits;Produce",
+                    "name": "dates",
+                    "original": "6 dried dates",
+                    "originalString": "6 dried dates",
+                    "originalName": "dried dates",
+                    "metaInformation": [
+                        "dried"
+                    ],
+                    "meta": [
+                        "dried"
+                    ],
+                    "extendedName": "dried dates",
+                    "image": "https://spoonacular.com/cdn/ingredients_100x100/dates.jpg"
+                },
+                {
+                    "id": 19165,
+                    "amount": 2,
+                    "unit": "tablespoons",
+                    "unitLong": "tablespoons",
+                    "unitShort": "Tbsp",
+                    "aisle": "Baking",
+                    "name": "cocoa powder",
+                    "original": "2 tablespoons cocoa powder",
+                    "originalString": "2 tablespoons cocoa powder",
+                    "originalName": "cocoa powder",
+                    "metaInformation": [],
+                    "meta": [],
+                    "image": "https://spoonacular.com/cdn/ingredients_100x100/cocoa-powder.png"
+                }
+            ],
+            "likes": 0,
+            "usedIngredients": [],
+            "unusedIngredients": []
+        },
+        {
+            "vegetarian": true,
+            "vegan": true,
+            "glutenFree": true,
+            "dairyFree": true,
+            "veryHealthy": false,
+            "cheap": false,
+            "veryPopular": false,
+            "sustainable": false,
+            "weightWatcherSmartPoints": 1,
+            "gaps": "no",
+            "lowFodmap": false,
+            "aggregateLikes": 1,
+            "spoonacularScore": 61,
+            "healthScore": 13,
+            "creditsText": "Foodista.com – The Cooking Encyclopedia Everyone Can Edit",
+            "license": "CC BY 3.0",
+            "sourceName": "Foodista",
+            "pricePerServing": 29.45,
+            "extendedIngredients": [
+                {
+                    "id": 9040,
+                    "aisle": "Produce",
+                    "image": "bananas.jpg",
+                    "consistency": "solid",
+                    "name": "bananas",
+                    "nameClean": "ripe banana",
+                    "original": "2 bananas, frozen, cut in chunks",
+                    "originalString": "2 bananas, frozen, cut in chunks",
+                    "originalName": "bananas, frozen, cut in chunks",
+                    "amount": 2,
+                    "unit": "",
+                    "meta": [
+                        "frozen",
+                        "cut in chunks"
+                    ],
+                    "metaInformation": [
+                        "frozen",
+                        "cut in chunks"
+                    ],
+                    "measures": {
+                        "us": {
+                            "amount": 2,
+                            "unitShort": "",
+                            "unitLong": ""
+                        },
+                        "metric": {
+                            "amount": 2,
+                            "unitShort": "",
+                            "unitLong": ""
+                        }
+                    }
+                },
+                {
+                    "id": 9206,
+                    "aisle": "Beverages",
+                    "image": "orange-juice.jpg",
+                    "consistency": "liquid",
+                    "name": "orange juice",
+                    "nameClean": "orange juice",
+                    "original": "1/2 cup orange juice, fresh preferred but bottled will work too. (I suggest starting with 1/4 cup orange juice and adding the rest slowly according to preference )",
+                    "originalString": "1/2 cup orange juice, fresh preferred but bottled will work too. (I suggest starting with 1/4 cup orange juice and adding the rest slowly according to preference )",
+                    "originalName": "orange juice, fresh preferred but bottled will work too. (I suggest starting with 1/4 cup orange juice and adding the rest slowly according to preference )",
+                    "amount": 0.5,
+                    "unit": "cup",
+                    "meta": [
+                        "fresh",
+                        "with 1/4 cup orange juice and adding the rest slowly according to preference )"
+                    ],
+                    "metaInformation": [
+                        "fresh",
+                        "with 1/4 cup orange juice and adding the rest slowly according to preference )"
+                    ],
+                    "measures": {
+                        "us": {
+                            "amount": 0.5,
+                            "unitShort": "cups",
+                            "unitLong": "cups"
+                        },
+                        "metric": {
+                            "amount": 118.294,
+                            "unitShort": "ml",
+                            "unitLong": "milliliters"
+                        }
+                    }
+                },
+                {
+                    "id": 2006,
+                    "aisle": "Spices and Seasonings",
+                    "image": "cardamom.jpg",
+                    "consistency": "solid",
+                    "name": "cardamom powder",
+                    "nameClean": "cardamom",
+                    "original": "Pinch of cardamom powder (Cardamom powder is very strong so add only a pinch)",
+                    "originalString": "Pinch of cardamom powder (Cardamom powder is very strong so add only a pinch)",
+                    "originalName": "Pinch of cardamom powder (Cardamom powder is very strong so add only a pinch)",
+                    "amount": 1,
+                    "unit": "pinch",
+                    "meta": [
+                        "(Cardamom powder is very strong so add only a pinch)"
+                    ],
+                    "metaInformation": [
+                        "(Cardamom powder is very strong so add only a pinch)"
+                    ],
+                    "measures": {
+                        "us": {
+                            "amount": 1,
+                            "unitShort": "pinch",
+                            "unitLong": "pinch"
+                        },
+                        "metric": {
+                            "amount": 1,
+                            "unitShort": "pinch",
+                            "unitLong": "pinch"
+                        }
+                    }
+                }
+            ],
+            "id": 650485,
+            "title": "Luscious Orange Cardamom Smoothie",
+            "readyInMinutes": 45,
+            "servings": 2,
+            "sourceUrl": "https://www.foodista.com/recipe/ZKLKH6FG/luscious-orange-cardamom-smoothie",
+            "image": "https://spoonacular.com/recipeImages/650485-312x231.jpg",
+            "imageType": "jpg",
+            "summary": "If you want to add more <b>gluten free, dairy free, paleolithic, and lacto ovo vegetarian</b> recipes to your repertoire, Luscious Orange Cardamom Smoothie might be a recipe you should try. This breakfast has <b>133 calories</b>, <b>2g of protein</b>, and <b>1g of fat</b> per serving. This recipe serves 2. For <b>29 cents per serving</b>, this recipe <b>covers 7%</b> of your daily requirements of vitamins and minerals. 1 person has tried and liked this recipe. A mixture of bananas, orange juice, cardamom powder, and a handful of other ingredients are all it takes to make this recipe so scrumptious. From preparation to the plate, this recipe takes roughly <b>roughly 45 minutes</b>. It is brought to you by Foodista. Overall, this recipe earns a <b>solid spoonacular score of 60%</b>. Similar recipes include <a href=\"https://spoonacular.com/recipes/lite-n-luscious-smoothie-495654\">Lite 'n Luscious Smoothie</a>, <a href=\"https://spoonacular.com/recipes/daring-bakers-challenge-vanilla-bean-blood-orange-panna-cotta-with-orange-allspice-caramel-sauce-and-orange-cardamom-hazelnut-dark-chocolate-florentines-gluten-free-51204\">Daring Bakers’ Challenge: Vanilla Bean & Blood Orange Panna Cotta with Orange Allspice Caramel Sauce and Orange Cardamom Hazelnut Dark Chocolate Florentines (gluten free)</a>, and <a href=\"https://spoonacular.com/recipes/luscious-orange-cheesecake-with-raspberries-165483\">Luscious Orange Cheesecake with Raspberries</a>.",
+            "cuisines": [],
+            "dishTypes": [
+                "morning meal",
+                "brunch",
+                "beverage",
+                "breakfast",
+                "drink"
+            ],
+            "diets": [
+                "gluten free",
+                "dairy free",
+                "paleolithic",
+                "lacto ovo vegetarian",
+                "primal",
+                "vegan"
+            ],
+            "occasions": [],
+            "analyzedInstructions": [
+                {
+                    "name": "",
+                    "steps": [
+                        {
+                            "number": 1,
+                            "step": "Blend all the three ingredients together until smooth and frothy. If sweetener needed, while blending add dates, honey, maple syrup, almond butter or sugar as per taste.",
+                            "ingredients": [
+                                {
+                                    "id": 12195,
+                                    "name": "almond butter",
+                                    "localizedName": "almond butter",
+                                    "image": "almond-butter.jpg"
+                                },
+                                {
+                                    "id": 19911,
+                                    "name": "maple syrup",
+                                    "localizedName": "maple syrup",
+                                    "image": "maple-syrup.png"
+                                },
+                                {
+                                    "id": 0,
+                                    "name": "sweetener",
+                                    "localizedName": "sweetener",
+                                    "image": ""
+                                },
+                                {
+                                    "id": 9087,
+                                    "name": "dates",
+                                    "localizedName": "dates",
+                                    "image": "dates.jpg"
+                                },
+                                {
+                                    "id": 19296,
+                                    "name": "honey",
+                                    "localizedName": "honey",
+                                    "image": "honey.png"
+                                },
+                                {
+                                    "id": 19335,
+                                    "name": "sugar",
+                                    "localizedName": "sugar",
+                                    "image": "sugar-in-bowl.png"
+                                }
+                            ],
+                            "equipment": []
+                        }
+                    ]
+                }
+            ],
+            "spoonacularSourceUrl": "https://spoonacular.com/luscious-orange-cardamom-smoothie-650485",
+            "usedIngredientCount": 0,
+            "missedIngredientCount": 3,
+            "missedIngredients": [
+                {
+                    "id": 9040,
+                    "amount": 2,
+                    "unit": "",
+                    "unitLong": "",
+                    "unitShort": "",
+                    "aisle": "Produce",
+                    "name": "bananas",
+                    "original": "2 bananas, frozen, cut in chunks",
+                    "originalString": "2 bananas, frozen, cut in chunks",
+                    "originalName": "bananas, frozen, cut in chunks",
+                    "metaInformation": [
+                        "frozen",
+                        "cut in chunks"
+                    ],
+                    "meta": [
+                        "frozen",
+                        "cut in chunks"
+                    ],
+                    "extendedName": "frozen bananas",
+                    "image": "https://spoonacular.com/cdn/ingredients_100x100/bananas.jpg"
+                },
+                {
+                    "id": 9206,
+                    "amount": 0.5,
+                    "unit": "cup",
+                    "unitLong": "cups",
+                    "unitShort": "cup",
+                    "aisle": "Beverages",
+                    "name": "orange juice",
+                    "original": "1/2 cup orange juice, fresh preferred but bottled will work too. (I suggest starting with 1/4 cup orange juice and adding the rest slowly according to preference )",
+                    "originalString": "1/2 cup orange juice, fresh preferred but bottled will work too. (I suggest starting with 1/4 cup orange juice and adding the rest slowly according to preference )",
+                    "originalName": "orange juice, fresh preferred but bottled will work too. (I suggest starting with 1/4 cup orange juice and adding the rest slowly according to preference )",
+                    "metaInformation": [
+                        "fresh",
+                        "with 1/4 cup orange juice and adding the rest slowly according to preference )"
+                    ],
+                    "meta": [
+                        "fresh",
+                        "with 1/4 cup orange juice and adding the rest slowly according to preference )"
+                    ],
+                    "extendedName": "fresh orange juice",
+                    "image": "https://spoonacular.com/cdn/ingredients_100x100/orange-juice.jpg"
+                },
+                {
+                    "id": 2006,
+                    "amount": 1,
+                    "unit": "pinch",
+                    "unitLong": "pinch",
+                    "unitShort": "pinch",
+                    "aisle": "Spices and Seasonings",
+                    "name": "cardamom powder",
+                    "original": "Pinch of cardamom powder (Cardamom powder is very strong so add only a pinch)",
+                    "originalString": "Pinch of cardamom powder (Cardamom powder is very strong so add only a pinch)",
+                    "originalName": "Pinch of cardamom powder (Cardamom powder is very strong so add only a pinch)",
+                    "metaInformation": [
+                        "(Cardamom powder is very strong so add only a pinch)"
+                    ],
+                    "meta": [
+                        "(Cardamom powder is very strong so add only a pinch)"
+                    ],
+                    "image": "https://spoonacular.com/cdn/ingredients_100x100/cardamom.jpg"
+                }
+            ],
+            "likes": 0,
+            "usedIngredients": [],
+            "unusedIngredients": []
+        },
+        {
+            "vegetarian": true,
+            "vegan": true,
+            "glutenFree": true,
+            "dairyFree": true,
+            "veryHealthy": false,
+            "cheap": false,
+            "veryPopular": false,
+            "sustainable": false,
+            "weightWatcherSmartPoints": 0,
+            "gaps": "no",
+            "lowFodmap": false,
+            "aggregateLikes": 1,
+            "spoonacularScore": 60,
+            "healthScore": 16,
+            "creditsText": "Foodista.com – The Cooking Encyclopedia Everyone Can Edit",
+            "license": "CC BY 3.0",
+            "sourceName": "Foodista",
+            "pricePerServing": 108.67,
+            "extendedIngredients": [
+                {
+                    "id": 9078,
+                    "aisle": "Produce",
+                    "image": "cranberries.jpg",
+                    "consistency": "solid",
+                    "name": "cranberries",
+                    "nameClean": "cranberries",
+                    "original": "1 cup frozen cranberries",
+                    "originalString": "1 cup frozen cranberries",
+                    "originalName": "frozen cranberries",
+                    "amount": 1,
+                    "unit": "cup",
+                    "meta": [
+                        "frozen"
+                    ],
+                    "metaInformation": [
+                        "frozen"
+                    ],
+                    "measures": {
+                        "us": {
+                            "amount": 1,
+                            "unitShort": "cup",
+                            "unitLong": "cup"
+                        },
+                        "metric": {
+                            "amount": 236.588,
+                            "unitShort": "ml",
+                            "unitLong": "milliliters"
+                        }
+                    }
+                },
+                {
+                    "id": 9176,
+                    "aisle": "Produce",
+                    "image": "mango.jpg",
+                    "consistency": "solid",
+                    "name": "mango",
+                    "nameClean": "mango",
+                    "original": "1 mango (peeled and chopped)",
+                    "originalString": "1 mango (peeled and chopped)",
+                    "originalName": "mango (peeled and chopped)",
+                    "amount": 1,
+                    "unit": "",
+                    "meta": [
+                        "peeled",
+                        "chopped",
+                        "( and )"
+                    ],
+                    "metaInformation": [
+                        "peeled",
+                        "chopped",
+                        "( and )"
+                    ],
+                    "measures": {
+                        "us": {
+                            "amount": 1,
+                            "unitShort": "",
+                            "unitLong": ""
+                        },
+                        "metric": {
+                            "amount": 1,
+                            "unitShort": "",
+                            "unitLong": ""
+                        }
+                    }
+                },
+                {
+                    "id": 9265,
+                    "aisle": "Produce",
+                    "image": "hachiya-persimmon.png",
+                    "consistency": "solid",
+                    "name": "persimmon",
+                    "nameClean": "persimmon",
+                    "original": "2 persimmon",
+                    "originalString": "2 persimmon",
+                    "originalName": "persimmon",
+                    "amount": 2,
+                    "unit": "",
+                    "meta": [],
+                    "metaInformation": [],
+                    "measures": {
+                        "us": {
+                            "amount": 2,
+                            "unitShort": "",
+                            "unitLong": ""
+                        },
+                        "metric": {
+                            "amount": 2,
+                            "unitShort": "",
+                            "unitLong": ""
+                        }
+                    }
+                }
+            ],
+            "id": 1096176,
+            "title": "Mango, Persimmon Smoothie with Cranberries",
+            "readyInMinutes": 10,
+            "servings": 2,
+            "sourceUrl": "https://www.foodista.com/recipe/SKMR87QT/mango-persimmon-smoothie-with-cranberries",
+            "image": "https://spoonacular.com/recipeImages/1096176-312x231.jpg",
+            "imageType": "jpg",
+            "summary": "If you have roughly <b>10 minutes</b> to spend in the kitchen, Mango, Persimmon Smoothie with Cranberries might be a tremendous <b>gluten free, dairy free, paleolithic, and lacto ovo vegetarian</b> recipe to try. For <b>$1.09 per serving</b>, this recipe <b>covers 7%</b> of your daily requirements of vitamins and minerals. One serving contains <b>86 calories</b>, <b>1g of protein</b>, and <b>0g of fat</b>. This recipe serves 2. 1 person were glad they tried this recipe. It is brought to you by Foodista. Head to the store and pick up cranberries, mango, fruit, and a few other things to make it today. It works well as a morn meal. <b>Christmas</b> will be even more special with this recipe. Taking all factors into account, this recipe <b>earns a spoonacular score of 55%</b>, which is solid. Similar recipes are <a href=\"https://spoonacular.com/recipes/persimmon-salad-with-toasted-walnuts-and-dried-cranberries-759100\">Persimmon Salad with Toasted Walnuts and Dried Cranberries</a>, <a href=\"https://spoonacular.com/recipes/persimmon-vanilla-bean-smoothie-588341\">Persimmon vanilla bean smoothie</a>, and <a href=\"https://spoonacular.com/recipes/paleo-pumpkin-persimmon-smoothie-or-pudding-542964\">Paleo Pumpkin Persimmon Smoothie or Pudding</a>.",
+            "cuisines": [],
+            "dishTypes": [
+                "morning meal",
+                "brunch",
+                "beverage",
+                "breakfast",
+                "drink"
+            ],
+            "diets": [
+                "gluten free",
+                "dairy free",
+                "paleolithic",
+                "lacto ovo vegetarian",
+                "primal",
+                "vegan"
+            ],
+            "occasions": [
+                "christmas"
+            ],
+            "analyzedInstructions": [
+                {
+                    "name": "",
+                    "steps": [
+                        {
+                            "number": 1,
+                            "step": "Peel and chop mango and persimmons.Blend all the ingredients together with as much water and ice as you like.",
+                            "ingredients": [
+                                {
+                                    "id": 9265,
+                                    "name": "persimmon",
+                                    "localizedName": "persimmon",
+                                    "image": "hachiya-persimmon.png"
+                                },
+                                {
+                                    "id": 9176,
+                                    "name": "mango",
+                                    "localizedName": "mango",
+                                    "image": "mango.jpg"
+                                },
+                                {
+                                    "id": 14412,
+                                    "name": "water",
+                                    "localizedName": "water",
+                                    "image": "water.png"
+                                },
+                                {
+                                    "id": 10014412,
+                                    "name": "ice",
+                                    "localizedName": "ice",
+                                    "image": "ice-cubes.png"
+                                }
+                            ],
+                            "equipment": []
+                        }
+                    ]
+                }
+            ],
+            "spoonacularSourceUrl": "https://spoonacular.com/mango-persimmon-smoothie-with-cranberries-1096176",
+            "usedIngredientCount": 0,
+            "missedIngredientCount": 3,
+            "missedIngredients": [
+                {
+                    "id": 9078,
+                    "amount": 1,
+                    "unit": "cup",
+                    "unitLong": "cup",
+                    "unitShort": "cup",
+                    "aisle": "Produce",
+                    "name": "cranberries",
+                    "original": "1 cup frozen cranberries",
+                    "originalString": "1 cup frozen cranberries",
+                    "originalName": "frozen cranberries",
+                    "metaInformation": [
+                        "frozen"
+                    ],
+                    "meta": [
+                        "frozen"
+                    ],
+                    "extendedName": "frozen cranberries",
+                    "image": "https://spoonacular.com/cdn/ingredients_100x100/cranberries.jpg"
+                },
+                {
+                    "id": 9176,
+                    "amount": 1,
+                    "unit": "",
+                    "unitLong": "",
+                    "unitShort": "",
+                    "aisle": "Produce",
+                    "name": "mango",
+                    "original": "1 mango (peeled and chopped)",
+                    "originalString": "1 mango (peeled and chopped)",
+                    "originalName": "mango (peeled and chopped)",
+                    "metaInformation": [
+                        "peeled",
+                        "chopped",
+                        "( and )"
+                    ],
+                    "meta": [
+                        "peeled",
+                        "chopped",
+                        "( and )"
+                    ],
+                    "image": "https://spoonacular.com/cdn/ingredients_100x100/mango.jpg"
+                },
+                {
+                    "id": 9265,
+                    "amount": 2,
+                    "unit": "",
+                    "unitLong": "",
+                    "unitShort": "",
+                    "aisle": "Produce",
+                    "name": "persimmon",
+                    "original": "2 persimmon",
+                    "originalString": "2 persimmon",
+                    "originalName": "persimmon",
+                    "metaInformation": [],
+                    "meta": [],
+                    "image": "https://spoonacular.com/cdn/ingredients_100x100/hachiya-persimmon.png"
+                }
+            ],
+            "likes": 0,
+            "usedIngredients": [],
+            "unusedIngredients": []
+        },
+        {
+            "vegetarian": true,
+            "vegan": true,
+            "glutenFree": true,
+            "dairyFree": true,
+            "veryHealthy": false,
+            "cheap": false,
+            "veryPopular": false,
+            "sustainable": false,
+            "weightWatcherSmartPoints": 3,
+            "gaps": "no",
+            "lowFodmap": false,
+            "aggregateLikes": 1,
+            "spoonacularScore": 60,
+            "healthScore": 14,
+            "creditsText": "Foodista.com – The Cooking Encyclopedia Everyone Can Edit",
+            "license": "CC BY 3.0",
+            "sourceName": "Foodista",
+            "pricePerServing": 48.7,
+            "extendedIngredients": [
+                {
+                    "id": 9040,
+                    "aisle": "Produce",
+                    "image": "bananas.jpg",
+                    "consistency": "solid",
+                    "name": "bananas",
+                    "nameClean": "ripe banana",
+                    "original": "2 small bananas",
+                    "originalString": "2 small bananas",
+                    "originalName": "bananas",
+                    "amount": 2,
+                    "unit": "small",
+                    "meta": [],
+                    "metaInformation": [],
+                    "measures": {
+                        "us": {
+                            "amount": 2,
+                            "unitShort": "small",
+                            "unitLong": "smalls"
+                        },
+                        "metric": {
+                            "amount": 2,
+                            "unitShort": "small",
+                            "unitLong": "smalls"
+                        }
+                    }
+                },
+                {
+                    "id": 10116098,
+                    "aisle": "Nut butters, Jams, and Honey",
+                    "image": "peanut-butter.png",
+                    "consistency": "solid",
+                    "name": "creamy peanut butter",
+                    "nameClean": "creamy peanut butter",
+                    "original": "2 tbsp creamy peanut butter",
+                    "originalString": "2 tbsp creamy peanut butter",
+                    "originalName": "creamy peanut butter",
+                    "amount": 2,
+                    "unit": "tbsp",
+                    "meta": [],
+                    "metaInformation": [],
+                    "measures": {
+                        "us": {
+                            "amount": 2,
+                            "unitShort": "Tbsps",
+                            "unitLong": "Tbsps"
+                        },
+                        "metric": {
+                            "amount": 2,
+                            "unitShort": "Tbsps",
+                            "unitLong": "Tbsps"
+                        }
+                    }
+                },
+                {
+                    "id": 9050,
+                    "aisle": "Produce",
+                    "image": "blueberries.jpg",
+                    "consistency": "solid",
+                    "name": "blueberries",
+                    "nameClean": "blueberries",
+                    "original": "1⁄2 cup frozen blueberries",
+                    "originalString": "1⁄2 cup frozen blueberries",
+                    "originalName": "frozen blueberries",
+                    "amount": 0.5,
+                    "unit": "cup",
+                    "meta": [
+                        "frozen"
+                    ],
+                    "metaInformation": [
+                        "frozen"
+                    ],
+                    "measures": {
+                        "us": {
+                            "amount": 0.5,
+                            "unitShort": "cups",
+                            "unitLong": "cups"
+                        },
+                        "metric": {
+                            "amount": 118.294,
+                            "unitShort": "ml",
+                            "unitLong": "milliliters"
+                        }
+                    }
+                },
+                {
+                    "id": 9265,
+                    "aisle": "Produce",
+                    "image": "hachiya-persimmon.png",
+                    "consistency": "solid",
+                    "name": "persimmon",
+                    "nameClean": "persimmon",
+                    "original": "2 persimmon",
+                    "originalString": "2 persimmon",
+                    "originalName": "persimmon",
+                    "amount": 2,
+                    "unit": "",
+                    "meta": [],
+                    "metaInformation": [],
+                    "measures": {
+                        "us": {
+                            "amount": 2,
+                            "unitShort": "",
+                            "unitLong": ""
+                        },
+                        "metric": {
+                            "amount": 2,
+                            "unitShort": "",
+                            "unitLong": ""
+                        }
+                    }
+                }
+            ],
+            "id": 1096178,
+            "title": "Blueberry, Persimmon Smoothie with Banana and Peanut Butter",
+            "readyInMinutes": 5,
+            "servings": 2,
+            "sourceUrl": "https://www.foodista.com/recipe/SF7WGG4V/blueberry-persimmon-smoothie-with-banana-and-peanut-butter",
+            "image": "https://spoonacular.com/recipeImages/1096178-312x231.jpg",
+            "imageType": "jpg",
+            "summary": "The recipe Blueberry, Persimmon Smoothie with Bananan and Peanut Butter can be made <b>in around 5 minutes</b>. Watching your figure? This gluten free, dairy free, lacto ovo vegetarian, and vegan recipe has <b>206 calories</b>, <b>5g of protein</b>, and <b>9g of fat</b> per serving. This recipe serves 2. For <b>49 cents per serving</b>, this recipe <b>covers 9%</b> of your daily requirements of vitamins and minerals. Only a few people made this recipe, and 1 would say it hit the spot. It works well as a morn meal. A mixture of banana, persimmon, blueberries, and a handful of other ingredients are all it takes to make this recipe so yummy. It is brought to you by Foodista. All things considered, we decided this recipe <b>deserves a spoonacular score of 45%</b>. This score is pretty good. Similar recipes include <a href=\"https://spoonacular.com/recipes/peanut-butter-blueberry-banana-smoothie-1408337\">Peanut Butter Blueberry Banana Smoothie</a>, <a href=\"https://spoonacular.com/recipes/peanut-butter-blueberry-banana-smoothie-1408357\">Peanut Butter Blueberry Banana Smoothie</a>, and <a href=\"https://spoonacular.com/recipes/peanut-butter-blueberry-banana-smoothie-1408359\">Peanut Butter Blueberry Banana Smoothie</a>.",
+            "cuisines": [],
+            "dishTypes": [
+                "morning meal",
+                "brunch",
+                "beverage",
+                "breakfast",
+                "drink"
+            ],
+            "diets": [
+                "gluten free",
+                "dairy free",
+                "lacto ovo vegetarian",
+                "vegan"
+            ],
+            "occasions": [],
+            "analyzedInstructions": [
+                {
+                    "name": "",
+                    "steps": [
+                        {
+                            "number": 1,
+                            "step": "Blend all the ingredients together with as much water and ice as you like.",
+                            "ingredients": [
+                                {
+                                    "id": 14412,
+                                    "name": "water",
+                                    "localizedName": "water",
+                                    "image": "water.png"
+                                },
+                                {
+                                    "id": 10014412,
+                                    "name": "ice",
+                                    "localizedName": "ice",
+                                    "image": "ice-cubes.png"
+                                }
+                            ],
+                            "equipment": []
+                        }
+                    ]
+                }
+            ],
+            "spoonacularSourceUrl": "https://spoonacular.com/blueberry-persimmon-smoothie-with-banana-and-peanut-butter-1096178",
+            "usedIngredientCount": 0,
+            "missedIngredientCount": 4,
+            "missedIngredients": [
+                {
+                    "id": 9040,
+                    "amount": 2,
+                    "unit": "small",
+                    "unitLong": "smalls",
+                    "unitShort": "small",
+                    "aisle": "Produce",
+                    "name": "bananas",
+                    "original": "2 small bananas",
+                    "originalString": "2 small bananas",
+                    "originalName": "bananas",
+                    "metaInformation": [],
+                    "meta": [],
+                    "image": "https://spoonacular.com/cdn/ingredients_100x100/bananas.jpg"
+                },
+                {
+                    "id": 10116098,
+                    "amount": 2,
+                    "unit": "tbsp",
+                    "unitLong": "tablespoons",
+                    "unitShort": "Tbsp",
+                    "aisle": "Nut butters, Jams, and Honey",
+                    "name": "creamy peanut butter",
+                    "original": "2 tbsp creamy peanut butter",
+                    "originalString": "2 tbsp creamy peanut butter",
+                    "originalName": "creamy peanut butter",
+                    "metaInformation": [],
+                    "meta": [],
+                    "image": "https://spoonacular.com/cdn/ingredients_100x100/peanut-butter.png"
+                },
+                {
+                    "id": 9050,
+                    "amount": 0.5,
+                    "unit": "cup",
+                    "unitLong": "cups",
+                    "unitShort": "cup",
+                    "aisle": "Produce",
+                    "name": "blueberries",
+                    "original": "1⁄2 cup frozen blueberries",
+                    "originalString": "1⁄2 cup frozen blueberries",
+                    "originalName": "frozen blueberries",
+                    "metaInformation": [
+                        "frozen"
+                    ],
+                    "meta": [
+                        "frozen"
+                    ],
+                    "extendedName": "frozen blueberries",
+                    "image": "https://spoonacular.com/cdn/ingredients_100x100/blueberries.jpg"
+                },
+                {
+                    "id": 9265,
+                    "amount": 2,
+                    "unit": "",
+                    "unitLong": "",
+                    "unitShort": "",
+                    "aisle": "Produce",
+                    "name": "persimmon",
+                    "original": "2 persimmon",
+                    "originalString": "2 persimmon",
+                    "originalName": "persimmon",
+                    "metaInformation": [],
+                    "meta": [],
+                    "image": "https://spoonacular.com/cdn/ingredients_100x100/hachiya-persimmon.png"
+                }
+            ],
+            "likes": 0,
+            "usedIngredients": [],
+            "unusedIngredients": []
+        },
+        {
+            "vegetarian": true,
+            "vegan": true,
+            "glutenFree": true,
+            "dairyFree": true,
+            "veryHealthy": false,
+            "cheap": false,
+            "veryPopular": false,
+            "sustainable": false,
+            "weightWatcherSmartPoints": 4,
+            "gaps": "no",
+            "lowFodmap": false,
+            "aggregateLikes": 6,
+            "spoonacularScore": 54,
+            "healthScore": 13,
+            "creditsText": "Foodista.com – The Cooking Encyclopedia Everyone Can Edit",
+            "license": "CC BY 3.0",
+            "sourceName": "Foodista",
+            "pricePerServing": 292.22,
+            "extendedIngredients": [
+                {
+                    "id": 9326,
+                    "aisle": "Produce",
+                    "image": "watermelon.png",
+                    "consistency": "solid",
+                    "name": "watermelon cubes",
+                    "nameClean": "watermelon",
+                    "original": "1 blenderful of chilled watermelon cubes",
+                    "originalString": "1 blenderful of chilled watermelon cubes",
+                    "originalName": "blenderful of chilled watermelon cubes",
+                    "amount": 1,
+                    "unit": "",
+                    "meta": [
+                        "chilled"
+                    ],
+                    "metaInformation": [
+                        "chilled"
+                    ],
+                    "measures": {
+                        "us": {
+                            "amount": 1,
+                            "unitShort": "",
+                            "unitLong": ""
+                        },
+                        "metric": {
+                            "amount": 1,
+                            "unitShort": "",
+                            "unitLong": ""
+                        }
+                    }
+                },
+                {
+                    "id": 9159,
+                    "aisle": "Produce",
+                    "image": "lime.jpg",
+                    "consistency": "solid",
+                    "name": "limes",
+                    "nameClean": "lime",
+                    "original": "2 limes, wedged",
+                    "originalString": "2 limes, wedged",
+                    "originalName": "limes, wedged",
+                    "amount": 2,
+                    "unit": "",
+                    "meta": [],
+                    "metaInformation": [],
+                    "measures": {
+                        "us": {
+                            "amount": 2,
+                            "unitShort": "",
+                            "unitLong": ""
+                        },
+                        "metric": {
+                            "amount": 2,
+                            "unitShort": "",
+                            "unitLong": ""
+                        }
+                    }
+                },
+                {
+                    "id": 1002044,
+                    "aisle": "Produce;Spices and Seasonings",
+                    "image": "mixed-fresh-herbs.jpg",
+                    "consistency": "solid",
+                    "name": "herbs",
+                    "nameClean": "lemon basil",
+                    "original": "1 bunch of leafy herbs (think: mint, basil, cilantro)",
+                    "originalString": "1 bunch of leafy herbs (think: mint, basil, cilantro)",
+                    "originalName": "leafy herbs (think: mint, basil, cilantro)",
+                    "amount": 1,
+                    "unit": "bunch",
+                    "meta": [
+                        "(think: mint, basil, cilantro)"
+                    ],
+                    "metaInformation": [
+                        "(think: mint, basil, cilantro)"
+                    ],
+                    "measures": {
+                        "us": {
+                            "amount": 1,
+                            "unitShort": "bunch",
+                            "unitLong": "bunch"
+                        },
+                        "metric": {
+                            "amount": 1,
+                            "unitShort": "bunch",
+                            "unitLong": "bunch"
+                        }
+                    }
+                },
+                {
+                    "id": 11979,
+                    "aisle": "Canned and Jarred;Produce;Ethnic Foods",
+                    "image": "jalapeno-pepper.png",
+                    "consistency": "solid",
+                    "name": "jalapeno peppers",
+                    "nameClean": "jalapeno pepper",
+                    "original": "2 jalapeño peppers, deseeded",
+                    "originalString": "2 jalapeño peppers, deseeded",
+                    "originalName": "jalapeño peppers, deseeded",
+                    "amount": 2,
+                    "unit": "",
+                    "meta": [
+                        "deseeded"
+                    ],
+                    "metaInformation": [
+                        "deseeded"
+                    ],
+                    "measures": {
+                        "us": {
+                            "amount": 2,
+                            "unitShort": "",
+                            "unitLong": ""
+                        },
+                        "metric": {
+                            "amount": 2,
+                            "unitShort": "",
+                            "unitLong": ""
+                        }
+                    }
+                },
+                {
+                    "id": 14121,
+                    "aisle": "Beverages",
+                    "image": "sparkling-water.png",
+                    "consistency": "liquid",
+                    "name": "club soda",
+                    "nameClean": "sparkling water",
+                    "original": "2 cups of club soda",
+                    "originalString": "2 cups of club soda",
+                    "originalName": "club soda",
+                    "amount": 2,
+                    "unit": "cups",
+                    "meta": [],
+                    "metaInformation": [],
+                    "measures": {
+                        "us": {
+                            "amount": 2,
+                            "unitShort": "cups",
+                            "unitLong": "cups"
+                        },
+                        "metric": {
+                            "amount": 473.176,
+                            "unitShort": "ml",
+                            "unitLong": "milliliters"
+                        }
+                    }
+                },
+                {
+                    "id": 14037,
+                    "aisle": "Alcoholic Beverages",
+                    "image": "rum-dark.jpg",
+                    "consistency": "solid",
+                    "name": "liquor",
+                    "nameClean": "alcohol",
+                    "original": "12 ounces Liquor, approximately (think: gin, tequila, rum, simple syrup to taste ice cubes",
+                    "originalString": "12 ounces Liquor, approximately (think: gin, tequila, rum, simple syrup to taste ice cubes",
+                    "originalName": "Liquor, approximately (think: gin, tequila, rum, simple syrup to taste ice cubes",
+                    "amount": 12,
+                    "unit": "ounces",
+                    "meta": [
+                        "to taste"
+                    ],
+                    "metaInformation": [
+                        "to taste"
+                    ],
+                    "measures": {
+                        "us": {
+                            "amount": 12,
+                            "unitShort": "oz",
+                            "unitLong": "ounces"
+                        },
+                        "metric": {
+                            "amount": 340.194,
+                            "unitShort": "g",
+                            "unitLong": "grams"
+                        }
+                    }
+                },
+                {
+                    "id": 90480,
+                    "aisle": "Alcoholic Beverages",
+                    "image": "simple-syrup.jpg",
+                    "consistency": "liquid",
+                    "name": "simple syrup",
+                    "nameClean": "simple syrup",
+                    "original": "simple syrup to taste",
+                    "originalString": "simple syrup to taste",
+                    "originalName": "simple syrup to taste",
+                    "amount": 1,
+                    "unit": "serving",
+                    "meta": [
+                        "to taste"
+                    ],
+                    "metaInformation": [
+                        "to taste"
+                    ],
+                    "measures": {
+                        "us": {
+                            "amount": 1,
+                            "unitShort": "serving",
+                            "unitLong": "serving"
+                        },
+                        "metric": {
+                            "amount": 1,
+                            "unitShort": "serving",
+                            "unitLong": "serving"
+                        }
+                    }
+                },
+                {
+                    "id": 10014412,
+                    "aisle": "Frozen",
+                    "image": "ice-cubes.png",
+                    "consistency": "solid",
+                    "name": "ice cubes",
+                    "nameClean": "ice",
+                    "original": "ice cubes",
+                    "originalString": "ice cubes",
+                    "originalName": "ice cubes",
+                    "amount": 1,
+                    "unit": "serving",
+                    "meta": [],
+                    "metaInformation": [],
+                    "measures": {
+                        "us": {
+                            "amount": 1,
+                            "unitShort": "serving",
+                            "unitLong": "serving"
+                        },
+                        "metric": {
+                            "amount": 1,
+                            "unitShort": "serving",
+                            "unitLong": "serving"
+                        }
+                    }
+                },
+                {
+                    "id": 9326,
+                    "aisle": "Produce",
+                    "image": "watermelon.png",
+                    "consistency": "solid",
+                    "name": "watermelon",
+                    "nameClean": "watermelon",
+                    "original": "1Whiz the chilled watermelon in a blender and strain for a smoother cocktail to serve on ice. For a frozen variation, freeze some watermelon cubes and blend it in with the chilled watermelon.",
+                    "originalString": "1Whiz the chilled watermelon in a blender and strain for a smoother cocktail to serve on ice. For a frozen variation, freeze some watermelon cubes and blend it in with the chilled watermelon.",
+                    "originalName": "1Whiz the chilled watermelon in a blender and strain for a smoother cocktail to serve on ice. For a frozen variation, freeze some watermelon cubes and blend it in with the chilled watermelon",
+                    "amount": 1,
+                    "unit": "serving",
+                    "meta": [
+                        "frozen",
+                        "with the chilled watermelon.",
+                        "chilled",
+                        "for a smoother cocktail to serve on ice. for a  variation, freeze some watermelon cubes and blend it in "
+                    ],
+                    "metaInformation": [
+                        "frozen",
+                        "with the chilled watermelon.",
+                        "chilled",
+                        "for a smoother cocktail to serve on ice. for a  variation, freeze some watermelon cubes and blend it in "
+                    ],
+                    "measures": {
+                        "us": {
+                            "amount": 1,
+                            "unitShort": "serving",
+                            "unitLong": "serving"
+                        },
+                        "metric": {
+                            "amount": 1,
+                            "unitShort": "serving",
+                            "unitLong": "serving"
+                        }
+                    }
+                },
+                {
+                    "id": 99105,
+                    "aisle": "Produce",
+                    "image": "bottle-gourd.jpg",
+                    "consistency": "solid",
+                    "name": "bottle gourd",
+                    "nameClean": "bottle gourd",
+                    "original": "2In a large pitcher, muddle 1 lime, herb leaves, and 1-2 jalapeños. Use a rolling pin or the bottom of a glass bottle if you don't have a muddler.",
+                    "originalString": "2In a large pitcher, muddle 1 lime, herb leaves, and 1-2 jalapeños. Use a rolling pin or the bottom of a glass bottle if you don't have a muddler.",
+                    "originalName": "2In a pitcher, muddle 1 lime, herb leaves, and 1-2 jalapeños. Use a rolling pin or the bottom of a glass bottle if you don't have a muddler",
+                    "amount": 1,
+                    "unit": "large",
+                    "meta": [],
+                    "metaInformation": [],
+                    "measures": {
+                        "us": {
+                            "amount": 1,
+                            "unitShort": "large",
+                            "unitLong": "large"
+                        },
+                        "metric": {
+                            "amount": 1,
+                            "unitShort": "large",
+                            "unitLong": "large"
+                        }
+                    }
+                },
+                {
+                    "id": 9326,
+                    "aisle": "Produce",
+                    "image": "watermelon.png",
+                    "consistency": "solid",
+                    "name": "watermelon",
+                    "nameClean": "watermelon",
+                    "original": "3Stir in the blended watermelon, liquor, 1 tablespoon soda, and sweeten to taste.",
+                    "originalString": "3Stir in the blended watermelon, liquor, 1 tablespoon soda, and sweeten to taste.",
+                    "originalName": "3Stir in the blended watermelon, liquor, soda, and sweeten to taste",
+                    "amount": 1,
+                    "unit": "tablespoon",
+                    "meta": [
+                        "to taste"
+                    ],
+                    "metaInformation": [
+                        "to taste"
+                    ],
+                    "measures": {
+                        "us": {
+                            "amount": 1,
+                            "unitShort": "Tbsp",
+                            "unitLong": "Tbsp"
+                        },
+                        "metric": {
+                            "amount": 1,
+                            "unitShort": "Tbsp",
+                            "unitLong": "Tbsp"
+                        }
+                    }
+                },
+                {
+                    "id": 10014412,
+                    "aisle": "Frozen",
+                    "image": "ice-cubes.png",
+                    "consistency": "solid",
+                    "name": "ice",
+                    "nameClean": "ice",
+                    "original": "4Serve in ice-filled glasses and garnish with lime wedges, herbs, and jalapeño slices.",
+                    "originalString": "4Serve in ice-filled glasses and garnish with lime wedges, herbs, and jalapeño slices.",
+                    "originalName": "4Serve in ice-filled and garnish with lime wedges, herbs, and jalapeño slices",
+                    "amount": 1,
+                    "unit": "glasses",
+                    "meta": [
+                        "with lime wedges, herbs, and jalapeño slices."
+                    ],
+                    "metaInformation": [
+                        "with lime wedges, herbs, and jalapeño slices."
+                    ],
+                    "measures": {
+                        "us": {
+                            "amount": 1,
+                            "unitShort": "glasses",
+                            "unitLong": "glasses"
+                        },
+                        "metric": {
+                            "amount": 1,
+                            "unitShort": "glasses",
+                            "unitLong": "glasses"
+                        }
+                    }
+                }
+            ],
+            "id": 665016,
+            "title": "Watermelon Jalapeño Cocktail Cooler",
+            "readyInMinutes": 45,
+            "servings": 6,
+            "sourceUrl": "https://www.foodista.com/recipe/5JF2LB3S/watermelon-jalapeno-cocktail-cooler",
+            "image": "https://spoonacular.com/recipeImages/665016-312x231.jpg",
+            "imageType": "jpg",
+            "summary": "Watermelon Jalapeño Cocktail Cooler might be a good recipe to expand your beverage repertoire. This recipe serves 6. For <b>$2.92 per serving</b>, this recipe <b>covers 17%</b> of your daily requirements of vitamins and minerals. Watching your figure? This gluten free, dairy free, lacto ovo vegetarian, and vegan recipe has <b>380 calories</b>, <b>5g of protein</b>, and <b>1g of fat</b> per serving. 6 people were glad they tried this recipe. It will be a hit at your <b>Summer</b> event. A mixture of whiz the watermelon in a blender and strain, jalapeño peppers, ice cubes, and a handful of other ingredients are all it takes to make this recipe so yummy. From preparation to the plate, this recipe takes approximately <b>approximately 45 minutes</b>. It is brought to you by Foodista. Taking all factors into account, this recipe <b>earns a spoonacular score of 53%</b>, which is solid. <a href=\"https://spoonacular.com/recipes/watermelon-cooler-516082\">Watermelon Cooler</a>, <a href=\"https://spoonacular.com/recipes/watermelon-cooler-225155\">Watermelon Cooler</a>, and <a href=\"https://spoonacular.com/recipes/watermelon-cooler-27668\">Watermelon Cooler</a> are very similar to this recipe.",
+            "cuisines": [],
+            "dishTypes": [
+                "beverage",
+                "drink"
+            ],
+            "diets": [
+                "gluten free",
+                "dairy free",
+                "lacto ovo vegetarian",
+                "vegan"
+            ],
+            "occasions": [
+                "summer"
+            ],
+            "analyzedInstructions": [
+                {
+                    "name": "",
+                    "steps": [
+                        {
+                            "number": 1,
+                            "step": "Whiz the chilled watermelon in a blender and strain for a smoother cocktail to serve on ice. For a frozen variation, freeze some watermelon cubes and blend it in with the chilled watermelon.",
+                            "ingredients": [
+                                {
+                                    "id": 9326,
+                                    "name": "watermelon",
+                                    "localizedName": "watermelon",
+                                    "image": "watermelon.png"
+                                },
+                                {
+                                    "id": 0,
+                                    "name": "cocktail",
+                                    "localizedName": "cocktail",
+                                    "image": "rum-dark.jpg"
+                                },
+                                {
+                                    "id": 10014412,
+                                    "name": "ice",
+                                    "localizedName": "ice",
+                                    "image": "ice-cubes.png"
+                                }
+                            ],
+                            "equipment": [
+                                {
+                                    "id": 404726,
+                                    "name": "blender",
+                                    "localizedName": "blender",
+                                    "image": "blender.png"
+                                }
+                            ]
+                        },
+                        {
+                            "number": 2,
+                            "step": "In a large pitcher, muddle 1 lime, herb leaves, and 1-2 jalapeos. Use a rolling pin or the bottom of a glass bottle if you dont have a muddler.",
+                            "ingredients": [
+                                {
+                                    "id": 9159,
+                                    "name": "lime",
+                                    "localizedName": "lime",
+                                    "image": "lime.jpg"
+                                }
+                            ],
+                            "equipment": [
+                                {
+                                    "id": 404746,
+                                    "name": "rolling pin",
+                                    "localizedName": "rolling pin",
+                                    "image": "rolling-pin.jpg"
+                                }
+                            ]
+                        },
+                        {
+                            "number": 3,
+                            "step": "Stir in the blended watermelon, liquor, a splash of soda, and sweeten to taste.",
+                            "ingredients": [
+                                {
+                                    "id": 9326,
+                                    "name": "watermelon",
+                                    "localizedName": "watermelon",
+                                    "image": "watermelon.png"
+                                },
+                                {
+                                    "id": 14037,
+                                    "name": "liquor",
+                                    "localizedName": "liquor",
+                                    "image": "rum-dark.jpg"
+                                },
+                                {
+                                    "id": 0,
+                                    "name": "pop",
+                                    "localizedName": "pop",
+                                    "image": ""
+                                }
+                            ],
+                            "equipment": []
+                        },
+                        {
+                            "number": 4,
+                            "step": "Serve in ice-filled glasses and garnish with lime wedges, herbs, and jalapeo slices.",
+                            "ingredients": [
+                                {
+                                    "id": 1029159,
+                                    "name": "lime wedge",
+                                    "localizedName": "lime wedge",
+                                    "image": "lime-wedge.jpg"
+                                },
+                                {
+                                    "id": 1002044,
+                                    "name": "herbs",
+                                    "localizedName": "herbs",
+                                    "image": "mixed-fresh-herbs.jpg"
+                                },
+                                {
+                                    "id": 10014412,
+                                    "name": "ice",
+                                    "localizedName": "ice",
+                                    "image": "ice-cubes.png"
+                                }
+                            ],
+                            "equipment": []
+                        }
+                    ]
+                }
+            ],
+            "spoonacularSourceUrl": "https://spoonacular.com/watermelon-jalapeo-cocktail-cooler-665016",
+            "usedIngredientCount": 0,
+            "missedIngredientCount": 9,
+            "missedIngredients": [
+                {
+                    "id": 9326,
+                    "amount": 1,
+                    "unit": "",
+                    "unitLong": "",
+                    "unitShort": "",
+                    "aisle": "Produce",
+                    "name": "watermelon cubes",
+                    "original": "1 blenderful of chilled watermelon cubes",
+                    "originalString": "1 blenderful of chilled watermelon cubes",
+                    "originalName": "blenderful of chilled watermelon cubes",
+                    "metaInformation": [
+                        "chilled"
+                    ],
+                    "meta": [
+                        "chilled"
+                    ],
+                    "image": "https://spoonacular.com/cdn/ingredients_100x100/watermelon.png"
+                },
+                {
+                    "id": 9159,
+                    "amount": 2,
+                    "unit": "",
+                    "unitLong": "",
+                    "unitShort": "",
+                    "aisle": "Produce",
+                    "name": "limes",
+                    "original": "2 limes, wedged",
+                    "originalString": "2 limes, wedged",
+                    "originalName": "limes, wedged",
+                    "metaInformation": [],
+                    "meta": [],
+                    "image": "https://spoonacular.com/cdn/ingredients_100x100/lime.jpg"
+                },
+                {
+                    "id": 1002044,
+                    "amount": 1,
+                    "unit": "bunch",
+                    "unitLong": "bunch",
+                    "unitShort": "bunch",
+                    "aisle": "Produce;Spices and Seasonings",
+                    "name": "herbs",
+                    "original": "1 bunch of leafy herbs (think: mint, basil, cilantro)",
+                    "originalString": "1 bunch of leafy herbs (think: mint, basil, cilantro)",
+                    "originalName": "leafy herbs (think: mint, basil, cilantro)",
+                    "metaInformation": [
+                        "(think: mint, basil, cilantro)"
+                    ],
+                    "meta": [
+                        "(think: mint, basil, cilantro)"
+                    ],
+                    "image": "https://spoonacular.com/cdn/ingredients_100x100/mixed-fresh-herbs.jpg"
+                },
+                {
+                    "id": 11979,
+                    "amount": 2,
+                    "unit": "",
+                    "unitLong": "",
+                    "unitShort": "",
+                    "aisle": "Canned and Jarred;Produce;Ethnic Foods",
+                    "name": "jalapeno peppers",
+                    "original": "2 jalapeño peppers, deseeded",
+                    "originalString": "2 jalapeño peppers, deseeded",
+                    "originalName": "jalapeño peppers, deseeded",
+                    "metaInformation": [
+                        "deseeded"
+                    ],
+                    "meta": [
+                        "deseeded"
+                    ],
+                    "image": "https://spoonacular.com/cdn/ingredients_100x100/jalapeno-pepper.png"
+                },
+                {
+                    "id": 14037,
+                    "amount": 12,
+                    "unit": "ounces",
+                    "unitLong": "ounces",
+                    "unitShort": "oz",
+                    "aisle": "Alcoholic Beverages",
+                    "name": "liquor",
+                    "original": "12 ounces Liquor, approximately (think: gin, tequila, rum, simple syrup to taste ice cubes",
+                    "originalString": "12 ounces Liquor, approximately (think: gin, tequila, rum, simple syrup to taste ice cubes",
+                    "originalName": "Liquor, approximately (think: gin, tequila, rum, simple syrup to taste ice cubes",
+                    "metaInformation": [
+                        "to taste"
+                    ],
+                    "meta": [
+                        "to taste"
+                    ],
+                    "image": "https://spoonacular.com/cdn/ingredients_100x100/rum-dark.jpg"
+                },
+                {
+                    "id": 90480,
+                    "amount": 1,
+                    "unit": "serving",
+                    "unitLong": "serving",
+                    "unitShort": "serving",
+                    "aisle": "Alcoholic Beverages",
+                    "name": "simple syrup",
+                    "original": "simple syrup to taste",
+                    "originalString": "simple syrup to taste",
+                    "originalName": "simple syrup to taste",
+                    "metaInformation": [
+                        "to taste"
+                    ],
+                    "meta": [
+                        "to taste"
+                    ],
+                    "image": "https://spoonacular.com/cdn/ingredients_100x100/simple-syrup.jpg"
+                },
+                {
+                    "id": 9326,
+                    "amount": 1,
+                    "unit": "serving",
+                    "unitLong": "serving",
+                    "unitShort": "serving",
+                    "aisle": "Produce",
+                    "name": "watermelon",
+                    "original": "1Whiz the chilled watermelon in a blender and strain for a smoother cocktail to serve on ice. For a frozen variation, freeze some watermelon cubes and blend it in with the chilled watermelon.",
+                    "originalString": "1Whiz the chilled watermelon in a blender and strain for a smoother cocktail to serve on ice. For a frozen variation, freeze some watermelon cubes and blend it in with the chilled watermelon.",
+                    "originalName": "1Whiz the chilled watermelon in a blender and strain for a smoother cocktail to serve on ice. For a frozen variation, freeze some watermelon cubes and blend it in with the chilled watermelon",
+                    "metaInformation": [
+                        "frozen",
+                        "with the chilled watermelon.",
+                        "chilled",
+                        "for a smoother cocktail to serve on ice. for a  variation, freeze some watermelon cubes and blend it in "
+                    ],
+                    "meta": [
+                        "frozen",
+                        "with the chilled watermelon.",
+                        "chilled",
+                        "for a smoother cocktail to serve on ice. for a  variation, freeze some watermelon cubes and blend it in "
+                    ],
+                    "extendedName": "frozen watermelon",
+                    "image": "https://spoonacular.com/cdn/ingredients_100x100/watermelon.png"
+                },
+                {
+                    "id": 99105,
+                    "amount": 1,
+                    "unit": "large",
+                    "unitLong": "large",
+                    "unitShort": "large",
+                    "aisle": "Produce",
+                    "name": "bottle gourd",
+                    "original": "2In a large pitcher, muddle 1 lime, herb leaves, and 1-2 jalapeños. Use a rolling pin or the bottom of a glass bottle if you don't have a muddler.",
+                    "originalString": "2In a large pitcher, muddle 1 lime, herb leaves, and 1-2 jalapeños. Use a rolling pin or the bottom of a glass bottle if you don't have a muddler.",
+                    "originalName": "2In a pitcher, muddle 1 lime, herb leaves, and 1-2 jalapeños. Use a rolling pin or the bottom of a glass bottle if you don't have a muddler",
+                    "metaInformation": [],
+                    "meta": [],
+                    "image": "https://spoonacular.com/cdn/ingredients_100x100/bottle-gourd.jpg"
+                },
+                {
+                    "id": 9326,
+                    "amount": 1,
+                    "unit": "tablespoon",
+                    "unitLong": "tablespoon",
+                    "unitShort": "Tbsp",
+                    "aisle": "Produce",
+                    "name": "watermelon",
+                    "original": "3Stir in the blended watermelon, liquor, 1 tablespoon soda, and sweeten to taste.",
+                    "originalString": "3Stir in the blended watermelon, liquor, 1 tablespoon soda, and sweeten to taste.",
+                    "originalName": "3Stir in the blended watermelon, liquor, soda, and sweeten to taste",
+                    "metaInformation": [
+                        "to taste"
+                    ],
+                    "meta": [
+                        "to taste"
+                    ],
+                    "image": "https://spoonacular.com/cdn/ingredients_100x100/watermelon.png"
+                }
+            ],
+            "likes": 0,
+            "usedIngredients": [],
+            "unusedIngredients": []
+        },
+        {
+            "vegetarian": true,
+            "vegan": true,
+            "glutenFree": true,
+            "dairyFree": true,
+            "veryHealthy": false,
+            "cheap": false,
+            "veryPopular": false,
+            "sustainable": false,
+            "weightWatcherSmartPoints": 0,
+            "gaps": "no",
+            "lowFodmap": false,
+            "aggregateLikes": 1,
+            "spoonacularScore": 49,
+            "healthScore": 10,
+            "creditsText": "Foodista.com – The Cooking Encyclopedia Everyone Can Edit",
+            "license": "CC BY 3.0",
+            "sourceName": "Foodista",
+            "pricePerServing": 44.15,
+            "extendedIngredients": [
+                {
+                    "id": 9206,
+                    "aisle": "Beverages",
+                    "image": "orange-juice.jpg",
+                    "consistency": "liquid",
+                    "name": "juice of orange",
+                    "nameClean": "orange juice",
+                    "original": "Juice from 2 large oranges",
+                    "originalString": "Juice from 2 large oranges",
+                    "originalName": "Juice from oranges",
+                    "amount": 1,
+                    "unit": "null",
+                    "meta": [],
+                    "metaInformation": [],
+                    "measures": {
+                        "us": {
+                            "amount": 1,
+                            "unitShort": "null",
+                            "unitLong": "null"
+                        },
+                        "metric": {
+                            "amount": 1,
+                            "unitShort": "null",
+                            "unitLong": "null"
+                        }
+                    }
+                },
+                {
+                    "id": 98926,
+                    "aisle": "Beverages",
+                    "image": "grapefruit-juice.jpg",
+                    "consistency": "liquid",
+                    "name": "grapefruit juice",
+                    "nameClean": "grapefruit juice",
+                    "original": "Juice from 1 large grapefruit",
+                    "originalString": "Juice from 1 large grapefruit",
+                    "originalName": "Juice from grapefruit",
+                    "amount": 1,
+                    "unit": "null",
+                    "meta": [],
+                    "metaInformation": [],
+                    "measures": {
+                        "us": {
+                            "amount": 1,
+                            "unitShort": "null",
+                            "unitLong": "null"
+                        },
+                        "metric": {
+                            "amount": 1,
+                            "unitShort": "null",
+                            "unitLong": "null"
+                        }
+                    }
+                },
+                {
+                    "id": 19912,
+                    "aisle": "Ethnic Foods;Health Foods",
+                    "image": "agave.png",
+                    "consistency": "liquid",
+                    "name": "agave nectar",
+                    "nameClean": "agave",
+                    "original": "1 tsp. agave nectar",
+                    "originalString": "1 tsp. agave nectar",
+                    "originalName": "agave nectar",
+                    "amount": 1,
+                    "unit": "tsp",
+                    "meta": [],
+                    "metaInformation": [],
+                    "measures": {
+                        "us": {
+                            "amount": 1,
+                            "unitShort": "tsp",
+                            "unitLong": "teaspoon"
+                        },
+                        "metric": {
+                            "amount": 1,
+                            "unitShort": "tsp",
+                            "unitLong": "teaspoon"
+                        }
+                    }
+                },
+                {
+                    "id": 14121,
+                    "aisle": "Beverages",
+                    "image": "sparkling-water.png",
+                    "consistency": "liquid",
+                    "name": "seltzer",
+                    "nameClean": "sparkling water",
+                    "original": "1/4 cup seltzer",
+                    "originalString": "1/4 cup seltzer",
+                    "originalName": "seltzer",
+                    "amount": 0.25,
+                    "unit": "cup",
+                    "meta": [],
+                    "metaInformation": [],
+                    "measures": {
+                        "us": {
+                            "amount": 0.25,
+                            "unitShort": "cups",
+                            "unitLong": "cups"
+                        },
+                        "metric": {
+                            "amount": 59.147,
+                            "unitShort": "ml",
+                            "unitLong": "milliliters"
+                        }
+                    }
+                },
+                {
+                    "id": 9150,
+                    "aisle": "Produce",
+                    "image": "lemon.png",
+                    "consistency": "solid",
+                    "name": "lemon",
+                    "nameClean": "lemon",
+                    "original": "1 lemon, sliced",
+                    "originalString": "1 lemon, sliced",
+                    "originalName": "lemon, sliced",
+                    "amount": 1,
+                    "unit": "",
+                    "meta": [
+                        "sliced"
+                    ],
+                    "metaInformation": [
+                        "sliced"
+                    ],
+                    "measures": {
+                        "us": {
+                            "amount": 1,
+                            "unitShort": "",
+                            "unitLong": ""
+                        },
+                        "metric": {
+                            "amount": 1,
+                            "unitShort": "",
+                            "unitLong": ""
+                        }
+                    }
+                },
+                {
+                    "id": 9159,
+                    "aisle": "Produce",
+                    "image": "lime.jpg",
+                    "consistency": "solid",
+                    "name": "lime",
+                    "nameClean": "lime",
+                    "original": "1 lime, sliced",
+                    "originalString": "1 lime, sliced",
+                    "originalName": "lime, sliced",
+                    "amount": 1,
+                    "unit": "",
+                    "meta": [
+                        "sliced"
+                    ],
+                    "metaInformation": [
+                        "sliced"
+                    ],
+                    "measures": {
+                        "us": {
+                            "amount": 1,
+                            "unitShort": "",
+                            "unitLong": ""
+                        },
+                        "metric": {
+                            "amount": 1,
+                            "unitShort": "",
+                            "unitLong": ""
+                        }
+                    }
+                }
+            ],
+            "id": 653882,
+            "title": "Orange Grapefruit Spritzer",
+            "readyInMinutes": 45,
+            "servings": 2,
+            "sourceUrl": "https://www.foodista.com/recipe/PJ8CPBKW/orange-grapefruit-spritzer",
+            "image": "https://spoonacular.com/recipeImages/653882-312x231.jpg",
+            "imageType": "jpg",
+            "summary": "Orange Grapefruit Spritzer requires around <b>around 45 minutes</b> from start to finish. Watching your figure? This gluten free, dairy free, lacto ovo vegetarian, and vegan recipe has <b>37 calories</b>, <b>1g of protein</b>, and <b>0g of fat</b> per serving. For <b>44 cents per serving</b>, this recipe <b>covers 4%</b> of your daily requirements of vitamins and minerals. This recipe serves 2. Not a lot of people made this recipe, and 1 would say it hit the spot. It works well as a very reasonably priced beverage. Head to the store and pick up juice of orange, lime, agave nectar, and a few other things to make it today. It is brought to you by Foodista. With a spoonacular <b>score of 48%</b>, this dish is solid. Users who liked this recipe also liked <a href=\"https://spoonacular.com/recipes/pink-grapefruit-spritzer-733348\">Pink Grapefruit Spritzer</a>, <a href=\"https://spoonacular.com/recipes/grapefruit-rosemary-and-sage-spritzer-mocktail-586478\">Grapefruit Rosemary and Sage Spritzer {Mocktail}</a>, and <a href=\"https://spoonacular.com/recipes/pomegranate-orange-spritzer-556341\">Pomegranate Orange Spritzer</a>.",
+            "cuisines": [],
+            "dishTypes": [
+                "beverage",
+                "drink"
+            ],
+            "diets": [
+                "gluten free",
+                "dairy free",
+                "lacto ovo vegetarian",
+                "vegan"
+            ],
+            "occasions": [],
+            "analyzedInstructions": [
+                {
+                    "name": "",
+                    "steps": [
+                        {
+                            "number": 1,
+                            "step": "Combine all ingredients in pitcher; mix well to combine.  Set aside in the sunshine for 1 hour.",
+                            "ingredients": [],
+                            "equipment": [],
+                            "length": {
+                                "number": 60,
+                                "unit": "minutes"
+                            }
+                        },
+                        {
+                            "number": 2,
+                            "step": "Transfer into two serving glasses.",
+                            "ingredients": [],
+                            "equipment": []
+                        },
+                        {
+                            "number": 3,
+                            "step": "Serve atop ice cubes.",
+                            "ingredients": [
+                                {
+                                    "id": 10014412,
+                                    "name": "ice cubes",
+                                    "localizedName": "ice cubes",
+                                    "image": "ice-cubes.png"
+                                }
+                            ],
+                            "equipment": []
+                        }
+                    ]
+                }
+            ],
+            "spoonacularSourceUrl": "https://spoonacular.com/orange-grapefruit-spritzer-653882",
+            "usedIngredientCount": 0,
+            "missedIngredientCount": 5,
+            "missedIngredients": [
+                {
+                    "id": 9206,
+                    "amount": 1,
+                    "unit": "null",
+                    "unitLong": "null",
+                    "unitShort": "null",
+                    "aisle": "Beverages",
+                    "name": "juice of orange",
+                    "original": "Juice from 2 large oranges",
+                    "originalString": "Juice from 2 large oranges",
+                    "originalName": "Juice from oranges",
+                    "metaInformation": [],
+                    "meta": [],
+                    "extendedName": "orange (juice)",
+                    "image": "https://spoonacular.com/cdn/ingredients_100x100/orange-juice.jpg"
+                },
+                {
+                    "id": 98926,
+                    "amount": 1,
+                    "unit": "null",
+                    "unitLong": "null",
+                    "unitShort": "null",
+                    "aisle": "Beverages",
+                    "name": "grapefruit juice",
+                    "original": "Juice from 1 large grapefruit",
+                    "originalString": "Juice from 1 large grapefruit",
+                    "originalName": "Juice from grapefruit",
+                    "metaInformation": [],
+                    "meta": [],
+                    "image": "https://spoonacular.com/cdn/ingredients_100x100/grapefruit-juice.jpg"
+                },
+                {
+                    "id": 19912,
+                    "amount": 1,
+                    "unit": "tsp",
+                    "unitLong": "teaspoon",
+                    "unitShort": "tsp",
+                    "aisle": "Ethnic Foods;Health Foods",
+                    "name": "agave nectar",
+                    "original": "1 tsp. agave nectar",
+                    "originalString": "1 tsp. agave nectar",
+                    "originalName": "agave nectar",
+                    "metaInformation": [],
+                    "meta": [],
+                    "image": "https://spoonacular.com/cdn/ingredients_100x100/agave.png"
+                },
+                {
+                    "id": 9150,
+                    "amount": 1,
+                    "unit": "",
+                    "unitLong": "",
+                    "unitShort": "",
+                    "aisle": "Produce",
+                    "name": "lemon",
+                    "original": "1 lemon, sliced",
+                    "originalString": "1 lemon, sliced",
+                    "originalName": "lemon, sliced",
+                    "metaInformation": [
+                        "sliced"
+                    ],
+                    "meta": [
+                        "sliced"
+                    ],
+                    "image": "https://spoonacular.com/cdn/ingredients_100x100/lemon.png"
+                },
+                {
+                    "id": 9159,
+                    "amount": 1,
+                    "unit": "",
+                    "unitLong": "",
+                    "unitShort": "",
+                    "aisle": "Produce",
+                    "name": "lime",
+                    "original": "1 lime, sliced",
+                    "originalString": "1 lime, sliced",
+                    "originalName": "lime, sliced",
+                    "metaInformation": [
+                        "sliced"
+                    ],
+                    "meta": [
+                        "sliced"
+                    ],
+                    "image": "https://spoonacular.com/cdn/ingredients_100x100/lime.jpg"
+                }
+            ],
+            "likes": 0,
+            "usedIngredients": [],
+            "unusedIngredients": []
+        },
+        {
+            "vegetarian": true,
+            "vegan": true,
+            "glutenFree": true,
+            "dairyFree": true,
+            "veryHealthy": false,
+            "cheap": false,
+            "veryPopular": false,
+            "sustainable": false,
+            "weightWatcherSmartPoints": 12,
+            "gaps": "no",
+            "lowFodmap": false,
+            "aggregateLikes": 6,
+            "spoonacularScore": 44,
+            "healthScore": 7,
+            "creditsText": "Foodista.com – The Cooking Encyclopedia Everyone Can Edit",
+            "license": "CC BY 3.0",
+            "sourceName": "Foodista",
+            "pricePerServing": 214.6,
+            "extendedIngredients": [
+                {
+                    "id": 10014412,
+                    "aisle": "Frozen",
+                    "image": "ice-cubes.png",
+                    "consistency": "solid",
+                    "name": "ice",
+                    "nameClean": "ice",
+                    "original": "3 cups of ice",
+                    "originalString": "3 cups of ice",
+                    "originalName": "ice",
+                    "amount": 3,
+                    "unit": "cups",
+                    "meta": [],
+                    "metaInformation": [],
+                    "measures": {
+                        "us": {
+                            "amount": 3,
+                            "unitShort": "cups",
+                            "unitLong": "cups"
+                        },
+                        "metric": {
+                            "amount": 709.764,
+                            "unitShort": "ml",
+                            "unitLong": "milliliters"
+                        }
+                    }
+                },
+                {
+                    "id": 9273,
+                    "aisle": "Beverages",
+                    "image": "pineapple-juice.jpg",
+                    "consistency": "liquid",
+                    "name": "pineapple juice",
+                    "nameClean": "pineapple juice",
+                    "original": "2 1/2 cups pineapple juice",
+                    "originalString": "2 1/2 cups pineapple juice",
+                    "originalName": "pineapple juice",
+                    "amount": 2.5,
+                    "unit": "cups",
+                    "meta": [],
+                    "metaInformation": [],
+                    "measures": {
+                        "us": {
+                            "amount": 2.5,
+                            "unitShort": "cups",
+                            "unitLong": "cups"
+                        },
+                        "metric": {
+                            "amount": 591.47,
+                            "unitShort": "ml",
+                            "unitLong": "milliliters"
+                        }
+                    }
+                },
+                {
+                    "id": 12118,
+                    "aisle": "Canned and Jarred;Milk, Eggs, Other Dairy",
+                    "image": "coconut-milk.png",
+                    "consistency": "liquid",
+                    "name": "coconut milk",
+                    "nameClean": "coconut milk",
+                    "original": "1/2 cup coconut milk",
+                    "originalString": "1/2 cup coconut milk",
+                    "originalName": "coconut milk",
+                    "amount": 0.5,
+                    "unit": "cup",
+                    "meta": [],
+                    "metaInformation": [],
+                    "measures": {
+                        "us": {
+                            "amount": 0.5,
+                            "unitShort": "cups",
+                            "unitLong": "cups"
+                        },
+                        "metric": {
+                            "amount": 118.294,
+                            "unitShort": "ml",
+                            "unitLong": "milliliters"
+                        }
+                    }
+                },
+                {
+                    "id": 10314037,
+                    "aisle": "Alcoholic Beverages",
+                    "image": "white-rum.jpg",
+                    "consistency": "liquid",
+                    "name": "coconut rum",
+                    "nameClean": "coconut rum",
+                    "original": "1/2 cup coconut rum",
+                    "originalString": "1/2 cup coconut rum",
+                    "originalName": "coconut rum",
+                    "amount": 0.5,
+                    "unit": "cup",
+                    "meta": [],
+                    "metaInformation": [],
+                    "measures": {
+                        "us": {
+                            "amount": 0.5,
+                            "unitShort": "cups",
+                            "unitLong": "cups"
+                        },
+                        "metric": {
+                            "amount": 118.294,
+                            "unitShort": "ml",
+                            "unitLong": "milliliters"
+                        }
+                    }
+                },
+                {
+                    "id": 9266,
+                    "aisle": "Produce",
+                    "image": "pineapple.jpg",
+                    "consistency": "solid",
+                    "name": "pineapple",
+                    "nameClean": "pineapple",
+                    "original": "pineapple",
+                    "originalString": "pineapple",
+                    "originalName": "pineapple",
+                    "amount": 3,
+                    "unit": "servings",
+                    "meta": [],
+                    "metaInformation": [],
+                    "measures": {
+                        "us": {
+                            "amount": 3,
+                            "unitShort": "servings",
+                            "unitLong": "servings"
+                        },
+                        "metric": {
+                            "amount": 3,
+                            "unitShort": "servings",
+                            "unitLong": "servings"
+                        }
+                    }
+                },
+                {
+                    "id": 9328,
+                    "aisle": "Canned and Jarred",
+                    "image": "maraschino.jpg",
+                    "consistency": "solid",
+                    "name": "maraschino cherries",
+                    "nameClean": "maraschino cherries",
+                    "original": "maraschino cherries for garnish",
+                    "originalString": "maraschino cherries for garnish",
+                    "originalName": "maraschino cherries for garnish",
+                    "amount": 3,
+                    "unit": "servings",
+                    "meta": [
+                        "for garnish"
+                    ],
+                    "metaInformation": [
+                        "for garnish"
+                    ],
+                    "measures": {
+                        "us": {
+                            "amount": 3,
+                            "unitShort": "servings",
+                            "unitLong": "servings"
+                        },
+                        "metric": {
+                            "amount": 3,
+                            "unitShort": "servings",
+                            "unitLong": "servings"
+                        }
+                    }
+                }
+            ],
+            "id": 1098357,
+            "title": "Three Ingredient Frozen Pina Colada",
+            "readyInMinutes": 5,
+            "servings": 3,
+            "sourceUrl": "https://www.foodista.com/recipe/DFG678TL/three-ingredient-frozen-pina-colada",
+            "image": "https://spoonacular.com/recipeImages/1098357-312x231.jpg",
+            "imageType": "jpg",
+            "summary": "Need a <b>gluten free, dairy free, lacto ovo vegetarian, and vegan beverage</b>? Three Ingredient Frozen Pina Colada could be a super recipe to try. One serving contains <b>320 calories</b>, <b>2g of protein</b>, and <b>8g of fat</b>. This recipe serves 3. For <b>$2.15 per serving</b>, this recipe <b>covers 12%</b> of your daily requirements of vitamins and minerals. 1 person has tried and liked this recipe. It is brought to you by Foodista. Head to the store and pick up maraschino cherries, pineapple juice, coconut milk, and a few other things to make it today. This recipe is typical of Mexican cuisine. From preparation to the plate, this recipe takes approximately <b>5 minutes</b>. Taking all factors into account, this recipe <b>earns a spoonacular score of 46%</b>, which is solid. Users who liked this recipe also liked <a href=\"https://spoonacular.com/recipes/pia-colada-frozen-dessert-174015\">Piña Colada Frozen Dessert</a>, <a href=\"https://spoonacular.com/recipes/pina-colada-frozen-yogurt-586418\">Pina Colada Frozen Yogurt</a>, and <a href=\"https://spoonacular.com/recipes/frozen-pina-colada-cake-795393\">Frozen Pina Colada Cake</a>.",
+            "cuisines": [
+                "Mexican"
+            ],
+            "dishTypes": [
+                "beverage",
+                "drink"
+            ],
+            "diets": [
+                "gluten free",
+                "dairy free",
+                "lacto ovo vegetarian",
+                "vegan"
+            ],
+            "occasions": [],
+            "analyzedInstructions": [
+                {
+                    "name": "",
+                    "steps": [
+                        {
+                            "number": 1,
+                            "step": "Add ice, pineapple juice, coconut milk, and rum to the blender.Blend until smooth and creamy.",
+                            "ingredients": [
+                                {
+                                    "id": 9273,
+                                    "name": "pineapple juice",
+                                    "localizedName": "pineapple juice",
+                                    "image": "pineapple-juice.jpg"
+                                },
+                                {
+                                    "id": 12118,
+                                    "name": "coconut milk",
+                                    "localizedName": "coconut milk",
+                                    "image": "coconut-milk.png"
+                                },
+                                {
+                                    "id": 10014412,
+                                    "name": "ice",
+                                    "localizedName": "ice",
+                                    "image": "ice-cubes.png"
+                                },
+                                {
+                                    "id": 11114037,
+                                    "name": "rum",
+                                    "localizedName": "rum",
+                                    "image": "rum-dark.jpg"
+                                }
+                            ],
+                            "equipment": [
+                                {
+                                    "id": 404726,
+                                    "name": "blender",
+                                    "localizedName": "blender",
+                                    "image": "blender.png"
+                                }
+                            ]
+                        },
+                        {
+                            "number": 2,
+                            "step": "Serve with fresh pineapple wedges and cherry garnish.",
+                            "ingredients": [
+                                {
+                                    "id": 9266,
+                                    "name": "pineapple",
+                                    "localizedName": "pineapple",
+                                    "image": "pineapple.jpg"
+                                },
+                                {
+                                    "id": 9070,
+                                    "name": "cherries",
+                                    "localizedName": "cherries",
+                                    "image": "cherries.jpg"
+                                }
+                            ],
+                            "equipment": []
+                        }
+                    ]
+                }
+            ],
+            "spoonacularSourceUrl": "https://spoonacular.com/three-ingredient-frozen-pina-colada-1098357",
+            "usedIngredientCount": 0,
+            "missedIngredientCount": 5,
+            "missedIngredients": [
+                {
+                    "id": 9273,
+                    "amount": 2.5,
+                    "unit": "cups",
+                    "unitLong": "cups",
+                    "unitShort": "cup",
+                    "aisle": "Beverages",
+                    "name": "pineapple juice",
+                    "original": "2 1/2 cups pineapple juice",
+                    "originalString": "2 1/2 cups pineapple juice",
+                    "originalName": "pineapple juice",
+                    "metaInformation": [],
+                    "meta": [],
+                    "image": "https://spoonacular.com/cdn/ingredients_100x100/pineapple-juice.jpg"
+                },
+                {
+                    "id": 12118,
+                    "amount": 0.5,
+                    "unit": "cup",
+                    "unitLong": "cups",
+                    "unitShort": "cup",
+                    "aisle": "Canned and Jarred;Milk, Eggs, Other Dairy",
+                    "name": "coconut milk",
+                    "original": "1/2 cup coconut milk",
+                    "originalString": "1/2 cup coconut milk",
+                    "originalName": "coconut milk",
+                    "metaInformation": [],
+                    "meta": [],
+                    "image": "https://spoonacular.com/cdn/ingredients_100x100/coconut-milk.png"
+                },
+                {
+                    "id": 10314037,
+                    "amount": 0.5,
+                    "unit": "cup",
+                    "unitLong": "cups",
+                    "unitShort": "cup",
+                    "aisle": "Alcoholic Beverages",
+                    "name": "coconut rum",
+                    "original": "1/2 cup coconut rum",
+                    "originalString": "1/2 cup coconut rum",
+                    "originalName": "coconut rum",
+                    "metaInformation": [],
+                    "meta": [],
+                    "image": "https://spoonacular.com/cdn/ingredients_100x100/white-rum.jpg"
+                },
+                {
+                    "id": 9266,
+                    "amount": 3,
+                    "unit": "servings",
+                    "unitLong": "servings",
+                    "unitShort": "servings",
+                    "aisle": "Produce",
+                    "name": "pineapple",
+                    "original": "pineapple",
+                    "originalString": "pineapple",
+                    "originalName": "pineapple",
+                    "metaInformation": [],
+                    "meta": [],
+                    "image": "https://spoonacular.com/cdn/ingredients_100x100/pineapple.jpg"
+                },
+                {
+                    "id": 9328,
+                    "amount": 3,
+                    "unit": "servings",
+                    "unitLong": "servings",
+                    "unitShort": "servings",
+                    "aisle": "Canned and Jarred",
+                    "name": "maraschino cherries",
+                    "original": "maraschino cherries for garnish",
+                    "originalString": "maraschino cherries for garnish",
+                    "originalName": "maraschino cherries for garnish",
+                    "metaInformation": [
+                        "for garnish"
+                    ],
+                    "meta": [
+                        "for garnish"
+                    ],
+                    "image": "https://spoonacular.com/cdn/ingredients_100x100/maraschino.jpg"
+                }
+            ],
+            "likes": 0,
+            "usedIngredients": [],
+            "unusedIngredients": []
+        }
+    ],
+    "offset": 0,
+    "number": 10,
+    "totalResults": 40
+}

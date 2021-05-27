@@ -251,12 +251,10 @@ extension RecipesClient {
     let hour = Calendar.current.component(.hour, from: Date())
 
     switch hour {
-    case 6..<12 : return "breakfast"
-    case 12..<15 : return "main course"
-    case 15..<17 : return "beverage"
-    case 17..<19 : return "snack"
-    case 17..<21 : return "main course,soup"
-    default: return "main course,soup,salad"
+    case 6..<11 : return "Breakfast"
+    case 11..<15, 17..<23 : return "Main Course"
+    case 15..<17 : return "Beverage"
+    default: return "Main Course,Soup"
     }
   }
 }

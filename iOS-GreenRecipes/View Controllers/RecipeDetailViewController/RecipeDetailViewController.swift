@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import Charts
 
 class RecipeDetailViewController: UIViewController {
   // swiftlint:disable implicitly_unwrapped_optional
