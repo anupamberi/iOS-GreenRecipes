@@ -1,0 +1,103 @@
+//
+//  RecipesCategory.swift
+//  iOS-GreenRecipes
+//
+//  Created by Anupam Beri on 24/05/2021.
+//
+
+import UIKit
+
+class RecipeCategoriesController {
+  struct RecipeCategory: Hashable, Equatable {
+    var recipeCategoryName: String
+    var recipeCategoryImage: UIImage
+    var recipeCategoryMealType: String?
+    var recipeCategoryCuisineType: String?
+    var recipesInCategory: [RecipeData]
+    let identifier = UUID()
+
+    func hash(into hasher: inout Hasher) {
+      hasher.combine(identifier)
+      hasher.combine(recipesInCategory.count)
+    }
+    static func == (lhs: RecipeCategory, rhs: RecipeCategory) -> Bool {
+      return lhs.identifier == rhs.identifier && lhs.recipesInCategory.count == rhs.recipesInCategory.count
+    }
+
+    init(
+      categoryName: String,
+      categoryImage: UIImage,
+      categoryMealType: String? = nil,
+      categoryCuisineType: String? = nil
+    ) {
+      self.recipeCategoryName = categoryName
+      self.recipeCategoryImage = categoryImage
+      self.recipeCategoryMealType = categoryMealType
+      self.recipeCategoryCuisineType = categoryCuisineType
+      self.recipesInCategory = []
+    }
+  }
+
+  lazy var recipeCategories: [RecipeCategory] = {
+    return generateRecipeCategories()
+  }()
+}
+
+extension RecipeCategoriesController {
+  private func generateRecipeCategories() -> [RecipeCategory] {
+    // create multiple recipe categories
+    var recipeCategories: [RecipeCategory] = []
+
+    guard let recipeImageIndian = UIImage(named: "indian") else { return [] }
+    guard let recipeImageMexican = UIImage(named: "mexican") else { return [] }
+    guard let recipeImageItalian = UIImage(named: "italian") else { return [] }
+    guard let recipeImageMiddleEastern = UIImage(named: "middle-eastern") else { return [] }
+    guard let recipeImageSnack = UIImage(named: "snack") else { return [] }
+    guard let recipeImageSoup = UIImage(named: "soup") else { return [] }
+
+    let recipeCategorySnack = RecipeCategory(
+      categoryName: "Snack",
+      categoryImage: recipeImageSnack,
+      categoryMealType: "snack"
+    )
+
+    let recipeCategorySoup = RecipeCategory(
+      categoryName: "Soup",
+      categoryImage: recipeImageSoup,
+      categoryMealType: "soup"
+    )
+
+    let recipeCategoryIndian = RecipeCategory(
+      categoryName: "Indian",
+      categoryImage: recipeImageIndian,
+      categoryCuisineType: "indian"
+    )
+
+    let recipeCategoryMexican = RecipeCategory(
+      categoryName: "Mexican",
+      categoryImage: recipeImageMexican,
+      categoryCuisineType: "mexican"
+    )
+
+    let recipeCategoryMiddleEastern = RecipeCategory(
+      categoryName: "Middle Eastern",
+      categoryImage: recipeImageMiddleEastern,
+      categoryCuisineType: "middle eastern"
+    )
+
+    let recipeCategoryItalian = RecipeCategory(
+      categoryName: "Italian",
+      categoryImage: recipeImageItalian,
+      categoryCuisineType: "italian"
+    )
+
+    recipeCategories.append(recipeCategorySnack)
+    recipeCategories.append(recipeCategorySoup)
+    recipeCategories.append(recipeCategoryIndian)
+    recipeCategories.append(recipeCategoryMexican)
+    recipeCategories.append(recipeCategoryMiddleEastern)
+    recipeCategories.append(recipeCategoryItalian)
+
+    return recipeCategories
+  }
+}

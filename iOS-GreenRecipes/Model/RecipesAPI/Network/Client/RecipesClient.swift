@@ -19,7 +19,7 @@ class RecipesClient {
     case getRandomRecipes
     case getRecipeInformation(Int)
     case getRecipeNutrition(Int)
-    case searchRecipes(String)
+    case searchRecipes
     case recipePhoto(Int, String, String)
     case ingredientPhoto(String, String)
 
@@ -31,8 +31,8 @@ class RecipesClient {
         return Endpoints.base + "\(recipeId)/information?"
       case .getRecipeNutrition(let recipeId):
         return Endpoints.base + "\(recipeId)/nutritionWidget.json?"
-      case .searchRecipes(let query):
-        return Endpoints.base + "complexSearch?query=\(query)"
+      case .searchRecipes:
+        return Endpoints.base + "complexSearch?"
       case let .recipePhoto(id, size, imageType):
         return Endpoints.recipePhotoBase + "\(id)-\(size).\(imageType)"
       case let .ingredientPhoto(size, imageName):
@@ -127,15 +127,29 @@ class RecipesClient {
     }
   }
 
-  class func searchRecipes(query: String, completion: @escaping ([RecipeData], Error?) -> Void) {
-    let recipesSearchBaseURL = Endpoints.searchRecipes(query).url
-    let recipesSearchParams = [
+  class func searchRecipes(
+    query: String,
+    mealType: String?,
+    cuisineType: String?,
+    completion: @escaping ([RecipeData], Error?) -> Void
+  ) {
+    let recipesSearchBaseURL = Endpoints.searchRecipes.url
+    var recipesSearchParams = [
+      URLQueryItem(name: "query", value: query),
       URLQueryItem(name: "diet", value: "vegan"),
       URLQueryItem(name: "apiKey", value: RecipesClient.apiKey),
-      URLQueryItem(name: "number", value: String(5)),
+      URLQueryItem(name: "number", value: String(10)),
       URLQueryItem(name: "addRecipeInformation", value: String(true)),
       URLQueryItem(name: "fillIngredients", value: String(true))
     ]
+    // Check optional search parameters meal and cuisine types
+    if let mealType = mealType {
+      recipesSearchParams.append(URLQueryItem(name: "type", value: mealType))
+    }
+
+    if let cuisineType = cuisineType {
+      recipesSearchParams.append(URLQueryItem(name: "cuisine", value: cuisineType))
+    }
     guard let recipesSearchURL = recipesSearchBaseURL.appending(recipesSearchParams) else { return }
     print(recipesSearchURL)
     taskForGETRequest(url: recipesSearchURL, response: RecipesData.self) { response, error in

@@ -9,10 +9,11 @@ import UIKit
 import Charts
 
 class RecipeDetailViewController: UIViewController {
+  // swiftlint:disable implicitly_unwrapped_optional
+  var dataController: DataController!
   var recipeData: RecipeData!
-
   var recipeNutritionData: NutritionData!
-
+  // swiftlint:enable implicitly_unwrapped_optional
   override func viewDidLoad() {
     super.viewDidLoad()
     view.backgroundColor = UIColor.systemGray6
@@ -22,29 +23,9 @@ class RecipeDetailViewController: UIViewController {
 
     overrideUserInterfaceStyle = .dark
 
-//    RecipesClient.getRecipeNutrition(recipeId: recipeData.id) { recipeNutritionData, error in
-//      guard let nutritionData = recipeNutritionData else { return }
-//      self.recipeNutritionData = nutritionData
-//    }
-
-    guard let recipeNutritionResponseJsonData = try? getData(
-      fromJSON: "RecipeNutritionResponse"
-    ) else { return }
-    let recipeNutritionResponse = try? JSONDecoder().decode(NutritionData.self, from: recipeNutritionResponseJsonData)
-    recipeNutritionData = recipeNutritionResponse
-    configure()
-  }
-
-  func getData(fromJSON fileName: String) throws -> Data {
-    let bundle = Bundle(for: type(of: self))
-    guard let url = bundle.url(forResource: fileName, withExtension: "json") else {
-      throw NSError(domain: NSURLErrorDomain, code: NSURLErrorCannotOpenFile, userInfo: nil)
-    }
-    do {
-      let data = try Data(contentsOf: url)
-      return data
-    } catch {
-      throw error
+    RecipesClient.getRecipeNutrition(recipeId: recipeData.id) { recipeNutrition, error in
+      self.recipeNutritionData = recipeNutrition
+      self.configure()
     }
   }
 }
