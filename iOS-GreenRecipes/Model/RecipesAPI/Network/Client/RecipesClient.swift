@@ -254,7 +254,7 @@ extension RecipesClient {
     case 6..<11 : return "Breakfast"
     case 11..<15, 17..<23 : return "Main Course"
     case 15..<17 : return "Beverage"
-    default: return "Main Course,Soup"
+    default: return "Main Course"
     }
   }
 }

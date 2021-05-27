@@ -14,7 +14,7 @@ struct RecipesSectionProperties: Hashable {
   let recipeImageSize: String
   let scrollingBehavior: UICollectionLayoutSectionOrthogonalScrollingBehavior
 
-  var recipesInSection: [RecipeData]?
+  var recipesInSection: [RecipeData]
 
   private let identifier = UUID()
 

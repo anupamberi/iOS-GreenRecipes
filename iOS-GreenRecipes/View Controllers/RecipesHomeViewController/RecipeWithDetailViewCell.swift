@@ -26,9 +26,13 @@ class RecipeWithDetailViewCell: UICollectionViewCell {
 
 extension RecipeWithDetailViewCell {
   func configure() {
+    contentView.backgroundColor = .systemGray6
+    contentView.layer.cornerRadius = 15
+
     recipeImageView.contentMode = .scaleAspectFill
     recipeImageView.clipsToBounds = true
-    recipeImageView.layer.cornerRadius = 5
+    recipeImageView.layer.cornerRadius = 15
+    recipeImageView.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
 
     recipeTitleLabel.font = UIFont.systemFont(ofSize: 16)
     recipeTitleLabel.allowsDefaultTighteningForTruncation = true
@@ -63,6 +67,10 @@ extension RecipeWithDetailViewCell {
     hStackView.spacing = 15
     hStackView.translatesAutoresizingMaskIntoConstraints = false
 
+    let spacerView = UIView(frame: .zero)
+    spacerView.translatesAutoresizingMaskIntoConstraints = false
+    spacerView.heightAnchor.constraint(equalToConstant: 10).isActive = true
+
     hStackView.addArrangedSubview(cookingImageView)
     hStackView.addArrangedSubview(recipePreparationTime)
     hStackView.addArrangedSubview(ingredientsImageView)
@@ -71,6 +79,7 @@ extension RecipeWithDetailViewCell {
     vStackView.addArrangedSubview(recipeImageView)
     vStackView.addArrangedSubview(recipeTitleLabel)
     vStackView.addArrangedSubview(hStackView)
+    vStackView.addArrangedSubview((spacerView))
 
     contentView.addSubview(vStackView)
 

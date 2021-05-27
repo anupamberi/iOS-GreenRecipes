@@ -15,7 +15,7 @@ extension RecipeDetailViewController {
     recipeDataScrollView.translatesAutoresizingMaskIntoConstraints = false
 
     let recipeDetailsView = getVerticalStackView(enableSpacing: true)
-    recipeDetailsView.backgroundColor = .systemGray6
+    recipeDetailsView.backgroundColor = .systemGray5
     recipeDetailsView.layer.cornerRadius = 10
 
     recipeDataScrollView.addSubview(recipeDetailsView)
