@@ -17,14 +17,15 @@ class RecipesHomeViewController: UIViewController {
   var dataSource: UICollectionViewDiffableDataSource<RecipesSectionProperties, RecipeData>!
   // swiftlint:enable implicitly_unwrapped_optional
 
-  var sections: [RecipesSectionProperties] = []
+  var recipesSections: [RecipesSectionProperties] = []
   var randomRecipesData: [RecipeData] = []
   var quickAndEasyRecipesData: [RecipeData] = []
   var mainCourseRecipesData: [RecipeData] = []
   var breakfastRecipesData: [RecipeData] = []
   var dessertRecipesData: [RecipeData] = []
   var beverageRecipesData: [RecipeData] = []
-
+  var allRecipes: [Int:RecipeData] = [:]
+  
   override func viewDidLoad() {
     super.viewDidLoad()
 
@@ -33,13 +34,13 @@ class RecipesHomeViewController: UIViewController {
     configureTitle()
     configureHierarchy()
     configureDataSource()
-    fetchData()
+    applyInitialSanpshot()
   }
 }
 
 extension RecipesHomeViewController: UICollectionViewDelegate {
   func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-    let recipesSection = sections[indexPath.section]
+    let recipesSection = recipesSections[indexPath.section]
     let selectedRecipeData = recipesSection.recipesInSection[indexPath.row]
 
     guard let recipeDetailViewController = self.storyboard?.instantiateViewController(

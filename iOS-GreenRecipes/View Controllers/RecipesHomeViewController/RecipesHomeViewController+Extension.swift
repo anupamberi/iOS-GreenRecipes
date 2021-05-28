@@ -88,7 +88,7 @@ extension RecipesHomeViewController {
 
   func createLayout() -> UICollectionViewCompositionalLayout {
     let sectionProvider = { (sectionIndex: Int, _ : NSCollectionLayoutEnvironment) -> NSCollectionLayoutSection? in
-      let sectionType = self.sections[sectionIndex]
+      let sectionType = self.recipesSections[sectionIndex]
       // orthogonal scrolling sections
       let itemSize = NSCollectionLayoutSize(
         widthDimension: .fractionalWidth(1.0),
@@ -128,7 +128,7 @@ extension RecipesHomeViewController {
 
   func createRecipeWithDetailRegistration() -> UICollectionView.CellRegistration<RecipeWithDetailViewCell, RecipeData> {
     return UICollectionView.CellRegistration<RecipeWithDetailViewCell, RecipeData> { cell, indexPath, recipe in
-      let section = self.sections[indexPath.section]
+      let section = self.recipesSections[indexPath.section]
       cell.recipeImageView.image = UIImage(named: "placeholder")
       DispatchQueue.global(qos: .background).async {
         DispatchQueue.main.async {
@@ -152,7 +152,7 @@ extension RecipesHomeViewController {
 
   func createRecipeWithTitleRegistration() -> UICollectionView.CellRegistration<RecipeWithTitleViewCell, RecipeData> {
     return UICollectionView.CellRegistration<RecipeWithTitleViewCell, RecipeData> { cell, indexPath, recipe in
-      let section = self.sections[indexPath.section]
+      let section = self.recipesSections[indexPath.section]
       cell.recipeImageView.image = UIImage(named: "placeholder")
       DispatchQueue.global(qos: .background).async {
         DispatchQueue.main.async {
@@ -175,12 +175,12 @@ extension RecipesHomeViewController {
     // data source
     dataSource = UICollectionViewDiffableDataSource<RecipesSectionProperties, RecipeData>(
       collectionView: recipesCollectionView) { collectionView, indexPath, recipe -> UICollectionViewCell? in
-      let section = self.sections[indexPath.section]
+      let section = self.recipesSections[indexPath.section]
 
-      switch section.description {
-      case "Recommended for you", "Breakfast", "Main Course", "Beverage":
+      switch section.key {
+      case RecipesSectionKey.random, RecipesSectionKey.breakfast, RecipesSectionKey.mainCourse:
         return collectionView.dequeueConfiguredReusableCell(using: recipeWithDetail, for: indexPath, item: recipe)
-      case "Quick & Easy", "Desserts":
+      case RecipesSectionKey.quickAndEasy, RecipesSectionKey.dessert, RecipesSectionKey.beverage:
         return collectionView.dequeueConfiguredReusableCell(using: recipeWithTitle, for: indexPath, item: recipe)
       default: fatalError("Unknown section")
       }
@@ -188,7 +188,7 @@ extension RecipesHomeViewController {
 
     let recipesSupplementaryRegistration = UICollectionView.SupplementaryRegistration<RecipesSectionTitleView>(
       elementKind: RecipesHomeViewController.headerElementKind) { supplementaryView, _, indexPath in
-      let section = self.sections[indexPath.section]
+      let section = self.recipesSections[indexPath.section]
       supplementaryView.label.text = String(describing: section.description)
       supplementaryView.label.textColor = .white
     }
@@ -204,6 +204,7 @@ extension RecipesHomeViewController {
   func applyInitialSnapshots() {
     var randomRecipesSection = RecipesSectionProperties(
       description: "Recommended for you",
+      key: RecipesSectionKey.random,
       widthRatio: 1.0,
       heightRatio: 300.0,
       recipeImageSize: RecipesClient.RecipePhotoSize.large.stringValue,
@@ -214,7 +215,8 @@ extension RecipesHomeViewController {
 
     var quickAndEasyRecipesSection = RecipesSectionProperties(
       description: "Quick & Easy",
-      widthRatio: 0.5,
+      key: RecipesSectionKey.quickAndEasy,
+      widthRatio: 0.45,
       heightRatio: 250.0,
       recipeImageSize: RecipesClient.RecipePhotoSize.large.stringValue,
       scrollingBehaviour: UICollectionLayoutSectionOrthogonalScrollingBehavior.continuousGroupLeadingBoundary
@@ -226,6 +228,7 @@ extension RecipesHomeViewController {
 
     var recipeTypeSection = RecipesSectionProperties(
       description: recipeType,
+      key: recipeType,
       widthRatio: 1.0,
       heightRatio: 300.0,
       recipeImageSize: RecipesClient.RecipePhotoSize.large.stringValue,
@@ -234,7 +237,8 @@ extension RecipesHomeViewController {
 
     var dessertRecipesSection = RecipesSectionProperties(
       description: "Desserts",
-      widthRatio: 0.5,
+      key: RecipesSectionKey.dessert,
+      widthRatio: 0.45,
       heightRatio: 250.0,
       recipeImageSize: RecipesClient.RecipePhotoSize.large.stringValue,
       scrollingBehaviour: UICollectionLayoutSectionOrthogonalScrollingBehavior.continuousGroupLeadingBoundary
@@ -242,29 +246,171 @@ extension RecipesHomeViewController {
 
     dessertRecipesSection.recipesInSection = dessertRecipesData
 
-    sections.append(randomRecipesSection)
-    sections.append(quickAndEasyRecipesSection)
-    sections.append(recipeTypeSection)
-    sections.append(dessertRecipesSection)
+    if recipeType == "breakfast" {
+      recipeTypeSection.description = "Delicious Breakfast"
+      recipeTypeSection.recipesInSection = breakfastRecipesData
+    }
+    if recipeType == "beverage" {
+      recipeTypeSection.description = "Beverages"
+      recipeTypeSection.recipesInSection = beverageRecipesData
+    }
+    if recipeType == "main course" {
+      recipeTypeSection.description = "Main Course"
+      recipeTypeSection.recipesInSection = mainCourseRecipesData
+    }
+
+    recipesSections.append(randomRecipesSection)
+    recipesSections.append(quickAndEasyRecipesSection)
+    recipesSections.append(recipeTypeSection)
+    recipesSections.append(dessertRecipesSection)
 
     var snapshot = NSDiffableDataSourceSnapshot<RecipesSectionProperties, RecipeData>()
-    snapshot.appendSections(sections)
+    snapshot.appendSections(recipesSections)
 
     snapshot.appendItems(randomRecipesSection.recipesInSection, toSection: randomRecipesSection)
     snapshot.appendItems(quickAndEasyRecipesSection.recipesInSection, toSection: quickAndEasyRecipesSection)
-
-    if recipeType == "Breakfast" {
-      recipeTypeSection.recipesInSection = breakfastRecipesData
-    }
-    if recipeType == "Beverage" {
-      recipeTypeSection.recipesInSection = beverageRecipesData
-    }
-    if recipeType == "Main Course" {
-      recipeTypeSection.recipesInSection = mainCourseRecipesData
-    }
     snapshot.appendItems(recipeTypeSection.recipesInSection, toSection: recipeTypeSection)
-
     snapshot.appendItems(dessertRecipesSection.recipesInSection, toSection: dessertRecipesSection)
+
     dataSource.apply(snapshot)
+  }
+
+  func initRecipesSections() {
+    let randomRecipesSection = RecipesSectionProperties(
+      description: "Recommended for you",
+      key: RecipesSectionKey.random,
+      widthRatio: 1.0,
+      heightRatio: 300.0,
+      recipeImageSize: RecipesClient.RecipePhotoSize.large.stringValue,
+      scrollingBehaviour: UICollectionLayoutSectionOrthogonalScrollingBehavior.groupPagingCentered
+    )
+
+    let quickAndEasyRecipesSection = RecipesSectionProperties(
+      description: "Quick & Easy",
+      key: RecipesSectionKey.quickAndEasy,
+      widthRatio: 0.45,
+      heightRatio: 250.0,
+      recipeImageSize: RecipesClient.RecipePhotoSize.large.stringValue,
+      scrollingBehaviour: UICollectionLayoutSectionOrthogonalScrollingBehavior.continuousGroupLeadingBoundary
+    )
+
+    let recipeType = RecipesClient.getRecipeType()
+
+    let recipeTypeSection = RecipesSectionProperties(
+      description: recipeType,
+      key: recipeType,
+      widthRatio: 1.0,
+      heightRatio: 300.0,
+      recipeImageSize: RecipesClient.RecipePhotoSize.large.stringValue,
+      scrollingBehaviour: UICollectionLayoutSectionOrthogonalScrollingBehavior.groupPagingCentered
+    )
+
+    if recipeType == "breakfast" {
+      recipeTypeSection.description = "Delicious Breakfast"
+    }
+    if recipeType == "beverage" {
+      recipeTypeSection.description = "Beverages"
+    }
+    if recipeType == "main course" {
+      recipeTypeSection.description = "Main Course"
+    }
+
+    let dessertRecipesSection = RecipesSectionProperties(
+      description: "Delicious Desserts",
+      key: RecipesSectionKey.dessert,
+      widthRatio: 0.45,
+      heightRatio: 250.0,
+      recipeImageSize: RecipesClient.RecipePhotoSize.large.stringValue,
+      scrollingBehaviour: UICollectionLayoutSectionOrthogonalScrollingBehavior.continuousGroupLeadingBoundary
+    )
+
+    recipesSections.append(randomRecipesSection)
+    recipesSections.append(quickAndEasyRecipesSection)
+    recipesSections.append(recipeTypeSection)
+    recipesSections.append(dessertRecipesSection)
+
+    var snapshot = NSDiffableDataSourceSnapshot<RecipesSectionProperties, RecipeData>()
+    snapshot.appendSections(recipesSections)
+    dataSource.apply(snapshot, animatingDifferences: true)
+  }
+
+  func initRecipesSectionsData() {
+    for recipesSection in recipesSections {
+      switch recipesSection.key {
+      case RecipesSectionKey.random:
+        print(recipesSection.key)
+        RecipesClient.getRandomRecipes(tags: "vegan", total: 5) { randomRecipes, error in
+          recipesSection.recipesInSection = self.uniqueRecipes(recipes: randomRecipes)
+          print("Random recipes ids")
+          for randomRecipe in randomRecipes {
+            print(randomRecipe.id)
+          }
+          self.applyRecipesSectionDataSnapshot(recipes: randomRecipes, recipesSection: recipesSection)
+        }
+      case RecipesSectionKey.quickAndEasy:
+        print(recipesSection.key)
+        RecipesClient.searchRecipes(
+          query: "",
+          mealType: nil,
+          cuisineType: nil,
+          maxReadyTime: 20
+        ) { quickAndEasyRecipes, error in
+          recipesSection.recipesInSection = self.uniqueRecipes(recipes: quickAndEasyRecipes)
+          print("Quick and Easy recipes ids")
+          for recipe in recipesSection.recipesInSection {
+            print(recipe.id)
+          }
+          self.applyRecipesSectionDataSnapshot(
+            recipes: recipesSection.recipesInSection,
+            recipesSection: recipesSection
+          )
+        }
+      case RecipesSectionKey.breakfast,
+        RecipesSectionKey.beverage,
+        RecipesSectionKey.mainCourse,
+        RecipesSectionKey.dessert:
+        RecipesClient.searchRecipes(
+          query: "",
+          mealType: recipesSection.key,
+          cuisineType: nil,
+          maxReadyTime: nil
+        ) { recipes, error in
+          recipesSection.recipesInSection = self.uniqueRecipes(recipes: recipes)
+          print("\(recipesSection.description)")
+          for recipe in recipesSection.recipesInSection {
+            print(recipe.id)
+          }
+          self.applyRecipesSectionDataSnapshot(
+            recipes: recipesSection.recipesInSection,
+            recipesSection: recipesSection
+          )
+        }
+      default:
+        fatalError("Unknown recipes section")
+      }
+    }
+  }
+
+  func applyRecipesSectionDataSnapshot(recipes: [RecipeData], recipesSection: RecipesSectionProperties) {
+    var recipesSectionSnapshot = NSDiffableDataSourceSectionSnapshot<RecipeData>()
+    recipesSectionSnapshot.append(recipes)
+    dataSource.apply(recipesSectionSnapshot, to: recipesSection, animatingDifferences: true)
+  }
+
+  func applyInitialSanpshot() {
+    initRecipesSections()
+    initRecipesSectionsData()
+  }
+
+  func uniqueRecipes(recipes: [RecipeData]) -> [RecipeData] {
+    var uniqueRecipes: [RecipeData] = []
+    recipes.forEach { recipe in
+      let recipeExists = allRecipes[recipe.id] != nil
+      if !recipeExists {
+        allRecipes[recipe.id] = recipe
+        uniqueRecipes.append(recipe)
+      }
+    }
+    return uniqueRecipes
   }
 }

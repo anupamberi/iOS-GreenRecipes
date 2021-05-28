@@ -225,7 +225,8 @@ extension RecipesSearchViewController {
       RecipesClient.searchRecipes(
         query: "",
         mealType: recipeCategory.recipeCategoryMealType,
-        cuisineType: recipeCategory.recipeCategoryCuisineType
+        cuisineType: recipeCategory.recipeCategoryCuisineType,
+        maxReadyTime: nil
       ) { searchedRecipes, error in
         recipeCategory.recipesInCategory = searchedRecipes
         self.applySearchedRecipesSnapshot(recipes: searchedRecipes)
