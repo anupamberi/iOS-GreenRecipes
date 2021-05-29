@@ -24,8 +24,8 @@ class RecipesHomeViewController: UIViewController {
   var breakfastRecipesData: [RecipeData] = []
   var dessertRecipesData: [RecipeData] = []
   var beverageRecipesData: [RecipeData] = []
-  var allRecipes: [Int:RecipeData] = [:]
-  
+  var allRecipes: [Int: RecipeData] = [:]
+
   override func viewDidLoad() {
     super.viewDidLoad()
 
@@ -34,7 +34,8 @@ class RecipesHomeViewController: UIViewController {
     configureTitle()
     configureHierarchy()
     configureDataSource()
-    applyInitialSanpshot()
+    // applyInitialSanpshot()
+    fetchData()
   }
 }
 
@@ -48,6 +49,19 @@ extension RecipesHomeViewController: UICollectionViewDelegate {
     ) as? RecipeDetailViewController else { return }
 
     recipeDetailViewController.recipeData = selectedRecipeData
-    self.navigationController?.pushViewController(recipeDetailViewController, animated: true)
+    recipeDetailViewController.dataController = dataController
+    navigationController?.pushViewController(recipeDetailViewController, animated: true)
+//    let navController = UINavigationController(rootViewController: recipeDetailViewController)
+//    navController.modalPresentationStyle = .fullScreen
+//
+//    let backButton = UIBarButtonItem(
+//      image: UIImage(systemName: "cancel"),
+//      style: .plain,
+//      target: self,
+//      action: #selector(cancelTapped)
+//    )
+//    navController.navigationItem.leftBarButtonItem = backButton
+//    present(navController, animated: true, completion: nil)
+
   }
 }

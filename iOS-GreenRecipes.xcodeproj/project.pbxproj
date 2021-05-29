@@ -130,6 +130,8 @@
 		1EB782A22660038000FDFCDB /* RecipesSectionProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EB782A12660038000FDFCDB /* RecipesSectionProperties.swift */; };
 		1EB782A32660038000FDFCDB /* RecipesSectionProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EB782A12660038000FDFCDB /* RecipesSectionProperties.swift */; };
 		1EB782A42660038000FDFCDB /* RecipesSectionProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EB782A12660038000FDFCDB /* RecipesSectionProperties.swift */; };
+		1EB782A5266223A900FDFCDB /* GreenRecipes.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1E2BD364264D1E9F000BD059 /* GreenRecipes.xcdatamodeld */; };
+		1EB782A6266223AA00FDFCDB /* GreenRecipes.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1E2BD364264D1E9F000BD059 /* GreenRecipes.xcdatamodeld */; };
 		E1AD412C56C1E040F300A0C3 /* Pods_iOS_GreenRecipes.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA783C469C9CF2342BF88F0B /* Pods_iOS_GreenRecipes.framework */; };
 /* End PBXBuildFile section */
 
@@ -771,6 +773,7 @@
 				1E4FBAC126506ABB0033FA6D /* IngredientsInformation.swift in Sources */,
 				1E2BD369264D2807000BD059 /* NutritionData.swift in Sources */,
 				1EB78276265BAD5700FDFCDB /* RecipeCategoriesController.swift in Sources */,
+				1EB782A5266223A900FDFCDB /* GreenRecipes.xcdatamodeld in Sources */,
 				1EB7829E265FEDE800FDFCDB /* RecipeDetailViewController+Extension.swift in Sources */,
 				1EA62C9E2646C0E100706D3C /* XCTestCase+Extension.swift in Sources */,
 				1EB78298265FED6400FDFCDB /* DataController.swift in Sources */,
@@ -813,6 +816,7 @@
 				1EB782A42660038000FDFCDB /* RecipesSectionProperties.swift in Sources */,
 				1EB78297265FECEE00FDFCDB /* RecipesHomeViewController.swift in Sources */,
 				1EB78294265FEC9E00FDFCDB /* RecipesSearchViewController+Extension.swift in Sources */,
+				1EB782A6266223AA00FDFCDB /* GreenRecipes.xcdatamodeld in Sources */,
 				1EB7829B265FED8C00FDFCDB /* RecipeDetailViewController.swift in Sources */,
 				1E009A4C26468FD100D4B079 /* URL+Extension.swift in Sources */,
 			);
