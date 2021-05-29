@@ -30,12 +30,19 @@ class RecipesHomeViewController: UIViewController {
     super.viewDidLoad()
 
     overrideUserInterfaceStyle = .dark
-
+    initDataController()
     configureTitle()
     configureHierarchy()
     configureDataSource()
     // applyInitialSanpshot()
     fetchData()
+  }
+
+  func initDataController() {
+    guard let recipesTabBar = tabBarController as? RecipesTabBarController else {
+      fatalError("No data controller set")
+    }
+    dataController = recipesTabBar.dataController
   }
 }
 
@@ -62,6 +69,5 @@ extension RecipesHomeViewController: UICollectionViewDelegate {
 //    )
 //    navController.navigationItem.leftBarButtonItem = backButton
 //    present(navController, animated: true, completion: nil)
-
   }
 }

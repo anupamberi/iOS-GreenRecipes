@@ -10,7 +10,7 @@ import UIKit
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
   var window: UIWindow?
 
-  let dataController = DataController(modelName: "GreenRecipes")
+  let dataController = DataController(modelName: "Recipe")
 
   func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
     guard let _ = (scene as? UIWindowScene) else { return }

@@ -22,7 +22,7 @@ extension RecipeDetailViewController {
     view.addSubview(recipeDataScrollView)
 
     let recipeImageView = createRecipeImageView()
-    let recipeTitle = createTitleLabel(size: 24, textToSet: recipeData.title)
+    let recipeTitle = createTitleLabel(size: 24, textToSet: recipe.title ?? "")
     let nutritionTitle = createTitleLabel(size: 22, textToSet: "Nutrition Information")
     let ingredientsTitle = createTitleLabel(size: 22, textToSet: "Ingredients")
     let instructionsTitle = createTitleLabel(size: 22, textToSet: "Instructions")
@@ -102,9 +102,9 @@ extension RecipeDetailViewController {
     DispatchQueue.global(qos: .background).async {
       DispatchQueue.main.async {
         RecipesClient.downloadRecipePhoto(
-          recipeId: self.recipeData.id,
+          recipeId: Int(self.recipe.id),
           recipeImageSize: RecipesClient.RecipePhotoSize.large.stringValue,
-          recipeImageType: self.recipeData.imageType ?? "") { recipeImage in
+          recipeImageType: self.recipe.imageType ?? "") { recipeImage in
           recipeImageView.image = recipeImage
         }
       }
@@ -117,24 +117,30 @@ extension RecipeDetailViewController {
     cookingTime.font = UIFont.systemFont(ofSize: 14)
     cookingTime.adjustsFontSizeToFitWidth = true
     cookingTime.textColor = .white
-    cookingTime.text = String(recipeData.readyInMinutes) + " min"
+    cookingTime.text = String(recipe.preparationTime) + " min"
 
     let ingredientsCount = UILabel()
     ingredientsCount.font = UIFont.systemFont(ofSize: 14)
     ingredientsCount.adjustsFontSizeToFitWidth = true
     ingredientsCount.textColor = .white
 
-    if recipeData.extendedIngredients.count == 1 {
-      ingredientsCount.text = String(recipeData.extendedIngredients.count) + " ingredient"
-    } else {
-      ingredientsCount.text = String(recipeData.extendedIngredients.count) + " ingredients"
+    if let recipeIngredients = recipe.ingredients {
+      if recipeIngredients.count == 1 {
+        ingredientsCount.text = String(recipeIngredients.count) + " ingredient"
+      } else {
+        ingredientsCount.text = String(recipeIngredients.count) + " ingredients"
+      }
     }
 
     let caloriesTitle = UILabel()
     caloriesTitle.font = UIFont.systemFont(ofSize: 14)
     caloriesTitle.adjustsFontSizeToFitWidth = true
     caloriesTitle.textColor = .white
-    caloriesTitle.text = recipeNutritionData.calories
+    fetchRecipeNutrition { nutrition in
+      if let nutrition = nutrition {
+        caloriesTitle.text = nutrition.calories
+      }
+    }
 
     let cookingImageView = UIImageView(image: UIImage(named: "cooking"))
     cookingImageView.clipsToBounds = true
@@ -201,7 +207,6 @@ extension RecipeDetailViewController {
   // swiftlint:disable:next large_tuple
   func createNutrientChart(nutrientTitle: String) -> (amount: String, percent: String, view: UIView) {
     let nutrientData = getNutrientData(nutrientTitle: nutrientTitle)
-
     let nutrientChart = PieChartView()
     nutrientChart.translatesAutoresizingMaskIntoConstraints = false
 
@@ -283,42 +288,60 @@ extension RecipeDetailViewController {
     var nutrientPercent: String = ""
     var dataEntries: [PieChartDataEntry] = []
 
-    if nutrientTitle == "Protein" {
-      recipeNutritionData.good.forEach { nutrient in
-        if nutrient.title == nutrientTitle {
-          let proteinDataEntry = PieChartDataEntry(
-            value: nutrient.percentOfDailyNeeds,
-            label: nil
-          )
-          let remainingDataEntry = PieChartDataEntry(
-            value: 100 - nutrient.percentOfDailyNeeds,
-            label: nil
-          )
-          nutrientAmount = nutrient.amount
-          nutrientPercent = String(nutrient.percentOfDailyNeeds) + " %"
-
-          dataEntries.append(proteinDataEntry)
-          dataEntries.append(remainingDataEntry)
+    fetchRecipeNutrition { nutrition in
+      guard let nutrition = nutrition else { return }
+      if nutrientTitle == "Protein" {
+        let proteinDataEntry = PieChartDataEntry(
+          value: nutrition.proteinPercent,
+          label: nil
+        )
+        let remainingDataEntry = PieChartDataEntry(
+          value: 100 - nutrition.proteinPercent,
+          label: nil
+        )
+        if let proteinAmount = nutrition.protein {
+          nutrientAmount = proteinAmount
         }
+        nutrientPercent = String(nutrition.proteinPercent) + " %"
+
+        dataEntries.append(proteinDataEntry)
+        dataEntries.append(remainingDataEntry)
       }
-    } else {
-      recipeNutritionData.bad.forEach { nutrient in
-        if nutrient.title == nutrientTitle {
-          let caloriesDataEntry = PieChartDataEntry(
-            value: nutrient.percentOfDailyNeeds,
-            label: nil
-          )
-          let remainingDataEntry = PieChartDataEntry(
-            value: 100 - nutrient.percentOfDailyNeeds,
-            label: nil
-          )
+      if nutrientTitle == "Carbohydrates" {
+        let carbsDataEntry = PieChartDataEntry(
+          value: nutrition.carbsPercent,
+          label: nil
+        )
+        let remainingDataEntry = PieChartDataEntry(
+          value: 100 - nutrition.carbsPercent,
+          label: nil
+        )
 
-          nutrientAmount = nutrient.amount
-          nutrientPercent = String(nutrient.percentOfDailyNeeds) + " %"
-
-          dataEntries.append(caloriesDataEntry)
-          dataEntries.append(remainingDataEntry)
+        if let carbsAmount = nutrition.carbs {
+          nutrientAmount = carbsAmount
         }
+        nutrientPercent = String(nutrition.carbsPercent) + " %"
+
+        dataEntries.append(carbsDataEntry)
+        dataEntries.append(remainingDataEntry)
+      }
+      if nutrientTitle == "Fat" {
+        let fatDataEntry = PieChartDataEntry(
+          value: nutrition.fatPercent,
+          label: nil
+        )
+        let remainingDataEntry = PieChartDataEntry(
+          value: 100 - nutrition.fatPercent,
+          label: nil
+        )
+
+        if let fatAmount = nutrition.fat {
+          nutrientAmount = fatAmount
+        }
+        nutrientPercent = String(nutrition.fatPercent) + " %"
+
+        dataEntries.append(fatDataEntry)
+        dataEntries.append(remainingDataEntry)
       }
     }
     return (nutrientAmount, nutrientPercent, dataEntries)
@@ -328,23 +351,35 @@ extension RecipeDetailViewController {
     let ingredientsView = getVerticalStackView(enableSpacing: true)
     ingredientsView.alignment = .leading
 
-    for ingredient in recipeData.extendedIngredients {
-      let ingredientDescription = UILabel()
-      ingredientDescription.textAlignment = .left
-      ingredientDescription.numberOfLines = 0
-      ingredientDescription.lineBreakMode = .byWordWrapping
-      ingredientDescription.allowsDefaultTighteningForTruncation = true
-      ingredientDescription.font = UIFont.systemFont(ofSize: 16)
-      ingredientDescription.textColor = .white
-      let ingredientDescriptionText = " • " + ingredient.originalString
-      let ingredientDescriptionAttributedText = NSMutableAttributedString(string: ingredientDescriptionText)
-      ingredientDescriptionAttributedText.addAttribute(
-        .foregroundColor,
-        value: UIColor.systemGreen,
-        range: NSRange(location: 0, length: 2))
-      ingredientDescription.attributedText = ingredientDescriptionAttributedText
+    fetchRecipeIngredients { recipeIngredients in
+      if recipeIngredients.isEmpty {
+        let noIngredients = UILabel()
+        noIngredients.textAlignment = .center
+        noIngredients.font = UIFont.systemFont(ofSize: 18)
+        noIngredients.textColor = .white
+        noIngredients.text = "No ingredients data found"
+        ingredientsView.addArrangedSubview(noIngredients)
+      } else {
+        for recipeIngredient in recipeIngredients {
+          guard let ingredientOriginalString = recipeIngredient.originalString else { continue }
+          let ingredientDescription = UILabel()
+          ingredientDescription.textAlignment = .left
+          ingredientDescription.numberOfLines = 0
+          ingredientDescription.lineBreakMode = .byWordWrapping
+          ingredientDescription.allowsDefaultTighteningForTruncation = true
+          ingredientDescription.font = UIFont.systemFont(ofSize: 16)
+          ingredientDescription.textColor = .white
 
-      ingredientsView.addArrangedSubview(ingredientDescription)
+          let ingredientDescriptionText = " • " + ingredientOriginalString
+          let ingredientDescriptionAttributedText = NSMutableAttributedString(string: ingredientDescriptionText)
+          ingredientDescriptionAttributedText.addAttribute(
+            .foregroundColor,
+            value: UIColor.systemGreen,
+            range: NSRange(location: 0, length: 2))
+          ingredientDescription.attributedText = ingredientDescriptionAttributedText
+          ingredientsView.addArrangedSubview(ingredientDescription)
+        }
+      }
     }
     return ingredientsView
   }
@@ -353,41 +388,43 @@ extension RecipeDetailViewController {
     let instructionsView = getVerticalStackView(enableSpacing: true)
     instructionsView.alignment = .leading
 
-    if recipeData.analyzedInstructions.isEmpty {
-      let noSteps = UILabel()
-      noSteps.textAlignment = .center
-      noSteps.font = UIFont.systemFont(ofSize: 18)
-      noSteps.textColor = .white
-      noSteps.text = "No instructions found"
-      instructionsView.addArrangedSubview(noSteps)
-    } else {
-      for instructionStep in recipeData.analyzedInstructions[0].steps {
-        let instructionStepNumber = UILabel()
-        instructionStepNumber.textAlignment = .center
-        instructionStepNumber.font = UIFont.systemFont(ofSize: 18)
-        instructionStepNumber.textColor = .white
-        instructionStepNumber.text = "Step " + String(instructionStep.number)
-        instructionStepNumber.layer.borderWidth = 2
-        instructionStepNumber.layer.cornerRadius = 5
-        instructionStepNumber.layer.borderColor = UIColor.systemGreen.cgColor
-        instructionStepNumber.widthAnchor.constraint(equalToConstant: 80).isActive = true
-        instructionStepNumber.heightAnchor.constraint(equalToConstant: 30).isActive = true
+    fetchRecipeInstructions { recipeInstructions in
+      if recipeInstructions.isEmpty {
+        let noSteps = UILabel()
+        noSteps.textAlignment = .center
+        noSteps.font = UIFont.systemFont(ofSize: 18)
+        noSteps.textColor = .white
+        noSteps.text = "No instructions found"
+        instructionsView.addArrangedSubview(noSteps)
+      } else {
+        for instructionStep in recipeInstructions {
+          let instructionStepNumber = UILabel()
+          instructionStepNumber.textAlignment = .center
+          instructionStepNumber.font = UIFont.systemFont(ofSize: 18)
+          instructionStepNumber.textColor = .white
+          instructionStepNumber.text = "Step " + String(instructionStep.number)
+          instructionStepNumber.layer.borderWidth = 2
+          instructionStepNumber.layer.cornerRadius = 5
+          instructionStepNumber.layer.borderColor = UIColor.systemGreen.cgColor
+          instructionStepNumber.widthAnchor.constraint(equalToConstant: 80).isActive = true
+          instructionStepNumber.heightAnchor.constraint(equalToConstant: 30).isActive = true
 
-        instructionStepNumber.sizeToFit()
+          instructionStepNumber.sizeToFit()
 
-        let instructionDescription = UILabel()
-        instructionDescription.textAlignment = .justified
-        instructionDescription.numberOfLines = 0
-        instructionDescription.lineBreakMode = .byWordWrapping
-        instructionDescription.allowsDefaultTighteningForTruncation = true
-        instructionDescription.font = UIFont.systemFont(ofSize: 16)
-        instructionDescription.textColor = .white
-        instructionDescription.text = instructionStep.step
+          let instructionDescription = UILabel()
+          instructionDescription.textAlignment = .justified
+          instructionDescription.numberOfLines = 0
+          instructionDescription.lineBreakMode = .byWordWrapping
+          instructionDescription.allowsDefaultTighteningForTruncation = true
+          instructionDescription.font = UIFont.systemFont(ofSize: 16)
+          instructionDescription.textColor = .white
+          instructionDescription.text = instructionStep.step
 
-        instructionsView.addArrangedSubview(instructionStepNumber)
-        instructionsView.addArrangedSubview(spacing(value: 10))
-        instructionsView.addArrangedSubview(instructionDescription)
-        instructionsView.addArrangedSubview(spacing(value: 20))
+          instructionsView.addArrangedSubview(instructionStepNumber)
+          instructionsView.addArrangedSubview(self.spacing(value: 10))
+          instructionsView.addArrangedSubview(instructionDescription)
+          instructionsView.addArrangedSubview(self.spacing(value: 20))
+        }
       }
     }
     return instructionsView
