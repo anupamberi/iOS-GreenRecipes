@@ -24,9 +24,13 @@ class RecipeWithTitleViewCell: UICollectionViewCell {
 
 extension RecipeWithTitleViewCell {
   func configure() {
+    contentView.backgroundColor = .systemGray6
+    contentView.layer.cornerRadius = 10
+
     recipeImageView.contentMode = .scaleAspectFill
     recipeImageView.clipsToBounds = true
-    recipeImageView.layer.cornerRadius = 5
+    recipeImageView.layer.cornerRadius = 10
+    recipeImageView.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
 
     recipeTitleLabel.font = UIFont.systemFont(ofSize: 14)
     recipeTitleLabel.textAlignment = .center
@@ -41,8 +45,13 @@ extension RecipeWithTitleViewCell {
     stackView.translatesAutoresizingMaskIntoConstraints = false
     stackView.spacing = 10
 
+    let spacerView = UIView(frame: .zero)
+    spacerView.translatesAutoresizingMaskIntoConstraints = false
+    spacerView.heightAnchor.constraint(equalToConstant: 10).isActive = true
+
     stackView.addArrangedSubview(recipeImageView)
     stackView.addArrangedSubview(recipeTitleLabel)
+    stackView.addArrangedSubview(spacerView)
 
     contentView.addSubview(stackView)
 

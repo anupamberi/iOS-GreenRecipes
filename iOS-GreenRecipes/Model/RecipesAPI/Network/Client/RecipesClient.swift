@@ -8,8 +8,8 @@ import Foundation
 import UIKit
 
 class RecipesClient {
-  // static let apiKey = "dc3174ea537b405b95020abec265e994"
-  static let apiKey = "da7335677bd94ba5bd0212c833151639"
+  static let apiKey = "dc3174ea537b405b95020abec265e994"
+  // static let apiKey = "da7335677bd94ba5bd0212c833151639"
 
   enum Endpoints {
     static let base = "https://api.spoonacular.com/recipes/"
@@ -131,6 +131,7 @@ class RecipesClient {
     query: String,
     mealType: String?,
     cuisineType: String?,
+    maxReadyTime: Int?,
     completion: @escaping ([RecipeData], Error?) -> Void
   ) {
     let recipesSearchBaseURL = Endpoints.searchRecipes.url
@@ -149,6 +150,10 @@ class RecipesClient {
 
     if let cuisineType = cuisineType {
       recipesSearchParams.append(URLQueryItem(name: "cuisine", value: cuisineType))
+    }
+
+    if let maxReadyTime = maxReadyTime {
+      recipesSearchParams.append(URLQueryItem(name: "maxReadyTime", value: String(maxReadyTime)))
     }
     guard let recipesSearchURL = recipesSearchBaseURL.appending(recipesSearchParams) else { return }
     print(recipesSearchURL)
@@ -251,12 +256,10 @@ extension RecipesClient {
     let hour = Calendar.current.component(.hour, from: Date())
 
     switch hour {
-    case 6..<12 : return "breakfast"
-    case 12..<15 : return "main course"
-    case 15..<17 : return "beverage"
-    case 17..<19 : return "snack"
-    case 17..<21 : return "main course,soup"
-    default: return "main course,soup,salad"
+    case 6..<11 : return RecipesSectionKey.breakfast
+    case 11..<15, 17..<23 : return RecipesSectionKey.mainCourse
+    case 15..<17 : return RecipesSectionKey.beverage
+    default: return RecipesSectionKey.mainCourse
     }
   }
 }

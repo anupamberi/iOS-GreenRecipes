@@ -15,7 +15,7 @@ extension RecipeDetailViewController {
     recipeDataScrollView.translatesAutoresizingMaskIntoConstraints = false
 
     let recipeDetailsView = getVerticalStackView(enableSpacing: true)
-    recipeDetailsView.backgroundColor = .systemGray6
+    recipeDetailsView.backgroundColor = .systemGray5
     recipeDetailsView.layer.cornerRadius = 10
 
     recipeDataScrollView.addSubview(recipeDetailsView)
@@ -222,7 +222,7 @@ extension RecipeDetailViewController {
     setUpChartView(nutrientAmount: nutrientData.amount, nutrientPercent: nutrientData.percent, chartView: nutrientChart)
     let nutritionChartDataSet = PieChartDataSet(entries: nutrientData.entries, label: nutrientTitle)
 
-    nutritionChartDataSet.colors = [UIColor.systemGreen, UIColor.systemGray6]
+    nutritionChartDataSet.colors = [UIColor.systemGreen, UIColor.systemGray5]
     nutritionChartDataSet.drawValuesEnabled = false
 
     let nutritionChartData = PieChartData(dataSet: nutritionChartDataSet)
@@ -263,7 +263,7 @@ extension RecipeDetailViewController {
     chartView.usePercentValuesEnabled = true
     chartView.drawSlicesUnderHoleEnabled = false
     chartView.holeRadiusPercent = 0.85
-    chartView.holeColor = .systemGray6
+    chartView.holeColor = .systemGray5
 
     chartView.transparentCircleRadiusPercent = 0.61
     chartView.drawCenterTextEnabled = true

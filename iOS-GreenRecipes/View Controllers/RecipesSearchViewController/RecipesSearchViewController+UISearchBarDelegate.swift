@@ -31,7 +31,8 @@ extension RecipesSearchViewController: UISearchBarDelegate {
     RecipesClient.searchRecipes(
       query: searchText,
       mealType: nil,
-      cuisineType: nil
+      cuisineType: nil,
+      maxReadyTime: nil
     ) { searchedRecipes, error in
       DispatchQueue.main.async {
         self.applySearchedRecipesSnapshot(recipes: searchedRecipes)
