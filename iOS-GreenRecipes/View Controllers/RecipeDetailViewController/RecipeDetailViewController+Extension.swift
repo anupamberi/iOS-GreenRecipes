@@ -99,13 +99,25 @@ extension RecipeDetailViewController {
     recipeImageView.clipsToBounds = true
     recipeImageView.layer.cornerRadius = 5
 
-    DispatchQueue.global(qos: .background).async {
-      DispatchQueue.main.async {
+    // Download the recipe image
+    if let recipeImage = recipe.image {
+      recipeImageView.image = UIImage(data: recipeImage)
+    } else {
+      // Download a recipe large image
+      // Set the placeholder image
+      recipeImageView.image = UIImage(named: "placeholder")
+      DispatchQueue.global(qos: .background).async {
         RecipesClient.downloadRecipePhoto(
           recipeId: Int(self.recipe.id),
           recipeImageSize: RecipesClient.RecipePhotoSize.large.stringValue,
           recipeImageType: self.recipe.imageType ?? "") { recipeImage in
-          recipeImageView.image = recipeImage
+          if let recipeImage = recipeImage {
+            DispatchQueue.main.async {
+              recipeImageView.image = recipeImage
+              self.recipe.image = recipeImage.jpegData(compressionQuality: 1.0)
+              try? self.dataController.viewContext.save()
+            }
+          }
         }
       }
     }
