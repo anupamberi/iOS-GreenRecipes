@@ -30,12 +30,19 @@ class RecipesHomeViewController: UIViewController {
     super.viewDidLoad()
 
     overrideUserInterfaceStyle = .dark
-
+    initDataController()
     configureTitle()
     configureHierarchy()
     configureDataSource()
     // applyInitialSanpshot()
     fetchData()
+  }
+
+  func initDataController() {
+    guard let recipesTabBar = tabBarController as? RecipesTabBarController else {
+      fatalError("No data controller set")
+    }
+    dataController = recipesTabBar.dataController
   }
 }
 
@@ -50,18 +57,7 @@ extension RecipesHomeViewController: UICollectionViewDelegate {
 
     recipeDetailViewController.recipeData = selectedRecipeData
     recipeDetailViewController.dataController = dataController
-    navigationController?.pushViewController(recipeDetailViewController, animated: true)
-//    let navController = UINavigationController(rootViewController: recipeDetailViewController)
-//    navController.modalPresentationStyle = .fullScreen
-//
-//    let backButton = UIBarButtonItem(
-//      image: UIImage(systemName: "cancel"),
-//      style: .plain,
-//      target: self,
-//      action: #selector(cancelTapped)
-//    )
-//    navController.navigationItem.leftBarButtonItem = backButton
-//    present(navController, animated: true, completion: nil)
-
+    recipeDetailViewController.modalPresentationStyle = .fullScreen
+    present(recipeDetailViewController, animated: true, completion: nil)
   }
 }

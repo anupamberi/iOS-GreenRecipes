@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="18154" systemVersion="20E232" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Ingredient" representedClassName="Ingredient" syncable="YES" codeGenerationType="class">
+        <attribute name="originalString" attributeType="String"/>
+        <relationship name="recipe" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Recipe" inverseName="ingredients" inverseEntity="Recipe"/>
+    </entity>
+    <entity name="Instruction" representedClassName="Instruction" syncable="YES" codeGenerationType="class">
+        <attribute name="number" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="step" attributeType="String"/>
+        <relationship name="recipe" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Recipe" inverseName="instructions" inverseEntity="Recipe"/>
+    </entity>
+    <entity name="Nutrition" representedClassName="Nutrition" syncable="YES" codeGenerationType="class">
+        <attribute name="calories" attributeType="String"/>
+        <attribute name="carbs" attributeType="String"/>
+        <attribute name="carbsPercent" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="fat" attributeType="String"/>
+        <attribute name="fatPercent" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="protein" attributeType="String"/>
+        <attribute name="proteinPercent" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <relationship name="recipe" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Recipe" inverseName="nutrition" inverseEntity="Recipe"/>
+    </entity>
+    <entity name="Recipe" representedClassName="Recipe" syncable="YES" codeGenerationType="class">
+        <attribute name="createdAt" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="id" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="image" optional="YES" attributeType="Binary"/>
+        <attribute name="imageType" attributeType="String"/>
+        <attribute name="imageURL" attributeType="String"/>
+        <attribute name="isBookmarked" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="preparationTime" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="servings" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="sourceURL" attributeType="String"/>
+        <attribute name="title" attributeType="String"/>
+        <relationship name="ingredients" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Ingredient" inverseName="recipe" inverseEntity="Ingredient"/>
+        <relationship name="instructions" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Instruction" inverseName="recipe" inverseEntity="Instruction"/>
+        <relationship name="nutrition" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Nutrition" inverseName="recipe" inverseEntity="Nutrition"/>
+    </entity>
+    <elements>
+        <element name="Recipe" positionX="-63" positionY="-18" width="128" height="224"/>
+        <element name="Ingredient" positionX="-54" positionY="63" width="128" height="59"/>
+        <element name="Instruction" positionX="-36" positionY="72" width="128" height="74"/>
+        <element name="Nutrition" positionX="-18" positionY="81" width="128" height="149"/>
+    </elements>
+</model>
