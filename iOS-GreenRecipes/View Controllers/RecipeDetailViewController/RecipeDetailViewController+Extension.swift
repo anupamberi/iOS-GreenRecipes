@@ -21,11 +21,20 @@ extension RecipeDetailViewController {
     recipeDataScrollView.addSubview(recipeDetailsView)
     view.addSubview(recipeDataScrollView)
 
+    let cancelButton = UIButton(frame: .zero)
+    cancelButton.translatesAutoresizingMaskIntoConstraints = false
+    cancelButton.setImage(UIImage(named: "cancel"), for: .normal)
+    cancelButton.addTarget(self, action: #selector(cancelTapped), for: .touchUpInside)
+    view.addSubview(cancelButton)
+
     let recipeImageView = createRecipeImageView()
     let recipeTitle = createTitleLabel(size: 24, textToSet: recipe.title ?? "")
+    let recipeButtonsView = createButtonsView()
     let nutritionTitle = createTitleLabel(size: 22, textToSet: "Nutrition Information")
     let ingredientsTitle = createTitleLabel(size: 22, textToSet: "Ingredients")
+    let ingredientsSubTitle = createSubTitleLabel(size: 14, textToSet: "\(recipe.servings) servings")
     let instructionsTitle = createTitleLabel(size: 22, textToSet: "Instructions")
+    let instructionsSubTitle = createSubTitleLabel(size: 14, textToSet: "Ready in \(recipe.preparationTime) mins")
 
     let recipeBasicInfoView = createRecipeBasicInfoView()
     let recipeNutritionView = createRecipeNutritionInfoView()
@@ -37,15 +46,19 @@ extension RecipeDetailViewController {
     recipeDetailsView.addArrangedSubview(spacing(value: 20))
     recipeDetailsView.addArrangedSubview(recipeBasicInfoView)
     recipeDetailsView.addArrangedSubview(lineWithEqualSpacing(value: 20))
+    recipeDetailsView.addArrangedSubview(recipeButtonsView)
+    recipeDetailsView.addArrangedSubview(lineWithEqualSpacing(value: 20))
     recipeDetailsView.addArrangedSubview(nutritionTitle)
     recipeDetailsView.addArrangedSubview(spacing(value: 10))
     recipeDetailsView.addArrangedSubview(recipeNutritionView)
-    recipeDetailsView.addArrangedSubview(lineWithEqualSpacing(value: 10))
+    recipeDetailsView.addArrangedSubview(lineWithEqualSpacing(value: 20))
     recipeDetailsView.addArrangedSubview(ingredientsTitle)
+    recipeDetailsView.addArrangedSubview(ingredientsSubTitle)
     recipeDetailsView.addArrangedSubview(spacing(value: 10))
     recipeDetailsView.addArrangedSubview(recipeIngredientsView)
     recipeDetailsView.addArrangedSubview(lineWithEqualSpacing(value: 20))
     recipeDetailsView.addArrangedSubview(instructionsTitle)
+    recipeDetailsView.addArrangedSubview(instructionsSubTitle)
     recipeDetailsView.addArrangedSubview(spacing(value: 10))
     recipeDetailsView.addArrangedSubview(recipeInstructionsView)
 
@@ -56,6 +69,11 @@ extension RecipeDetailViewController {
       recipeDataScrollView.topAnchor.constraint(equalTo: view.topAnchor),
       recipeDataScrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
 
+      cancelButton.leadingAnchor.constraint(equalTo: recipeDetailsView.leadingAnchor, constant: 15),
+      cancelButton.topAnchor.constraint(equalTo: recipeDetailsView.topAnchor, constant: 15),
+      cancelButton.widthAnchor.constraint(equalToConstant: 24),
+      cancelButton.heightAnchor.constraint(equalToConstant: 24),
+
       recipeDetailsView.leadingAnchor.constraint(equalTo: recipeDataScrollView.leadingAnchor),
       recipeDetailsView.trailingAnchor.constraint(equalTo: recipeDataScrollView.trailingAnchor),
       recipeDetailsView.topAnchor.constraint(equalTo: recipeDataScrollView.topAnchor),
@@ -65,6 +83,11 @@ extension RecipeDetailViewController {
       recipeBasicInfoView.leadingAnchor.constraint(equalTo: recipeDataScrollView.leadingAnchor),
       recipeBasicInfoView.trailingAnchor.constraint(equalTo: recipeDataScrollView.trailingAnchor),
       recipeBasicInfoView.widthAnchor.constraint(equalTo: recipeDataScrollView.widthAnchor),
+
+      recipeButtonsView.leadingAnchor.constraint(equalTo: recipeDataScrollView.leadingAnchor),
+      recipeButtonsView.trailingAnchor.constraint(equalTo: recipeDataScrollView.trailingAnchor),
+      recipeButtonsView.widthAnchor.constraint(equalTo: recipeDataScrollView.widthAnchor),
+      recipeButtonsView.heightAnchor.constraint(equalToConstant: 30),
 
       recipeNutritionView.leadingAnchor.constraint(equalTo: recipeDataScrollView.leadingAnchor),
       recipeNutritionView.trailingAnchor.constraint(equalTo: recipeDataScrollView.trailingAnchor),
@@ -85,8 +108,14 @@ extension RecipeDetailViewController {
       ingredientsTitle.leadingAnchor.constraint(equalTo: recipeDataScrollView.leadingAnchor, constant: 20),
       ingredientsTitle.trailingAnchor.constraint(equalTo: recipeDataScrollView.trailingAnchor, constant: -20),
 
+      ingredientsSubTitle.leadingAnchor.constraint(equalTo: recipeDataScrollView.leadingAnchor, constant: 20),
+      ingredientsSubTitle.trailingAnchor.constraint(equalTo: recipeDataScrollView.trailingAnchor, constant: -20),
+
       instructionsTitle.leadingAnchor.constraint(equalTo: recipeDataScrollView.leadingAnchor, constant: 20),
       instructionsTitle.trailingAnchor.constraint(equalTo: recipeDataScrollView.trailingAnchor, constant: -20),
+
+      instructionsSubTitle.leadingAnchor.constraint(equalTo: recipeDataScrollView.leadingAnchor, constant: 20),
+      instructionsSubTitle.trailingAnchor.constraint(equalTo: recipeDataScrollView.trailingAnchor, constant: -20),
 
       recipeImageView.heightAnchor.constraint(equalToConstant: 300)
     ])
@@ -97,7 +126,7 @@ extension RecipeDetailViewController {
     recipeImageView.translatesAutoresizingMaskIntoConstraints = false
     recipeImageView.contentMode = .scaleAspectFill
     recipeImageView.clipsToBounds = true
-    recipeImageView.layer.cornerRadius = 5
+    recipeImageView.layer.cornerRadius = 10
 
     // Download the recipe image
     if let recipeImage = recipe.image {
@@ -122,6 +151,61 @@ extension RecipeDetailViewController {
       }
     }
     return recipeImageView
+  }
+
+
+  @objc func cancelTapped() {
+    dismiss(animated: true, completion: nil)
+  }
+
+  @objc func bookmarkTapped(bookmarkButton: UIButton) {
+    recipe.isBookmarked.toggle()
+    recipe.isBookmarked ?
+      bookmarkButton.setImage(UIImage(named: "bookmarked"), for: .normal) :
+      bookmarkButton.setImage(UIImage(named: "bookmark"), for: .normal)
+    try? dataController.viewContext.save()
+  }
+
+  @objc func shareTapped(shareButton: UIButton) {
+    let recipeSouceURL = recipe.sourceURL
+    // Define an activity controller
+    let activityViewController = UIActivityViewController(
+      activityItems: [recipeSouceURL as Any],
+      applicationActivities: nil
+    )
+    self.present(activityViewController, animated: true, completion: nil)
+  }
+
+  func createButtonsView() -> UIView {
+    let recipeActionButtonsView = UIStackView()
+    recipeActionButtonsView.axis = .horizontal
+    recipeActionButtonsView.alignment = .fill
+    recipeActionButtonsView.distribution = .fillEqually
+    recipeActionButtonsView.spacing = 5
+    recipeActionButtonsView.translatesAutoresizingMaskIntoConstraints = false
+
+    let bookmarkButton = UIButton(frame: .zero)
+    bookmarkButton.translatesAutoresizingMaskIntoConstraints = false
+    recipe.isBookmarked ?
+      bookmarkButton.setImage(UIImage(named: "bookmarked"), for: .normal) :
+      bookmarkButton.setImage(UIImage(named: "bookmark"), for: .normal)
+
+    bookmarkButton.imageView?.contentMode = .scaleAspectFit
+    bookmarkButton.addTarget(self, action: #selector(bookmarkTapped), for: .touchUpInside)
+    bookmarkButton.setTitle("Bookmark", for: .normal)
+    bookmarkButton.titleLabel?.font = .systemFont(ofSize: 14)
+
+    let shareButton = UIButton(frame: .zero)
+    shareButton.translatesAutoresizingMaskIntoConstraints = false
+    shareButton.setImage(UIImage(named: "share"), for: .normal)
+    shareButton.imageView?.contentMode = .scaleAspectFit
+    shareButton.addTarget(self, action: #selector(shareTapped), for: .touchUpInside)
+    shareButton.setTitle("Share", for: .normal)
+    shareButton.titleLabel?.font = .systemFont(ofSize: 14)
+
+    recipeActionButtonsView.addArrangedSubview(bookmarkButton)
+    recipeActionButtonsView.addArrangedSubview(shareButton)
+    return recipeActionButtonsView
   }
 
   func createRecipeBasicInfoView() -> UIView {
@@ -441,4 +525,5 @@ extension RecipeDetailViewController {
     }
     return instructionsView
   }
+  // swiftlint:disable file_length
 }

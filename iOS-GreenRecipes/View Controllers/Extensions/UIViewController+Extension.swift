@@ -34,6 +34,13 @@ extension UIViewController {
     return title
   }
 
+
+  func createSubTitleLabel(size: Int, textToSet: String) -> UILabel {
+    let title = createTitleLabel(size: size, textToSet: textToSet)
+    title.textColor = .systemGray
+    return title
+  }
+
   func spacing(value: CGFloat) -> UIView {
     let spacerView = UIView(frame: .zero)
     spacerView.translatesAutoresizingMaskIntoConstraints = false

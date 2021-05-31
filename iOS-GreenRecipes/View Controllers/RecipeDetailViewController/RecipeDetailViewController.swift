@@ -110,6 +110,7 @@ class RecipeDetailViewController: UIViewController {
     recipe.id = Int32(recipeData.id)
     recipe.createdAt = Date()
     recipe.imageURL = recipeData.image
+    recipe.servings = Int16(recipeData.servings)
     recipe.imageType = recipeData.imageType
     recipe.title = recipeData.title
     recipe.preparationTime = Int16(recipeData.readyInMinutes)
