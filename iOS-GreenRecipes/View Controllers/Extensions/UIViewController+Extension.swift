@@ -8,6 +8,13 @@
 import UIKit
 
 extension UIViewController {
+  func getDataController() -> DataController {
+    guard let recipesTabBar = tabBarController as? RecipesTabBarController else {
+      fatalError("No data controller set")
+    }
+    return recipesTabBar.dataController
+  }
+
   func getVerticalStackView(enableSpacing: Bool) -> UIStackView {
     let stackView = UIStackView()
     stackView.translatesAutoresizingMaskIntoConstraints = false

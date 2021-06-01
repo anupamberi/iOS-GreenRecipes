@@ -19,27 +19,34 @@ class RecipeDetailViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     view.backgroundColor = UIColor.systemGray6
-    self.navigationItem.title = recipeData.title
     self.navigationItem.backButtonTitle = ""
     overrideUserInterfaceStyle = .dark
 
-    fetchRecipe { recipe in
-      if recipe != nil {
-        // Recipe is not saved previously
-        self.configure()
-      } else {
-        // Recipe is not saved previously, we retrieve the recipe nutrition information and save
-        RecipesClient.getRecipeNutrition(recipeId: self.recipeData.id) { recipeNutrition, error in
-          self.addRecipeData()
-          if let recipeNutrition = recipeNutrition {
-            self.addRecipeNutritionData(nutritionData: recipeNutrition)
-          }
-          // Save recipe
-          try? self.dataController.viewContext.save()
+    if recipe != nil {
+      configure()
+    } else {
+      fetchRecipe { recipe in
+        if recipe != nil {
+          // Recipe is not saved previously
           self.configure()
+        } else {
+          // Recipe is not saved previously, we retrieve the recipe nutrition information and save
+          RecipesClient.getRecipeNutrition(recipeId: self.recipeData.id) { recipeNutrition, error in
+            self.addRecipeData()
+            if let recipeNutrition = recipeNutrition {
+              self.addRecipeNutritionData(nutritionData: recipeNutrition)
+            }
+            // Save recipe
+            try? self.dataController.viewContext.save()
+            self.configure()
+          }
         }
       }
     }
+  }
+
+  func configureTitle() {
+    self.navigationItem.title = recipe.title
   }
 
   func fetchRecipe(completion: @escaping (Recipe?) -> Void) {

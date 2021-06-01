@@ -11,6 +11,7 @@ import Charts
 extension RecipeDetailViewController {
   // swiftlint:disable function_body_length
   func configure() {
+    configureTitle()
     let recipeDataScrollView = UIScrollView()
     recipeDataScrollView.translatesAutoresizingMaskIntoConstraints = false
 

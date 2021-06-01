@@ -23,11 +23,12 @@
                     <connections>
                         <segue destination="ag7-J6-tvY" kind="relationship" relationship="viewControllers" id="Hha-oK-03H"/>
                         <segue destination="ftH-Mx-IWo" kind="relationship" relationship="viewControllers" id="YTR-4d-Fdt"/>
+                        <segue destination="U8D-sE-Fme" kind="relationship" relationship="viewControllers" id="NP5-Zm-xEm"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="grU-oS-W4u" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2906" y="349"/>
+            <point key="canvasLocation" x="-3249" y="719"/>
         </scene>
         <!--Home-->
         <scene sceneID="M0M-qC-NiQ">
@@ -69,7 +70,7 @@
             <objects>
                 <navigationController id="ftH-Mx-IWo" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" systemItem="search" id="MFZ-2a-wJN">
-                        <inset key="imageInsets" minX="10" minY="15" maxX="10" maxY="10"/>
+                        <inset key="imageInsets" minX="10" minY="10" maxX="10" maxY="10"/>
                         <color key="badgeColor" systemColor="systemGreenColor"/>
                     </tabBarItem>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="4MW-VW-u5w">
@@ -83,6 +84,41 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zNY-Q8-seO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-2025" y="719"/>
+        </scene>
+        <!--Profile-->
+        <scene sceneID="h2g-Yo-N8X">
+            <objects>
+                <navigationController id="U8D-sE-Fme" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Profile" image="profile" id="SDa-nw-UpC">
+                        <inset key="largeContentSizeImageInsets" minX="0.0" minY="1" maxX="0.0" maxY="-1"/>
+                    </tabBarItem>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="zxL-gp-eqE">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="aET-Uo-F1j" kind="relationship" relationship="rootViewController" id="KD0-Ys-bQk"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hvD-TI-ShV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2026" y="1439"/>
+        </scene>
+        <!--Profile View Controller-->
+        <scene sceneID="4kG-6X-wwW">
+            <objects>
+                <viewController id="aET-Uo-F1j" customClass="ProfileViewController" customModule="iOS_GreenRecipes" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="dVi-T7-Lyg">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="d4h-9z-T45"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="VeK-we-ANa"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3rP-Cl-QNm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1184" y="1438"/>
         </scene>
         <!--Recipes Search View Controller-->
         <scene sceneID="cp8-5F-S6S">
@@ -113,12 +149,13 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ACf-r1-mFV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-297" y="909"/>
+            <point key="canvasLocation" x="-267" y="719"/>
         </scene>
     </scenes>
     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
     <resources>
         <image name="home" width="48" height="48"/>
+        <image name="profile" width="32" height="32"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

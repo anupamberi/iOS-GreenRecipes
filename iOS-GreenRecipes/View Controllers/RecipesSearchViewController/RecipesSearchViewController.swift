@@ -33,9 +33,16 @@ class RecipesSearchViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     overrideUserInterfaceStyle = .dark
+    initDataController()
     configureHierarchy()
     configureDataSource()
     applySnapshots()
+  }
+
+  func initDataController() {
+    func initDataController() {
+      dataController = getDataController()
+    }
   }
 }
 
@@ -47,7 +54,9 @@ extension RecipesSearchViewController: UICollectionViewDelegate {
         identifier: "RecipeDetailViewController"
       ) as? RecipeDetailViewController else { return }
       recipeDetailViewController.recipeData = recipeData
-      self.navigationController?.pushViewController(recipeDetailViewController, animated: true)
+      recipeDetailViewController.dataController = dataController
+      recipeDetailViewController.modalPresentationStyle = .fullScreen
+      present(recipeDetailViewController, animated: true, completion: nil)
     } else {
       let categoryCell = collectionView.cellForItem(at: indexPath) as? RecipeCategoryViewCell
       categoryCell?.isSelected = true
