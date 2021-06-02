@@ -56,13 +56,13 @@ extension RecipeCategoriesController {
     guard let recipeImageSoup = UIImage(named: "soup") else { return [] }
 
     let recipeCategorySnack = RecipeCategory(
-      categoryName: "Snack",
+      categoryName: "Snacks",
       categoryImage: recipeImageSnack,
       categoryMealType: "snack"
     )
 
     let recipeCategorySoup = RecipeCategory(
-      categoryName: "Soup",
+      categoryName: "Soups",
       categoryImage: recipeImageSoup,
       categoryMealType: "soup"
     )

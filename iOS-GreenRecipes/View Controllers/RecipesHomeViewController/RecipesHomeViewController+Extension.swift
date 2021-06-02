@@ -9,7 +9,7 @@ import UIKit
 
 extension RecipesHomeViewController {
   func configureTitle() {
-    navigationItem.title = "Recommendations"
+    navigationItem.title = "Today's recipes"
     navigationItem.largeTitleDisplayMode = .automatic
   }
 

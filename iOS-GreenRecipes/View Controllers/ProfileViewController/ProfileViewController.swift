@@ -44,6 +44,13 @@ class ProfileViewController: UIViewController {
   func initDataController() {
     dataController = getDataController()
   }
+
+  @objc func preferencesTapped() {
+    guard let preferencesViewController = self.storyboard?.instantiateViewController(
+      identifier: "PreferencesViewController"
+    ) as? PreferencesViewController else { return }
+    navigationController?.pushViewController(preferencesViewController, animated: true)
+  }
 }
 
 extension ProfileViewController: UICollectionViewDelegate {

@@ -27,7 +27,7 @@ extension ProfileHeaderView {
     label.translatesAutoresizingMaskIntoConstraints = false
     label.adjustsFontForContentSizeCategory = true
     label.textAlignment = .left
-    label.text = "Profile"
+
     let inset = CGFloat(10)
     NSLayoutConstraint.activate([
       label.leadingAnchor.constraint(equalTo: leadingAnchor, constant: inset),

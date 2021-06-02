@@ -46,7 +46,7 @@ extension RecipesSearchViewController {
     recipesSearchContainerView.addArrangedSubview(recipeCategoriesCollectionView)
 
     NSLayoutConstraint.activate([
-      recipeCategoriesCollectionView.heightAnchor.constraint(equalToConstant: 200)
+      recipeCategoriesCollectionView.heightAnchor.constraint(equalToConstant: 120)
     ])
   }
 
@@ -136,7 +136,7 @@ extension RecipesSearchViewController {
 
       let groupSize = NSCollectionLayoutSize(
         widthDimension: .fractionalWidth(0.4),
-        heightDimension: .estimated(80)
+        heightDimension: .estimated(100)
       )
 
       let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])

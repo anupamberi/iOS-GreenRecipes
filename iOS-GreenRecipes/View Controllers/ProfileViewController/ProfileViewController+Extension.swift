@@ -10,8 +10,19 @@ import CoreData
 
 extension ProfileViewController {
   func configureTitle() {
-    navigationItem.title = "Bookmarked Recipes"
+    navigationItem.title = "Profile"
     navigationItem.largeTitleDisplayMode = .always
+    configurePreferencesButton()
+  }
+
+  func configurePreferencesButton() {
+    let preferencesButtonSize = CGRect(origin: CGPoint.zero, size: CGSize(width: 25, height: 25))
+    let preferencesButton = UIButton(frame: preferencesButtonSize)
+    preferencesButton.setImage(UIImage(named: "preferences"), for: .normal)
+    preferencesButton.imageView?.contentMode = .scaleAspectFit
+    preferencesButton.addTarget(self, action: #selector(preferencesTapped), for: .touchUpInside)
+    let preferencesBarButton = UIBarButtonItem(customView: preferencesButton)
+    navigationItem.rightBarButtonItem = preferencesBarButton
   }
 
   func configureHierarchy() {
@@ -22,7 +33,6 @@ extension ProfileViewController {
     recipesCollectionView.autoresizingMask = [.flexibleHeight]
     recipesCollectionView.backgroundColor = .systemGroupedBackground
     recipesCollectionView.delegate = self
-    recipesCollectionView.alwaysBounceVertical = false
     view.addSubview(recipesCollectionView)
   }
 
@@ -66,6 +76,11 @@ extension ProfileViewController {
         cell.recipeImageView.image = UIImage(named: "placeholder")
       }
       cell.recipeTitleLabel.text = recipe.title
+      if recipe.servings == 1 || recipe.servings == 0 {
+        cell.recipeSubTitleLabel.text = String("1 serving")
+      } else {
+        cell.recipeSubTitleLabel.text = String("\(recipe.servings) servings")
+      }
       cell.toggleBookmarkTappedCallback = {
         // Get the recipe at referenced based on its id and update its bookmark status
         let recipeToUpdateBookmark = self.bookmarkedRecipes.first { $0.id == recipe.id }
@@ -125,8 +140,6 @@ extension ProfileViewController {
       } else {
         self.recipesCollectionView.restore()
       }
-      // set the view height
-      // self.recipesCollectionView.heightAnchor.constraint(equalToConstant: CGFloat(bookmarkedRecipes.count * 300)).isActive = true
       let bookmarkedRecipesSection = BookmarkedRecipes.allCases
       var snapshot = NSDiffableDataSourceSnapshot<BookmarkedRecipes, Recipe>()
       snapshot.appendSections(bookmarkedRecipesSection)
