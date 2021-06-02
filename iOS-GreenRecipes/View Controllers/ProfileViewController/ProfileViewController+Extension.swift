@@ -22,6 +22,7 @@ extension ProfileViewController {
     recipesCollectionView.autoresizingMask = [.flexibleHeight]
     recipesCollectionView.backgroundColor = .systemGroupedBackground
     recipesCollectionView.delegate = self
+    recipesCollectionView.alwaysBounceVertical = false
     view.addSubview(recipesCollectionView)
   }
 
@@ -43,6 +44,15 @@ extension ProfileViewController {
       section.interGroupSpacing = 10
       section.contentInsets = NSDirectionalEdgeInsets(top: 5, leading: 5, bottom: 5, trailing: 5)
 
+      let sectionHeader = NSCollectionLayoutBoundarySupplementaryItem(
+        layoutSize: NSCollectionLayoutSize(
+          widthDimension: .fractionalWidth(1.0),
+          heightDimension: .estimated(20)),
+        elementKind: ProfileViewController.headerElementKind,
+        alignment: .topLeading
+      )
+      sectionHeader.pinToVisibleBounds = true
+      section.boundarySupplementaryItems = [sectionHeader]
       return section
     }
     return UICollectionViewCompositionalLayout(sectionProvider: sectionProvider)
@@ -73,6 +83,21 @@ extension ProfileViewController {
       collectionView: recipesCollectionView) { collectionView, indexPath, recipe -> UICollectionViewCell? in
       return collectionView.dequeueConfiguredReusableCell(using: recipeWithDetail, for: indexPath, item: recipe)
     }
+
+    let recipesSupplementaryRegistration = UICollectionView.SupplementaryRegistration<ProfileHeaderView>(
+      elementKind: ProfileViewController.headerElementKind) { supplementaryView, _, indexPath in
+      if let section = BookmarkedRecipes(rawValue: indexPath.section) {
+        supplementaryView.label.text = String(describing: section.description)
+        supplementaryView.label.textColor = .white
+      }
+    }
+
+    dataSource.supplementaryViewProvider = { _, _, index in
+      return self.recipesCollectionView.dequeueConfiguredReusableSupplementary(
+        using: recipesSupplementaryRegistration,
+        for: index
+      )
+    }
   }
 
   func fetchBookmarkedRecipes(completion: @escaping ([Recipe]) -> Void) {
@@ -100,6 +125,8 @@ extension ProfileViewController {
       } else {
         self.recipesCollectionView.restore()
       }
+      // set the view height
+      // self.recipesCollectionView.heightAnchor.constraint(equalToConstant: CGFloat(bookmarkedRecipes.count * 300)).isActive = true
       let bookmarkedRecipesSection = BookmarkedRecipes.allCases
       var snapshot = NSDiffableDataSourceSnapshot<BookmarkedRecipes, Recipe>()
       snapshot.appendSections(bookmarkedRecipesSection)

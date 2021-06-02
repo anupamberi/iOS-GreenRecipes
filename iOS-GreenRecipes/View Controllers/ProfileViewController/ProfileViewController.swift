@@ -9,7 +9,6 @@ import UIKit
 
 class ProfileViewController: UIViewController {
   static let headerElementKind = "header-element-kind"
-  static let backgroundElementKind = "background-element-kind"
 
   enum BookmarkedRecipes: Int, CaseIterable {
     case recipes
@@ -39,7 +38,6 @@ class ProfileViewController: UIViewController {
 
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
-    print("view will appear")
     applyInitialSnapshot()
   }
 
