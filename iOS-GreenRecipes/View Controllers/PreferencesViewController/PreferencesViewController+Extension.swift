@@ -11,56 +11,59 @@ extension PreferencesViewController {
   func configureHierarchy() {
     preferencesTableView = UITableView(frame: .zero, style: .grouped)
     view.addSubview(preferencesTableView)
-    preferencesTableView.delegate = self
     preferencesTableView.dataSource = self
     preferencesTableView.translatesAutoresizingMaskIntoConstraints = false
     preferencesTableView.frame = view.bounds
-    preferencesTableView.register(PreferenceTableViewCell.self, forCellReuseIdentifier: PreferenceTableViewCell.reuseIdentifier)
+    preferencesTableView.register(
+      PreferenceTableViewCell.self,
+      forCellReuseIdentifier: PreferenceTableViewCell.reuseIdentifier
+    )
   }
 
   func configureData() {
+    if let homePreferencesData = UserDefaults.standard.array(forKey: "HomePreferences") as? [String] {
+      createHomePreferences(preferencesData: homePreferencesData)
+    }
+    if let searchPreferencesData = UserDefaults.standard.array(forKey: "SearchPreferences") as? [String] {
+      createSearchPreferences(preferencesData: searchPreferencesData)
+    }
+  }
+
+  private func createHomePreferences(preferencesData: [String]) {
+    var homePreferences: [Preference] = []
+    HomePreferences.allCases.forEach { searchPreference in
+      let preference = Preference(
+        title: searchPreference.description,
+        key: searchPreference.description,
+        icon: UIImage(named: "preference"),
+        isOn: preferencesData.contains(searchPreference.description)
+      )
+      homePreferences.append(preference)
+    }
+
     let homePreferencesSection = PreferencesSection(
       title: "Home",
-      preferences: [
-        Preference(title: "Recommendations", icon: UIImage(named: "preference"), isOn: true, handler: {
-          print("show recommendations")
-        }),
-        Preference(title: "Breakfast Recipes", icon: UIImage(named: "preference"), isOn: true, handler: {
-          print("breakfast")
-        }),
-        Preference(title: "Main Course Recipes", icon: UIImage(named: "preference"), isOn: true, handler: {
-          print("main course")
-        }),
-        Preference(title: "Beverages", icon: UIImage(named: "preference"), isOn: true, handler: {
-          print("beverages")
-        }),
-       Preference(title: "Desserts", icon: UIImage(named: "preference"), isOn: true, handler: {
-          print("Desserts")
-        }),
-      ]
+      preferences: homePreferences
     )
+    preferencesSections.append(homePreferencesSection)
+  }
+
+  private func createSearchPreferences(preferencesData: [String]) {
+    var searchPreferences: [Preference] = []
+    SearchPreferences.allCases.forEach { searchPreference in
+      let preference = Preference(
+        title: searchPreference.description,
+        key: searchPreference.description,
+        icon: UIImage(named: "preference"),
+        isOn: preferencesData.contains(searchPreference.description)
+      )
+      searchPreferences.append(preference)
+    }
 
     let searchPreferencesSection = PreferencesSection(
       title: "Search Categories",
-      preferences: [
-        Preference(title: "Snacks", icon: UIImage(named: "preference"), isOn: true, handler: {
-          print("snacks")
-        }),
-        Preference(title: "Soups", icon: UIImage(named: "preference"), isOn: true, handler: {
-          print("soups")
-        }),
-        Preference(title: "Indian", icon: UIImage(named: "preference"), isOn: true, handler: {
-          print("indian")
-        }),
-        Preference(title: "Mexican", icon: UIImage(named: "preference"), isOn: true, handler: {
-          print("mexican")
-        }),
-        Preference(title: "Italian", icon: UIImage(named: "preference"), isOn: true, handler: {
-          print("italian")
-        })
-      ]
+      preferences: searchPreferences
     )
-    preferencesSections.append(homePreferencesSection)
     preferencesSections.append(searchPreferencesSection)
   }
 
@@ -68,9 +71,6 @@ extension PreferencesViewController {
     navigationItem.title = "Preferences"
     navigationItem.largeTitleDisplayMode = .always
   }
-}
-
-extension PreferencesViewController: UITableViewDelegate {
 }
 
 extension PreferencesViewController: UITableViewDataSource {
@@ -87,6 +87,23 @@ extension PreferencesViewController: UITableViewDataSource {
       return UITableViewCell()
     }
     preferenceCell.configure(preference: preference)
+
+    preferenceCell.togglePreferenceChangedCallback = { preferenceValue in
+      let preferencesSection = self.preferencesSections[indexPath.section]
+      if preferencesSection.title == "Home" {
+        self.updatePreferences(
+          preferencesTitle: "HomePreferences",
+          preferenceKey: preference.key,
+          preferenceValue: preferenceValue
+        )
+      } else {
+        self.updatePreferences(
+          preferencesTitle: "SearchPreferences",
+          preferenceKey: preference.key,
+          preferenceValue: preferenceValue
+        )
+      }
+    }
     return preferenceCell
   }
 

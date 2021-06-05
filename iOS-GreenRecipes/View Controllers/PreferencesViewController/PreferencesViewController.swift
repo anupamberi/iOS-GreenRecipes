@@ -20,4 +20,16 @@ class PreferencesViewController: UIViewController {
     configureHierarchy()
     configureTitle()
   }
+
+  func updatePreferences(preferencesTitle: String, preferenceKey: String, preferenceValue: Bool) {
+    if var preferences = UserDefaults.standard.array(forKey: preferencesTitle) as? [String] {
+      if preferenceValue {
+        preferences.append(preferenceKey)
+      } else {
+        preferences = preferences.filter { !$0.contains(preferenceKey) }
+      }
+      // save updated preferences
+      UserDefaults.standard.set(preferences, forKey: preferencesTitle)
+    }
+  }
 }

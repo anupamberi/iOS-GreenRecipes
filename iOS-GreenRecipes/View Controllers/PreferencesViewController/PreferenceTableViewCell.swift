@@ -14,6 +14,7 @@ class PreferenceTableViewCell: UITableViewCell {
   private let iconImageView = UIImageView()
   private let title = UILabel()
   private let onSwitch = UISwitch()
+  var togglePreferenceChangedCallback: ((Bool) -> Void)?
 
   override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
     super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -65,6 +66,7 @@ class PreferenceTableViewCell: UITableViewCell {
     title.text = preference.title
     iconImageView.image = preference.icon
     onSwitch.isOn = preference.isOn
+    onSwitch.addTarget(self, action: #selector(preferenceToggled), for: .valueChanged)
   }
 
   private func configure() {
@@ -85,5 +87,9 @@ class PreferenceTableViewCell: UITableViewCell {
     containerView.addSubview(iconImageView)
     contentView.addSubview(containerView)
     contentView.addSubview(onSwitch)
+  }
+
+  @objc func preferenceToggled() {
+    togglePreferenceChangedCallback?(onSwitch.isOn)
   }
 }
