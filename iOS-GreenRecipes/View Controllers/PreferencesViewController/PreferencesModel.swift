@@ -35,12 +35,13 @@ enum SearchPreferences: String, CaseIterable {
 }
 
 enum HomePreferences: String, CaseIterable {
-  case recommendations, breakfast, mainCourse, beverages, desserts
+  case recommendations, quickAndEasy, breakfast, mainCourse, beverages, desserts
 
   var description: String {
     switch self {
-    case .recommendations: return "Recommendations"
+    case .recommendations: return "Recommended For You"
     case .breakfast: return "Breakfast"
+    case .quickAndEasy: return "Quick & Easy"
     case .mainCourse: return "Main Course"
     case .beverages: return "Beverages"
     case .desserts: return "Desserts"

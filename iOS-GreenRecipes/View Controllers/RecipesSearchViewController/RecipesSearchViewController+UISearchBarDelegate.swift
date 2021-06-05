@@ -32,12 +32,20 @@ extension RecipesSearchViewController: UISearchBarDelegate {
       query: searchText,
       mealType: nil,
       cuisineType: nil,
-      maxReadyTime: nil
-    ) { searchedRecipes, error in
-      DispatchQueue.main.async {
-        self.applySearchedRecipesSnapshot(recipes: searchedRecipes)
-        self.recipesSearchBar.showsCancelButton = false
-        self.recipesSearchBar.resignFirstResponder()
+      maxReadyTime: nil,
+      offset: 0
+    ) { _, searchedRecipes, error in
+      if error != nil {
+        self.showStatus(
+          title: "Recipes search error",
+          message: "An error occured while searching for recipes \(error?.localizedDescription ?? "")"
+        )
+      } else {
+        DispatchQueue.main.async {
+          self.applySearchedRecipesSnapshot(recipes: searchedRecipes)
+          self.recipesSearchBar.showsCancelButton = false
+          self.recipesSearchBar.resignFirstResponder()
+        }
       }
     }
   }

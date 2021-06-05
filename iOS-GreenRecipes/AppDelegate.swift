@@ -17,8 +17,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
       UserDefaults.standard.set(true, forKey: "isFirstLaunch")
       // Set the default user preferences
       let homePreferences = [
-        "Recommendations",
-        "Quick And Easy",
+        "Recommended For You",
+        "Quick & Easy",
         "Main Course",
         "Beverages",
         "Desserts"

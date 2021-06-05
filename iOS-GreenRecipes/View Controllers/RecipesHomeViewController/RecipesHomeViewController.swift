@@ -34,8 +34,8 @@ class RecipesHomeViewController: UIViewController {
     configureTitle()
     configureHierarchy()
     configureDataSource()
-    // applyInitialSanpshot()
-    fetchData()
+    applyInitialSanpshot()
+    // fetchData()
   }
 
   func initDataController() {

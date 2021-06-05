@@ -177,10 +177,13 @@ extension RecipesHomeViewController {
       collectionView: recipesCollectionView) { collectionView, indexPath, recipe -> UICollectionViewCell? in
       let section = self.recipesSections[indexPath.section]
 
-      switch section.key {
-      case RecipesSectionKey.random, RecipesSectionKey.breakfast, RecipesSectionKey.mainCourse:
+      switch section.searchKey {
+      case RecipesSectionSearchKey.random,
+        RecipesSectionSearchKey.breakfast,
+        RecipesSectionSearchKey.mainCourse,
+        RecipesSectionSearchKey.beverage:
         return collectionView.dequeueConfiguredReusableCell(using: recipeWithDetail, for: indexPath, item: recipe)
-      case RecipesSectionKey.quickAndEasy, RecipesSectionKey.dessert, RecipesSectionKey.beverage:
+      case RecipesSectionSearchKey.quickAndEasy, RecipesSectionSearchKey.dessert, RecipesSectionSearchKey.beverage:
         return collectionView.dequeueConfiguredReusableCell(using: recipeWithTitle, for: indexPath, item: recipe)
       default: fatalError("Unknown section")
       }
@@ -204,7 +207,8 @@ extension RecipesHomeViewController {
   func applyInitialSnapshots() {
     var randomRecipesSection = RecipesSectionProperties(
       description: "Recommended for you",
-      key: RecipesSectionKey.random,
+      preferenceKey: HomePreferences.recommendations.description,
+      searchKey: RecipesSectionSearchKey.random,
       widthRatio: 1.0,
       heightRatio: 300.0,
       recipeImageSize: RecipesClient.RecipePhotoSize.large.stringValue,
@@ -215,7 +219,8 @@ extension RecipesHomeViewController {
 
     var quickAndEasyRecipesSection = RecipesSectionProperties(
       description: "Quick & Easy",
-      key: RecipesSectionKey.quickAndEasy,
+      preferenceKey: HomePreferences.quickAndEasy.description,
+      searchKey: RecipesSectionSearchKey.quickAndEasy,
       widthRatio: 0.45,
       heightRatio: 250.0,
       recipeImageSize: RecipesClient.RecipePhotoSize.large.stringValue,
@@ -228,16 +233,18 @@ extension RecipesHomeViewController {
 
     var recipeTypeSection = RecipesSectionProperties(
       description: recipeType,
-      key: recipeType,
+      preferenceKey: recipeType,
+      searchKey: recipeType,
       widthRatio: 1.0,
       heightRatio: 300.0,
       recipeImageSize: RecipesClient.RecipePhotoSize.large.stringValue,
       scrollingBehaviour: UICollectionLayoutSectionOrthogonalScrollingBehavior.groupPagingCentered
     )
 
-    var dessertRecipesSection = RecipesSectionProperties(
+    let dessertRecipesSection = RecipesSectionProperties(
       description: "Desserts",
-      key: RecipesSectionKey.dessert,
+      preferenceKey: HomePreferences.desserts.description,
+      searchKey: RecipesSectionSearchKey.dessert,
       widthRatio: 0.45,
       heightRatio: 250.0,
       recipeImageSize: RecipesClient.RecipePhotoSize.large.stringValue,
@@ -276,115 +283,170 @@ extension RecipesHomeViewController {
   }
 
   func initRecipesSections() {
-    let randomRecipesSection = RecipesSectionProperties(
-      description: "Recommended for you",
-      key: RecipesSectionKey.random,
-      widthRatio: 1.0,
-      heightRatio: 300.0,
-      recipeImageSize: RecipesClient.RecipePhotoSize.large.stringValue,
-      scrollingBehaviour: UICollectionLayoutSectionOrthogonalScrollingBehavior.groupPagingCentered
-    )
-
-    let quickAndEasyRecipesSection = RecipesSectionProperties(
-      description: "Quick & Easy",
-      key: RecipesSectionKey.quickAndEasy,
-      widthRatio: 0.45,
-      heightRatio: 250.0,
-      recipeImageSize: RecipesClient.RecipePhotoSize.large.stringValue,
-      scrollingBehaviour: UICollectionLayoutSectionOrthogonalScrollingBehavior.continuousGroupLeadingBoundary
-    )
-
-    let recipeType = RecipesClient.getRecipeType()
-
-    let recipeTypeSection = RecipesSectionProperties(
-      description: recipeType,
-      key: recipeType,
-      widthRatio: 1.0,
-      heightRatio: 300.0,
-      recipeImageSize: RecipesClient.RecipePhotoSize.large.stringValue,
-      scrollingBehaviour: UICollectionLayoutSectionOrthogonalScrollingBehavior.groupPagingCentered
-    )
-
-    if recipeType == "breakfast" {
-      recipeTypeSection.description = "Delicious Breakfast"
+    if let homeRecipeCategories = UserDefaults.standard.array(forKey: "HomePreferences") as? [String] {
+      homeRecipeCategories.forEach { homeRecipeCategory in
+        switch homeRecipeCategory {
+        case "Recommended For You":
+          let randomRecipesSection = RecipesSectionProperties(
+            description: homeRecipeCategory,
+            preferenceKey: HomePreferences.recommendations.description,
+            searchKey: RecipesSectionSearchKey.random,
+            widthRatio: 1.0,
+            heightRatio: 300.0,
+            recipeImageSize: RecipesClient.RecipePhotoSize.large.stringValue,
+            scrollingBehaviour: UICollectionLayoutSectionOrthogonalScrollingBehavior.groupPagingCentered
+          )
+          recipesSections.append(randomRecipesSection)
+        case "Quick & Easy":
+          let quickAndEasyRecipesSection = RecipesSectionProperties(
+            description: homeRecipeCategory,
+            preferenceKey: HomePreferences.quickAndEasy.description,
+            searchKey: RecipesSectionSearchKey.quickAndEasy,
+            widthRatio: 0.45,
+            heightRatio: 250.0,
+            recipeImageSize: RecipesClient.RecipePhotoSize.medium.stringValue,
+            scrollingBehaviour: UICollectionLayoutSectionOrthogonalScrollingBehavior.continuousGroupLeadingBoundary
+          )
+          recipesSections.append(quickAndEasyRecipesSection)
+        case "Breakfast":
+          let breakfastRecipesSection = RecipesSectionProperties(
+            description: homeRecipeCategory,
+            preferenceKey: HomePreferences.breakfast.description,
+            searchKey: RecipesSectionSearchKey.breakfast,
+            widthRatio: 1.0,
+            heightRatio: 300.0,
+            recipeImageSize: RecipesClient.RecipePhotoSize.large.stringValue,
+            scrollingBehaviour: UICollectionLayoutSectionOrthogonalScrollingBehavior.groupPagingCentered
+          )
+          recipesSections.append(breakfastRecipesSection)
+        case "Main Course":
+          let mainCourseRecipesSection = RecipesSectionProperties(
+            description: homeRecipeCategory,
+            preferenceKey: HomePreferences.mainCourse.description,
+            searchKey: RecipesSectionSearchKey.mainCourse,
+            widthRatio: 1.0,
+            heightRatio: 300.0,
+            recipeImageSize: RecipesClient.RecipePhotoSize.large.stringValue,
+            scrollingBehaviour: UICollectionLayoutSectionOrthogonalScrollingBehavior.groupPagingCentered
+          )
+          recipesSections.append(mainCourseRecipesSection)
+        case "Beverages":
+          let beveragesRecipesSection = RecipesSectionProperties(
+            description: homeRecipeCategory,
+            preferenceKey: HomePreferences.beverages.description,
+            searchKey: RecipesSectionSearchKey.beverage,
+            widthRatio: 1.0,
+            heightRatio: 300.0,
+            recipeImageSize: RecipesClient.RecipePhotoSize.large.stringValue,
+            scrollingBehaviour: UICollectionLayoutSectionOrthogonalScrollingBehavior.groupPagingCentered
+          )
+          recipesSections.append(beveragesRecipesSection)
+        case "Desserts":
+          let dessertRecipesSection = RecipesSectionProperties(
+            description: homeRecipeCategory,
+            preferenceKey: HomePreferences.desserts.description,
+            searchKey: RecipesSectionSearchKey.dessert,
+            widthRatio: 0.45,
+            heightRatio: 250.0,
+            recipeImageSize: RecipesClient.RecipePhotoSize.medium.stringValue,
+            scrollingBehaviour: UICollectionLayoutSectionOrthogonalScrollingBehavior.continuousGroupLeadingBoundary
+          )
+          recipesSections.append(dessertRecipesSection)
+        default: fatalError("Unknown recipe search category")
+        }
+      }
     }
-    if recipeType == "beverage" {
-      recipeTypeSection.description = "Beverages"
-    }
-    if recipeType == "main course" {
-      recipeTypeSection.description = "Main Course"
-    }
-
-    let dessertRecipesSection = RecipesSectionProperties(
-      description: "Delicious Desserts",
-      key: RecipesSectionKey.dessert,
-      widthRatio: 0.45,
-      heightRatio: 250.0,
-      recipeImageSize: RecipesClient.RecipePhotoSize.large.stringValue,
-      scrollingBehaviour: UICollectionLayoutSectionOrthogonalScrollingBehavior.continuousGroupLeadingBoundary
-    )
-
-    recipesSections.append(randomRecipesSection)
-    recipesSections.append(quickAndEasyRecipesSection)
-    recipesSections.append(recipeTypeSection)
-    recipesSections.append(dessertRecipesSection)
-
     var snapshot = NSDiffableDataSourceSnapshot<RecipesSectionProperties, RecipeData>()
     snapshot.appendSections(recipesSections)
     dataSource.apply(snapshot, animatingDifferences: true)
   }
 
+  private func addRandomRecipes(_ recipesSection: RecipesSectionProperties) {
+    RecipesClient.getRandomRecipes(tags: "vegan", total: 5) { randomRecipes, error in
+      if error != nil {
+        self.showStatus(
+          title: "Recipes search error",
+          message: "An error occured while retrieving random recipes. \(error?.localizedDescription ?? "")"
+        )
+      } else {
+        recipesSection.recipesInSection = self.uniqueRecipes(recipes: randomRecipes)
+        print("Random recipes ids")
+        for randomRecipe in randomRecipes {
+          print(randomRecipe.id)
+        }
+        self.applyRecipesSectionDataSnapshot(recipes: randomRecipes, recipesSection: recipesSection)
+      }
+    }
+  }
+
+  private func addQuickEasyRecipes(_ recipesSection: RecipesSectionProperties) {
+    RecipesClient.searchRecipes(
+      query: "",
+      mealType: nil,
+      cuisineType: nil,
+      maxReadyTime: 20,
+      offset: RecipesClient.getSearchOffset(key: recipesSection.preferenceKey)
+    ) { total, quickAndEasyRecipes, error in
+      if error != nil {
+        self.showStatus(
+          title: "Recipes search error",
+          message: "An error occured while searching for recipes. \(error?.localizedDescription ?? "")"
+        )
+      } else {
+        recipesSection.recipesInSection = self.uniqueRecipes(recipes: quickAndEasyRecipes).shuffled()
+        print("Quick and Easy recipes ids")
+        for recipe in recipesSection.recipesInSection {
+          print(recipe.id)
+        }
+        self.applyRecipesSectionDataSnapshot(
+          recipes: recipesSection.recipesInSection,
+          recipesSection: recipesSection
+        )
+        UserDefaults.standard.set(total, forKey: recipesSection.preferenceKey)
+      }
+    }
+  }
+
+  private func addRecipes(_ recipesSection: RecipesSectionProperties) {
+    RecipesClient.searchRecipes(
+      query: "",
+      mealType: recipesSection.searchKey,
+      cuisineType: nil,
+      maxReadyTime: nil,
+      offset: RecipesClient.getSearchOffset(key: recipesSection.preferenceKey)
+    ) { total, recipes, error in
+      if error != nil {
+        self.showStatus(
+          title: "Recipes search error",
+          message: "An error occured while searching for recipes. \(error?.localizedDescription ?? "")"
+        )
+      } else {
+        recipesSection.recipesInSection = self.uniqueRecipes(recipes: recipes).shuffled()
+        print("\(recipesSection.description)")
+        for recipe in recipesSection.recipesInSection {
+          print(recipe.id)
+        }
+        self.applyRecipesSectionDataSnapshot(
+          recipes: recipesSection.recipesInSection,
+          recipesSection: recipesSection
+        )
+        UserDefaults.standard.set(total, forKey: recipesSection.preferenceKey)
+      }
+    }
+  }
+
   func initRecipesSectionsData() {
-    for recipesSection in recipesSections {
-      switch recipesSection.key {
-      case RecipesSectionKey.random:
-        print(recipesSection.key)
-        RecipesClient.getRandomRecipes(tags: "vegan", total: 5) { randomRecipes, error in
-          recipesSection.recipesInSection = self.uniqueRecipes(recipes: randomRecipes)
-          print("Random recipes ids")
-          for randomRecipe in randomRecipes {
-            print(randomRecipe.id)
-          }
-          self.applyRecipesSectionDataSnapshot(recipes: randomRecipes, recipesSection: recipesSection)
-        }
-      case RecipesSectionKey.quickAndEasy:
-        print(recipesSection.key)
-        RecipesClient.searchRecipes(
-          query: "",
-          mealType: nil,
-          cuisineType: nil,
-          maxReadyTime: 20
-        ) { quickAndEasyRecipes, error in
-          recipesSection.recipesInSection = self.uniqueRecipes(recipes: quickAndEasyRecipes)
-          print("Quick and Easy recipes ids")
-          for recipe in recipesSection.recipesInSection {
-            print(recipe.id)
-          }
-          self.applyRecipesSectionDataSnapshot(
-            recipes: recipesSection.recipesInSection,
-            recipesSection: recipesSection
-          )
-        }
-      case RecipesSectionKey.breakfast,
-        RecipesSectionKey.beverage,
-        RecipesSectionKey.mainCourse,
-        RecipesSectionKey.dessert:
-        RecipesClient.searchRecipes(
-          query: "",
-          mealType: recipesSection.key,
-          cuisineType: nil,
-          maxReadyTime: nil
-        ) { recipes, error in
-          recipesSection.recipesInSection = self.uniqueRecipes(recipes: recipes)
-          print("\(recipesSection.description)")
-          for recipe in recipesSection.recipesInSection {
-            print(recipe.id)
-          }
-          self.applyRecipesSectionDataSnapshot(
-            recipes: recipesSection.recipesInSection,
-            recipesSection: recipesSection
-          )
-        }
+    recipesSections.forEach { recipesSection in
+      switch recipesSection.searchKey {
+      case RecipesSectionSearchKey.random:
+        addRandomRecipes(recipesSection)
+      case RecipesSectionSearchKey.quickAndEasy:
+        addQuickEasyRecipes(recipesSection)
+      case RecipesSectionSearchKey.breakfast,
+        RecipesSectionSearchKey.beverage,
+        RecipesSectionSearchKey.mainCourse,
+        RecipesSectionSearchKey.dessert:
+        addRecipes(recipesSection)
       default:
         fatalError("Unknown recipes section")
       }

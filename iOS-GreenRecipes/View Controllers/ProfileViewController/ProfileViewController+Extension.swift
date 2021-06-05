@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import CoreData
 
 extension ProfileViewController {
   func configureTitle() {
@@ -112,23 +111,6 @@ extension ProfileViewController {
         using: recipesSupplementaryRegistration,
         for: index
       )
-    }
-  }
-
-  func fetchBookmarkedRecipes(completion: @escaping ([Recipe]) -> Void) {
-    let recipesRequest: NSFetchRequest<Recipe> = Recipe.fetchRequest()
-    let bookmarkLiteral: NSNumber = true
-    let recipesPredicate = NSPredicate(format: "isBookmarked == %@", bookmarkLiteral)
-    recipesRequest.predicate = recipesPredicate
-
-    let recipesSortDescriptor = NSSortDescriptor(key: "createdAt", ascending: false)
-    recipesRequest.sortDescriptors = [recipesSortDescriptor]
-
-    do {
-      let recipes = try dataController.viewContext.fetch(recipesRequest)
-      completion(recipes)
-    } catch {
-      completion([])
     }
   }
 

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CoreData
 
 class ProfileViewController: UIViewController {
   static let headerElementKind = "header-element-kind"
@@ -50,6 +51,23 @@ class ProfileViewController: UIViewController {
       identifier: "PreferencesViewController"
     ) as? PreferencesViewController else { return }
     navigationController?.pushViewController(preferencesViewController, animated: true)
+  }
+
+  func fetchBookmarkedRecipes(completion: @escaping ([Recipe]) -> Void) {
+    let recipesRequest: NSFetchRequest<Recipe> = Recipe.fetchRequest()
+    let bookmarkLiteral: NSNumber = true
+    let recipesPredicate = NSPredicate(format: "isBookmarked == %@", bookmarkLiteral)
+    recipesRequest.predicate = recipesPredicate
+
+    let recipesSortDescriptor = NSSortDescriptor(key: "createdAt", ascending: false)
+    recipesRequest.sortDescriptors = [recipesSortDescriptor]
+
+    do {
+      let recipes = try dataController.viewContext.fetch(recipesRequest)
+      completion(recipes)
+    } catch {
+      completion([])
+    }
   }
 }
 
