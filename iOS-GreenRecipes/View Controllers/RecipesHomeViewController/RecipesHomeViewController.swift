@@ -18,12 +18,6 @@ class RecipesHomeViewController: UIViewController {
   // swiftlint:enable implicitly_unwrapped_optional
 
   var recipesSections: [RecipesSectionProperties] = []
-  var randomRecipesData: [RecipeData] = []
-  var quickAndEasyRecipesData: [RecipeData] = []
-  var mainCourseRecipesData: [RecipeData] = []
-  var breakfastRecipesData: [RecipeData] = []
-  var dessertRecipesData: [RecipeData] = []
-  var beverageRecipesData: [RecipeData] = []
   var allRecipes: [Int: RecipeData] = [:]
 
   override func viewDidLoad() {
@@ -34,8 +28,7 @@ class RecipesHomeViewController: UIViewController {
     configureTitle()
     configureHierarchy()
     configureDataSource()
-    // applyInitialSanpshot()
-    fetchData()
+    applyInitialSanpshot()
   }
 
   func initDataController() {

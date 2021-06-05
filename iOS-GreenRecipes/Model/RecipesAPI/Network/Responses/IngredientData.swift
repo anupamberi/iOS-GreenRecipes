@@ -21,16 +21,4 @@ struct IngredientData: Codable {
   var unit: String
   var meta: [String]
   var metaInformation: [String]
-  var measures: Measures
-}
-
-struct Measures: Codable {
-  var us: Metric
-  var metric: Metric
-}
-
-struct Metric: Codable {
-  var amount: Float
-  var unitShort: String
-  var unitLong: String
 }

@@ -41,6 +41,16 @@ extension UIViewController {
     return title
   }
 
+  func showStatus(title: String, message: String) {
+    let alertViewController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+    alertViewController.addAction(UIAlertAction(title: "OK", style: .default, handler: { _ in
+      // Return control back to the view controller
+      DispatchQueue.main.async {
+        self.dismiss(animated: true, completion: nil)
+      }
+    }))
+    present(alertViewController, animated: true, completion: nil)
+  }
 
   func createSubTitleLabel(size: Int, textToSet: String) -> UILabel {
     let title = createTitleLabel(size: size, textToSet: textToSet)

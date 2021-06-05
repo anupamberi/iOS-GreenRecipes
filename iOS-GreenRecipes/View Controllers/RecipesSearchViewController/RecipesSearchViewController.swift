@@ -40,9 +40,7 @@ class RecipesSearchViewController: UIViewController {
   }
 
   func initDataController() {
-    func initDataController() {
-      dataController = getDataController()
-    }
+    dataController = getDataController()
   }
 }
 

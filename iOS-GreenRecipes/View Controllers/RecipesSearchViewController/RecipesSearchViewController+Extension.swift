@@ -46,7 +46,7 @@ extension RecipesSearchViewController {
     recipesSearchContainerView.addArrangedSubview(recipeCategoriesCollectionView)
 
     NSLayoutConstraint.activate([
-      recipeCategoriesCollectionView.heightAnchor.constraint(equalToConstant: 200)
+      recipeCategoriesCollectionView.heightAnchor.constraint(equalToConstant: 120)
     ])
   }
 
@@ -136,7 +136,7 @@ extension RecipesSearchViewController {
 
       let groupSize = NSCollectionLayoutSize(
         widthDimension: .fractionalWidth(0.4),
-        heightDimension: .estimated(80)
+        heightDimension: .estimated(100)
       )
 
       let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
@@ -216,21 +216,30 @@ extension RecipesSearchViewController {
   }
 
   func reloadRecipesData(indexPath: IndexPath) {
-    guard var recipeCategory = recipeCategoriesDataSource.itemIdentifier(for: indexPath) else {
-      print("Cannot find recipeCategory")
-      return
-    }
+    guard var recipeCategory = recipeCategoriesDataSource.itemIdentifier(for: indexPath) else { return }
     if recipeCategory.recipesInCategory.isEmpty {
       // Retrieve recipe information
       RecipesClient.searchRecipes(
         query: "",
         mealType: recipeCategory.recipeCategoryMealType,
         cuisineType: recipeCategory.recipeCategoryCuisineType,
-        maxReadyTime: nil
-      ) { searchedRecipes, error in
-        recipeCategory.recipesInCategory = searchedRecipes
-        self.applySearchedRecipesSnapshot(recipes: searchedRecipes)
-        self.updateRecipeCategoryWithRecipes(updatedCategory: recipeCategory, indexPath: indexPath)
+        maxReadyTime: nil,
+        offset: RecipesClient.getSearchOffset(key: recipeCategory.recipeCategoryName)
+      ) { _, searchedRecipes, error in
+        if error != nil {
+          self.showStatus(
+            title: "Recipes search error",
+            message: "An error occured while searching for recipes. \(error?.localizedDescription ?? "")"
+          )
+        }
+        if searchedRecipes.isEmpty {
+          self.recipesCollectionView.setEmptyMessage("No recipes found.")
+        } else {
+          self.recipesCollectionView.restore()
+          recipeCategory.recipesInCategory = searchedRecipes.shuffled()
+          self.applySearchedRecipesSnapshot(recipes: recipeCategory.recipesInCategory)
+          self.updateRecipeCategoryWithRecipes(updatedCategory: recipeCategory, indexPath: indexPath)
+        }
       }
     } else {
       print("Already searched previously")

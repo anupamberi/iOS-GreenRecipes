@@ -48,56 +48,38 @@ extension RecipeCategoriesController {
     // create multiple recipe categories
     var recipeCategories: [RecipeCategory] = []
 
-    guard let recipeImageIndian = UIImage(named: "indian") else { return [] }
-    guard let recipeImageMexican = UIImage(named: "mexican") else { return [] }
-    guard let recipeImageItalian = UIImage(named: "italian") else { return [] }
-    guard let recipeImageMiddleEastern = UIImage(named: "middle-eastern") else { return [] }
-    guard let recipeImageSnack = UIImage(named: "snack") else { return [] }
-    guard let recipeImageSoup = UIImage(named: "soup") else { return [] }
-
-    let recipeCategorySnack = RecipeCategory(
-      categoryName: "Snack",
-      categoryImage: recipeImageSnack,
-      categoryMealType: "snack"
-    )
-
-    let recipeCategorySoup = RecipeCategory(
-      categoryName: "Soup",
-      categoryImage: recipeImageSoup,
-      categoryMealType: "soup"
-    )
-
-    let recipeCategoryIndian = RecipeCategory(
-      categoryName: "Indian",
-      categoryImage: recipeImageIndian,
-      categoryCuisineType: "indian"
-    )
-
-    let recipeCategoryMexican = RecipeCategory(
-      categoryName: "Mexican",
-      categoryImage: recipeImageMexican,
-      categoryCuisineType: "mexican"
-    )
-
-    let recipeCategoryMiddleEastern = RecipeCategory(
-      categoryName: "Middle Eastern",
-      categoryImage: recipeImageMiddleEastern,
-      categoryCuisineType: "middle eastern"
-    )
-
-    let recipeCategoryItalian = RecipeCategory(
-      categoryName: "Italian",
-      categoryImage: recipeImageItalian,
-      categoryCuisineType: "italian"
-    )
-
-    recipeCategories.append(recipeCategorySnack)
-    recipeCategories.append(recipeCategorySoup)
-    recipeCategories.append(recipeCategoryIndian)
-    recipeCategories.append(recipeCategoryMexican)
-    recipeCategories.append(recipeCategoryMiddleEastern)
-    recipeCategories.append(recipeCategoryItalian)
-
+    if let recipeSearchCategories = UserDefaults.standard.array(forKey: "SearchPreferences") as? [String] {
+      recipeSearchCategories.forEach { recipeCategoryName in
+        switch recipeCategoryName {
+        case "Snacks":
+          guard let recipeImageSnacks = UIImage(named: recipeCategoryName) else { return }
+          let snacksCategory = RecipeCategory(
+            categoryName: recipeCategoryName,
+            categoryImage: recipeImageSnacks,
+            categoryMealType: "snack"
+          )
+          recipeCategories.append(snacksCategory)
+        case "Soups":
+          guard let recipeImageSoups = UIImage(named: recipeCategoryName) else { return }
+          let soupsCategory = RecipeCategory(
+            categoryName: recipeCategoryName,
+            categoryImage: recipeImageSoups,
+            categoryMealType: "soup"
+          )
+          recipeCategories.append(soupsCategory)
+        case "Indian", "Mexican", "Middle Eastern", "Italian":
+          guard let recipeImage = UIImage(named: recipeCategoryName) else { return }
+          let cuisineCategory = RecipeCategory(
+            categoryName: recipeCategoryName,
+            categoryImage: recipeImage,
+            categoryCuisineType: recipeCategoryName
+          )
+          recipeCategories.append(cuisineCategory)
+        default:
+          fatalError("Unknown recipe search category")
+        }
+      }
+    }
     return recipeCategories
   }
 }

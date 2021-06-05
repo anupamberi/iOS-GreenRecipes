@@ -8,9 +8,9 @@ import Foundation
 import UIKit
 
 class RecipesClient {
-  //static let apiKey = "dc3174ea537b405b95020abec265e994" // anupmberi@gmail
+  static let apiKey = "dc3174ea537b405b95020abec265e994" // anupmberi@gmail
   // static let apiKey = "da7335677bd94ba5bd0212c833151639" // anupamberi@outlook
-  static let apiKey = "a49f2459214e414db1fe6b8bd4c297c9" // aberi
+  // static let apiKey = "a49f2459214e414db1fe6b8bd4c297c9" // aberi
   
   enum Endpoints {
     static let base = "https://api.spoonacular.com/recipes/"
@@ -22,7 +22,6 @@ class RecipesClient {
     case getRecipeNutrition(Int)
     case searchRecipes
     case recipePhoto(Int, String, String)
-    case ingredientPhoto(String, String)
 
     var stringValue: String {
       switch self {
@@ -36,8 +35,6 @@ class RecipesClient {
         return Endpoints.base + "complexSearch?"
       case let .recipePhoto(id, size, imageType):
         return Endpoints.recipePhotoBase + "\(id)-\(size).\(imageType)"
-      case let .ingredientPhoto(size, imageName):
-        return Endpoints.recipePhotoBase + "ingredients_\(size)/\(imageName)"
       }
     }
 
@@ -120,7 +117,6 @@ class RecipesClient {
     print(recipeNutritionURL)
     taskForGETRequest(url: recipeNutritionURL, response: NutritionData.self) { response, error in
       if let response = response {
-        print(response)
         completion(response, nil)
       } else {
         completion(nil, error)
@@ -128,19 +124,21 @@ class RecipesClient {
     }
   }
 
+  // swiftlint:disable function_parameter_count
   class func searchRecipes(
     query: String,
     mealType: String?,
     cuisineType: String?,
     maxReadyTime: Int?,
-    completion: @escaping ([RecipeData], Error?) -> Void
+    offset: Int?,
+    completion: @escaping (Int, [RecipeData], Error?) -> Void
   ) {
     let recipesSearchBaseURL = Endpoints.searchRecipes.url
     var recipesSearchParams = [
       URLQueryItem(name: "query", value: query),
       URLQueryItem(name: "diet", value: "vegan"),
       URLQueryItem(name: "apiKey", value: RecipesClient.apiKey),
-      URLQueryItem(name: "number", value: String(10)),
+      URLQueryItem(name: "number", value: String(5)),
       URLQueryItem(name: "addRecipeInformation", value: String(true)),
       URLQueryItem(name: "fillIngredients", value: String(true))
     ]
@@ -156,32 +154,21 @@ class RecipesClient {
     if let maxReadyTime = maxReadyTime {
       recipesSearchParams.append(URLQueryItem(name: "maxReadyTime", value: String(maxReadyTime)))
     }
+
+    if let offset = offset {
+      recipesSearchParams.append(URLQueryItem(name: "offset", value: String(offset)))
+    }
     guard let recipesSearchURL = recipesSearchBaseURL.appending(recipesSearchParams) else { return }
     print(recipesSearchURL)
     taskForGETRequest(url: recipesSearchURL, response: RecipesData.self) { response, error in
       if let response = response {
-        completion(response.results ?? [], nil)
+        completion(response.totalResults ?? 0, response.results ?? [], nil)
       } else {
-        completion([], error)
+        completion(0, [], error)
       }
     }
   }
-
-  // MARK: - Download the ingredient photo image given size and imageName
-  class func downloadIngredientPhoto(
-    ingredientImageSize: String,
-    ingredientImageName: String,
-    completion: @escaping(_ image: UIImage?) -> Void
-  ) {
-    // Construct the URL from the given photo information
-    let url = Endpoints.ingredientPhoto(ingredientImageSize, ingredientImageName).url
-    guard let imageData = try? Data(contentsOf: url) else { return }
-    if let image = UIImage(data: imageData) {
-      completion(image)
-    } else {
-      completion(nil)
-    }
-  }
+  // swiftlint:enable function_parameter_count
 
   // MARK: - Download the recipe photo image given id, size and type
   class func downloadRecipePhoto(
@@ -253,14 +240,14 @@ class RecipesClient {
 }
 
 extension RecipesClient {
-  class func getRecipeType() -> String {
-    let hour = Calendar.current.component(.hour, from: Date())
-
-    switch hour {
-    case 6..<11 : return RecipesSectionKey.breakfast
-    case 11..<15, 17..<23 : return RecipesSectionKey.mainCourse
-    case 15..<17 : return RecipesSectionKey.beverage
-    default: return RecipesSectionKey.mainCourse
+  class func getSearchOffset(key: String) -> Int {
+    let total = UserDefaults.standard.integer(forKey: key)
+    var offset: Int = 0
+    if total != 0 {
+      // If previously total recipes for the key were found to be 16, then return an offset that is
+      // a random number between 0 and the total minus the number of search results to display 
+      offset = Int(arc4random_uniform(UInt32(total - 5)))
     }
+    return offset
   }
 }

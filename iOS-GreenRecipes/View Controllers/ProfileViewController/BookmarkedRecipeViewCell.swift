@@ -11,8 +11,9 @@ class BookmarkedRecipeViewCell: UICollectionViewCell {
   static let reuseIdentifier = "ProfileRecipeViewCell"
   var recipeImageView = UIImageView()
   var recipeTitleLabel = UILabel()
+  var recipeSubTitleLabel = UILabel()
   var toggleBookmarkButton = UIButton(frame: .zero)
-  var toggleBookmarkTappedCallback: (() -> ())?
+  var toggleBookmarkTappedCallback: (() -> Void)?
 
   private var bookmarked = true
 
@@ -28,26 +29,30 @@ class BookmarkedRecipeViewCell: UICollectionViewCell {
 
 extension BookmarkedRecipeViewCell {
   func configure() {
-    contentView.backgroundColor = .systemGray6
-    contentView.layer.cornerRadius = 10
-
+    contentView.backgroundColor = .black
     recipeImageView.contentMode = .scaleAspectFill
     recipeImageView.clipsToBounds = true
     recipeImageView.layer.cornerRadius = 10
-    recipeImageView.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
 
-    recipeTitleLabel.font = UIFont.systemFont(ofSize: 20)
-    recipeTitleLabel.textAlignment = .center
+    recipeTitleLabel.font = UIFont.systemFont(ofSize: 18)
+    recipeTitleLabel.textAlignment = .left
     recipeTitleLabel.numberOfLines = 3
     recipeTitleLabel.lineBreakMode = .byWordWrapping
     recipeTitleLabel.allowsDefaultTighteningForTruncation = true
     recipeTitleLabel.textColor = .white
 
+    recipeSubTitleLabel.font = UIFont.systemFont(ofSize: 16)
+    recipeSubTitleLabel.textAlignment = .left
+    recipeSubTitleLabel.numberOfLines = 3
+    recipeSubTitleLabel.lineBreakMode = .byWordWrapping
+    recipeSubTitleLabel.allowsDefaultTighteningForTruncation = true
+    recipeSubTitleLabel.textColor = .systemGray
+
     let stackView = UIStackView()
     stackView.axis = .vertical
-    stackView.alignment = .center
+    stackView.alignment = .leading
     stackView.translatesAutoresizingMaskIntoConstraints = false
-    stackView.spacing = 10
+    stackView.spacing = 5
 
     let spacerView = UIView(frame: .zero)
     spacerView.translatesAutoresizingMaskIntoConstraints = false
@@ -55,6 +60,7 @@ extension BookmarkedRecipeViewCell {
 
     stackView.addArrangedSubview(recipeImageView)
     stackView.addArrangedSubview(recipeTitleLabel)
+    stackView.addArrangedSubview(recipeSubTitleLabel)
     stackView.addArrangedSubview(spacerView)
 
     toggleBookmarkButton.translatesAutoresizingMaskIntoConstraints = false
@@ -71,7 +77,8 @@ extension BookmarkedRecipeViewCell {
       stackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
       stackView.topAnchor.constraint(equalTo: contentView.topAnchor),
       stackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
-      recipeTitleLabel.heightAnchor.constraint(equalToConstant: 40),
+      recipeTitleLabel.heightAnchor.constraint(equalToConstant: 30),
+      recipeSubTitleLabel.heightAnchor.constraint(equalToConstant: 20),
 
       toggleBookmarkButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -15),
       toggleBookmarkButton.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 15),

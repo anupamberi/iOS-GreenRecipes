@@ -33,7 +33,13 @@ extension RecipeDetailViewController {
     let recipeButtonsView = createButtonsView()
     let nutritionTitle = createTitleLabel(size: 22, textToSet: "Nutrition Information")
     let ingredientsTitle = createTitleLabel(size: 22, textToSet: "Ingredients")
-    let ingredientsSubTitle = createSubTitleLabel(size: 14, textToSet: "\(recipe.servings) servings")
+
+    let ingredientsSubTitle = createSubTitleLabel(size: 14, textToSet: "")
+    if recipe.servings == 1 || recipe.servings == 0 {
+      ingredientsSubTitle.text = String("1 serving")
+    } else {
+      ingredientsSubTitle.text = String("\(recipe.servings) servings")
+    }
     let instructionsTitle = createTitleLabel(size: 22, textToSet: "Instructions")
     let instructionsSubTitle = createSubTitleLabel(size: 14, textToSet: "Ready in \(recipe.preparationTime) mins")
 

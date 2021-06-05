@@ -13,7 +13,7 @@ extension UICollectionView {
     let messageLabel = UILabel()
     messageLabel.text = message
     messageLabel.translatesAutoresizingMaskIntoConstraints = false
-    messageLabel.textColor = .white
+    messageLabel.textColor = .systemGray
     messageLabel.numberOfLines = 0
     messageLabel.textAlignment = .center
     messageLabel.font = UIFont(name: "TrebuchetMS", size: 20)

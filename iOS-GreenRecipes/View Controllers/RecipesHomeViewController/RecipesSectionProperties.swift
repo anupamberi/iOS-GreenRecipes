@@ -7,7 +7,7 @@
 
 import UIKit
 
-enum RecipesSectionKey {
+enum RecipesSectionSearchKey {
   static let random = "random"
   static let quickAndEasy = "quickAndEasy"
   static let breakfast = "breakfast"
@@ -23,30 +23,31 @@ class RecipesSectionProperties: Hashable {
   let recipeImageSize: String
   let scrollingBehavior: UICollectionLayoutSectionOrthogonalScrollingBehavior
 
-  let key: String
+  let preferenceKey: String
+  let searchKey: String
   var recipesInSection: [RecipeData]
 
   private let identifier = UUID()
 
   func hash(into hasher: inout Hasher) {
     hasher.combine(identifier)
-    hasher.combine(description)
   }
 
   static func == (lhs: RecipesSectionProperties, rhs: RecipesSectionProperties) -> Bool {
-    return lhs.identifier == rhs.identifier && lhs.description == rhs.description
-  }
+    return lhs.identifier == rhs.identifier  }
 
   init(
     description: String,
-    key: String,
+    preferenceKey: String,
+    searchKey: String,
     widthRatio: Float,
     heightRatio: Float,
     recipeImageSize: String,
     scrollingBehaviour: UICollectionLayoutSectionOrthogonalScrollingBehavior
   ) {
     self.description = description
-    self.key = key
+    self.preferenceKey = preferenceKey
+    self.searchKey = searchKey
     self.widthRatio = widthRatio
     self.height = heightRatio
     self.recipeImageSize = recipeImageSize

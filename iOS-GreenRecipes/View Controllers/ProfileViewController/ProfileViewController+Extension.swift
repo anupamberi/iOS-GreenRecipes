@@ -6,12 +6,22 @@
 //
 
 import UIKit
-import CoreData
 
 extension ProfileViewController {
   func configureTitle() {
-    navigationItem.title = "Bookmarked Recipes"
+    navigationItem.title = "Profile"
     navigationItem.largeTitleDisplayMode = .always
+    configurePreferencesButton()
+  }
+
+  func configurePreferencesButton() {
+    let preferencesButtonSize = CGRect(origin: CGPoint.zero, size: CGSize(width: 25, height: 25))
+    let preferencesButton = UIButton(frame: preferencesButtonSize)
+    preferencesButton.setImage(UIImage(named: "preferences"), for: .normal)
+    preferencesButton.imageView?.contentMode = .scaleAspectFit
+    preferencesButton.addTarget(self, action: #selector(preferencesTapped), for: .touchUpInside)
+    let preferencesBarButton = UIBarButtonItem(customView: preferencesButton)
+    navigationItem.rightBarButtonItem = preferencesBarButton
   }
 
   func configureHierarchy() {
@@ -43,6 +53,15 @@ extension ProfileViewController {
       section.interGroupSpacing = 10
       section.contentInsets = NSDirectionalEdgeInsets(top: 5, leading: 5, bottom: 5, trailing: 5)
 
+      let sectionHeader = NSCollectionLayoutBoundarySupplementaryItem(
+        layoutSize: NSCollectionLayoutSize(
+          widthDimension: .fractionalWidth(1.0),
+          heightDimension: .estimated(20)),
+        elementKind: ProfileViewController.headerElementKind,
+        alignment: .topLeading
+      )
+      sectionHeader.pinToVisibleBounds = true
+      section.boundarySupplementaryItems = [sectionHeader]
       return section
     }
     return UICollectionViewCompositionalLayout(sectionProvider: sectionProvider)
@@ -56,6 +75,11 @@ extension ProfileViewController {
         cell.recipeImageView.image = UIImage(named: "placeholder")
       }
       cell.recipeTitleLabel.text = recipe.title
+      if recipe.servings == 1 || recipe.servings == 0 {
+        cell.recipeSubTitleLabel.text = String("1 serving")
+      } else {
+        cell.recipeSubTitleLabel.text = String("\(recipe.servings) servings")
+      }
       cell.toggleBookmarkTappedCallback = {
         // Get the recipe at referenced based on its id and update its bookmark status
         let recipeToUpdateBookmark = self.bookmarkedRecipes.first { $0.id == recipe.id }
@@ -73,22 +97,20 @@ extension ProfileViewController {
       collectionView: recipesCollectionView) { collectionView, indexPath, recipe -> UICollectionViewCell? in
       return collectionView.dequeueConfiguredReusableCell(using: recipeWithDetail, for: indexPath, item: recipe)
     }
-  }
 
-  func fetchBookmarkedRecipes(completion: @escaping ([Recipe]) -> Void) {
-    let recipesRequest: NSFetchRequest<Recipe> = Recipe.fetchRequest()
-    let bookmarkLiteral: NSNumber = true
-    let recipesPredicate = NSPredicate(format: "isBookmarked == %@", bookmarkLiteral)
-    recipesRequest.predicate = recipesPredicate
+    let recipesSupplementaryRegistration = UICollectionView.SupplementaryRegistration<ProfileHeaderView>(
+      elementKind: ProfileViewController.headerElementKind) { supplementaryView, _, indexPath in
+      if let section = BookmarkedRecipes(rawValue: indexPath.section) {
+        supplementaryView.label.text = String(describing: section.description)
+        supplementaryView.label.textColor = .white
+      }
+    }
 
-    let recipesSortDescriptor = NSSortDescriptor(key: "createdAt", ascending: false)
-    recipesRequest.sortDescriptors = [recipesSortDescriptor]
-
-    do {
-      let recipes = try dataController.viewContext.fetch(recipesRequest)
-      completion(recipes)
-    } catch {
-      completion([])
+    dataSource.supplementaryViewProvider = { _, _, index in
+      return self.recipesCollectionView.dequeueConfiguredReusableSupplementary(
+        using: recipesSupplementaryRegistration,
+        for: index
+      )
     }
   }
 
