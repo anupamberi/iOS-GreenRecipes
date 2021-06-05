@@ -43,10 +43,10 @@ extension UIViewController {
 
   func showStatus(title: String, message: String) {
     let alertViewController = UIAlertController(title: title, message: message, preferredStyle: .alert)
-    alertViewController.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
+    alertViewController.addAction(UIAlertAction(title: "OK", style: .default, handler: { _ in
       // Return control back to the view controller
       DispatchQueue.main.async {
-          self.dismiss(animated: true, completion: nil)
+        self.dismiss(animated: true, completion: nil)
       }
     }))
     present(alertViewController, animated: true, completion: nil)

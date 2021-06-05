@@ -27,50 +27,6 @@ extension RecipesHomeViewController {
     }
   }
 
-  func fetchData() {
-    guard let randomRecipesJsonData = try? getData(
-      fromJSON: "RecipesRandomSearchResponse"
-    ) else { return }
-    let randomRecipesResponse = try? JSONDecoder().decode(RecipesData.self, from: randomRecipesJsonData)
-    randomRecipesData = randomRecipesResponse?.recipes ?? []
-
-    guard let quickAndEasyRecipesJsonData = try? getData(
-      fromJSON: "RecipesSearchResponse"
-    ) else { return }
-    let quickAndEasyResponse = try? JSONDecoder().decode(RecipesData.self, from: quickAndEasyRecipesJsonData)
-    quickAndEasyRecipesData = quickAndEasyResponse?.results ?? []
-
-    guard let beverageRecipesJsonData = try? getData(
-      fromJSON: "RecipesSearchResponseBeverage"
-    ) else { return }
-    do {
-      let beverageResponse = try JSONDecoder().decode(RecipesData.self, from: beverageRecipesJsonData)
-      beverageRecipesData = beverageResponse.results ?? []
-    } catch {
-      print(error.localizedDescription)
-    }
-
-    guard let mainCourseRecipesJsonData = try? getData(
-      fromJSON: "RecipesSearchResponseMainCourse"
-    ) else { return }
-    let mainCourseResponse = try? JSONDecoder().decode(RecipesData.self, from: mainCourseRecipesJsonData)
-    mainCourseRecipesData = mainCourseResponse?.results ?? []
-
-    guard let breakfastRecipesJsonData = try? getData(
-      fromJSON: "RecipesSearchResponseBreakfast"
-    ) else { return }
-    let breakfastResponse = try? JSONDecoder().decode(RecipesData.self, from: breakfastRecipesJsonData)
-    breakfastRecipesData = breakfastResponse?.results ?? []
-
-    guard let dessertRecipesJsonData = try? getData(
-      fromJSON: "RecipesSearchResponseDessert"
-    ) else { return }
-    let dessertResponse = try? JSONDecoder().decode(RecipesData.self, from: dessertRecipesJsonData)
-    dessertRecipesData = dessertResponse?.results ?? []
-
-    applyInitialSnapshots()
-  }
-
   func configureHierarchy() {
     let layout = createLayout()
     layout.configuration.interSectionSpacing = 50
@@ -202,84 +158,6 @@ extension RecipesHomeViewController {
         for: index
       )
     }
-  }
-
-  func applyInitialSnapshots() {
-    var randomRecipesSection = RecipesSectionProperties(
-      description: "Recommended for you",
-      preferenceKey: HomePreferences.recommendations.description,
-      searchKey: RecipesSectionSearchKey.random,
-      widthRatio: 1.0,
-      heightRatio: 300.0,
-      recipeImageSize: RecipesClient.RecipePhotoSize.large.stringValue,
-      scrollingBehaviour: UICollectionLayoutSectionOrthogonalScrollingBehavior.groupPagingCentered
-    )
-
-    randomRecipesSection.recipesInSection = randomRecipesData
-
-    var quickAndEasyRecipesSection = RecipesSectionProperties(
-      description: "Quick & Easy",
-      preferenceKey: HomePreferences.quickAndEasy.description,
-      searchKey: RecipesSectionSearchKey.quickAndEasy,
-      widthRatio: 0.45,
-      heightRatio: 250.0,
-      recipeImageSize: RecipesClient.RecipePhotoSize.large.stringValue,
-      scrollingBehaviour: UICollectionLayoutSectionOrthogonalScrollingBehavior.continuousGroupLeadingBoundary
-    )
-
-    quickAndEasyRecipesSection.recipesInSection = quickAndEasyRecipesData
-
-    let recipeType = RecipesClient.getRecipeType()
-
-    var recipeTypeSection = RecipesSectionProperties(
-      description: recipeType,
-      preferenceKey: recipeType,
-      searchKey: recipeType,
-      widthRatio: 1.0,
-      heightRatio: 300.0,
-      recipeImageSize: RecipesClient.RecipePhotoSize.large.stringValue,
-      scrollingBehaviour: UICollectionLayoutSectionOrthogonalScrollingBehavior.groupPagingCentered
-    )
-
-    let dessertRecipesSection = RecipesSectionProperties(
-      description: "Desserts",
-      preferenceKey: HomePreferences.desserts.description,
-      searchKey: RecipesSectionSearchKey.dessert,
-      widthRatio: 0.45,
-      heightRatio: 250.0,
-      recipeImageSize: RecipesClient.RecipePhotoSize.large.stringValue,
-      scrollingBehaviour: UICollectionLayoutSectionOrthogonalScrollingBehavior.continuousGroupLeadingBoundary
-    )
-
-    dessertRecipesSection.recipesInSection = dessertRecipesData
-
-    if recipeType == "breakfast" {
-      recipeTypeSection.description = "Delicious Breakfast"
-      recipeTypeSection.recipesInSection = breakfastRecipesData
-    }
-    if recipeType == "beverage" {
-      recipeTypeSection.description = "Beverages"
-      recipeTypeSection.recipesInSection = beverageRecipesData
-    }
-    if recipeType == "main course" {
-      recipeTypeSection.description = "Main Course"
-      recipeTypeSection.recipesInSection = mainCourseRecipesData
-    }
-
-    recipesSections.append(randomRecipesSection)
-    recipesSections.append(quickAndEasyRecipesSection)
-    recipesSections.append(recipeTypeSection)
-    recipesSections.append(dessertRecipesSection)
-
-    var snapshot = NSDiffableDataSourceSnapshot<RecipesSectionProperties, RecipeData>()
-    snapshot.appendSections(recipesSections)
-
-    snapshot.appendItems(randomRecipesSection.recipesInSection, toSection: randomRecipesSection)
-    snapshot.appendItems(quickAndEasyRecipesSection.recipesInSection, toSection: quickAndEasyRecipesSection)
-    snapshot.appendItems(recipeTypeSection.recipesInSection, toSection: recipeTypeSection)
-    snapshot.appendItems(dessertRecipesSection.recipesInSection, toSection: dessertRecipesSection)
-
-    dataSource.apply(snapshot)
   }
 
   func initRecipesSections() {

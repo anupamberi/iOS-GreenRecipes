@@ -22,7 +22,6 @@ class RecipesClient {
     case getRecipeNutrition(Int)
     case searchRecipes
     case recipePhoto(Int, String, String)
-    case ingredientPhoto(String, String)
 
     var stringValue: String {
       switch self {
@@ -36,8 +35,6 @@ class RecipesClient {
         return Endpoints.base + "complexSearch?"
       case let .recipePhoto(id, size, imageType):
         return Endpoints.recipePhotoBase + "\(id)-\(size).\(imageType)"
-      case let .ingredientPhoto(size, imageName):
-        return Endpoints.recipePhotoBase + "ingredients_\(size)/\(imageName)"
       }
     }
 
@@ -173,22 +170,6 @@ class RecipesClient {
   }
   // swiftlint:enable function_parameter_count
 
-  // MARK: - Download the ingredient photo image given size and imageName
-  class func downloadIngredientPhoto(
-    ingredientImageSize: String,
-    ingredientImageName: String,
-    completion: @escaping(_ image: UIImage?) -> Void
-  ) {
-    // Construct the URL from the given photo information
-    let url = Endpoints.ingredientPhoto(ingredientImageSize, ingredientImageName).url
-    guard let imageData = try? Data(contentsOf: url) else { return }
-    if let image = UIImage(data: imageData) {
-      completion(image)
-    } else {
-      completion(nil)
-    }
-  }
-
   // MARK: - Download the recipe photo image given id, size and type
   class func downloadRecipePhoto(
     recipeId: Int,
@@ -259,17 +240,6 @@ class RecipesClient {
 }
 
 extension RecipesClient {
-  class func getRecipeType() -> String {
-    let hour = Calendar.current.component(.hour, from: Date())
-
-    switch hour {
-    case 6..<11 : return RecipesSectionSearchKey.breakfast
-    case 11..<15, 17..<23 : return RecipesSectionSearchKey.mainCourse
-    case 15..<17 : return RecipesSectionSearchKey.beverage
-    default: return RecipesSectionSearchKey.mainCourse
-    }
-  }
-
   class func getSearchOffset(key: String) -> Int {
     let total = UserDefaults.standard.integer(forKey: key)
     var offset: Int = 0
