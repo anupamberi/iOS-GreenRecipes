@@ -85,6 +85,7 @@ extension ProfileViewController {
         let recipeToUpdateBookmark = self.bookmarkedRecipes.first { $0.id == recipe.id }
         recipeToUpdateBookmark?.isBookmarked.toggle()
         try? self.dataController.viewContext.save()
+        self.applySnapshot()
       }
     }
   }
@@ -114,7 +115,7 @@ extension ProfileViewController {
     }
   }
 
-  func applyInitialSnapshot() {
+  func applySnapshot() {
     fetchBookmarkedRecipes { bookmarkedRecipes in
       self.bookmarkedRecipes = bookmarkedRecipes
       if bookmarkedRecipes.isEmpty {

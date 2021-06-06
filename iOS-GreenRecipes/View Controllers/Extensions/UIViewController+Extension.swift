@@ -7,6 +7,8 @@
 
 import UIKit
 
+private var activityView : UIView?
+
 extension UIViewController {
   func getDataController() -> DataController {
     guard let recipesTabBar = tabBarController as? RecipesTabBarController else {
@@ -80,5 +82,47 @@ extension UIViewController {
     lineWithSpacingView.addArrangedSubview(line())
     lineWithSpacingView.addArrangedSubview(spacing(value: value))
     return lineWithSpacingView
+  }
+
+  // MARK: Reusable activity progress indicators among different UIViewControllers
+  // Reference: https://www.youtube.com/watch?v=twgb5IPwR4I
+  // swiftlint:disable force_unwrapping
+  func showActivity(activityMessage: String) {
+    activityView = UIView(frame: CGRect(x: 0, y: 0, width: 300, height: 150))
+    activityView?.clipsToBounds = true
+    activityView?.layer.cornerRadius = 10
+    activityView?.backgroundColor = UIColor.init(red: 0.5, green: 0.5, blue: 0.5, alpha: 0.5)
+    activityView?.center.x = view.center.x
+    activityView?.center.y = view.center.y - 100
+
+    let activityIndicatorView = UIActivityIndicatorView(style: UIActivityIndicatorView.Style.large)
+    activityIndicatorView.translatesAutoresizingMaskIntoConstraints = false
+    activityIndicatorView.color = .white
+
+    let activityTitle = UILabel()
+    activityTitle.translatesAutoresizingMaskIntoConstraints = false
+    activityTitle.numberOfLines = 3
+    activityTitle.textAlignment = .center
+    activityTitle.lineBreakMode = .byWordWrapping
+    activityTitle.textColor = .white
+    activityTitle.text = activityMessage
+
+    activityView?.addSubview(activityTitle)
+    activityView?.addSubview(activityIndicatorView)
+    view.addSubview(activityView!)
+
+    activityTitle.leadingAnchor.constraint(equalTo: activityView!.leadingAnchor, constant: 10).isActive = true
+    activityTitle.trailingAnchor.constraint(equalTo: activityView!.trailingAnchor, constant: -10).isActive = true
+    activityTitle.topAnchor.constraint(equalTo: activityView!.topAnchor, constant: 10).isActive = true
+
+    activityIndicatorView.centerXAnchor.constraint(equalTo: activityView!.centerXAnchor).isActive = true
+    activityIndicatorView.topAnchor.constraint(equalTo: activityTitle.bottomAnchor, constant: 20).isActive = true
+    activityIndicatorView.startAnimating()
+  }
+  // swiftlint:enable force_unwrapping
+
+  func removeActivity() {
+    activityView?.removeFromSuperview()
+    activityView = nil
   }
 }

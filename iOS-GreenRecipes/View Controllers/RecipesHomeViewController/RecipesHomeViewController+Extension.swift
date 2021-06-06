@@ -13,20 +13,6 @@ extension RecipesHomeViewController {
     navigationItem.largeTitleDisplayMode = .automatic
   }
 
-  func getData(fromJSON fileName: String) throws -> Data {
-    let bundle = Bundle(for: type(of: self))
-    guard let url = bundle.url(forResource: fileName, withExtension: "json") else {
-      throw NSError(domain: NSURLErrorDomain, code: NSURLErrorCannotOpenFile, userInfo: nil)
-    }
-    do {
-      let data = try Data(contentsOf: url)
-      return data
-    } catch {
-      print(error.localizedDescription)
-      throw error
-    }
-  }
-
   func configureHierarchy() {
     let layout = createLayout()
     layout.configuration.interSectionSpacing = 50
@@ -239,81 +225,11 @@ extension RecipesHomeViewController {
     dataSource.apply(snapshot, animatingDifferences: true)
   }
 
-  private func addRandomRecipes(_ recipesSection: RecipesSectionProperties) {
-    RecipesClient.getRandomRecipes(tags: "vegan", total: 5) { randomRecipes, error in
-      if error != nil {
-        self.showStatus(
-          title: "Recipes search error",
-          message: "An error occured while retrieving random recipes. \(error?.localizedDescription ?? "")"
-        )
-      } else {
-        recipesSection.recipesInSection = self.uniqueRecipes(recipes: randomRecipes)
-        print("Random recipes ids")
-        for randomRecipe in randomRecipes {
-          print(randomRecipe.id)
-        }
-        self.applyRecipesSectionDataSnapshot(recipes: randomRecipes, recipesSection: recipesSection)
-      }
-    }
-  }
-
-  private func addQuickEasyRecipes(_ recipesSection: RecipesSectionProperties) {
-    RecipesClient.searchRecipes(
-      query: "",
-      mealType: nil,
-      cuisineType: nil,
-      maxReadyTime: 20,
-      offset: RecipesClient.getSearchOffset(key: recipesSection.preferenceKey)
-    ) { total, quickAndEasyRecipes, error in
-      if error != nil {
-        self.showStatus(
-          title: "Recipes search error",
-          message: "An error occured while searching for recipes. \(error?.localizedDescription ?? "")"
-        )
-      } else {
-        recipesSection.recipesInSection = self.uniqueRecipes(recipes: quickAndEasyRecipes).shuffled()
-        print("Quick and Easy recipes ids")
-        for recipe in recipesSection.recipesInSection {
-          print(recipe.id)
-        }
-        self.applyRecipesSectionDataSnapshot(
-          recipes: recipesSection.recipesInSection,
-          recipesSection: recipesSection
-        )
-        UserDefaults.standard.set(total, forKey: recipesSection.preferenceKey)
-      }
-    }
-  }
-
-  private func addRecipes(_ recipesSection: RecipesSectionProperties) {
-    RecipesClient.searchRecipes(
-      query: "",
-      mealType: recipesSection.searchKey,
-      cuisineType: nil,
-      maxReadyTime: nil,
-      offset: RecipesClient.getSearchOffset(key: recipesSection.preferenceKey)
-    ) { total, recipes, error in
-      if error != nil {
-        self.showStatus(
-          title: "Recipes search error",
-          message: "An error occured while searching for recipes. \(error?.localizedDescription ?? "")"
-        )
-      } else {
-        recipesSection.recipesInSection = self.uniqueRecipes(recipes: recipes).shuffled()
-        print("\(recipesSection.description)")
-        for recipe in recipesSection.recipesInSection {
-          print(recipe.id)
-        }
-        self.applyRecipesSectionDataSnapshot(
-          recipes: recipesSection.recipesInSection,
-          recipesSection: recipesSection
-        )
-        UserDefaults.standard.set(total, forKey: recipesSection.preferenceKey)
-      }
-    }
-  }
-
   func initRecipesSectionsData() {
+    showActivity(activityMessage: "Fetching recipes")
+    recipesSections.forEach { _ in
+      recipesDownloadGroup.enter()
+    }
     recipesSections.forEach { recipesSection in
       switch recipesSection.searchKey {
       case RecipesSectionSearchKey.random:
@@ -329,6 +245,9 @@ extension RecipesHomeViewController {
         fatalError("Unknown recipes section")
       }
     }
+    recipesDownloadGroup.notify(queue: .main) {
+      self.removeActivity()
+    }
   }
 
   func applyRecipesSectionDataSnapshot(recipes: [RecipeData], recipesSection: RecipesSectionProperties) {
@@ -337,20 +256,8 @@ extension RecipesHomeViewController {
     dataSource.apply(recipesSectionSnapshot, to: recipesSection, animatingDifferences: true)
   }
 
-  func applyInitialSanpshot() {
+  func applyInitialSnapshot() {
     initRecipesSections()
     initRecipesSectionsData()
-  }
-
-  func uniqueRecipes(recipes: [RecipeData]) -> [RecipeData] {
-    var uniqueRecipes: [RecipeData] = []
-    recipes.forEach { recipe in
-      let recipeExists = allRecipes[recipe.id] != nil
-      if !recipeExists {
-        allRecipes[recipe.id] = recipe
-        uniqueRecipes.append(recipe)
-      }
-    }
-    return uniqueRecipes
   }
 }
