@@ -35,7 +35,7 @@ extension PreferencesViewController {
       let preference = Preference(
         title: searchPreference.description,
         key: searchPreference.description,
-        icon: UIImage(named: "preference"),
+        icon: UIImage(named: "preferences"),
         isOn: preferencesData.contains(searchPreference.description)
       )
       homePreferences.append(preference)
@@ -54,7 +54,7 @@ extension PreferencesViewController {
       let preference = Preference(
         title: searchPreference.description,
         key: searchPreference.description,
-        icon: UIImage(named: "preference"),
+        icon: UIImage(named: "preferences"),
         isOn: preferencesData.contains(searchPreference.description)
       )
       searchPreferences.append(preference)
