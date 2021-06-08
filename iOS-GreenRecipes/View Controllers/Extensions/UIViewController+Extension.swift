@@ -91,7 +91,7 @@ extension UIViewController {
     activityView = UIView(frame: CGRect(x: 0, y: 0, width: 300, height: 150))
     activityView?.clipsToBounds = true
     activityView?.layer.cornerRadius = 10
-    activityView?.backgroundColor = UIColor.init(red: 0.5, green: 0.5, blue: 0.5, alpha: 0.5)
+    activityView?.backgroundColor = UIColor.init(red: 0.5, green: 0.5, blue: 0.5, alpha: 0.8)
     activityView?.center.x = view.center.x
     activityView?.center.y = view.center.y - 100
 
