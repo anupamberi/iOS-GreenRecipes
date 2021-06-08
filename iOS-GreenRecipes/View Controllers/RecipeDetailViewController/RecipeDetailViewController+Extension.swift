@@ -23,6 +23,7 @@ extension RecipeDetailViewController {
     view.addSubview(recipeDataScrollView)
 
     let cancelButton = UIButton(frame: .zero)
+    cancelButton.backgroundColor = .systemGray
     cancelButton.translatesAutoresizingMaskIntoConstraints = false
     cancelButton.setImage(UIImage(named: "cancel"), for: .normal)
     cancelButton.addTarget(self, action: #selector(cancelTapped), for: .touchUpInside)

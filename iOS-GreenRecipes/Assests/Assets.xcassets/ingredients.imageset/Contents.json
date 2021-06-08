@@ -1,15 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "icons8-ingredients-50.png",
+      "filename" : "icons8-ingredients-32.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
+      "filename" : "icons8-ingredients-64.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
+      "filename" : "icons8-ingredients-100.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

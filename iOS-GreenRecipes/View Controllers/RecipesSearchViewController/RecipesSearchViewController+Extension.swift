@@ -218,6 +218,7 @@ extension RecipesSearchViewController {
   func reloadRecipesData(indexPath: IndexPath) {
     guard var recipeCategory = recipeCategoriesDataSource.itemIdentifier(for: indexPath) else { return }
     if recipeCategory.recipesInCategory.isEmpty {
+      showActivity(activityMessage: "Fetching \(recipeCategory.recipeCategoryName) recipes")
       // Retrieve recipe information
       RecipesClient.searchRecipes(
         query: "",
@@ -239,6 +240,7 @@ extension RecipesSearchViewController {
           recipeCategory.recipesInCategory = searchedRecipes.shuffled()
           self.applySearchedRecipesSnapshot(recipes: recipeCategory.recipesInCategory)
           self.updateRecipeCategoryWithRecipes(updatedCategory: recipeCategory, indexPath: indexPath)
+          self.removeActivity()
         }
       }
     } else {

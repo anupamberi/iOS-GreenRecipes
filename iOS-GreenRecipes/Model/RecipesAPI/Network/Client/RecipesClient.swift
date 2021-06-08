@@ -8,9 +8,9 @@ import Foundation
 import UIKit
 
 class RecipesClient {
-  static let apiKey = "dc3174ea537b405b95020abec265e994" // anupmberi@gmail
+  // static let apiKey = "dc3174ea537b405b95020abec265e994" // anupmberi@gmail
   // static let apiKey = "da7335677bd94ba5bd0212c833151639" // anupamberi@outlook
-  // static let apiKey = "a49f2459214e414db1fe6b8bd4c297c9" // aberi
+  static let apiKey = "a49f2459214e414db1fe6b8bd4c297c9" // aberi
   
   enum Endpoints {
     static let base = "https://api.spoonacular.com/recipes/"

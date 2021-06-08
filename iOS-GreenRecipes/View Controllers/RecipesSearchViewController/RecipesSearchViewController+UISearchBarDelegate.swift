@@ -27,7 +27,8 @@ extension RecipesSearchViewController: UISearchBarDelegate {
     // Get the search text
     guard let searchText = searchBar.text else { return }
     // Search among recipes
-    // Retrieve recipe information
+    showActivity(activityMessage: "Searching recipes")
+    // Retrieve recipes information
     RecipesClient.searchRecipes(
       query: searchText,
       mealType: nil,
@@ -45,6 +46,7 @@ extension RecipesSearchViewController: UISearchBarDelegate {
           self.applySearchedRecipesSnapshot(recipes: searchedRecipes)
           self.recipesSearchBar.showsCancelButton = false
           self.recipesSearchBar.resignFirstResponder()
+          self.removeActivity()
         }
       }
     }
