@@ -7,6 +7,7 @@
 
 import UIKit
 
+// MARK: - The custom table view cell that contains the preference data
 class PreferenceTableViewCell: UITableViewCell {
   static let reuseIdentifier = "PreferenceTableViewCell"
 

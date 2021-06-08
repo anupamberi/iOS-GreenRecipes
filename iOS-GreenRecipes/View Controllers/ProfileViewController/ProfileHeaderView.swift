@@ -7,6 +7,7 @@
 
 import UIKit
 
+// MARK: - Represents a title view of a bookmarked recipes collection view
 class ProfileHeaderView: UICollectionReusableView {
   let label = UILabel()
   static let reuseIdentifier = "ProfileHeaderReuseIdentifier"

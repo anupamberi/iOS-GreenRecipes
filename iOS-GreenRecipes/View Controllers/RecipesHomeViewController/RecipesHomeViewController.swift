@@ -6,11 +6,13 @@
 //
 
 import UIKit
+import CoreData
 
+// MARK: - The main view controller that is shown on every application launch
 class RecipesHomeViewController: UIViewController {
   static let headerElementKind = "header-element-kind"
   static let backgroundElementKind = "background-element-kind"
-
+  // MARK: - Properties
   // swiftlint:disable implicitly_unwrapped_optional
   var dataController: DataController!
   var recipesCollectionView: UICollectionView!
@@ -35,8 +37,8 @@ class RecipesHomeViewController: UIViewController {
     dataController = getDataController()
   }
 
+  // MARK: - Download and add some random recipes
   func addRandomRecipes(_ recipesSection: RecipesSectionProperties) {
-    print("Start loading random recipes")
     RecipesClient.getRandomRecipes(tags: "vegan", total: 5) { randomRecipes, error in
       if error != nil {
         self.showStatus(
@@ -45,19 +47,14 @@ class RecipesHomeViewController: UIViewController {
         )
       } else {
         recipesSection.recipesInSection = self.uniqueRecipes(recipes: randomRecipes)
-        print("Random recipes ids")
-        for randomRecipe in randomRecipes {
-          print(randomRecipe.id)
-        }
         self.applyRecipesSectionDataSnapshot(recipes: recipesSection.recipesInSection, recipesSection: recipesSection)
-        print("Finished loading random recipes")
         self.recipesDownloadGroup.leave()
       }
     }
   }
 
+  // MARK: - Download and add quick recipes
   func addQuickEasyRecipes(_ recipesSection: RecipesSectionProperties) {
-    print("Start loading quick recipes")
     RecipesClient.searchRecipes(
       query: "",
       mealType: nil,
@@ -72,23 +69,20 @@ class RecipesHomeViewController: UIViewController {
         )
       } else {
         recipesSection.recipesInSection = self.uniqueRecipes(recipes: quickAndEasyRecipes).shuffled()
-        print("Quick and Easy recipes ids")
-        for recipe in recipesSection.recipesInSection {
-          print(recipe.id)
-        }
         self.applyRecipesSectionDataSnapshot(
           recipes: recipesSection.recipesInSection,
           recipesSection: recipesSection
         )
+        // Save the total number of results found to UserDefaults.
+        // This is used while setting offset in order to present a new set of recipes on each app load.
         UserDefaults.standard.set(total, forKey: recipesSection.preferenceKey)
-        print("Finished loading quick and easy recipes")
         self.recipesDownloadGroup.leave()
       }
     }
   }
 
+  // MARK: - Download and add recipes for specific meal type
   func addRecipes(_ recipesSection: RecipesSectionProperties) {
-    print("Start loading \(recipesSection.searchKey) recipes")
     RecipesClient.searchRecipes(
       query: "",
       mealType: recipesSection.searchKey,
@@ -103,21 +97,20 @@ class RecipesHomeViewController: UIViewController {
         )
       } else {
         recipesSection.recipesInSection = self.uniqueRecipes(recipes: recipes).shuffled()
-        print("\(recipesSection.description)")
-        for recipe in recipesSection.recipesInSection {
-          print(recipe.id)
-        }
         self.applyRecipesSectionDataSnapshot(
           recipes: recipesSection.recipesInSection,
           recipesSection: recipesSection
         )
+        // Save the total number of results found to UserDefaults.
+        // This is used while setting offset in order to present a new set of recipes on each app load.
         UserDefaults.standard.set(total, forKey: recipesSection.preferenceKey)
-        print("Finished loading \(recipesSection.searchKey) recipes")
         self.recipesDownloadGroup.leave()
       }
     }
   }
 
+  // MARK: - Assures that all the downloaded recipes have a unique id. It so happens that a same id recipe
+  // is downloaded across different categories that affects the uniqueness of the Diffable Data Source.
   func uniqueRecipes(recipes: [RecipeData]) -> [RecipeData] {
     var uniqueRecipes: [RecipeData] = []
     recipes.forEach { recipe in
@@ -131,6 +124,7 @@ class RecipesHomeViewController: UIViewController {
   }
 }
 
+// MARK: - The delegate to present the recipe details view controller
 extension RecipesHomeViewController: UICollectionViewDelegate {
   func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
     let recipesSection = recipesSections[indexPath.section]

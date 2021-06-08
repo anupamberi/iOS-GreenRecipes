@@ -8,9 +8,10 @@
 import UIKit
 import CoreData
 
+// MARK: - Presents the user bookmarked recipes
 class ProfileViewController: UIViewController {
   static let headerElementKind = "header-element-kind"
-
+  // MARK: - Properties
   enum BookmarkedRecipes: Int, CaseIterable {
     case recipes
 
@@ -46,6 +47,7 @@ class ProfileViewController: UIViewController {
     dataController = getDataController()
   }
 
+  // MARK: - Shows the user preferences controller for app settings
   @objc func preferencesTapped() {
     guard let preferencesViewController = self.storyboard?.instantiateViewController(
       identifier: "PreferencesViewController"
@@ -53,6 +55,7 @@ class ProfileViewController: UIViewController {
     navigationController?.pushViewController(preferencesViewController, animated: true)
   }
 
+  // MARK: - Retrieve all bookmarked recipes from saved recipes
   func fetchBookmarkedRecipes(completion: @escaping ([Recipe]) -> Void) {
     let recipesRequest: NSFetchRequest<Recipe> = Recipe.fetchRequest()
     let bookmarkLiteral: NSNumber = true
@@ -71,6 +74,7 @@ class ProfileViewController: UIViewController {
   }
 }
 
+// MARK: - Delegate to handle selection for showing the recipe detail view
 extension ProfileViewController: UICollectionViewDelegate {
   func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
     let selectedRecipe = bookmarkedRecipes[indexPath.row]

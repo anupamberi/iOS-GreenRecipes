@@ -13,6 +13,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
   let dataController = DataController(modelName: "Recipe")
 
   func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
+    // swiftlint:disable unused_optional_binding
     guard let _ = (scene as? UIWindowScene) else { return }
     dataController.load()
 

@@ -7,6 +7,7 @@
 
 import UIKit
 
+// MARK: - Extension that generates the collection view sections and updates the data using a diffable data source
 extension RecipesHomeViewController {
   func configureTitle() {
     navigationItem.title = "Today's recipes"
@@ -68,6 +69,7 @@ extension RecipesHomeViewController {
     return UICollectionViewCompositionalLayout(sectionProvider: sectionProvider)
   }
 
+  // MARK: - Create a custom registration for recipe with details cell
   func createRecipeWithDetailRegistration() -> UICollectionView.CellRegistration<RecipeWithDetailViewCell, RecipeData> {
     return UICollectionView.CellRegistration<RecipeWithDetailViewCell, RecipeData> { cell, indexPath, recipe in
       let section = self.recipesSections[indexPath.section]
@@ -92,6 +94,7 @@ extension RecipesHomeViewController {
     }
   }
 
+  // MARK: - Create a custom registration for recipe with title cell
   func createRecipeWithTitleRegistration() -> UICollectionView.CellRegistration<RecipeWithTitleViewCell, RecipeData> {
     return UICollectionView.CellRegistration<RecipeWithTitleViewCell, RecipeData> { cell, indexPath, recipe in
       let section = self.recipesSections[indexPath.section]
@@ -110,8 +113,9 @@ extension RecipesHomeViewController {
     }
   }
 
+  // MARK: - Create a diffable data source to manage recipes data across multiple sections.
   func configureDataSource() {
-    // create registrations up front, then choose the appropirate one to use in the cell provider
+    // create registrations up front, then choose the appropriate one to use in the cell provider
     let recipeWithDetail = createRecipeWithDetailRegistration()
     let recipeWithTitle = createRecipeWithTitleRegistration()
     // data source
@@ -146,6 +150,8 @@ extension RecipesHomeViewController {
     }
   }
 
+  // swiftlint:disable function_body_length
+  // MARK: - Create recipe categories sections based on the last save user preferences
   func initRecipesSections() {
     if let homeRecipeCategories = UserDefaults.standard.array(forKey: "HomePreferences") as? [String] {
       homeRecipeCategories.forEach { homeRecipeCategory in
@@ -216,7 +222,7 @@ extension RecipesHomeViewController {
             scrollingBehaviour: UICollectionLayoutSectionOrthogonalScrollingBehavior.continuousGroupLeadingBoundary
           )
           recipesSections.append(dessertRecipesSection)
-        default: fatalError("Unknown recipe search category")
+        default: fatalError("Unknown recipe preference category")
         }
       }
     }
@@ -224,7 +230,12 @@ extension RecipesHomeViewController {
     snapshot.appendSections(recipesSections)
     dataSource.apply(snapshot, animatingDifferences: true)
   }
+  // swiftlint:enable function_body_length
 
+  // MARK: - Download data for multiple recipe categories and update the view.
+  // We use a DispatchGroup to assure correct display of the activity view.
+  // Other solutions make use of DispatchQueue background and DispatchSemaphore
+  // But this approach causes unncessary waiting to assure synchronicity whereas DispatchGroup avoids that.
   func initRecipesSectionsData() {
     showActivity(activityMessage: "Fetching recipes")
     recipesSections.forEach { _ in
@@ -245,6 +256,8 @@ extension RecipesHomeViewController {
         fatalError("Unknown recipes section")
       }
     }
+
+    // All recipes are downloaded, remove the activity indicator
     recipesDownloadGroup.notify(queue: .main) {
       self.removeActivity()
     }

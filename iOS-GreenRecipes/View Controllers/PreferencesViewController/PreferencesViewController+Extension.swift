@@ -7,6 +7,7 @@
 
 import UIKit
 
+// MARK: - Creates a table view layout for presenting different user preferences
 extension PreferencesViewController {
   func configureHierarchy() {
     preferencesTableView = UITableView(frame: .zero, style: .grouped)
@@ -73,6 +74,7 @@ extension PreferencesViewController {
   }
 }
 
+// MARK: - Table view data source as PreferencesSections
 extension PreferencesViewController: UITableViewDataSource {
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     return preferencesSections[section].preferences.count
@@ -87,7 +89,7 @@ extension PreferencesViewController: UITableViewDataSource {
       return UITableViewCell()
     }
     preferenceCell.configure(preference: preference)
-
+    // Update view controller with changed data
     preferenceCell.togglePreferenceChangedCallback = { preferenceValue in
       let preferencesSection = self.preferencesSections[indexPath.section]
       if preferencesSection.title == "Home" {

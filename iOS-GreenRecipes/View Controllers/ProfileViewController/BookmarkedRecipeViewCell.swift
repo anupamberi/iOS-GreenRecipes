@@ -7,6 +7,7 @@
 
 import UIKit
 
+// MARK: - A custom cell to show the bookmarked recipe
 class BookmarkedRecipeViewCell: UICollectionViewCell {
   static let reuseIdentifier = "ProfileRecipeViewCell"
   var recipeImageView = UIImageView()
@@ -87,6 +88,7 @@ extension BookmarkedRecipeViewCell {
     ])
   }
 
+  // MARK: - Toogle the bookmark and notify the view controller through a callback
   @objc func toogleBookmarked() {
     bookmarked.toggle()
     bookmarked ? toggleBookmarkButton.setImage(UIImage(named: "bookmarked"), for: .normal) :

@@ -33,13 +33,11 @@
 		1E009A502646914700D4B079 /* RecipesData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E009A4D2646914700D4B079 /* RecipesData.swift */; };
 		1E009A52264692B500D4B079 /* RecipesResponseTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E009A51264692B500D4B079 /* RecipesResponseTest.swift */; };
 		1E009A562646A4DB00D4B079 /* RecipesRandomSearchResponseWithNullValues.json in Resources */ = {isa = PBXBuildFile; fileRef = 1E009A532646999B00D4B079 /* RecipesRandomSearchResponseWithNullValues.json */; };
-		1E1266B72658067F006EF882 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E1266B62658067F006EF882 /* UIColor+Extension.swift */; };
 		1E1266BA265835C0006EF882 /* RecipeNutritionResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = 1E1266B9265835C0006EF882 /* RecipeNutritionResponse.json */; };
 		1E1266BB265835C0006EF882 /* RecipeNutritionResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = 1E1266B9265835C0006EF882 /* RecipeNutritionResponse.json */; };
 		1E1266BC265835C0006EF882 /* RecipeNutritionResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = 1E1266B9265835C0006EF882 /* RecipeNutritionResponse.json */; };
 		1E1266BF26585034006EF882 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E1266BE26585034006EF882 /* UIViewController+Extension.swift */; };
 		1E1266C026585034006EF882 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E1266BE26585034006EF882 /* UIViewController+Extension.swift */; };
-		1E1266C1265852E8006EF882 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E1266B62658067F006EF882 /* UIColor+Extension.swift */; };
 		1E2BD363264D1C73000BD059 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E2BD362264D1C73000BD059 /* DataController.swift */; };
 		1E2BD368264D2807000BD059 /* NutritionData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E2BD367264D2807000BD059 /* NutritionData.swift */; };
 		1E2BD369264D2807000BD059 /* NutritionData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E2BD367264D2807000BD059 /* NutritionData.swift */; };
@@ -198,7 +196,6 @@
 		1E009A4D2646914700D4B079 /* RecipesData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesData.swift; sourceTree = "<group>"; };
 		1E009A51264692B500D4B079 /* RecipesResponseTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesResponseTest.swift; sourceTree = "<group>"; };
 		1E009A532646999B00D4B079 /* RecipesRandomSearchResponseWithNullValues.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = RecipesRandomSearchResponseWithNullValues.json; sourceTree = "<group>"; };
-		1E1266B62658067F006EF882 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		1E1266B9265835C0006EF882 /* RecipeNutritionResponse.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = RecipeNutritionResponse.json; sourceTree = "<group>"; };
 		1E1266BE26585034006EF882 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		1E2BD362264D1C73000BD059 /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
@@ -418,7 +415,6 @@
 			isa = PBXGroup;
 			children = (
 				1E1266BE26585034006EF882 /* UIViewController+Extension.swift */,
-				1E1266B62658067F006EF882 /* UIColor+Extension.swift */,
 				1E6809A4266686DD006A7788 /* UICollectionView+Extension.swift */,
 			);
 			path = Extensions;
@@ -779,7 +775,6 @@
 				1E6809BA2667DAD9006A7788 /* PreferencesViewController+Extension.swift in Sources */,
 				1E6809BE2667DEB8006A7788 /* PreferenceTableViewCell.swift in Sources */,
 				1EB782A22660038000FDFCDB /* RecipesSectionProperties.swift in Sources */,
-				1E1266B72658067F006EF882 /* UIColor+Extension.swift in Sources */,
 				1EB63EFA265ADF250081E691 /* RecipesTabBarController.swift in Sources */,
 				1E6809B62667D884006A7788 /* PreferencesModel.swift in Sources */,
 				1E009A032646813B00D4B079 /* RecipesHomeViewController.swift in Sources */,
@@ -826,7 +821,6 @@
 				1E4FBAB9265054C90033FA6D /* RecipeWithTitleViewCell.swift in Sources */,
 				1E2BD37E264E77B5000BD059 /* RecipesSectionTitleView.swift in Sources */,
 				1E6809B72667D884006A7788 /* PreferencesModel.swift in Sources */,
-				1E1266C1265852E8006EF882 /* UIColor+Extension.swift in Sources */,
 				1E6809B32667D733006A7788 /* PreferencesViewController.swift in Sources */,
 				1E009A432646875D00D4B079 /* IngredientData.swift in Sources */,
 				1E894999264D1AFE00EC0A22 /* RecipesData.swift in Sources */,

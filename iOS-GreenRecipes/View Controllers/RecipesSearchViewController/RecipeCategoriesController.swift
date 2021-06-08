@@ -7,6 +7,7 @@
 
 import UIKit
 
+// MARK: - Represents the data for a recipe category for a diffable data source
 class RecipeCategoriesController {
   struct RecipeCategory: Hashable, Equatable {
     var recipeCategoryName: String
@@ -39,12 +40,13 @@ class RecipeCategoriesController {
   }
 
   lazy var recipeCategories: [RecipeCategory] = {
-    return generateRecipeCategories()
+    return createRecipeCategories()
   }()
 }
 
 extension RecipeCategoriesController {
-  private func generateRecipeCategories() -> [RecipeCategory] {
+  // MARK: - Create recipe categories based on users last save preferences
+  private func createRecipeCategories() -> [RecipeCategory] {
     // create multiple recipe categories
     var recipeCategories: [RecipeCategory] = []
 

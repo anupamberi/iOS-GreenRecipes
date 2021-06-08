@@ -7,6 +7,7 @@
 
 import UIKit
 
+// MARK: - Represents a recipe with title only as a collection view cell
 class RecipeWithTitleViewCell: UICollectionViewCell {
   static let reuseIdentifier = "RecipeWithTitleReuseIdentifier"
   var recipeImageView = UIImageView()

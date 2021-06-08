@@ -11,7 +11,6 @@ import CoreData
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-    // Override point for customization after application launch.
     let isFirstLaunch = !UserDefaults.standard.bool(forKey: "isFirstLaunch")
     if isFirstLaunch {
       UserDefaults.standard.set(true, forKey: "isFirstLaunch")
