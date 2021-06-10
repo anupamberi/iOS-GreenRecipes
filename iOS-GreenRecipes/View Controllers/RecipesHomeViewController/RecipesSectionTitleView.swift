@@ -7,6 +7,7 @@
 
 import UIKit
 
+// MARK: - Represents a title view of a recipe category section
 class RecipesSectionTitleView: UICollectionReusableView {
   let label = UILabel()
   static let reuseIdentifier = "RecipesSectionTitleReuseIdentifier"

@@ -8,6 +8,7 @@
 import UIKit
 import Charts
 
+// MARK: - Initializes a scroll view layout to display the details of a recipe
 extension RecipeDetailViewController {
   // swiftlint:disable function_body_length
   func configure() {
@@ -129,7 +130,11 @@ extension RecipeDetailViewController {
     ])
   }
 
-  func createRecipeImageView() -> UIView {
+  private func configureTitle() {
+    self.navigationItem.title = recipe.title
+  }
+
+  private func createRecipeImageView() -> UIView {
     let recipeImageView = UIImageView()
     recipeImageView.translatesAutoresizingMaskIntoConstraints = false
     recipeImageView.contentMode = .scaleAspectFill
@@ -163,6 +168,8 @@ extension RecipeDetailViewController {
 
 
   @objc func cancelTapped() {
+    // Remove the last recipe entry
+    UserDefaults.standard.removeObject(forKey: "lastOpenedRecipe")
     dismiss(animated: true, completion: nil)
   }
 
@@ -184,7 +191,7 @@ extension RecipeDetailViewController {
     self.present(activityViewController, animated: true, completion: nil)
   }
 
-  func createButtonsView() -> UIView {
+  private func createButtonsView() -> UIView {
     let recipeActionButtonsView = UIStackView()
     recipeActionButtonsView.axis = .horizontal
     recipeActionButtonsView.alignment = .fill
@@ -216,7 +223,7 @@ extension RecipeDetailViewController {
     return recipeActionButtonsView
   }
 
-  func createRecipeBasicInfoView() -> UIView {
+  private func createRecipeBasicInfoView() -> UIView {
     let cookingTime = UILabel()
     cookingTime.font = UIFont.systemFont(ofSize: 14)
     cookingTime.adjustsFontSizeToFitWidth = true
@@ -275,7 +282,7 @@ extension RecipeDetailViewController {
     return recipeBasicInfoStackView
   }
 
-  func createRecipeBasicInfoSubView(title: UILabel, imageView: UIImageView) -> UIView {
+  private func createRecipeBasicInfoSubView(title: UILabel, imageView: UIImageView) -> UIView {
     let basicInfoView = getVerticalStackView(enableSpacing: true)
     basicInfoView.addArrangedSubview(imageView)
     basicInfoView.addArrangedSubview(title)
@@ -287,7 +294,7 @@ extension RecipeDetailViewController {
     return basicInfoView
   }
 
-  func createRecipeNutritionInfoView() -> UIView {
+  private func createRecipeNutritionInfoView() -> UIView {
     let nutritionView = getVerticalStackView(enableSpacing: false)
 
     let carbsChart = createNutrientChart(nutrientTitle: "Carbohydrates")
@@ -309,7 +316,7 @@ extension RecipeDetailViewController {
   }
 
   // swiftlint:disable:next large_tuple
-  func createNutrientChart(nutrientTitle: String) -> (amount: String, percent: String, view: UIView) {
+  private func createNutrientChart(nutrientTitle: String) -> (amount: String, percent: String, view: UIView) {
     let nutrientData = getNutrientData(nutrientTitle: nutrientTitle)
     let nutrientChart = PieChartView()
     nutrientChart.translatesAutoresizingMaskIntoConstraints = false
@@ -344,7 +351,7 @@ extension RecipeDetailViewController {
     return (nutrientData.amount, nutrientData.percent, nutrientView)
   }
 
-  func setUpChartView(nutrientAmount: String, nutrientPercent: String, chartView: PieChartView) {
+  private func setUpChartView(nutrientAmount: String, nutrientPercent: String, chartView: PieChartView) {
     let centerText = NSMutableAttributedString(string: nutrientAmount + "\n" + nutrientPercent)
     let paragrapheStyleMutable = NSParagraphStyle.default.mutableCopy()
     guard let paragrapheStyle = paragrapheStyleMutable as? NSMutableParagraphStyle else { return }
@@ -451,7 +458,7 @@ extension RecipeDetailViewController {
     return (nutrientAmount, nutrientPercent, dataEntries)
   }
 
-  func createRecipeIngredientsView() -> UIView {
+  private func createRecipeIngredientsView() -> UIView {
     let ingredientsView = getVerticalStackView(enableSpacing: true)
     ingredientsView.alignment = .leading
 
@@ -488,7 +495,7 @@ extension RecipeDetailViewController {
     return ingredientsView
   }
 
-  func createRecipeInstructionsView() -> UIView {
+  private func createRecipeInstructionsView() -> UIView {
     let instructionsView = getVerticalStackView(enableSpacing: true)
     instructionsView.alignment = .leading
 

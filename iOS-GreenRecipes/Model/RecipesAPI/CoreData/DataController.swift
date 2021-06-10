@@ -35,7 +35,9 @@ class DataController {
   func load(completion: (() -> Void)? = nil) {
     persistentContainer.loadPersistentStores { _, error in
       guard error == nil else {
+        // swiftlint:disable force_unwrapping
         fatalError(error!.localizedDescription)
+        // swiftlint:enable force_unwrapping
       }
       self.configureContexts()
       completion?()

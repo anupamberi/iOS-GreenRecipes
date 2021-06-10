@@ -7,6 +7,7 @@
 
 import UIKit
 
+// MARK: - Displays a table view with different user preferences
 class PreferencesViewController: UIViewController {
   // swiftlint:disable implicitly_unwrapped_optional
   var preferencesTableView: UITableView!
@@ -21,6 +22,7 @@ class PreferencesViewController: UIViewController {
     configureTitle()
   }
 
+  // Save the updated user preferences to UserDefaults
   func updatePreferences(preferencesTitle: String, preferenceKey: String, preferenceValue: Bool) {
     if var preferences = UserDefaults.standard.array(forKey: preferencesTitle) as? [String] {
       if preferenceValue {

@@ -7,6 +7,7 @@
 
 import UIKit
 
+// MARK: - Represents a recipe category as a collection view cell
 class RecipeCategoryViewCell: UICollectionViewCell {
   static let reuseIdentifier = "RecipeCategoryCellReuseIdentifier"
 

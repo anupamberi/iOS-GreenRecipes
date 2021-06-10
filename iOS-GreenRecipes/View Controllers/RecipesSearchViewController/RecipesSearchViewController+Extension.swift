@@ -7,6 +7,7 @@
 
 import UIKit
 
+// MARK: - Creates a multi collection view layout that displays recipe categories and its results.
 extension RecipesSearchViewController {
   func configureHierarchy() {
     recipesSearchContainerView = UIStackView()
@@ -219,14 +220,14 @@ extension RecipesSearchViewController {
     guard var recipeCategory = recipeCategoriesDataSource.itemIdentifier(for: indexPath) else { return }
     if recipeCategory.recipesInCategory.isEmpty {
       showActivity(activityMessage: "Fetching \(recipeCategory.recipeCategoryName) recipes")
-      // Retrieve recipe information
+      // Search recipes for given recipe category
       RecipesClient.searchRecipes(
         query: "",
         mealType: recipeCategory.recipeCategoryMealType,
         cuisineType: recipeCategory.recipeCategoryCuisineType,
         maxReadyTime: nil,
         offset: RecipesClient.getSearchOffset(key: recipeCategory.recipeCategoryName)
-      ) { _, searchedRecipes, error in
+      ) { total, searchedRecipes, error in
         if error != nil {
           self.showStatus(
             title: "Recipes search error",
@@ -240,11 +241,14 @@ extension RecipesSearchViewController {
           recipeCategory.recipesInCategory = searchedRecipes.shuffled()
           self.applySearchedRecipesSnapshot(recipes: recipeCategory.recipesInCategory)
           self.updateRecipeCategoryWithRecipes(updatedCategory: recipeCategory, indexPath: indexPath)
+          // Save the total number of results found to UserDefaults.
+          // This is used while setting offset in order to present a new set of recipes on each app load.
+          UserDefaults.standard.set(total, forKey: recipeCategory.recipeCategoryName)
           self.removeActivity()
         }
       }
     } else {
-      print("Already searched previously")
+      // Recipes data exists, apply the snapshot
       applySearchedRecipesSnapshot(recipes: recipeCategory.recipesInCategory)
     }
   }

@@ -7,8 +7,9 @@
 
 import UIKit
 
-private var activityView : UIView?
+private var activityView: UIView?
 
+// MARK: - Contains utility functions shared by different view controllers
 extension UIViewController {
   func getDataController() -> DataController {
     guard let recipesTabBar = tabBarController as? RecipesTabBarController else {
@@ -45,12 +46,14 @@ extension UIViewController {
 
   func showStatus(title: String, message: String) {
     let alertViewController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+    // swiftlint:disable trailing_closure
     alertViewController.addAction(UIAlertAction(title: "OK", style: .default, handler: { _ in
       // Return control back to the view controller
       DispatchQueue.main.async {
         self.dismiss(animated: true, completion: nil)
       }
     }))
+    // swiftlint:enable trailing_closure
     present(alertViewController, animated: true, completion: nil)
   }
 

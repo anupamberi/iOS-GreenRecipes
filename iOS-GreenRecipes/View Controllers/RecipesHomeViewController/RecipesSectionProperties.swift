@@ -6,7 +6,7 @@
 //
 
 import UIKit
-
+// MARK: - The search key id used while downloading recipes
 enum RecipesSectionSearchKey {
   static let random = "random"
   static let quickAndEasy = "quickAndEasy"
@@ -16,6 +16,7 @@ enum RecipesSectionSearchKey {
   static let dessert = "dessert"
 }
 
+// MARK: - The recipes section display data for the data source
 class RecipesSectionProperties: Hashable {
   var description: String
   let widthRatio: Float

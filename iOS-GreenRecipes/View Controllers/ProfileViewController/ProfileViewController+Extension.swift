@@ -7,6 +7,7 @@
 
 import UIKit
 
+// MARK: - Compositional layout of the bookmarked recipes
 extension ProfileViewController {
   func configureTitle() {
     navigationItem.title = "Profile"
@@ -24,6 +25,7 @@ extension ProfileViewController {
     navigationItem.rightBarButtonItem = preferencesBarButton
   }
 
+  // MARK: - Init a collection view with a compositional layout
   func configureHierarchy() {
     recipesCollectionView = UICollectionView(
       frame: view.bounds,

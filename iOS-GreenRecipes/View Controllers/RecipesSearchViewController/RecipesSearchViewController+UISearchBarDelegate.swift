@@ -7,6 +7,7 @@
 
 import UIKit
 
+// MARK: - The search delegate for searching recipes
 extension RecipesSearchViewController: UISearchBarDelegate {
   func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
     recipesSearchBar.showsCancelButton = true
@@ -28,7 +29,7 @@ extension RecipesSearchViewController: UISearchBarDelegate {
     guard let searchText = searchBar.text else { return }
     // Search among recipes
     showActivity(activityMessage: "Searching recipes")
-    // Retrieve recipes information
+    // Search recipes based on given text
     RecipesClient.searchRecipes(
       query: searchText,
       mealType: nil,
@@ -52,6 +53,7 @@ extension RecipesSearchViewController: UISearchBarDelegate {
     }
   }
 
+  // MARK: - Restore the recipe category selection and update its recipes
   func restoreRecipes() {
     guard let recipeCategory = recipeCategoriesDataSource.itemIdentifier(
       for: lastSelectedRecipeCategory

@@ -7,7 +7,9 @@
 
 import UIKit
 
+// MARK: A collection view controller to search a recipe by keywords.
 class RecipesSearchViewController: UIViewController {
+  // MARK: - Properties
   enum RecipeCategories: Int, CaseIterable {
     case categories
   }
@@ -33,6 +35,7 @@ class RecipesSearchViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     overrideUserInterfaceStyle = .dark
+
     initDataController()
     configureHierarchy()
     configureDataSource()
@@ -44,6 +47,7 @@ class RecipesSearchViewController: UIViewController {
   }
 }
 
+// MARK: - Delegate to handle recipe categories item selections in order to search the corresponding recipes
 extension RecipesSearchViewController: UICollectionViewDelegate {
   func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
     if collectionView == recipesCollectionView {

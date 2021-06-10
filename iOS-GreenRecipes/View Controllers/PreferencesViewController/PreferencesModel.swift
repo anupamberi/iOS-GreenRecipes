@@ -7,6 +7,7 @@
 
 import UIKit
 
+// MARK: - Model entities for the user preferences
 struct PreferencesSection {
   let title: String
   let preferences: [Preference]

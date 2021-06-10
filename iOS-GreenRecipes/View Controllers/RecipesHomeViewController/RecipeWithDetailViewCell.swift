@@ -7,6 +7,7 @@
 
 import UIKit
 
+// MARK: - Represents a recipe with summary detail as a collection view cell
 class RecipeWithDetailViewCell: UICollectionViewCell {
   static let reuseIdentifier = "RecipeCellReuseIdentifier"
   var recipeImageView = UIImageView()

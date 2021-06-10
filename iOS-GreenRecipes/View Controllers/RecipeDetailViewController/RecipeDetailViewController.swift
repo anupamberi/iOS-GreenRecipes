@@ -8,6 +8,7 @@
 import UIKit
 import CoreData
 
+// MARK: - Shows the recipe with all the details e.g calories, nutrition chart, instructions and ingredients.
 class RecipeDetailViewController: UIViewController {
   // swiftlint:disable implicitly_unwrapped_optional
   var dataController: DataController!
@@ -15,6 +16,26 @@ class RecipeDetailViewController: UIViewController {
   var recipe: Recipe!
   var recipeNutrition: Nutrition!
   // swiftlint:enable implicitly_unwrapped_optional
+
+  private func downloadRecipeNutrition() {
+    // Recipe is not saved previously, we retrieve the recipe nutrition information and save
+    RecipesClient.getRecipeNutrition(recipeId: self.recipeData.id) { recipeNutrition, error in
+      if error != nil {
+        self.showStatus(
+          title: "Recipes nutrition data download error",
+          message: "An error occured while retrieving nutrition for recipe. \(error?.localizedDescription ?? "")"
+        )
+      } else {
+        self.addRecipeData()
+        if let recipeNutrition = recipeNutrition {
+          self.addRecipeNutritionData(nutritionData: recipeNutrition)
+        }
+        // Save recipe
+        try? self.dataController.viewContext.save()
+        self.configure()
+      }
+    }
+  }
 
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -27,29 +48,17 @@ class RecipeDetailViewController: UIViewController {
     } else {
       fetchRecipe { recipe in
         if recipe != nil {
-          // Recipe is not saved previously
+          // Recipe is saved previously, configure the layout
           self.configure()
         } else {
-          // Recipe is not saved previously, we retrieve the recipe nutrition information and save
-          RecipesClient.getRecipeNutrition(recipeId: self.recipeData.id) { recipeNutrition, error in
-            self.addRecipeData()
-            if let recipeNutrition = recipeNutrition {
-              self.addRecipeNutritionData(nutritionData: recipeNutrition)
-            }
-            // Save recipe
-            try? self.dataController.viewContext.save()
-            self.configure()
-          }
+          self.downloadRecipeNutrition()
         }
       }
     }
   }
 
-  func configureTitle() {
-    self.navigationItem.title = recipe.title
-  }
-
-  func fetchRecipe(completion: @escaping (Recipe?) -> Void) {
+  // MARK: - Retrieve a recipe saved from data. Returns nil is not saved
+  private func fetchRecipe(completion: @escaping (Recipe?) -> Void) {
     let recipeRequest: NSFetchRequest<Recipe> = Recipe.fetchRequest()
     let recipeIdToFetch = NSNumber(value: Int32(recipeData.id))
     let recipeIdPredicate = NSPredicate(format: "id == %@", recipeIdToFetch)
@@ -67,6 +76,7 @@ class RecipeDetailViewController: UIViewController {
     }
   }
 
+  // MARK: - Retrieve a recipe's saved ingredeitns data
   func fetchRecipeIngredients(completion: @escaping ([Ingredient]) -> Void) {
     let ingredientsRequest: NSFetchRequest<Ingredient> = Ingredient.fetchRequest()
     let ingredientPredicate = NSPredicate(format: "recipe == %@", recipe)
@@ -82,6 +92,7 @@ class RecipeDetailViewController: UIViewController {
     }
   }
 
+  // MARK: - Retrieve a recipe's saved instructions data
   func fetchRecipeInstructions(completion: @escaping ([Instruction]) -> Void) {
     let instructionsRequest: NSFetchRequest<Instruction> = Instruction.fetchRequest()
     let instructionsPredicate = NSPredicate(format: "recipe == %@", recipe)
@@ -97,6 +108,7 @@ class RecipeDetailViewController: UIViewController {
     }
   }
 
+  // MARK: - Retrieve a recipe's saved nutrition data
   func fetchRecipeNutrition(completion: @escaping (Nutrition?) -> Void) {
     let nutritionRequest: NSFetchRequest<Nutrition> = Nutrition.fetchRequest()
     let nutritionPredicate = NSPredicate(format: "recipe == %@", recipe)
@@ -112,6 +124,7 @@ class RecipeDetailViewController: UIViewController {
     }
   }
 
+  // MARK: - Initialize and save recipe data from given recipeData reference
   func addRecipeData() {
     recipe = Recipe(context: dataController.viewContext)
     recipe.id = Int32(recipeData.id)
@@ -141,6 +154,7 @@ class RecipeDetailViewController: UIViewController {
     }
   }
 
+  // MARK: - Initialize and save recipe nutrition data from given NutritionData reference
   func addRecipeNutritionData(nutritionData: NutritionData) {
     let recipeNutrition = Nutrition(context: dataController.viewContext)
     recipeNutrition.recipe = recipe
