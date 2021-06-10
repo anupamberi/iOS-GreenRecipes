@@ -181,6 +181,14 @@ extension RecipeDetailViewController {
     try? dataController.viewContext.save()
   }
 
+  @objc func likeTapped(bookmarkButton: UIButton) {
+    recipe.isLiked.toggle()
+    recipe.isLiked ?
+      bookmarkButton.setImage(UIImage(named: "liked"), for: .normal) :
+      bookmarkButton.setImage(UIImage(named: "like"), for: .normal)
+    try? dataController.viewContext.save()
+  }
+
   @objc func shareTapped(shareButton: UIButton) {
     let recipeSouceURL = recipe.sourceURL
     // Define an activity controller
@@ -198,6 +206,16 @@ extension RecipeDetailViewController {
     recipeActionButtonsView.distribution = .fillEqually
     recipeActionButtonsView.spacing = 5
     recipeActionButtonsView.translatesAutoresizingMaskIntoConstraints = false
+
+    let likeButton = UIButton(frame: .zero)
+    likeButton.translatesAutoresizingMaskIntoConstraints = false
+    recipe.isLiked ?
+      likeButton.setImage(UIImage(named: "liked"), for: .normal) :
+      likeButton.setImage(UIImage(named: "like"), for: .normal)
+
+    likeButton.imageView?.contentMode = .scaleAspectFit
+    likeButton.addTarget(self, action: #selector(likeTapped), for: .touchUpInside)
+    likeButton.titleLabel?.font = .systemFont(ofSize: 14)
 
     let bookmarkButton = UIButton(frame: .zero)
     bookmarkButton.translatesAutoresizingMaskIntoConstraints = false
@@ -218,6 +236,7 @@ extension RecipeDetailViewController {
     shareButton.setTitle("Share", for: .normal)
     shareButton.titleLabel?.font = .systemFont(ofSize: 14)
 
+    recipeActionButtonsView.addArrangedSubview(likeButton)
     recipeActionButtonsView.addArrangedSubview(bookmarkButton)
     recipeActionButtonsView.addArrangedSubview(shareButton)
     return recipeActionButtonsView

@@ -51,7 +51,7 @@
         <!--Recipes Home View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="RecipesHomeViewController" customModule="iOS_GreenRecipes" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="RecipesHomeViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BYZ-38-t0r" customClass="RecipesHomeViewController" customModule="iOS_GreenRecipes" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="756"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -82,7 +82,7 @@
         <!--Navigation Controller-->
         <scene sceneID="1Ek-xJ-Zbj">
             <objects>
-                <navigationController id="ftH-Mx-IWo" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="RecipesSearchNavigationViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="ftH-Mx-IWo" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" systemItem="search" id="MFZ-2a-wJN">
                         <inset key="imageInsets" minX="10" minY="10" maxX="10" maxY="10"/>
                         <color key="badgeColor" systemColor="systemGreenColor"/>
@@ -103,7 +103,7 @@
         <!--Profile-->
         <scene sceneID="h2g-Yo-N8X">
             <objects>
-                <navigationController id="U8D-sE-Fme" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="ProfileNavigationViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="U8D-sE-Fme" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Profile" image="profile" id="SDa-nw-UpC">
                         <inset key="largeContentSizeImageInsets" minX="0.0" minY="1" maxX="0.0" maxY="-1"/>
                     </tabBarItem>
@@ -123,7 +123,7 @@
         <!--Profile View Controller-->
         <scene sceneID="4kG-6X-wwW">
             <objects>
-                <viewController id="aET-Uo-F1j" customClass="ProfileViewController" customModule="iOS_GreenRecipes" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ProfileViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="aET-Uo-F1j" customClass="ProfileViewController" customModule="iOS_GreenRecipes" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dVi-T7-Lyg">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="756"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -139,7 +139,7 @@
         <!--Recipes Search View Controller-->
         <scene sceneID="cp8-5F-S6S">
             <objects>
-                <viewController id="SDl-x7-wNS" customClass="RecipesSearchViewController" customModule="iOS_GreenRecipes" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="RecipesSearchViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="SDl-x7-wNS" customClass="RecipesSearchViewController" customModule="iOS_GreenRecipes" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="QM4-JH-kSB">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

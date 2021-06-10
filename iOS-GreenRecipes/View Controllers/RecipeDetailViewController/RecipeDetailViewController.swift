@@ -135,6 +135,7 @@ class RecipeDetailViewController: UIViewController {
     recipe.title = recipeData.title
     recipe.preparationTime = Int16(recipeData.readyInMinutes)
     recipe.isBookmarked = false
+    recipe.isLiked = false
     recipe.sourceURL = recipeData.sourceUrl
 
     // Add ingredients data
