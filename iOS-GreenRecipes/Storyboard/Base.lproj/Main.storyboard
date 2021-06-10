@@ -11,7 +11,7 @@
         <!--Recipes Tab Bar Controller-->
         <scene sceneID="tgY-L0-91c">
             <objects>
-                <tabBarController storyboardIdentifier="RecipesTabBarController" id="zrj-Gh-80g" customClass="RecipesTabBarController" customModule="iOS_GreenRecipes" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="RecipesTabBarController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="zrj-Gh-80g" customClass="RecipesTabBarController" customModule="iOS_GreenRecipes" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" clipsSubviews="YES" contentMode="scaleAspectFit" preservesSuperviewLayoutMargins="YES" layoutMarginsFollowReadableWidth="YES" id="Wap-tf-hNe">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -33,7 +33,7 @@
         <!--Home-->
         <scene sceneID="M0M-qC-NiQ">
             <objects>
-                <navigationController id="ag7-J6-tvY" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="RecipesHomeNavigationViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="ag7-J6-tvY" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Home" image="home" id="NIS-ke-qHy"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" translucent="NO" largeTitles="YES" id="3ip-YI-oNJ">
                         <rect key="frame" x="0.0" y="44" width="414" height="96"/>
@@ -155,7 +155,7 @@
         <!--Recipe Detail View Controller-->
         <scene sceneID="ek8-9l-ht3">
             <objects>
-                <viewController storyboardIdentifier="RecipeDetailViewController" id="9NG-Br-aQu" customClass="RecipeDetailViewController" customModule="iOS_GreenRecipes" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="RecipeDetailViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="9NG-Br-aQu" customClass="RecipeDetailViewController" customModule="iOS_GreenRecipes" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="lbS-Xv-ZsM">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

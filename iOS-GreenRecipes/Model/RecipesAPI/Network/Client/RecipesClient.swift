@@ -7,11 +7,13 @@
 import Foundation
 import UIKit
 
+// MARK: - The central class for handling network communication with back recipes data
+// swiftlint:disable convenience_type
 class RecipesClient {
   // static let apiKey = "dc3174ea537b405b95020abec265e994" // anupmberi@gmail
   // static let apiKey = "da7335677bd94ba5bd0212c833151639" // anupamberi@outlook
   static let apiKey = "a49f2459214e414db1fe6b8bd4c297c9" // aberi
-  
+
   enum Endpoints {
     static let base = "https://api.spoonacular.com/recipes/"
     static let recipePhotoBase = "https://spoonacular.com/recipeImages/"
@@ -39,7 +41,9 @@ class RecipesClient {
     }
 
     var url: URL {
+      // swiftlint:disable force_unwrapping
       return URL(string: stringValue)!
+      // swiftlint:enable force_unwrapping
     }
   }
 
@@ -54,21 +58,6 @@ class RecipesClient {
         return "312x231"
       case .large:
         return "556x370"
-      }
-    }
-  }
-
-  enum IngredientPhotoSize {
-    case small, medium, large
-
-    var stringValue: String {
-      switch self {
-      case .small:
-        return "100x100"
-      case .medium:
-        return "250x250"
-      case .large:
-        return "500x500"
       }
     }
   }
@@ -187,21 +176,6 @@ class RecipesClient {
     }
   }
 
-  // MARK: - Download the photo image given its URL
-  class func downloadPhoto(
-    photoImageURL: String,
-    completion: @escaping(_ image: UIImage?) -> Void
-  ) {
-    // Construct the URL from the given photo information
-    if let url = URL(string: photoImageURL),
-    let imageData = try? Data(contentsOf: url),
-    let image = UIImage(data: imageData) {
-      completion(image)
-    } else {
-      completion(nil)
-    }
-  }
-
   class func taskForGETRequest<ResponseType: Decodable>(
     url: URL,
     response: ResponseType.Type,
@@ -245,7 +219,8 @@ extension RecipesClient {
     var offset: Int = 0
     if total != 0 {
       // If previously total recipes for the key were found to be 16, then return an offset that is
-      // a random number between 0 and the total minus the number of search results to display 
+      // a random number between 0 and the total minus the number of search results to display
+      // swiftlint:disable legacy_random
       offset = Int(arc4random_uniform(UInt32(total - 5)))
     }
     return offset

@@ -45,8 +45,6 @@ class RecipeDetailViewController: UIViewController {
 
     if recipe != nil {
       configure()
-      // Save recipe as the last opened
-      UserDefaults.standard.setValue(recipe?.id, forKey: "lastOpenedRecipe")
     } else {
       fetchRecipe { recipe in
         if recipe != nil {
@@ -55,8 +53,6 @@ class RecipeDetailViewController: UIViewController {
         } else {
           self.downloadRecipeNutrition()
         }
-        // Save recipe as the last opened
-        UserDefaults.standard.setValue(recipe?.id, forKey: "lastOpenedRecipe")
       }
     }
   }
