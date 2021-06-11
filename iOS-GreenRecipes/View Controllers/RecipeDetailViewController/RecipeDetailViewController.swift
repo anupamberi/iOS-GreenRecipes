@@ -136,6 +136,7 @@ class RecipeDetailViewController: UIViewController {
     recipe.preparationTime = Int16(recipeData.readyInMinutes)
     recipe.isBookmarked = false
     recipe.isLiked = false
+    recipe.likes = Int32(recipeData.aggregateLikes)
     recipe.sourceURL = recipeData.sourceUrl
 
     // Add ingredients data

@@ -69,25 +69,23 @@ extension ProfileViewController {
     return UICollectionViewCompositionalLayout(sectionProvider: sectionProvider)
   }
 
-  func createProfileRecipeRegistration() -> UICollectionView.CellRegistration<BookmarkedRecipeViewCell, Recipe> {
-    return UICollectionView.CellRegistration<BookmarkedRecipeViewCell, Recipe> { cell, _, recipe in
-      if let recipeImage = recipe.image {
-        cell.recipeImageView.image = UIImage(data: recipeImage)
-      } else {
-        cell.recipeImageView.image = UIImage(named: "placeholder")
-      }
-      cell.recipeTitleLabel.text = recipe.title
-      if recipe.servings == 1 || recipe.servings == 0 {
-        cell.recipeSubTitleLabel.text = String("1 serving")
-      } else {
-        cell.recipeSubTitleLabel.text = String("\(recipe.servings) servings")
-      }
+  func createProfileRecipeRegistration() -> UICollectionView.CellRegistration<ProfileRecipeViewCell, Recipe> {
+    return UICollectionView.CellRegistration<ProfileRecipeViewCell, Recipe> { cell, _, recipe in
+      cell.configure(recipe: recipe)
+      // Add callback button toggle closure actions
       cell.toggleBookmarkTappedCallback = {
         // Get the recipe at referenced based on its id and update its bookmark status
         let recipeToUpdateBookmark = self.bookmarkedRecipes.first { $0.id == recipe.id }
         recipeToUpdateBookmark?.isBookmarked.toggle()
         try? self.dataController.viewContext.save()
-        self.applySnapshot()
+        self.applyBookmarkedRecipesSnapshot()
+      }
+      cell.toggleLikeTappedCallback = {
+        // Get the recipe at referenced based on its id and update its liked status
+        let recipeToUpdateLike = self.likedRecipes.first { $0.id == recipe.id }
+        recipeToUpdateLike?.isLiked.toggle()
+        try? self.dataController.viewContext.save()
+        self.applyLikedRecipesSnapshot()
       }
     }
   }
@@ -96,16 +94,20 @@ extension ProfileViewController {
     // create registration up front
     let recipeWithDetail = createProfileRecipeRegistration()
     // data source
-    dataSource = UICollectionViewDiffableDataSource<BookmarkedRecipes, Recipe>(
+    dataSource = UICollectionViewDiffableDataSource<ProfileCategoryRecipes, Recipe>(
       collectionView: recipesCollectionView) { collectionView, indexPath, recipe -> UICollectionViewCell? in
       return collectionView.dequeueConfiguredReusableCell(using: recipeWithDetail, for: indexPath, item: recipe)
     }
 
     let recipesSupplementaryRegistration = UICollectionView.SupplementaryRegistration<ProfileHeaderView>(
-      elementKind: ProfileViewController.headerElementKind) { supplementaryView, _, indexPath in
-      if let section = BookmarkedRecipes(rawValue: indexPath.section) {
-        supplementaryView.label.text = String(describing: section.description)
-        supplementaryView.label.textColor = .white
+      elementKind: ProfileViewController.headerElementKind) { supplementaryView, _, _ in
+      supplementaryView.likesButtonClicked = {
+        self.likesSelected = true
+        self.applyLikedRecipesSnapshot()
+      }
+      supplementaryView.bookmarksButtonClicked = {
+        self.likesSelected = false
+        self.applyBookmarkedRecipesSnapshot()
       }
     }
 
@@ -117,7 +119,14 @@ extension ProfileViewController {
     }
   }
 
-  func applySnapshot() {
+  func applySectionsSnapshot() {
+    let profileCategoriesSections = ProfileCategoryRecipes.allCases
+    var snapshot = NSDiffableDataSourceSnapshot<ProfileCategoryRecipes, Recipe>()
+    snapshot.appendSections(profileCategoriesSections)
+    dataSource.apply(snapshot, animatingDifferences: true)
+  }
+
+  func applyBookmarkedRecipesSnapshot() {
     fetchBookmarkedRecipes { bookmarkedRecipes in
       self.bookmarkedRecipes = bookmarkedRecipes
       if bookmarkedRecipes.isEmpty {
@@ -125,13 +134,25 @@ extension ProfileViewController {
       } else {
         self.recipesCollectionView.restore()
       }
-      let bookmarkedRecipesSection = BookmarkedRecipes.allCases
-      var snapshot = NSDiffableDataSourceSnapshot<BookmarkedRecipes, Recipe>()
-      snapshot.appendSections(bookmarkedRecipesSection)
 
       var bookmarkedRecipesSnapshot = NSDiffableDataSourceSectionSnapshot<Recipe>()
       bookmarkedRecipesSnapshot.append(bookmarkedRecipes)
       self.dataSource.apply(bookmarkedRecipesSnapshot, to: .recipes, animatingDifferences: true)
+    }
+  }
+
+  func applyLikedRecipesSnapshot() {
+    fetchLikedRecipes { likedRecipes in
+      self.likedRecipes = likedRecipes
+      if likedRecipes.isEmpty {
+        self.recipesCollectionView.setEmptyMessage("You haven't liked any recipes yet.")
+      } else {
+        self.recipesCollectionView.restore()
+      }
+
+      var likedRecipesSnapshot = NSDiffableDataSourceSectionSnapshot<Recipe>()
+      likedRecipesSnapshot.append(likedRecipes)
+      self.dataSource.apply(likedRecipesSnapshot, to: .recipes, animatingDifferences: true)
     }
   }
 }

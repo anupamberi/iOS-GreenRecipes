@@ -181,11 +181,18 @@ extension RecipeDetailViewController {
     try? dataController.viewContext.save()
   }
 
-  @objc func likeTapped(bookmarkButton: UIButton) {
+  @objc func likeTapped(likeButton: UIButton) {
     recipe.isLiked.toggle()
-    recipe.isLiked ?
-      bookmarkButton.setImage(UIImage(named: "liked"), for: .normal) :
-      bookmarkButton.setImage(UIImage(named: "like"), for: .normal)
+    if recipe.isLiked {
+      likeButton.setImage(UIImage(named: "liked"), for: .normal)
+      // Increment the likes counter
+      recipe.likes += 1
+    } else {
+      // Decrement the likes counter
+      recipe.likes -= 1
+      likeButton.setImage(UIImage(named: "like"), for: .normal)
+    }
+    setLikesButtonTittle(likeButton)
     try? dataController.viewContext.save()
   }
 
@@ -197,6 +204,16 @@ extension RecipeDetailViewController {
       applicationActivities: nil
     )
     self.present(activityViewController, animated: true, completion: nil)
+  }
+
+  private func setLikesButtonTittle(_ likeButton: UIButton) {
+    if recipe.likes == 0 {
+      likeButton.setTitle("No likes", for: .normal)
+    } else if recipe.likes == 1 {
+      likeButton.setTitle(String(recipe.likes) + " like", for: .normal)
+    } else {
+      likeButton.setTitle(String(recipe.likes) + " likes", for: .normal)
+    }
   }
 
   private func createButtonsView() -> UIView {
@@ -215,6 +232,8 @@ extension RecipeDetailViewController {
 
     likeButton.imageView?.contentMode = .scaleAspectFit
     likeButton.addTarget(self, action: #selector(likeTapped), for: .touchUpInside)
+    setLikesButtonTittle(likeButton)
+
     likeButton.titleLabel?.font = .systemFont(ofSize: 14)
 
     let bookmarkButton = UIButton(frame: .zero)

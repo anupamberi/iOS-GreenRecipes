@@ -85,9 +85,9 @@
 		1E68097D2664E630006A7788 /* ProfileViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E68097C2664E630006A7788 /* ProfileViewController+Extension.swift */; };
 		1E68097E2664E630006A7788 /* ProfileViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E68097C2664E630006A7788 /* ProfileViewController+Extension.swift */; };
 		1E68097F2664E630006A7788 /* ProfileViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E68097C2664E630006A7788 /* ProfileViewController+Extension.swift */; };
-		1E6809A126655ABF006A7788 /* BookmarkedRecipeViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E6809A026655ABF006A7788 /* BookmarkedRecipeViewCell.swift */; };
-		1E6809A226655ABF006A7788 /* BookmarkedRecipeViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E6809A026655ABF006A7788 /* BookmarkedRecipeViewCell.swift */; };
-		1E6809A326655ABF006A7788 /* BookmarkedRecipeViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E6809A026655ABF006A7788 /* BookmarkedRecipeViewCell.swift */; };
+		1E6809A126655ABF006A7788 /* ProfileRecipeViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E6809A026655ABF006A7788 /* ProfileRecipeViewCell.swift */; };
+		1E6809A226655ABF006A7788 /* ProfileRecipeViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E6809A026655ABF006A7788 /* ProfileRecipeViewCell.swift */; };
+		1E6809A326655ABF006A7788 /* ProfileRecipeViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E6809A026655ABF006A7788 /* ProfileRecipeViewCell.swift */; };
 		1E6809A5266686DD006A7788 /* UICollectionView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E6809A4266686DD006A7788 /* UICollectionView+Extension.swift */; };
 		1E6809A6266686DD006A7788 /* UICollectionView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E6809A4266686DD006A7788 /* UICollectionView+Extension.swift */; };
 		1E6809A7266686DD006A7788 /* UICollectionView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E6809A4266686DD006A7788 /* UICollectionView+Extension.swift */; };
@@ -212,7 +212,7 @@
 		1E4FBAB7265054C90033FA6D /* RecipeWithTitleViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeWithTitleViewCell.swift; sourceTree = "<group>"; };
 		1E6809762664D808006A7788 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		1E68097C2664E630006A7788 /* ProfileViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ProfileViewController+Extension.swift"; sourceTree = "<group>"; };
-		1E6809A026655ABF006A7788 /* BookmarkedRecipeViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkedRecipeViewCell.swift; sourceTree = "<group>"; };
+		1E6809A026655ABF006A7788 /* ProfileRecipeViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileRecipeViewCell.swift; sourceTree = "<group>"; };
 		1E6809A4266686DD006A7788 /* UICollectionView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Extension.swift"; sourceTree = "<group>"; };
 		1E6809AC26679BA7006A7788 /* ProfileHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderView.swift; sourceTree = "<group>"; };
 		1E6809B12667D733006A7788 /* PreferencesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesViewController.swift; sourceTree = "<group>"; };
@@ -443,7 +443,7 @@
 			children = (
 				1E6809762664D808006A7788 /* ProfileViewController.swift */,
 				1E68097C2664E630006A7788 /* ProfileViewController+Extension.swift */,
-				1E6809A026655ABF006A7788 /* BookmarkedRecipeViewCell.swift */,
+				1E6809A026655ABF006A7788 /* ProfileRecipeViewCell.swift */,
 				1E6809AC26679BA7006A7788 /* ProfileHeaderView.swift */,
 			);
 			path = ProfileViewController;
@@ -800,7 +800,7 @@
 				1E2BD368264D2807000BD059 /* NutritionData.swift in Sources */,
 				1EB78275265BAD5700FDFCDB /* RecipeCategoriesController.swift in Sources */,
 				1E2BD381264E9C10000BD059 /* RecipesSectionBackgroundDecorationView.swift in Sources */,
-				1E6809A126655ABF006A7788 /* BookmarkedRecipeViewCell.swift in Sources */,
+				1E6809A126655ABF006A7788 /* ProfileRecipeViewCell.swift in Sources */,
 				1E2BD37D264E77B5000BD059 /* RecipesSectionTitleView.swift in Sources */,
 				1E009A4A26468FD100D4B079 /* URL+Extension.swift in Sources */,
 				1E009A3E264684F400D4B079 /* RecipeData.swift in Sources */,
@@ -843,7 +843,7 @@
 				1EB7828B265FA60900FDFCDB /* RecipesSearchViewController+Extension.swift in Sources */,
 				1EB7829A265FED8C00FDFCDB /* RecipeDetailViewController.swift in Sources */,
 				1EB78288265FA21B00FDFCDB /* RecipesSearchViewController+UISearchBarDelegate.swift in Sources */,
-				1E6809A226655ABF006A7788 /* BookmarkedRecipeViewCell.swift in Sources */,
+				1E6809A226655ABF006A7788 /* ProfileRecipeViewCell.swift in Sources */,
 				1E2BD382264E9C10000BD059 /* RecipesSectionBackgroundDecorationView.swift in Sources */,
 				1E009A3B264682BB00D4B079 /* RecipesClient.swift in Sources */,
 				1EB7828E265FAB8100FDFCDB /* RecipesHomeViewController+Extension.swift in Sources */,
@@ -859,7 +859,7 @@
 			files = (
 				1E2BD37F264E77B5000BD059 /* RecipesSectionTitleView.swift in Sources */,
 				1E009A442646875D00D4B079 /* IngredientData.swift in Sources */,
-				1E6809A326655ABF006A7788 /* BookmarkedRecipeViewCell.swift in Sources */,
+				1E6809A326655ABF006A7788 /* ProfileRecipeViewCell.swift in Sources */,
 				1E6809C02667DEB8006A7788 /* PreferenceTableViewCell.swift in Sources */,
 				1E3D16882662D78000FDBAA8 /* Recipe.xcdatamodeld in Sources */,
 				1E6809B42667D733006A7788 /* PreferencesViewController.swift in Sources */,
