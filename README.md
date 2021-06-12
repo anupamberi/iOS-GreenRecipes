@@ -13,7 +13,23 @@ Simple clone the current repository as follows,
 
 `git clone git@github.com:anupamberi/iOS-GreenRecipes.git`
 
-Once the repository is cloned, the application can be launched using the normal Xcode app launch button and by selecting an IPhone
+On cloning the repo, navigate to the directory of the repo.
+
+Launch Xcode using the following command
+
+`open iOS-GreenRecipes.xcworkspace`
+
+On Xcode opening, make sure that the right scheme is presented.
+
+To do so, click on Manage Schemes to select the below scheme.
+
+![SelectScheme](screenshots/SelectedScheme.png)
+
+Select an IPhone Simulator and launch the app
+
+![SimulatorScheme](screenshots/SimulatorScheme.png)
+
+The application can be launched using the normal Xcode app launch button and by selecting an IPhone
 simulator (IPhone Simulator 8 and above, recommended IPhone Simulator 11 / 12).
 
 
