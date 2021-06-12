@@ -229,6 +229,7 @@ extension RecipesSearchViewController {
         offset: RecipesClient.getSearchOffset(key: recipeCategory.recipeCategoryName)
       ) { total, searchedRecipes, error in
         if error != nil {
+          self.removeActivity()
           self.showStatus(
             title: "Recipes search error",
             message: "An error occured while searching for recipes. \(error?.localizedDescription ?? "")"

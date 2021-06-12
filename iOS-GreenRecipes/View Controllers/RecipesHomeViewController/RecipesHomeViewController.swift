@@ -41,6 +41,7 @@ class RecipesHomeViewController: UIViewController {
   func addRandomRecipes(_ recipesSection: RecipesSectionProperties) {
     RecipesClient.getRandomRecipes(tags: "vegan", total: 5) { randomRecipes, error in
       if error != nil {
+        self.removeActivity()
         self.showStatus(
           title: "Recipes search error",
           message: "An error occured while retrieving random recipes. \(error?.localizedDescription ?? "")"
@@ -63,6 +64,7 @@ class RecipesHomeViewController: UIViewController {
       offset: RecipesClient.getSearchOffset(key: recipesSection.preferenceKey)
     ) { total, quickAndEasyRecipes, error in
       if error != nil {
+        self.removeActivity()
         self.showStatus(
           title: "Recipes search error",
           message: "An error occured while searching for recipes. \(error?.localizedDescription ?? "")"
