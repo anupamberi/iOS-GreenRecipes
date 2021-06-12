@@ -13,7 +13,7 @@ Simple clone the current repository as follows,
 
 `git clone git@github.com:anupamberi/iOS-GreenRecipes.git`
 
-One the repository is cloned, the application can be launched using the normal Xcode app launch button and by selecting an IPhone
+Once the repository is cloned, the application can be launched using the normal Xcode app launch button and by selecting an IPhone
 simulator.
 
 
@@ -21,7 +21,7 @@ simulator.
 
 On launching the app, a splash screen is presented as shown,
 
-[LaunchScreen](screenshots/LaunchScreen.png)
+![LaunchScreen](screenshots/LaunchScreen.png)
 
 
 
