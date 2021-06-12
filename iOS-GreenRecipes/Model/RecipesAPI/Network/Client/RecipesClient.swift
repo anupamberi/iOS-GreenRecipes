@@ -10,7 +10,7 @@ import UIKit
 // MARK: - The central class for handling network communication with back recipes data
 // swiftlint:disable convenience_type
 class RecipesClient {
-  static let apiKey = "dc3174ea537b405b95020abec265e994"
+  static let apiKey = "da7335677bd94ba5bd0212c833151639"
 
   enum Endpoints {
     static let base = "https://api.spoonacular.com/recipes/"

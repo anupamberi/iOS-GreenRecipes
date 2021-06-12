@@ -29,7 +29,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="69" id="OPx-FX-0PS"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="52"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="45"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
