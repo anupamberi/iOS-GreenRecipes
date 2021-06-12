@@ -105,9 +105,11 @@ extension ProfileRecipeViewCell {
   }
 
   func configure(recipe: Recipe) {
-    recipe.isBookmarked ? toggleBookmarkButton.setImage(UIImage(named: "bookmarked"), for: .normal) :
+    bookmarked = recipe.isBookmarked
+    bookmarked ? toggleBookmarkButton.setImage(UIImage(named: "bookmarked"), for: .normal) :
       toggleBookmarkButton.setImage(UIImage(named: "bookmark"), for: .normal)
 
+    liked = recipe.isLiked
     recipe.isLiked ? toggleLikeButton.setImage(UIImage(named: "liked"), for: .normal) :
       toggleLikeButton.setImage(UIImage(named: "like"), for: .normal)
 

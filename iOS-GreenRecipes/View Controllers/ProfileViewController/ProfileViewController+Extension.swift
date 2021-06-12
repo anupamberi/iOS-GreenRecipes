@@ -74,18 +74,28 @@ extension ProfileViewController {
       cell.configure(recipe: recipe)
       // Add callback button toggle closure actions
       cell.toggleBookmarkTappedCallback = {
-        // Get the recipe at referenced based on its id and update its bookmark status
-        let recipeToUpdateBookmark = self.bookmarkedRecipes.first { $0.id == recipe.id }
-        recipeToUpdateBookmark?.isBookmarked.toggle()
+        // Get the recipe at referenced based on its id and the current displayed tab update its bookmark status
+        if self.likesSelected {
+          let recipeToUpdate = self.likedRecipes.first { $0.id == recipe.id }
+          recipeToUpdate?.isBookmarked.toggle()
+        } else {
+          let recipeToUpdate = self.bookmarkedRecipes.first { $0.id == recipe.id }
+          recipeToUpdate?.isBookmarked.toggle()
+          self.applyBookmarkedRecipesSnapshot()
+        }
         try? self.dataController.viewContext.save()
-        self.applyBookmarkedRecipesSnapshot()
       }
       cell.toggleLikeTappedCallback = {
         // Get the recipe at referenced based on its id and update its liked status
-        let recipeToUpdateLike = self.likedRecipes.first { $0.id == recipe.id }
-        recipeToUpdateLike?.isLiked.toggle()
+        if self.likesSelected {
+          let recipeToUpdate = self.likedRecipes.first { $0.id == recipe.id }
+          recipeToUpdate?.isLiked.toggle()
+          self.applyLikedRecipesSnapshot()
+        } else {
+          let recipeToUpdate = self.bookmarkedRecipes.first { $0.id == recipe.id }
+          recipeToUpdate?.isLiked.toggle()
+        }
         try? self.dataController.viewContext.save()
-        self.applyLikedRecipesSnapshot()
       }
     }
   }
