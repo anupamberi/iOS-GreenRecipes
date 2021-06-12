@@ -1,13 +1,13 @@
 # iOS-GreenRecipes
 
-## Introduction
+# Introduction
 
 This iOS app is built using Swift 5 and Xcode 12 and is designed for improving one's  Vegan and Vegetarian cooking skills by browsing recipes
 across various categories.
 
 The app consumes [Spoonacular API](https://spoonacular.com/food-api) which is a well known Food and Meal API.
 
-## Installation
+# Installation
 
 Simple clone the current repository as follows,
 
@@ -17,15 +17,15 @@ Once the repository is cloned, the application can be launched using the normal 
 simulator (IPhone Simulator 8 and above, recommended IPhone Simulator 11 / 12).
 
 
-## Details and Usage Instructions
+# Details and Usage Instructions
 
-### App Launch
+## App Launch
 
 On launching the app, a splash screen is presented.
 
 ![LaunchScreen](screenshots/LaunchScreen.png)
 
-### Home
+## Home
 
 After the launch screen,  a tabbed view  is then presented that contains three tabs for user activity.
 
@@ -35,13 +35,13 @@ After the launch screen,  a tabbed view  is then presented that contains three t
 
 The home tab is shown by default and shows the recommended recipes after downloading the latest recipes across different recipe categories e.g recommendations, main course, beverages, desserts etc.
 
-![RecicpesHome](screenshots/RecipesHomeViewController1.png)
+![RecicpesHome](screenshots/RecipesHomeViewController2.png)
 
 Each sections of the Home View contains horizontally scrollable views of downloaded different recipes.
 
-![RecicpesHome](screenshots/RecipesHomeViewController2.png)
+![RecicpesHome](screenshots/RecipesHomeViewController1.png)
 
-### Recipe Details
+## Recipe Details
 
 For viewing the recipe details,  the user can simply click on the recipe and the recipe details are presented.
 
@@ -51,7 +51,7 @@ For viewing the recipe details,  the user can simply click on the recipe and the
 
 The recipe nutrition information, ingredients and detailed step by step instructions are presented to the user.
 
-- The user can like a recipe by clicking the like button. On clicking the like buttonm the number of likes are incremented and the icon changes
+- The user can like a recipe by clicking the like button. On clicking the like button, the number of likes are incremented and the icon changes
 to red heart. Similarly the user can remove the like by once again clicking the same heart icon.
 
 - The user can bookmark a recipe by clicking the bookmark button. On bookmarking a recipe  the bookmark icon changes. The user can
@@ -60,7 +60,7 @@ similarly remove the bookmark by clicking the same icon.
 - The user can share a recipe by clicking the share icon. On clicking the share icon, an activity pick controller is presented and the recipe
 original source URL can be shared.
 
-### Search Recipes
+## Search Recipes
 
 The users can search recipes using the search bar based on any keyword eg. tofu, hummus etc.
 By default, some recipe categories are offered and presented in a horizontally scrolling view. By clicking a recipe category, its corresponding
@@ -77,7 +77,7 @@ On clicking the cancel button, the previous view and recipe category and its rec
 
 The user can subsequently re-search another recipe and the same UI behaviour repeats.
 
-### Profile
+## Profile
 
 The user profile view keeps tracks of the user's liked and bookmarked recipes and these are presented by selecting the appropriate tabs.
 
@@ -93,7 +93,7 @@ Each of the users actions of like and bookmark are taken into account by updatin
 E.g The user is browsing different recipes liked previously. A recipe can be bookmarked directly by clicking the upper right bookmark icon.
 This change is also reflected when he selects the bookmark tab and this newly bookmarked recipe appears.
 
-#### Profile preferences
+### Profile preferences
 
 The right upper corner navigation button presents the preferences to the user.
 
@@ -106,7 +106,7 @@ these preferences.
 ![Preferences](screenshots/PreferencesViewController.png)
 
 
-## Technical Details
+# Technical Details
 
 - UICollectionView with Compositional layout and Diffable Data Source is used across all view controller who use collection views. 
 - The recipe data is saved using a CoreData stack and the CoreData model is shown below
@@ -116,11 +116,11 @@ these preferences.
 All recipes opened using the details view along with liked and bookmarked recipes are persisted.
 
 - In addition, the user preferences are stored in the UserDefaults and presisted across app launches.
+- An activity indicator with a message is shown during backend API calls.
 
+# Motivation
 
-## Motivation
-
-This small app was built from a personal ambition to improve cooking skills. I have studies the UI of different App Store apps in order to 
+This small app was built from a personal ambition to improve cooking skills. I have studied the UI of different App Store apps in order to 
 construct the UI of this app.
 
 Some of the consulted and studies apps are :
@@ -131,7 +131,16 @@ Some of the consulted and studies apps are :
 - Kitchen Stories Recipes
 - Tasty
 
-## References
+
+# Further Improvements
+
+The app can be further improved by
+
+- Presenting the user with a meal plan for the day.
+- Refine the search using nutrition specific aspects.
+- Show similar recipes button to let user explore even more recipes.
+
+# References
 
 [Modern Collection Views](https://developer.apple.com/documentation/uikit/views_and_controls/collection_views/implementing_modern_collection_views)
 [StackOverflow](https://stackoverflow.com)
