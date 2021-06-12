@@ -181,6 +181,21 @@ extension RecipeDetailViewController {
     try? dataController.viewContext.save()
   }
 
+  @objc func likeTapped(likeButton: UIButton) {
+    recipe.isLiked.toggle()
+    if recipe.isLiked {
+      likeButton.setImage(UIImage(named: "liked"), for: .normal)
+      // Increment the likes counter
+      recipe.likes += 1
+    } else {
+      // Decrement the likes counter
+      recipe.likes -= 1
+      likeButton.setImage(UIImage(named: "like"), for: .normal)
+    }
+    setLikesButtonTittle(likeButton)
+    try? dataController.viewContext.save()
+  }
+
   @objc func shareTapped(shareButton: UIButton) {
     let recipeSouceURL = recipe.sourceURL
     // Define an activity controller
@@ -191,6 +206,16 @@ extension RecipeDetailViewController {
     self.present(activityViewController, animated: true, completion: nil)
   }
 
+  private func setLikesButtonTittle(_ likeButton: UIButton) {
+    if recipe.likes == 0 {
+      likeButton.setTitle("No likes", for: .normal)
+    } else if recipe.likes == 1 {
+      likeButton.setTitle(String(recipe.likes) + " like", for: .normal)
+    } else {
+      likeButton.setTitle(String(recipe.likes) + " likes", for: .normal)
+    }
+  }
+
   private func createButtonsView() -> UIView {
     let recipeActionButtonsView = UIStackView()
     recipeActionButtonsView.axis = .horizontal
@@ -198,6 +223,18 @@ extension RecipeDetailViewController {
     recipeActionButtonsView.distribution = .fillEqually
     recipeActionButtonsView.spacing = 5
     recipeActionButtonsView.translatesAutoresizingMaskIntoConstraints = false
+
+    let likeButton = UIButton(frame: .zero)
+    likeButton.translatesAutoresizingMaskIntoConstraints = false
+    recipe.isLiked ?
+      likeButton.setImage(UIImage(named: "liked"), for: .normal) :
+      likeButton.setImage(UIImage(named: "like"), for: .normal)
+
+    likeButton.imageView?.contentMode = .scaleAspectFit
+    likeButton.addTarget(self, action: #selector(likeTapped), for: .touchUpInside)
+    setLikesButtonTittle(likeButton)
+
+    likeButton.titleLabel?.font = .systemFont(ofSize: 14)
 
     let bookmarkButton = UIButton(frame: .zero)
     bookmarkButton.translatesAutoresizingMaskIntoConstraints = false
@@ -218,6 +255,7 @@ extension RecipeDetailViewController {
     shareButton.setTitle("Share", for: .normal)
     shareButton.titleLabel?.font = .systemFont(ofSize: 14)
 
+    recipeActionButtonsView.addArrangedSubview(likeButton)
     recipeActionButtonsView.addArrangedSubview(bookmarkButton)
     recipeActionButtonsView.addArrangedSubview(shareButton)
     return recipeActionButtonsView

@@ -10,9 +10,7 @@ import UIKit
 // MARK: - The central class for handling network communication with back recipes data
 // swiftlint:disable convenience_type
 class RecipesClient {
-  // static let apiKey = "dc3174ea537b405b95020abec265e994" // anupmberi@gmail
-  // static let apiKey = "da7335677bd94ba5bd0212c833151639" // anupamberi@outlook
-  static let apiKey = "a49f2459214e414db1fe6b8bd4c297c9" // aberi
+  static let apiKey = "dc3174ea537b405b95020abec265e994"
 
   enum Endpoints {
     static let base = "https://api.spoonacular.com/recipes/"
@@ -89,7 +87,6 @@ class RecipesClient {
     print(recipeInformationURL)
     taskForGETRequest(url: recipeInformationURL, response: RecipeData.self) { response, error in
       if let response = response {
-        print(response)
         completion(response, nil)
       } else {
         completion(nil, error)
@@ -148,7 +145,6 @@ class RecipesClient {
       recipesSearchParams.append(URLQueryItem(name: "offset", value: String(offset)))
     }
     guard let recipesSearchURL = recipesSearchBaseURL.appending(recipesSearchParams) else { return }
-    print(recipesSearchURL)
     taskForGETRequest(url: recipesSearchURL, response: RecipesData.self) { response, error in
       if let response = response {
         completion(response.totalResults ?? 0, response.results ?? [], nil)

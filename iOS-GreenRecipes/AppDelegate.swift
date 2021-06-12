@@ -17,7 +17,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
       // Set the default user preferences
       let homePreferences = [
         "Recommended For You",
-        "Quick & Easy",
         "Main Course",
         "Beverages",
         "Desserts"
