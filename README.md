@@ -61,7 +61,7 @@ Each sections of the Home View contains horizontally scrollable views of downloa
 
 For viewing the recipe details,  the user can simply click on the recipe and the recipe details are presented.
 
-![RecipeDetails](screenshots/RecipeDetailViewController1.png)
+![RecipeDetails](screenshots/RecipeDetailViewcontroller1.png)
 
 ![RecipeDetails](screenshots/RecipeDetailViewController2.png)
 
